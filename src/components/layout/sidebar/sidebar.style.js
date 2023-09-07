@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const SidebarStyle = styled.div(props => ({
-  '& .active': {
+  '& .active , #navLink:hover': {
     transition: 'all 0.2s',
     backgroundColor: props.theme.colors.bgSecondary,
 

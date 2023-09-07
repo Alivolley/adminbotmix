@@ -8,6 +8,10 @@ import { FormControlLabel, FormGroup } from '@mui/material';
 // Icons
 import ApartmentIcon from '@mui/icons-material/Apartment';
 import HomeIcon from '@mui/icons-material/Home';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import KeyIcon from '@mui/icons-material/Key';
+import OfflineShareIcon from '@mui/icons-material/OfflineShare';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 
 // Redux
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,8 +47,9 @@ function Sidebar() {
 
       <div className="flex flex-col gap-3 pt-4">
         <NavLink
-          to="/admin-panel/dashboard"
+          to="dashboard"
           className="flex items-center gap-3 rounded-[11px] p-4"
+          id="navLink"
         >
           <div
             className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
@@ -56,42 +61,59 @@ function Sidebar() {
         </NavLink>
 
         <NavLink
-          to="/shit"
+          to="robots"
           className="flex items-center gap-3 rounded-[11px] p-4"
+          id="navLink"
         >
           <div
             className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
             id="iconWrapper"
           >
-            <ApartmentIcon color="inherit" fontSize="inherit" />
+            <SmartToyIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">داشبورد</p>
+          <p className="font-[700] text-textGray">ربات ها</p>
         </NavLink>
 
         <NavLink
-          to="/shit"
+          to="api-keys"
           className="flex items-center gap-3 rounded-[11px] p-4"
+          id="navLink"
         >
           <div
             className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
             id="iconWrapper"
           >
-            <ApartmentIcon color="inherit" fontSize="inherit" />
+            <KeyIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">داشبورد</p>
+          <p className="font-[700] text-textGray">کلید های api</p>
         </NavLink>
 
         <NavLink
-          to="/shit"
+          to="connecting"
           className="flex items-center gap-3 rounded-[11px] p-4"
+          id="navLink"
         >
           <div
             className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
             id="iconWrapper"
           >
-            <ApartmentIcon color="inherit" fontSize="inherit" />
+            <OfflineShareIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">داشبورد</p>
+          <p className="font-[700] text-textGray">اتصال به تلگرام</p>
+        </NavLink>
+
+        <NavLink
+          to="profile-setting"
+          className="flex items-center gap-3 rounded-[11px] p-4"
+          id="navLink"
+        >
+          <div
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            id="iconWrapper"
+          >
+            <ManageAccountsIcon color="inherit" fontSize="inherit" />
+          </div>
+          <p className="font-[700] text-textGray">پروفایل</p>
         </NavLink>
       </div>
 
