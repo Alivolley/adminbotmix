@@ -36,7 +36,10 @@ function Sidebar() {
   };
 
   return (
-    <SidebarStyle className="w-[260px] p-5 text-textMain transition-colors duration-200 dark:text-textMainDark">
+    <SidebarStyle
+      className="min-h-[93vh] w-[260px] rounded-[15px] bg-bgSecondary p-5 text-textMain
+     transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark"
+    >
       <div className="flex items-center gap-2">
         <div>
           <ApartmentIcon color="inherit" />
@@ -52,12 +55,12 @@ function Sidebar() {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
             id="iconWrapper"
           >
             <HomeIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">داشبورد</p>
+          <p className="text-[14px] font-[700] text-textGray">داشبورد</p>
         </NavLink>
 
         <NavLink
@@ -66,12 +69,12 @@ function Sidebar() {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
             id="iconWrapper"
           >
             <SmartToyIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">ربات ها</p>
+          <p className="text-[14px] font-[700] text-textGray">ربات ها</p>
         </NavLink>
 
         <NavLink
@@ -80,12 +83,12 @@ function Sidebar() {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
             id="iconWrapper"
           >
             <KeyIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">کلید های api</p>
+          <p className="text-[14px] font-[700] text-textGray">کلید های api</p>
         </NavLink>
 
         <NavLink
@@ -94,12 +97,14 @@ function Sidebar() {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
             id="iconWrapper"
           >
             <OfflineShareIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">اتصال به تلگرام</p>
+          <p className="text-[14px] font-[700] text-textGray">
+            اتصال به تلگرام
+          </p>
         </NavLink>
 
         <NavLink
@@ -108,18 +113,18 @@ function Sidebar() {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgSecondary text-[18px] text-primaryBlue dark:bg-bgSecondaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
             id="iconWrapper"
           >
             <ManageAccountsIcon color="inherit" fontSize="inherit" />
           </div>
-          <p className="font-[700] text-textGray">پروفایل</p>
+          <p className="text-[14px] font-[700] text-textGray">پروفایل</p>
         </NavLink>
       </div>
 
       <div className="mt-7 flex h-[1px] w-full bg-lineLinear" />
 
-      <div className="mt-6 flex items-center">
+      <div className="mt-6 flex items-center justify-between">
         <p>حالت :</p>
         <FormGroup>
           <FormControlLabel
