@@ -24,13 +24,15 @@ export default {
         bgSecondaryDark: '#1F2733',
         textMainDark: '#ffffff',
       },
+
+      backgroundImage: {
+        lineLinear:
+          'linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, rgb(224, 225, 226) 49.52%, rgba(224, 225, 226, 0) 100%)',
+      },
+
       fontFamily: {
-        avgardn: 'avgardn',
-        avgardnItalic: 'avgardnItalic',
-        pubg: 'pubg',
-        aubrey: 'aubrey',
-        picoopicRegular: 'picoopic_Regular',
-        titreZebr2: 'titre_Zebr2',
+        vazir: 'vazir',
+        vazirBold: 'vazirBold',
       },
     },
   },

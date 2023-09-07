@@ -1,10 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import Sidebar from '../../components/layout/sidebar/sidebar';
 
 function AdminPanel() {
   return (
-    <div>
-      AdminPanel
-      <Outlet />
+    <div className="min-h-[100vh] bg-bgPrimary px-8 pt-7 transition-colors duration-200 dark:bg-bgPrimaryDark">
+      <div className="flex">
+        <Sidebar />
+        <div className="grow">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 }
