@@ -1,3 +1,5 @@
+import { CircularProgressbar } from 'react-circular-progressbar';
+
 // MUI
 import { Grid } from '@mui/material';
 
@@ -7,10 +9,11 @@ import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import GroupsIcon from '@mui/icons-material/Groups';
 
 // Components
-import { CircularProgressbar } from 'react-circular-progressbar';
 import CardWrapper from '../../components/card-wrapper/card-wrapper';
 import AlertComponent from '../../components/alert-component/alert-component';
 import InfoCard from '../../components/pages/dashboard/info-card/info-card';
+import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
+import AreaChartComponent from '../../components/pages/dashboard/area-chart-component/area-chart-component';
 
 // Assets
 import userImage from '../../assets/images/user.jpg';
@@ -102,6 +105,25 @@ function Dashboard() {
                 </div>
               </div>
             </InfoCard>
+          </Grid>
+        </Grid>
+      </div>
+
+      <div>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={8}>
+            <CardWrapper>
+              <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
+              <AreaChartComponent />
+            </CardWrapper>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <CardWrapper>
+              <p className="mb-[60px] text-sm font-bold">
+                سهم کاربر از سود ربات
+              </p>
+              <PieChartComponent />
+            </CardWrapper>
           </Grid>
         </Grid>
       </div>
