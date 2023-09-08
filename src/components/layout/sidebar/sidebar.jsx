@@ -37,7 +37,7 @@ function Sidebar() {
 
   return (
     <SidebarStyle
-      className="min-h-[93vh] w-[260px] rounded-[15px] bg-bgSecondary p-5 text-textMain
+      className="min-h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5 text-textMain
      transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark"
     >
       <div className="flex items-center gap-2">
