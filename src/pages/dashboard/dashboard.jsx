@@ -2,6 +2,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 
 // MUI
 import { Grid } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 // Icon
 import WalletIcon from '@mui/icons-material/Wallet';
@@ -9,11 +10,12 @@ import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import GroupsIcon from '@mui/icons-material/Groups';
 
 // Components
-import CardWrapper from '../../components/card-wrapper/card-wrapper';
-import AlertComponent from '../../components/alert-component/alert-component';
+import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
+import AlertComponent from '../../components/templates/alert-component/alert-component';
 import InfoCard from '../../components/pages/dashboard/info-card/info-card';
 import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
 import AreaChartComponent from '../../components/pages/dashboard/area-chart-component/area-chart-component';
+import TableComponent from '../../components/pages/dashboard/table-component/table-component';
 
 // Assets
 import userImage from '../../assets/images/user.jpg';
@@ -126,6 +128,22 @@ function Dashboard() {
             </CardWrapper>
           </Grid>
         </Grid>
+      </div>
+
+      <div>
+        <CardWrapper>
+          <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
+          <TableComponent />
+          <div className="mt-6 flex items-center justify-center">
+            <LoadingButton
+              loading={false}
+              variant="contained"
+              className="!font-vazir disabled:!bg-textGray"
+            >
+              بیشتر
+            </LoadingButton>
+          </div>
+        </CardWrapper>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 // Components
-import CardWrapper from '../../../card-wrapper/card-wrapper';
+import CardWrapper from '../../../templates/card-wrapper/card-wrapper';
 
 function InfoCard({ children, icon, progress }) {
   return (
