@@ -23,7 +23,7 @@ import {
 // assets
 import { SidebarStyle } from './sidebar.style';
 
-function Sidebar() {
+function Sidebar({ shouldHide }) {
   const themeMode = useSelector(state => state.themeReducer);
   const dispatch = useDispatch();
 
@@ -37,10 +37,16 @@ function Sidebar() {
 
   return (
     <SidebarStyle
-      className="min-h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5 text-textMain
-     transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark"
+      className={`min-h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5
+      text-textMain transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark ${
+        shouldHide ? 'hidden xl:block' : ''
+      }`}
     >
-      <div className="flex items-center gap-2">
+      <div
+        className={`flex items-center gap-2 ${
+          themeMode === 'dark' ? 'text-textMainDark' : 'text-textMain'
+        }`}
+      >
         <div>
           <ApartmentIcon color="inherit" />
         </div>
@@ -125,7 +131,13 @@ function Sidebar() {
       <div className="mt-7 flex h-[1px] w-full bg-lineLinear" />
 
       <div className="mt-6 flex items-center justify-between">
-        <p>حالت :</p>
+        <p
+          className={`${
+            themeMode === 'dark' ? 'text-textMainDark' : 'text-textMain'
+          }`}
+        >
+          حالت :
+        </p>
         <FormGroup>
           <FormControlLabel
             control={

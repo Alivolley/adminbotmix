@@ -73,7 +73,7 @@ function Dashboard() {
             >
               <div className="flex flex-col gap-2 text-[14px]">
                 <p className="font-bold text-textGray">پلن طلایی</p>
-                <p>تعداد روز های باقی مانده :</p>
+                <p className="whitespace-nowrap">تعداد روز های باقی مانده :</p>
               </div>
             </InfoCard>
           </Grid>
@@ -93,7 +93,7 @@ function Dashboard() {
             <InfoCard icon={<GroupsIcon fontSize="inherit" color="inherit" />}>
               <div className="flex flex-col gap-2">
                 <div className="flex gap-1">
-                  <p className="text-[13px] font-bold text-textGray">
+                  <p className="whitespace-nowrap text-[13px] font-bold text-textGray">
                     تعداد api های ثبت شده :
                   </p>
                   <p className="text-[12px]">۱۲۳</p>

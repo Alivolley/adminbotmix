@@ -10,7 +10,7 @@ function PieChartComponent() {
   return (
     <div className="h-[220px] w-full">
       <ResponsiveContainer width="100%" height="100%">
-        <PieChart>
+        <PieChart width="100%" height="100%">
           <Pie
             data={data}
             innerRadius={65}
