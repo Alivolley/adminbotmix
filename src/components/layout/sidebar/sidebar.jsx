@@ -37,7 +37,7 @@ function Sidebar({ shouldHide }) {
 
   return (
     <SidebarStyle
-      className={`min-h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5
+      className={`h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5
       text-textMain transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark ${
         shouldHide ? 'hidden xl:block' : ''
       }`}

@@ -50,10 +50,7 @@ function AreaChartComponent() {
   return (
     <div className="h-[220px] w-full font-vazir">
       <ResponsiveContainer>
-        <AreaChart
-          data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
-        >
+        <AreaChart data={data}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#4FD1C5" stopOpacity={0.3} />
