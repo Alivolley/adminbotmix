@@ -39,9 +39,9 @@ function AdminPanel() {
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
         sx={{
-          '.css-1160xiw-MuiPaper-root-MuiDrawer-paper': {
+          'div:nth-of-type(3)': {
             bgcolor: theme === 'dark' ? '#1F2733' : '#ffffff',
-            div: {
+            '& > div': {
               bgcolor: 'transparent',
             },
           },
