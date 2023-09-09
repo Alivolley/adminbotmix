@@ -1,11 +1,13 @@
 // MUI
 import { Grid } from '@mui/material';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 // Components
 import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
 import RobotsListTable from '../../components/pages/robots/robots-list-table/robots-list-table';
 import DetailsTable from '../../components/pages/robots/details-table/details-table';
 import RobotsChart from '../../components/pages/robots/robots-chart/robots-chart';
+import RobotsTable from '../../components/pages/robots/robots-table/robots-table';
 
 function Robots() {
   return (
@@ -27,12 +29,19 @@ function Robots() {
           </CardWrapper>
         </Grid>
       </Grid>
-      <div className="mt-4">
+      <div className="mt-10">
         <CardWrapper>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque
-          reprehenderit, temporibus dolorum illum quae officiis? Itaque
-          aspernatur expedita voluptatem exercitationem, harum saepe quisquam
-          dolor maiores reprehenderit quasi fuga nam facere!
+          <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
+          <RobotsTable />
+          <div className="mt-6 flex items-center justify-center">
+            <LoadingButton
+              loading={false}
+              variant="contained"
+              className="!font-vazir disabled:!bg-textGray"
+            >
+              بیشتر
+            </LoadingButton>
+          </div>
         </CardWrapper>
       </div>
     </div>

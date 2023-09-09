@@ -17,7 +17,7 @@ function AdminPanel() {
 
   return (
     <div className="min-h-[100vh] bg-bgPrimary px-6 pt-7 transition-colors duration-200 dark:bg-bgPrimaryDark">
-      <div className="flex gap-7">
+      <div className="xl:flex xl:gap-7">
         <Sidebar shouldHide />
         <div className="grow">
           <div className="text-textMain transition-colors duration-200 dark:text-textMainDark">
