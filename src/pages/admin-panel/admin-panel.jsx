@@ -37,6 +37,9 @@ function AdminPanel() {
       <Drawer
         anchor="right"
         open={mobileMenuOpen}
+        SlideProps={{
+          direction: 'left',
+        }}
         onClose={() => setMobileMenuOpen(false)}
         sx={{
           'div:nth-of-type(3)': {

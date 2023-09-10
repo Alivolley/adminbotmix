@@ -34,6 +34,7 @@ function RobotsListTable() {
                   variant="outlined"
                   className="!font-vazir !text-sm"
                   size="small"
+                  color="primaryBlue"
                 >
                   جزئیات
                 </Button>

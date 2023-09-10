@@ -1,4 +1,5 @@
 const getDesignTokens = mode => ({
+  direction: 'rtl',
   mode,
   colors: {
     textGray: '#A0AEC0',
@@ -19,9 +20,53 @@ const getDesignTokens = mode => ({
     }),
   },
 
-  //   typography: {
-  //     fontFamily: 'main',
-  //   },
+  palette: {
+    textGray: {
+      main: '#A0AEC0',
+    },
+    primaryBlue: {
+      main: '#4FD1C5',
+    },
+
+    ...(mode === 'dark' && {
+      bgPrimary: {
+        main: '#1A202C',
+      },
+      bgSecondary: {
+        main: '#1F2733',
+      },
+      textMain: {
+        main: '#ffffff',
+      },
+    }),
+
+    ...(mode === 'light' && {
+      bgPrimary: {
+        main: '#F7FAFC',
+      },
+      bgSecondary: {
+        main: '#ffffff',
+      },
+      textMain: {
+        main: '#1f2733',
+      },
+    }),
+  },
+
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          '& .MuiInputLabel-root': {
+            color: 'inherit',
+          },
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: '#a0aec032',
+          },
+        },
+      },
+    },
+  },
 
   //   components: {
   //     MuiTooltip: {

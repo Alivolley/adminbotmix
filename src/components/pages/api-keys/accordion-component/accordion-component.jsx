@@ -65,6 +65,7 @@ function AccordionComponent() {
             className="gap-[2px] !p-[1px] !pr-2 !font-vazir customSm:gap-2"
             size="small"
             endIcon={<CableIcon />}
+            color="primaryBlue"
           >
             اتصال
           </Button>
