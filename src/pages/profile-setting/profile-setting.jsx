@@ -19,22 +19,24 @@ function ProfileSetting() {
             alt="profile"
             className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
           />
-          <div>
-            <p>علی ازقندی</p>
-            <p>alicryptovolley@gmail.com</p>
+          <div className="space-y-2">
+            <p className="text-sm customSm:text-base">علی ازقندی</p>
+            <p className="text-xs customSm:text-base">
+              alicryptovolley@gmail.com
+            </p>
           </div>
         </div>
       </CardWrapper>
 
       <div className="mt-4">
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <CardWrapper>
               <p className="mb-[60px] text-sm font-bold">تغییر پسورد</p>
               <ChangePassword />
             </CardWrapper>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <CardWrapper>
               <p className="mb-[60px] text-sm font-bold">تغییر ایمیل</p>
               <ChangeEmail />
