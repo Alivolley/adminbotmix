@@ -133,11 +133,7 @@ function AccordionComponent() {
           },
         }}
       >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon className="dark:text-textMainDark" />}
-          dir="ltr"
-          className=""
-        />
+        <AccordionSummary expandIcon={<ExpandMoreIcon />} dir="ltr" />
         <AccordionDetails>
           <div className="space-y-2">
             {testArray?.map(item => (
@@ -152,9 +148,7 @@ function AccordionComponent() {
                 }}
               >
                 <AccordionSummary
-                  expandIcon={
-                    <ExpandMoreIcon className="dark:text-textMainDark" />
-                  }
+                  expandIcon={<ExpandMoreIcon />}
                   dir="ltr"
                   className=""
                 >

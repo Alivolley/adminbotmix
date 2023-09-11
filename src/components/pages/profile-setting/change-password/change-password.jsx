@@ -42,15 +42,6 @@ function ChangePassword() {
             label="پسورد فعلی"
             variant="outlined"
             color="primaryBlue"
-            sx={{
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#4FD1C5 !important',
-              },
-            }}
-            inputProps={{
-              className:
-                'text-textMain transition-colors duration-200 dark:text-textMainDark',
-            }}
             type="password"
             {...register('currentPassword', {
               required: {
@@ -70,15 +61,6 @@ function ChangePassword() {
             label="پسورد جدید"
             variant="outlined"
             color="primaryBlue"
-            sx={{
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#4FD1C5 !important',
-              },
-            }}
-            inputProps={{
-              className:
-                'text-textMain transition-colors duration-200 dark:text-textMainDark',
-            }}
             type="password"
             {...register('newPassword', {
               required: {
@@ -98,15 +80,6 @@ function ChangePassword() {
             label="تکرار پسورد جدید"
             variant="outlined"
             color="primaryBlue"
-            sx={{
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#4FD1C5 !important',
-              },
-            }}
-            inputProps={{
-              className:
-                'text-textMain transition-colors duration-200 dark:text-textMainDark',
-            }}
             type="password"
             {...register('confirmPassword', {
               required: {

@@ -40,15 +40,6 @@ function ChangeEmail() {
             label="ایمیل فعلی"
             variant="outlined"
             color="primaryBlue"
-            sx={{
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#4FD1C5 !important',
-              },
-            }}
-            inputProps={{
-              className:
-                'text-textMain transition-colors duration-200 dark:text-textMainDark',
-            }}
             type="text"
             {...register('currentEmail', {
               required: {
@@ -68,15 +59,6 @@ function ChangeEmail() {
             label="ایمیل جدید"
             variant="outlined"
             color="primaryBlue"
-            sx={{
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: '#4FD1C5 !important',
-              },
-            }}
-            inputProps={{
-              className:
-                'text-textMain transition-colors duration-200 dark:text-textMainDark',
-            }}
             type="text"
             {...register('newEmail', {
               required: {
