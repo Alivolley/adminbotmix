@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -8,7 +9,6 @@ import { Drawer, IconButton } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
 // Components
-import { useState } from 'react';
 import Sidebar from '../../components/layout/sidebar/sidebar';
 
 function AdminPanel() {
@@ -43,6 +43,7 @@ function AdminPanel() {
         onClose={() => setMobileMenuOpen(false)}
         sx={{
           'div:nth-of-type(3)': {
+            backgroundImage: 'none',
             bgcolor: theme === 'dark' ? '#1F2733' : '#ffffff',
             '& > div': {
               bgcolor: 'transparent',

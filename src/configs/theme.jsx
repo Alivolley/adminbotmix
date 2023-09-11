@@ -1,6 +1,5 @@
 const getDesignTokens = mode => ({
   direction: 'rtl',
-  mode,
   colors: {
     textGray: '#A0AEC0',
     primaryBlue: '#4FD1C5',
@@ -21,6 +20,8 @@ const getDesignTokens = mode => ({
   },
 
   palette: {
+    mode,
+
     textGray: {
       main: '#A0AEC0',
     },
@@ -52,35 +53,6 @@ const getDesignTokens = mode => ({
       },
     }),
   },
-
-  components: {
-    MuiTextField: {
-      styleOverrides: {
-        root: {
-          '& .MuiInputLabel-root': {
-            color: 'inherit',
-          },
-          '& .MuiOutlinedInput-notchedOutline': {
-            borderColor: '#a0aec032',
-          },
-        },
-      },
-    },
-  },
-
-  //   components: {
-  //     MuiTooltip: {
-  //       styleOverrides: {
-  //         tooltip: {
-  //           backgroundColor: 'white',
-  //           borderRadius: '5px',
-  //           border: '1px solid #5EA3FF',
-  //           width: '300px',
-  //           padding: '20px',
-  //         },
-  //       },
-  //     },
-  //   },
 });
 
 export default getDesignTokens;

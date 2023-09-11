@@ -2,22 +2,15 @@ import { useForm } from 'react-hook-form';
 
 // MUI
 import TextField from '@mui/material/TextField';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { CacheProvider } from '@emotion/react';
 import { Button } from '@mui/material';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import createCache from '@emotion/cache';
-import { prefixer } from 'stylis';
 
 // Assets
 import { ChangePasswordStyle } from './change-password.style';
 
-function ChangePassword() {
-  const cacheRtl = createCache({
-    key: 'muirtl',
-    stylisPlugins: [prefixer, rtlPlugin],
-  });
+// Components
+import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
+function ChangePassword() {
   const {
     register,
     handleSubmit,
@@ -39,7 +32,7 @@ function ChangePassword() {
   };
 
   return (
-    <CacheProvider value={cacheRtl}>
+    <RtlProvider>
       <ChangePasswordStyle>
         <form
           className="flex flex-col gap-6"
@@ -137,7 +130,7 @@ function ChangePassword() {
           </Button>
         </form>
       </ChangePasswordStyle>
-    </CacheProvider>
+    </RtlProvider>
   );
 }
 

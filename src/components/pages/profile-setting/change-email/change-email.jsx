@@ -2,22 +2,15 @@ import { useForm } from 'react-hook-form';
 
 // MUI
 import TextField from '@mui/material/TextField';
-import rtlPlugin from 'stylis-plugin-rtl';
-import { CacheProvider } from '@emotion/react';
 import { Button } from '@mui/material';
-// eslint-disable-next-line import/no-extraneous-dependencies
-import createCache from '@emotion/cache';
-import { prefixer } from 'stylis';
 
 // Assets
 import { ChangeEmailStyle } from './change-email.style';
 
-function ChangeEmail() {
-  const cacheRtl = createCache({
-    key: 'muirtl',
-    stylisPlugins: [prefixer, rtlPlugin],
-  });
+// Components
+import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
+function ChangeEmail() {
   const {
     register,
     handleSubmit,
@@ -37,7 +30,7 @@ function ChangeEmail() {
   };
 
   return (
-    <CacheProvider value={cacheRtl}>
+    <RtlProvider>
       <ChangeEmailStyle>
         <form
           className="flex flex-col gap-6"
@@ -107,7 +100,7 @@ function ChangeEmail() {
           </Button>
         </form>
       </ChangeEmailStyle>
-    </CacheProvider>
+    </RtlProvider>
   );
 }
 

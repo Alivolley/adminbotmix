@@ -37,7 +37,7 @@ function AccordionComponent() {
           ...prev,
           outerLink: false,
         }));
-      }, 2000);
+      }, 1500);
     });
   };
 
@@ -52,7 +52,7 @@ function AccordionComponent() {
           ...prev,
           innerLink: false,
         }));
-      }, 2000);
+      }, 1500);
     });
   };
 
@@ -125,9 +125,9 @@ function AccordionComponent() {
         </div>
       </div>
       <Accordion
-        className="!bg-inherit !text-inherit"
+        className="!bg-inherit !bg-none !text-inherit"
         sx={{
-          boxShadow: '0px 5px 6px 1px rgba(0, 0, 0, 0.1)',
+          boxShadow: '0px 5px 6px 1px rgba(0, 0, 0, 0.04)',
           '&.MuiAccordion-root:before': {
             display: 'none',
           },
@@ -143,9 +143,9 @@ function AccordionComponent() {
             {testArray?.map(item => (
               <Accordion
                 key={item}
-                className="!bg-inherit !text-inherit"
+                className="!bg-inherit !bg-none !text-inherit"
                 sx={{
-                  boxShadow: '0px 2px 5px 1px #4fd1c455',
+                  boxShadow: '0px 2px 5px 1px rgb(79, 209, 197 , 0.1)',
                   '&.MuiAccordion-root:before': {
                     display: 'none',
                   },

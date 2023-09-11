@@ -139,7 +139,7 @@ function Dashboard() {
             <LoadingButton
               loading={false}
               variant="contained"
-              className="!font-vazir disabled:!bg-textGray"
+              className="!font-vazir"
             >
               بیشتر
             </LoadingButton>
