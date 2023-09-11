@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 
 // MUi
@@ -37,6 +37,7 @@ function AddApiForm() {
     handleSubmit,
     register,
     watch,
+    reset,
     getValues,
     control,
     formState: { errors, submitCount },
@@ -56,6 +57,20 @@ function AddApiForm() {
 
   const chosenExchange = watch('exchange');
   const hasLeverage = watch('leverage_check');
+
+  useEffect(() => {
+    reset({
+      exchange: chosenExchange,
+      trade_type: 'future',
+      margin_type: 'isolated',
+      api_key: '',
+      api_secret: '',
+      pass_phrase: '',
+      leverage_check: false,
+      leverage_slide: 10,
+    });
+    setCurrencyList([]);
+  }, [chosenExchange]);
 
   const formSubmit = data => {
     console.log(data);
@@ -85,13 +100,7 @@ function AddApiForm() {
             render={({ field: { onChange, value } }) => (
               <FormControl error={!!errors?.exchange} color="primaryBlue">
                 <InputLabel>صرافی</InputLabel>
-                <Select
-                  label="صرافی"
-                  value={value}
-                  onChange={newValue => {
-                    onChange(newValue);
-                  }}
-                >
+                <Select label="صرافی" value={value} onChange={onChange}>
                   <MenuItem value="binance">
                     <p className="w-full text-left">Binance</p>
                   </MenuItem>
@@ -264,7 +273,7 @@ function AddApiForm() {
                 chosenExchange === 'bingx') && (
                 <>
                   <FormControlLabel
-                    control={<Checkbox defaultChecked={hasLeverage} />}
+                    control={<Checkbox checked={hasLeverage} />}
                     label={
                       <Typography variant="body2" sx={{ fontSize: '14px' }}>
                         تنظیم اهرم و مارجین
@@ -349,13 +358,20 @@ function AddApiForm() {
 
                           <div className="flex items-center gap-6">
                             <p>1</p>
-                            <Slider
-                              min={1}
-                              max={125}
-                              defaultValue={10}
-                              valueLabelDisplay="on"
-                              valueLabelFormat={getCustomLabelForSlider}
-                              {...register('leverage_slide')}
+
+                            <Controller
+                              control={control}
+                              name="leverage_slide"
+                              render={({ field: { onChange, value } }) => (
+                                <Slider
+                                  min={1}
+                                  max={125}
+                                  valueLabelDisplay="on"
+                                  valueLabelFormat={getCustomLabelForSlider}
+                                  value={value}
+                                  onChange={onChange}
+                                />
+                              )}
                             />
                             <p>125</p>
                           </div>

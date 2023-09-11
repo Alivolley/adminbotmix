@@ -30,6 +30,7 @@ module.exports = {
     'react/prop-types': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-key': 'warn',
+    'react-hooks/exhaustive-deps': 'off',
   },
 
   overrides: [
