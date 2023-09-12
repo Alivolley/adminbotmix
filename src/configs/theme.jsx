@@ -53,6 +53,16 @@ const getDesignTokens = mode => ({
       },
     }),
   },
+
+  components: {
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: {
+          fontFamily: 'vazir',
+        },
+      },
+    },
+  },
 });
 
 export default getDesignTokens;
