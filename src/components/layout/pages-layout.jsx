@@ -21,9 +21,9 @@ function PagesLayout() {
 
   return (
     <div className="text-textMain transition-colors duration-200 dark:text-textMainDark">
-      <header className="flex items-center justify-between  bg-bgPrimary px-7 py-4 dark:bg-[#070A29]">
+      <header className="sticky top-0 z-[1]  flex items-center justify-between bg-bgPrimary px-7 py-4 dark:bg-[#070A29]">
         <div>
-          <p className="font-vazirBold text-[40px]">BOTMIX</p>
+          <p className="font-adlam text-[40px]">BOTMIX</p>
         </div>
         <div>
           <ul className="hidden items-center justify-center gap-10 font-bold customMd:flex">
@@ -63,11 +63,12 @@ function PagesLayout() {
         </div>
 
         <div className="hidden items-center customMd:flex">
-          <Button className="!rounded-lg !p-0" variant="contained">
-            <Link
-              to="/"
-              className="rounded-lg bg-gradientBtnPurple px-6 py-2 font-vazir"
-            >
+          <Button
+            className="!font-vazir"
+            variant="contained"
+            color="buttonPurple"
+          >
+            <Link to="/" className="text-textMainDark">
               به ما بپیوندید
             </Link>
           </Button>
@@ -129,11 +130,12 @@ function PagesLayout() {
             </div>
 
             <div className="mt-12">
-              <Button className="!rounded-lg !p-0" variant="contained">
-                <Link
-                  to="/"
-                  className="rounded-lg bg-gradientBtnPurple px-6 py-2 font-vazir"
-                >
+              <Button
+                className="!font-vazir"
+                variant="contained"
+                color="buttonPurple"
+              >
+                <Link to="/" className="text-textMainDark">
                   به ما بپیوندید
                 </Link>
               </Button>

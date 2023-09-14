@@ -28,6 +28,9 @@ const getDesignTokens = mode => ({
     primaryBlue: {
       main: '#4FD1C5',
     },
+    buttonPurple: {
+      main: '#5c27fe',
+    },
 
     ...(mode === 'dark' && {
       bgPrimary: {

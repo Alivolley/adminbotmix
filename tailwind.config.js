@@ -28,8 +28,7 @@ export default {
       backgroundImage: {
         lineLinear:
           'linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, rgb(224, 225, 226) 49.52%, rgba(224, 225, 226, 0) 100%)',
-        gradientBtnPurple:
-          'linear-gradient(264.28deg,#dec7ff -38.2%,#5c27fe 103.12%)',
+        gradientBtnPurple: 'linear-gradient(264.28deg,#5c27fe 0%,#dec7ff 150%)',
         gradientPagesLayout: 'linear-gradient(90deg, #fff 0%, #F7FAFC 55%)',
         gradientPagesLayoutDark:
           'linear-gradient(90deg, rgba(47,40,108,1) 0%, #070A29 55%)',
@@ -38,6 +37,8 @@ export default {
       fontFamily: {
         vazir: 'vazir',
         vazirBold: 'vazirBold',
+        lalezar: 'lalezar',
+        adlam: 'adlam',
       },
     },
   },
