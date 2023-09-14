@@ -20,7 +20,7 @@ function PagesLayout() {
   const theme = useSelector(state => state.themeReducer);
 
   return (
-    <div className="text-textMain transition-colors duration-200 dark:text-textMainDark">
+    <div className="text-textMain dark:text-textMainDark">
       <header className="sticky top-0 z-[1]  flex items-center justify-between bg-bgPrimary px-7 py-4 dark:bg-[#070A29]">
         <div>
           <p className="font-adlam text-[40px]">BOTMIX</p>
@@ -51,14 +51,6 @@ function PagesLayout() {
                 درباره ی ما
               </Link>
             </li>
-            <li>
-              <Link
-                to="/admin-panel"
-                className="transition-colors duration-200 hover:text-purple-600"
-              >
-                پنل ادمین
-              </Link>
-            </li>
           </ul>
         </div>
 
@@ -68,8 +60,8 @@ function PagesLayout() {
             variant="contained"
             color="buttonPurple"
           >
-            <Link to="/" className="text-textMainDark">
-              به ما بپیوندید
+            <Link to="/admin-panel" className="text-textMainDark">
+              پنل کاربری
             </Link>
           </Button>
 
@@ -135,8 +127,8 @@ function PagesLayout() {
                 variant="contained"
                 color="buttonPurple"
               >
-                <Link to="/" className="text-textMainDark">
-                  به ما بپیوندید
+                <Link to="/admin-panel" className="text-textMainDark">
+                  پنل کاربری
                 </Link>
               </Button>
 
