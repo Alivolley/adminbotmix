@@ -54,7 +54,11 @@ function MobileNavbar() {
           <li dir="ltr" className="pr-1">
             <Button
               className="!font-vazir"
-              endIcon={<ExpandMoreIcon />}
+              endIcon={
+                <ExpandMoreIcon
+                  {...(marketCollapseOpen && { className: 'rotate-180' })}
+                />
+              }
               color="inherit"
               onClick={() => setMarketCollapseOpen(prev => !prev)}
             >
