@@ -31,6 +31,9 @@ const getDesignTokens = mode => ({
     buttonPurple: {
       main: '#5c27fe',
     },
+    darkPurple: {
+      main: '#070A29',
+    },
 
     ...(mode === 'dark' && {
       bgPrimary: {

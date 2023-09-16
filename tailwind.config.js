@@ -23,6 +23,7 @@ export default {
         bgPrimaryDark: '#1A202C',
         bgSecondaryDark: '#1F2733',
         textMainDark: '#ffffff',
+        darkPurple: '#070A29',
       },
 
       backgroundImage: {

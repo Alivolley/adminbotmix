@@ -30,6 +30,7 @@ function Home() {
                   className="!font-vazir"
                   variant="contained"
                   color="buttonPurple"
+                  size="large"
                 >
                   <Link to="/" className="text-textMainDark">
                     ورود
@@ -39,6 +40,7 @@ function Home() {
                   className="!font-vazir"
                   variant="contained"
                   color="buttonPurple"
+                  size="large"
                 >
                   <Link to="/" className="text-textMainDark">
                     ثبت نام
