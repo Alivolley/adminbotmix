@@ -18,6 +18,7 @@ import { PagesLayoutStyle } from './pages-layout.style';
 
 // Components
 import ChangeThemeComponent from '../templates/changeThemeComponent/changeThemeComponent';
+import MobileNavbar from './mobile-navbar/mobile-navbar';
 
 function PagesLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -128,7 +129,11 @@ function PagesLayout() {
           </ul>
         </div>
 
-        <div className="customMd:hidden">
+        <div className="flex w-full items-center justify-between customMd:hidden">
+          <Link to="/" className="text-2xl font-bold">
+            BOTMIX
+          </Link>
+
           <IconButton onClick={() => setMobileMenuOpen(true)}>
             {mobileMenuOpen ? (
               <MenuOpenIcon className="rotate-180" />
@@ -156,49 +161,7 @@ function PagesLayout() {
           }}
           className="font-vazir"
         >
-          <div className="w-[230px] px-5 py-8">
-            <div>
-              <ul className="space-y-4">
-                <li>
-                  <Button className="!font-vazir">
-                    <Link to="/">صفحه اصلی</Link>
-                  </Button>
-                </li>
-                <li>
-                  <Button className="!font-vazir">
-                    <Link to="/pricing">قیمت ها</Link>
-                  </Button>
-                </li>
-                <li>
-                  <Button className="!font-vazir">
-                    <Link to="/">درباره ی ما</Link>
-                  </Button>
-                </li>
-                <li>
-                  <Button className="!font-vazir">
-                    <Link to="/admin-panel">پنل ادمین</Link>
-                  </Button>
-                </li>
-              </ul>
-            </div>
-
-            <div className="mt-12">
-              <Button
-                className="!font-vazir"
-                variant="contained"
-                color="buttonPurple"
-              >
-                <Link to="/admin-panel" className="text-textMainDark">
-                  پنل کاربری
-                </Link>
-              </Button>
-
-              <div className="mt-6 flex items-center justify-between">
-                <p>حالت :</p>
-                <ChangeThemeComponent />
-              </div>
-            </div>
-          </div>
+          <MobileNavbar />
         </Drawer>
       </header>
       <div className="bg-gradientPagesLayout px-7 dark:bg-gradientPagesLayoutDark">
