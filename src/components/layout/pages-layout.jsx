@@ -46,7 +46,7 @@ function PagesLayout() {
             </Link>
           </Tooltip>
 
-          <Button className="gap-2 !font-vazir" variant="text" color="error">
+          <Button className="gap-2 !font-vazir" variant="text" color="inherit">
             خروج از حساب
           </Button>
 

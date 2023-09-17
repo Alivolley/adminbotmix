@@ -94,7 +94,6 @@ function BannerHome() {
               id="home_card"
               data-aos="fade-up"
               data-aos-duration="1500"
-              data-aos-offset="350"
             >
               <p className="border-b-[1px] border-solid border-stone-600 pb-3 text-lg font-bold">
                 محصول پیشنهادی باتمیکس
