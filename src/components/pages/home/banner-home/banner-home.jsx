@@ -39,7 +39,7 @@ function BannerHome() {
 
               <p className="mt-6 font-lalezar text-5xl customSm:mt-[90px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
                 تنها با چند کلیک{' '}
-                <span id="nftSpan" className="whitespace-nowrap">
+                <span id="linear-text" className="whitespace-nowrap">
                   ربات تریدرت
                 </span>{' '}
                 رو بساز

@@ -4,9 +4,10 @@ import HowWeWork from '../../components/pages/home/how-we-work/how-we-work';
 
 function Home() {
   return (
-    <main className="space-y-44">
+    <main className="space-y-56">
       <BannerHome />
       <HowWeWork />
+      <div />
     </main>
   );
 }
