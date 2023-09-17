@@ -6,8 +6,6 @@ export const HomeStyle = styled.div(() => ({
     backdropFilter: 'blur(2px)',
     background:
       'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
-    height: '200px',
-    textAlign: 'center',
     borderRadius: '20px',
   },
 

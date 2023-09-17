@@ -1,10 +1,12 @@
 import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
+import { Line, LineChart, ResponsiveContainer } from 'recharts';
 
 // MUi
 import { Grid } from '@mui/material';
 
 // Assets
+import { useEffect } from 'react';
 import testPic from '../../assets/images/testPic.png';
 import { HomeStyle } from './home.style';
 
@@ -12,6 +14,16 @@ import { HomeStyle } from './home.style';
 import LinkComponent from '../../components/form-group/link-component/link-component';
 
 function Home() {
+  const testArray = [];
+
+  useEffect(() => {
+    for (let i = 0; i < 30; i++) {
+      testArray.push({
+        uv: Math.random(),
+      });
+    }
+  }, []);
+
   return (
     <HomeStyle>
       <div className="pb-40 pt-14 customSm:pt-[100px]">
@@ -84,13 +96,60 @@ function Home() {
             </div>
 
             <div
-              className="mt-2"
+              className="mt-2 px-4 py-2"
               id="home_card"
               data-aos="fade-up"
               data-aos-duration="1500"
               data-aos-offset="350"
             >
-              some
+              <p className="border-b-[1px] border-solid border-stone-600 pb-3 text-lg font-bold">
+                محصول پیشنهادی باتمیکس
+              </p>
+              <div
+                className="mt-4 flex items-center justify-between gap-6 pb-12 customMd:gap-16"
+                dir="ltr"
+              >
+                <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    <p className="whitespace-nowrap text-textGray">
+                      Exchange :{' '}
+                    </p>
+                    <p>Binance</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <p className="whitespace-nowrap text-textGray">
+                      Total profit :{' '}
+                    </p>
+                    <p>12.6%</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <p className="whitespace-nowrap text-textGray">
+                      WinRate :{' '}
+                    </p>
+                    <p>67%</p>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    <p className="whitespace-nowrap text-textGray">
+                      DrawDown :{' '}
+                    </p>
+                    <p>2%</p>
+                  </div>
+                </div>
+
+                <div className="w-[70px] customSm:max-w-[250px] customSm:grow">
+                  <ResponsiveContainer width="100%" height={60}>
+                    <LineChart width="100%" height="100%" data={testArray}>
+                      <Line
+                        dataKey="uv"
+                        type="natural"
+                        stroke="#48BB78"
+                        strokeWidth={3}
+                        dot={false}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
               <div className="absolute inset-x-0 bottom-[-13%] flex justify-center">
                 <LinkComponent className="px-16">ایجاد سفارش</LinkComponent>
               </div>
