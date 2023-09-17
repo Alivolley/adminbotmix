@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import AOS from 'aos';
+
 // MUI
 import { ThemeProvider, createTheme } from '@mui/material';
 
@@ -7,6 +10,11 @@ import { useSelector } from 'react-redux';
 import getDesignTokens from '../../configs/theme';
 
 function AppLayout({ children }) {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   const themeMode = useSelector(state => state.themeReducer);
 
   const themeConfig = createTheme(getDesignTokens(themeMode));

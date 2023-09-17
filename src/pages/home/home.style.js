@@ -1,6 +1,16 @@
 import styled from '@emotion/styled';
 
 export const HomeStyle = styled.div(() => ({
+  '& #home_card': {
+    position: 'relative',
+    backdropFilter: 'blur(2px)',
+    background:
+      'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
+    height: '200px',
+    textAlign: 'center',
+    borderRadius: '20px',
+  },
+
   '& #nftSpan': {
     WebkitTextFillColor: 'transparent',
     background: 'linear-gradient(264.28deg,#5c27fe 0%,#dec7ff 120%)',
