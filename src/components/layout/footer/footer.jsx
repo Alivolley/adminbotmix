@@ -10,9 +10,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 function Footer() {
   return (
-    <footer className="bg-bgPrimary px-7 py-14 dark:bg-darkPurple customXl:px-[140px]">
+    <footer className="bg-bgPrimary px-7 py-14 dark:bg-darkPurple">
       <div className="mx-auto max-w-[1150px]">
-        <Grid container spacing={5}>
+        <Grid container rowSpacing={5} columnSpacing={3}>
           <Grid item xs={12} md={6}>
             <p className="text-justify text-[15px] leading-[30px] dark:text-textGray">
               بعد از تجربه نامطلوب تحریم کاربران ایرانی، توسط صرافی های بین

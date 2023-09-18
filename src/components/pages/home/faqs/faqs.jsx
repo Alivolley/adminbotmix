@@ -66,160 +66,160 @@ function Faqs() {
       <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
         <Grid container rowSpacing={1.5} columnSpacing={4}>
           <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+            <div className="space-y-3">
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
               >
-                <p>سوال ۱</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۱</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۲</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
+              >
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۳</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+            </div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+            <div className="space-y-3">
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
               >
-                <p>سوال ۲</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۱</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
               >
-                <p>سوال ۳</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۲</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion
+                className="!bg-[#ffffff1a] bg-none"
+                sx={{
+                  boxShadow: 'none',
+                  '&.MuiAccordion-root:before': {
+                    display: 'none',
+                  },
+                }}
               >
-                <p>سوال ۴</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <p>سوال ۵</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion
-              className="!bg-[#ffffff1a] bg-none"
-              sx={{
-                boxShadow: 'none',
-                '&.MuiAccordion-root:before': {
-                  display: 'none',
-                },
-              }}
-            >
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <p>سوال ۶</p>
-              </AccordionSummary>
-              <AccordionDetails>
-                <p>
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                  سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                  نامفهوم و سطرآنچنان که لازم است
-                </p>
-              </AccordionDetails>
-            </Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <p>سوال ۳</p>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
+                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
+                    نامفهوم و سطرآنچنان که لازم است
+                  </p>
+                </AccordionDetails>
+              </Accordion>
+            </div>
           </Grid>
         </Grid>
       </div>
