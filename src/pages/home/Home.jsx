@@ -7,13 +7,12 @@ import NewestTutorial from '../../components/pages/home/newest-tutorial/newest-t
 
 function Home() {
   return (
-    <main className="space-y-40">
+    <main className="mb-56 space-y-56">
       <BannerHome />
       <HowWeWork />
       <NewestArticles />
       <NewestTutorial />
       <Faqs />
-      <div />
     </main>
   );
 }

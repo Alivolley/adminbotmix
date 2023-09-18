@@ -63,7 +63,7 @@ function Faqs() {
         </button>
       </div>
 
-      <div className="mt-7 border-t pt-7 dark:border-stone-600">
+      <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
         <Grid container rowSpacing={1.5} columnSpacing={4}>
           <Grid item xs={12} md={6}>
             <Accordion
