@@ -106,7 +106,7 @@ function PagesLayout() {
 
             <li>
               <NavLink
-                to="/pricing"
+                to="/articles"
                 className="transition-colors duration-200 hover:text-purple-600"
               >
                 مقاله ها

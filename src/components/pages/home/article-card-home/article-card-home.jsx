@@ -1,10 +1,10 @@
 // Assets
-import articlePicTest from '../../../assets/images/articlePicTest.png';
-import { ArticleCardStyle } from './article-card.style';
+import articlePicTest from '../../../../assets/images/articlePicTest.png';
+import { ArticleCardHomeStyle } from './article-card-home.style';
 
-function ArticleCard() {
+function ArticleCardHome() {
   return (
-    <ArticleCardStyle to="/" className="space-y-4">
+    <ArticleCardHomeStyle to="/" className="space-y-4">
       <div id="image_wrapper">
         <img src={articlePicTest} alt="" />
       </div>
@@ -15,8 +15,8 @@ function ArticleCard() {
           سادگی نامفهوم و سطرآنچنان که لازم است
         </p>
       </div>
-    </ArticleCardStyle>
+    </ArticleCardHomeStyle>
   );
 }
 
-export default ArticleCard;
+export default ArticleCardHome;

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const ArticleCardStyle = styled(Link)(() => ({
+export const ArticleCardHomeStyle = styled(Link)(() => ({
   '&:hover #image_wrapper:after': {
     right: 0,
     opacity: 1,
