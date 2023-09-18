@@ -36,6 +36,8 @@ export default {
         gradientPagesLayout: 'linear-gradient(90deg, #fff 0%, #F7FAFC 55%)',
         gradientPagesLayoutDark:
           'linear-gradient(90deg, rgba(47,40,108,1) 0%, #070A29 55%)',
+        gradientAccordion:
+          'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
       },
 
       fontFamily: {

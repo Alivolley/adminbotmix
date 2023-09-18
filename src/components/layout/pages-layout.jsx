@@ -27,7 +27,7 @@ function PagesLayout() {
 
   return (
     <PagesLayoutStyle className="text-textMain dark:text-textMainDark">
-      <header className="sticky top-0 z-[1]  flex items-center justify-between bg-bgPrimary px-7 py-4 dark:bg-darkPurple customXl:px-[140px]">
+      <header className="sticky top-0 z-[11]  flex items-center justify-between bg-bgPrimary px-7 py-4 dark:bg-darkPurple customXl:px-[140px]">
         <div className="hidden items-center customMd:flex">
           <Tooltip
             title="alicryptovolley@gmail.com"
