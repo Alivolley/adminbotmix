@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
-export const LinkComponentStyle = styled.button(() => ({
+export const TutorialCardStyle = styled(Link)(() => ({
   position: 'relative',
-  width: 'fit-content',
+  width: '100%',
   backdropFilter: 'blur(4px)',
   background:
     'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
   border: '1px solid hsla(0,0%,100%,.1)',
-  borderRadius: '10px',
-  padding: '5px',
-  cursor: 'pointer',
+  borderRadius: '20px',
+  padding: '15px',
   overflow: 'hidden',
 
   '&:hover:after': {
@@ -30,9 +30,22 @@ export const LinkComponentStyle = styled.button(() => ({
     transition: 'all 0.9s ease 0s',
   },
 
-  p: {
-    borderRadius: '10px',
-    paddingTop: '15px',
-    paddingBottom: '15px',
+  img: {
+    borderRadius: '20px',
+    aspectRatio: '1/1',
+    objectFit: 'fill',
+  },
+
+  '& #title': {
+    position: 'absolute',
+    left: '25px',
+    right: '25px',
+    bottom: '30px',
+    textAlign: 'center',
+    backdropFilter: 'blur(4px)',
+    backgroundColor: 'hsla(0,0%,100%,.1)',
+    borderRadius: '11px',
+    padding: '13px 17px',
+    color: 'white',
   },
 }));

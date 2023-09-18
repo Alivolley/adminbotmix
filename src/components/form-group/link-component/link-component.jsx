@@ -1,9 +1,9 @@
 // Assets
 import { LinkComponentStyle } from './link-component.style';
 
-function LinkComponent({ children, className, color }) {
+function LinkComponent({ children, className, color, onClick }) {
   return (
-    <LinkComponentStyle>
+    <LinkComponentStyle onClick={onClick}>
       <p
         className={`${
           color === 'gray'

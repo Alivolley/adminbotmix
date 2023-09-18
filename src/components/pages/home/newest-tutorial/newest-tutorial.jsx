@@ -17,12 +17,14 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // Assets
-import { Link } from 'react-router-dom';
 import { NewestTutorialStyle } from './newest-tutorial.style';
 import articlePicTest from '../../../../assets/images/articlePicTest.png';
 import articlePicTest2 from '../../../../assets/images/portfolioTest.png';
 import articlePicTest3 from '../../../../assets/images/testPic.png';
 import articlePicTest4 from '../../../../assets/images/user.jpg';
+
+// Components
+import TutorialCard from '../../../templates/tutorial-card/tutorial-card';
 
 function NewestTutorial() {
   return (
@@ -66,85 +68,31 @@ function NewestTutorial() {
           }}
         >
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest2}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest2} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest3}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest3} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest4}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest4} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest2}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest2} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest3}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest3} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest4}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest4} />
           </SwiperSlide>
           <SwiperSlide>
-            <Link to="/" className="block" id="image_wrapper">
-              <img
-                src={articlePicTest2}
-                alt="tutorial cover"
-                className="aspect-square w-full"
-              />
-            </Link>
+            <TutorialCard imageSrc={articlePicTest2} />
           </SwiperSlide>
 
           <div className="absolute inset-x-0 bottom-10 flex items-center justify-center gap-3 customSm:bottom-0 customSm:gap-64">
