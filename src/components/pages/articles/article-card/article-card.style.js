@@ -41,6 +41,11 @@ export const ArticleCardStyle = styled(Link)(({ theme }) => ({
     img: {
       borderRadius: '20px',
       aspectRatio: '3/2',
+
+      '@media(min-width : 900px)': {
+        aspectRatio: '10/8',
+      },
+
       objectFit: 'fill',
     },
   },

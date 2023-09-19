@@ -10,6 +10,10 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import ArticleIcon from '@mui/icons-material/Article';
 import SchoolIcon from '@mui/icons-material/School';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+
+// Assets
+import { MobileNavbarStyle } from './mobile-navbar.style';
 
 // Components
 import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThemeComponent';
@@ -18,12 +22,21 @@ function MobileNavbar() {
   const [marketCollapseOpen, setMarketCollapseOpen] = useState(false);
 
   return (
-    <div className="w-[230px] px-5 py-8">
+    <MobileNavbarStyle className="w-[230px] px-5 py-8">
       <div>
         <ul className="space-y-4">
           <li>
             <NavLink
               to="/"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
+            >
+              <HomeOutlinedIcon fontSize="small" />
+              <p>صفحه اصلی</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/products"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
             >
               <StorefrontIcon fontSize="small" />
@@ -43,7 +56,7 @@ function MobileNavbar() {
 
           <li>
             <NavLink
-              to="/some"
+              to="/tutorials"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
             >
               <SchoolIcon fontSize="small" />
@@ -68,19 +81,19 @@ function MobileNavbar() {
               <div className="flex flex-col pr-4">
                 <NavLink
                   to="/some"
-                  className="px-3 py-4 text-sm transition-colors duration-200"
+                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
                   نمودار
                 </NavLink>
                 <NavLink
                   to="/some"
-                  className="p-3 text-sm transition-colors duration-200"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
                   داده های اقتصادی
                 </NavLink>
                 <NavLink
                   to="/some"
-                  className="p-3 text-sm transition-colors duration-200"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
                   قیمت ارزهای دیجیتال
                 </NavLink>
@@ -112,7 +125,7 @@ function MobileNavbar() {
           <ChangeThemeComponent />
         </div>
       </div>
-    </div>
+    </MobileNavbarStyle>
   );
 }
 

@@ -100,7 +100,7 @@ function PagesLayout() {
 
             <li>
               <NavLink
-                to="/some"
+                to="/tutorials"
                 className="transition-colors duration-200 hover:text-purple-600"
               >
                 آموزش ها
@@ -136,7 +136,7 @@ function PagesLayout() {
 
             <li>
               <Link to="/" className="flex items-end gap-2 text-2xl font-bold">
-                BOTMIX
+                Botmix
                 <HiveIcon fontSize="large" />
               </Link>
             </li>
@@ -144,8 +144,9 @@ function PagesLayout() {
         </div>
 
         <div className="flex w-full items-center justify-between customMd:hidden">
-          <Link to="/" className="text-2xl font-bold">
-            BOTMIX
+          <Link to="/" className="flex items-end gap-2 text-2xl font-bold">
+            <HiveIcon fontSize="large" />
+            Botmix
           </Link>
 
           <IconButton onClick={() => setMobileMenuOpen(true)}>

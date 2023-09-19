@@ -4,7 +4,7 @@ import { ArticleCardHomeStyle } from './article-card-home.style';
 
 function ArticleCardHome() {
   return (
-    <ArticleCardHomeStyle to="/" className="space-y-4">
+    <ArticleCardHomeStyle to="/article/2" className="space-y-4">
       <div id="image_wrapper">
         <img src={articlePicTest} alt="" />
       </div>

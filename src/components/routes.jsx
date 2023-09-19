@@ -2,12 +2,14 @@ import AdminPanel from '../pages/admin-panel/admin-panel';
 import ApiKeys from '../pages/api-keys/api-keys';
 import Articles from '../pages/articles/articles';
 import ChosenArticle from '../pages/chosen-article/chosen-article';
+import ChosenTutorial from '../pages/chosen-tutorial/chosen-tutorial';
 import Connecting from '../pages/connecting/connecting';
 import Dashboard from '../pages/dashboard/dashboard';
 import Home from '../pages/home/Home';
-import Pricing from '../pages/pricing/pricing';
+import Products from '../pages/products/products';
 import ProfileSetting from '../pages/profile-setting/profile-setting';
 import Robots from '../pages/robots/robots';
+import Tutorials from '../pages/tutorials/tutorials';
 import PagesLayout from './layout/pages-layout/pages-layout';
 
 const routes = [
@@ -16,9 +18,11 @@ const routes = [
     element: <PagesLayout />,
     children: [
       { path: '', element: <Home /> },
-      { path: 'pricing', element: <Pricing /> },
+      { path: 'products', element: <Products /> },
       { path: 'articles', element: <Articles /> },
+      { path: 'tutorials', element: <Tutorials /> },
       { path: 'article/:id', element: <ChosenArticle /> },
+      { path: 'tutorial/:id', element: <ChosenTutorial /> },
     ],
   },
   {

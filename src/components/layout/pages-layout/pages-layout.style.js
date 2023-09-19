@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { yellow } from '@mui/material/colors';
 
 export const PagesLayoutStyle = styled.div(() => ({
-  '* .active': {
+  '.active': {
     color: '#7c3aed',
   },
 

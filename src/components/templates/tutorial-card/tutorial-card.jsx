@@ -3,7 +3,7 @@ import { TutorialCardStyle } from './tutorial-card.style';
 
 function TutorialCard({ imageSrc }) {
   return (
-    <TutorialCardStyle to="/" className="block" id="image_wrapper">
+    <TutorialCardStyle to="/tutorial/3" className="block" id="image_wrapper">
       <img
         src={imageSrc}
         alt="tutorial cover"
