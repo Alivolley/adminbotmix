@@ -1,6 +1,7 @@
 import AdminPanel from '../pages/admin-panel/admin-panel';
 import ApiKeys from '../pages/api-keys/api-keys';
 import Articles from '../pages/articles/articles';
+import ChosenArticle from '../pages/chosen-article/chosen-article';
 import Connecting from '../pages/connecting/connecting';
 import Dashboard from '../pages/dashboard/dashboard';
 import Home from '../pages/home/Home';
@@ -17,6 +18,7 @@ const routes = [
       { path: '', element: <Home /> },
       { path: 'pricing', element: <Pricing /> },
       { path: 'articles', element: <Articles /> },
+      { path: 'article/:id', element: <ChosenArticle /> },
     ],
   },
   {

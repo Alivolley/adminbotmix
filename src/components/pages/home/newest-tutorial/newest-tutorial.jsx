@@ -32,7 +32,7 @@ function NewestTutorial() {
     <NewestTutorialStyle>
       <GlowingShadow
         color="rgba(114, 91, 218, 0.5)"
-        className="bottom-0 right-0 top-[30%] z-0"
+        className="right-0 top-[50%] z-0"
       />
 
       <p className="relative z-[1] text-center font-lalezar text-3xl customMd:text-[60px]">

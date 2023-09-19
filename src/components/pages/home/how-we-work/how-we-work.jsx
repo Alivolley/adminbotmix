@@ -15,7 +15,7 @@ import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function HowWeWork() {
   return (
-    <HowWeWorkStyle>
+    <HowWeWorkStyle className="mx-auto max-w-[1150px]">
       <p className="text-center font-lalezar text-3xl customMd:text-[60px]">
         باتمیکس چطور کار میکنه
       </p>
@@ -25,8 +25,8 @@ function HowWeWork() {
           <Grid item xs={12} md={6}>
             <div className="relative space-y-[25px]">
               <GlowingShadow
-                color="rgba(114, 91, 218, 0.5)"
-                className="inset-x-0 bottom-0 top-[30%] z-0"
+                color="rgba(114, 91, 218, 0.3)"
+                className="bottom-[40%] right-[-50%] top-[30%] z-0"
               />
 
               <HowWeWorkCard

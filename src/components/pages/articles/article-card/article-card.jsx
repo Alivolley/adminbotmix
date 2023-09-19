@@ -9,7 +9,7 @@ import { ArticleCardStyle } from './article-card.style';
 
 function ArticleCard({ imageSrc }) {
   return (
-    <ArticleCardStyle to="/">
+    <ArticleCardStyle to="/article/2">
       <Grid container spacing={4}>
         <Grid item xs={12} sm={4}>
           <div id="image_wrapper">

@@ -13,12 +13,8 @@ function Footer() {
   return (
     <footer className="relative bg-bgPrimary px-7 py-14 dark:bg-darkPurple">
       <GlowingShadow
-        color="rgba(114, 91, 218, 0.5)"
-        className="left-0 top-0 z-0"
-      />
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.5)"
-        className="bottom-0 right-0 z-0"
+        color="rgba(114, 91, 218, 0.3)"
+        className="right-0 top-[80%] z-0"
       />
 
       <div className="relative z-[1] mx-auto max-w-[1150px]">

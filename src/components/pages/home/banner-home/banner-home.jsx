@@ -31,8 +31,8 @@ function BannerHome() {
           <Grid item xs={12} md={6}>
             <div className="relative">
               <GlowingShadow
-                color="rgba(114, 91, 218, 0.5)"
-                className="left-[75%] right-0 top-0 z-0"
+                color="rgba(114, 91, 218, 0.3)"
+                className="bottom-[50%] right-0 top-0 z-0"
               />
 
               <p className="relative z-[1] mt-6 font-lalezar text-5xl customSm:mt-[90px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
@@ -81,7 +81,7 @@ function BannerHome() {
             <div className="relative">
               <GlowingShadow
                 color="rgba(60, 84, 166, 0.6)"
-                className="bottom-[60%] left-0 right-[75%]"
+                className="bottom-[60%] left-0 right-[75%] top-[40%]"
               />
               <div>
                 <img

@@ -24,7 +24,7 @@ function Faqs() {
     <FaqsStyle>
       <GlowingShadow
         color="rgba(114, 91, 218, 0.5)"
-        className="right-[-10%] top-48 z-0"
+        className="left-[-10%] top-48 z-0"
       />
 
       <p className="relative z-[1] text-center font-lalezar text-3xl customMd:text-[60px]">
