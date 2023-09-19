@@ -7,7 +7,7 @@ import Home from '../pages/home/Home';
 import Pricing from '../pages/pricing/pricing';
 import ProfileSetting from '../pages/profile-setting/profile-setting';
 import Robots from '../pages/robots/robots';
-import PagesLayout from './layout/pages-layout';
+import PagesLayout from './layout/pages-layout/pages-layout';
 
 const routes = [
   {

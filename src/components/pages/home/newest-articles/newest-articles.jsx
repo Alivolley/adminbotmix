@@ -6,6 +6,7 @@ import { NewestArticlesStyle } from './newest-articles.style';
 
 // Components
 import ArticleCardHome from '../article-card-home/article-card-home';
+import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function NewestArticles() {
   return (
@@ -14,8 +15,12 @@ function NewestArticles() {
         جدیدترین مقالات
       </p>
 
-      <div className="mt-32">
-        <Grid container spacing={3.5}>
+      <div className="relative mt-32">
+        <GlowingShadow
+          color="rgba(114, 91, 218, 0.5)"
+          className="left-0 top-36 z-0"
+        />
+        <Grid container spacing={3.5} zIndex={1}>
           <Grid item xs={12} sm={6} md={4}>
             <ArticleCardHome />
           </Grid>

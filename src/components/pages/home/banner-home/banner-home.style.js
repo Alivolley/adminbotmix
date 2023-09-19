@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
 
 export const BannerHomeStyle = styled.div(() => ({
+  position: 'relative',
+
   '& #home_card': {
     position: 'relative',
     backdropFilter: 'blur(2px)',

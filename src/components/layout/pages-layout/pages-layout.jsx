@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -12,23 +12,26 @@ import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import PersonIcon from '@mui/icons-material/Person';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import HiveIcon from '@mui/icons-material/Hive';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
 
 // Components
-import ChangeThemeComponent from '../templates/changeThemeComponent/changeThemeComponent';
-import MobileNavbar from './mobile-navbar/mobile-navbar';
-import Footer from './footer/footer';
+import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThemeComponent';
+import MobileNavbar from '../mobile-navbar/mobile-navbar';
+import Footer from '../footer/footer';
 
 function PagesLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { pathname } = useLocation();
 
   const theme = useSelector(state => state.themeReducer);
 
   return (
     <PagesLayoutStyle className="text-textMain dark:text-textMainDark">
-      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgPrimary px-7 py-4 dark:bg-darkPurple customXl:px-[140px]">
+      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgPrimary px-7 py-2 dark:bg-darkPurple">
         <div className="hidden items-center customMd:flex">
           <Tooltip
             title="alicryptovolley@gmail.com"
@@ -115,7 +118,7 @@ function PagesLayout() {
 
             <li>
               <NavLink
-                to="/"
+                to="/products"
                 className="transition-colors duration-200 hover:text-purple-600"
               >
                 محصولات
@@ -123,8 +126,18 @@ function PagesLayout() {
             </li>
 
             <li>
-              <Link to="/" className="text-2xl font-bold">
+              <NavLink
+                to="/"
+                className="text-[27px] transition-colors duration-200 hover:text-purple-600"
+              >
+                <HomeOutlinedIcon fontSize="inherit" />
+              </NavLink>
+            </li>
+
+            <li>
+              <Link to="/" className="flex items-end gap-2 text-2xl font-bold">
                 BOTMIX
+                <HiveIcon fontSize="large" />
               </Link>
             </li>
           </ul>
@@ -165,11 +178,11 @@ function PagesLayout() {
           <MobileNavbar />
         </Drawer>
       </header>
-      <div className="overflow-x-hidden bg-gradientPagesLayout px-7 dark:bg-gradientPagesLayoutDark customXl:px-[140px]">
+      <div className="overflow-x-hidden bg-bgPrimary px-7 dark:bg-darkPurple customXl:px-[140px]">
         <Outlet />
       </div>
 
-      <Footer />
+      {pathname === '/' && <Footer />}
     </PagesLayoutStyle>
   );
 }

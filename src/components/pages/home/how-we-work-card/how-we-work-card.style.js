@@ -6,6 +6,7 @@ export const HowWeWorkCardStyle = styled.div(() => ({
   borderRadius: '16px',
   padding: '40px 23px',
   position: 'relative',
+  zIndex: 1,
 
   '& #linear-text': {
     WebkitTextFillColor: 'transparent',

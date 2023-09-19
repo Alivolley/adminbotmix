@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import AOS from 'aos';
 
 // MUI
@@ -10,10 +11,20 @@ import { useSelector } from 'react-redux';
 import getDesignTokens from '../../configs/theme';
 
 function AppLayout({ children }) {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
+  useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, [pathname]);
 
   const themeMode = useSelector(state => state.themeReducer);
 
