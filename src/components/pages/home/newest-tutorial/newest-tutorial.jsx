@@ -1,15 +1,9 @@
 // Swiper
-// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-// eslint-disable-next-line import/no-unresolved
 import 'swiper/css';
-// eslint-disable-next-line import/no-unresolved
 import 'swiper/css/pagination';
-// eslint-disable-next-line import/no-unresolved
 import 'swiper/css/navigation';
-// eslint-disable-next-line import/no-unresolved
 import 'swiper/css/free-mode';
-// eslint-disable-next-line import/no-unresolved
 import { Pagination, FreeMode, Navigation } from 'swiper/modules';
 
 // Icons
