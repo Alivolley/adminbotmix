@@ -15,7 +15,7 @@ function HowWeWorkCard({ children, imageSrc, step, title }) {
       <div className="flex items-start gap-4">
         <img src={imageSrc} alt={title} className="h-10 w-10" />
         <div className="space-y-4 border-r-[1px] border-solid border-gray-300 pr-5 dark:border-gray-800">
-          <h3 className="text-xl font-bold">{title}</h3>
+          <h3 className="text-lg font-bold">{title}</h3>
           <p className="text-sm leading-6">{children}</p>
         </div>
       </div>
