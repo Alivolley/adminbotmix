@@ -34,7 +34,7 @@ function BannerHome() {
                   باتمیکس
                 </span>
               </p>
-              <ul className="">
+              <ul className=" mt-6 list-disc space-y-2 pr-4 text-sm customSm:text-base">
                 <li>ربات تریدر اتوماتیک تکنیکال و آربیتراژ</li>
                 <li>رابط تریدینگ ویو به صرافی و تلگرام</li>
                 <li>خدمات برنامه نویسی بازار رمزارزها</li>
@@ -53,20 +53,20 @@ function BannerHome() {
               </div>
 
               <div className="mx-auto mt-12 flex w-fit items-center justify-between customSm:mx-0 customSm:mt-24">
-                <div className="flex flex-col items-center justify-center pl-5">
+                <div className="flex flex-col items-center justify-center pl-5 text-textGray">
                   <p className="font-lalezar text-xl customSm:text-5xl">
-                    <sup className="font-vazir customSm:text-2xl">+</sup>
-                    <CountUp end={38} duration={3} />k
+                    <CountUp end={38000} duration={3} />
                   </p>
-                  <p className="text-center">تعداد کاربران</p>
+                  <p className="text-center text-[13px]">تعداد کاربران</p>
                 </div>
 
-                <div className="flex flex-col items-center justify-center border-r-[1px] border-solid border-stone-600 pr-5">
+                <div className="flex flex-col items-center justify-center border-r-[1px] border-solid border-stone-600 pr-5 text-textGray">
                   <p className="font-lalezar text-xl customSm:text-5xl">
-                    <sup className="font-vazir customSm:text-2xl">+</sup>
-                    <CountUp end={52} duration={3} />k
+                    $ <CountUp end={52000} duration={3} />
                   </p>
-                  <p className="text-center">سرمایه در گردش ربات</p>
+                  <p className="text-center text-[13px]">
+                    سرمایه در گردش ربات های باتمیکس
+                  </p>
                 </div>
               </div>
             </div>

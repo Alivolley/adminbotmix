@@ -129,7 +129,7 @@ function PagesLayout() {
 
                 <div
                   id="dropdownBox"
-                  className="bg-darkPurple dark:bg-bgPrimary"
+                  className="bg-grayBackground dark:bg-bgSecondary"
                 >
                   <NavLink
                     to="/some"
@@ -161,7 +161,7 @@ function PagesLayout() {
 
                 <div
                   id="dropdownBox"
-                  className="bg-darkPurple dark:bg-bgPrimary"
+                  className="bg-grayBackground dark:bg-bgSecondary"
                 >
                   <NavLink
                     to="/some"
