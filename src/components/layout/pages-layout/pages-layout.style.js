@@ -30,7 +30,7 @@ export const PagesLayoutStyle = styled.div(() => ({
     right: 0,
     top: '30px',
     borderRadius: '7px',
-    width: '200px',
+    width: '160px',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'hidden',

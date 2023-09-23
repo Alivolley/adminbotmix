@@ -25,11 +25,11 @@ function BannerHome() {
 
   return (
     <BannerHomeStyle>
-      <div className="mt-14 customMd:mt-[100px]">
+      <div className="mt-1 customMd:mt-[100px]">
         <Grid container spacing={{ xs: 15, md: 2 }}>
           <Grid item xs={12} md={6}>
             <div>
-              <p className="mt-6 font-lalezar text-5xl customSm:mt-[90px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
+              <p className="mt-6 font-lalezar text-[65px] customSm:mt-[60px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
                 <span id="linear-text" className="whitespace-nowrap">
                   باتمیکس
                 </span>

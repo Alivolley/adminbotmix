@@ -6,11 +6,12 @@ import { Button, Collapse } from '@mui/material';
 
 // Icons
 import PersonIcon from '@mui/icons-material/Person';
-import StorefrontIcon from '@mui/icons-material/Storefront';
 import ArticleIcon from '@mui/icons-material/Article';
 import SchoolIcon from '@mui/icons-material/School';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 // Assets
 import { MobileNavbarStyle } from './mobile-navbar.style';
@@ -18,8 +19,9 @@ import { MobileNavbarStyle } from './mobile-navbar.style';
 // Components
 import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThemeComponent';
 
-function MobileNavbar() {
+function MobileNavbar({ setMobileMenuOpen }) {
   const [marketCollapseOpen, setMarketCollapseOpen] = useState(false);
+  const [productsCollapseOpen, setProductsCollapseOpen] = useState(false);
 
   return (
     <MobileNavbarStyle className="w-[230px] px-5 py-8">
@@ -27,40 +29,12 @@ function MobileNavbar() {
         <ul className="space-y-4">
           <li>
             <NavLink
+              onClick={() => setMobileMenuOpen(false)}
               to="/"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
             >
               <HomeOutlinedIcon fontSize="small" />
               <p>صفحه اصلی</p>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/products"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
-            >
-              <StorefrontIcon fontSize="small" />
-              <p>محصولات</p>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/articles"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
-            >
-              <ArticleIcon fontSize="small" />
-              <p>مقاله ها</p>
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/tutorials"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
-            >
-              <SchoolIcon fontSize="small" />
-              <p>آموزش ها</p>
             </NavLink>
           </li>
 
@@ -80,18 +54,21 @@ function MobileNavbar() {
             <Collapse in={marketCollapseOpen} unmountOnExit>
               <div className="flex flex-col pr-4">
                 <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
                   to="/some"
                   className="px-3 py-4 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
                   نمودار
                 </NavLink>
                 <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
                   to="/some"
                   className="p-3 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
                   داده های اقتصادی
                 </NavLink>
                 <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
                   to="/some"
                   className="p-3 text-sm transition-colors duration-200 hover:text-purple-600"
                 >
@@ -99,6 +76,83 @@ function MobileNavbar() {
                 </NavLink>
               </div>
             </Collapse>
+          </li>
+
+          <li dir="ltr" className="pr-1">
+            <Button
+              className="!font-vazir"
+              endIcon={
+                <ExpandMoreIcon
+                  {...(marketCollapseOpen && { className: 'rotate-180' })}
+                />
+              }
+              color="inherit"
+              onClick={() => setProductsCollapseOpen(prev => !prev)}
+            >
+              محصولات
+            </Button>
+            <Collapse in={productsCollapseOpen} unmountOnExit>
+              <div className="flex flex-col pr-4">
+                <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
+                  to="/some"
+                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-purple-600"
+                >
+                  سبد گردانی
+                </NavLink>
+                <NavLink
+                  onClick={() => setMobileMenuOpen(false)}
+                  to="/some"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-purple-600"
+                >
+                  اشتراک ربات واسط
+                </NavLink>
+              </div>
+            </Collapse>
+          </li>
+
+          <li>
+            <NavLink
+              onClick={() => setMobileMenuOpen(false)}
+              to="/tutorials"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
+            >
+              <SchoolIcon fontSize="small" />
+              <p>آموزش ها</p>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              onClick={() => setMobileMenuOpen(false)}
+              to="/articles"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
+            >
+              <ArticleIcon fontSize="small" />
+              <p>مقاله ها</p>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              onClick={() => setMobileMenuOpen(false)}
+              to="/rules"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
+            >
+              <GavelOutlinedIcon fontSize="small" />
+              <p>قوانین</p>
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink
+              onClick={() => setMobileMenuOpen(false)}
+              to="/aboutUs"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
+            >
+              <GroupsIcon fontSize="small" />
+              <p>درباره ما</p>
+            </NavLink>
           </li>
 
           <li>
