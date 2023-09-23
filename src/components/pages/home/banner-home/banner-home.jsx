@@ -11,7 +11,6 @@ import { BannerHomeStyle } from './banner-home.style';
 
 // Components
 import LinkComponent from '../../../form-group/link-component/link-component';
-import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function BannerHome() {
   const testArray = [
@@ -29,23 +28,18 @@ function BannerHome() {
       <div className="mt-14 customMd:mt-[100px]">
         <Grid container spacing={{ xs: 15, md: 2 }}>
           <Grid item xs={12} md={6}>
-            <div className="relative">
-              <GlowingShadow
-                color="rgba(114, 91, 218, 0.2)"
-                className="bottom-[300%] right-0 top-0 z-0"
-              />
-
-              <p className="relative z-[1] mt-6 font-lalezar text-5xl customSm:mt-[90px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
-                تنها با چند کلیک{' '}
+            <div>
+              <p className="mt-6 font-lalezar text-5xl customSm:mt-[90px] customSm:text-start customSm:text-[80px] customSm:leading-[100px]">
                 <span id="linear-text" className="whitespace-nowrap">
-                  ربات تریدرت
-                </span>{' '}
-                رو بساز
+                  باتمیکس
+                </span>
               </p>
-              <p className="mt-8 max-w-lg leading-8">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                استفاده از طراحان گرافیک است در ستون و سطرآنچنان که لازم است
-              </p>
+              <ul className="">
+                <li>ربات تریدر اتوماتیک تکنیکال و آربیتراژ</li>
+                <li>رابط تریدینگ ویو به صرافی و تلگرام</li>
+                <li>خدمات برنامه نویسی بازار رمزارزها</li>
+                <li>سبدگردانی و کپی ترید اسپات</li>
+              </ul>
               <div className="mt-6 flex flex-wrap items-center justify-center gap-5 customSm:mt-12 customSm:justify-start">
                 <Link to="/">
                   <LinkComponent className="px-[82px]">ثبت نام</LinkComponent>
@@ -78,11 +72,7 @@ function BannerHome() {
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <div className="relative">
-              <GlowingShadow
-                color="rgba(60, 84, 166, 0.6)"
-                className="bottom-[60%] left-0 right-[75%] top-[40%]"
-              />
+            <div>
               <div>
                 <img
                   className="mx-auto w-full rounded-[60px]"

@@ -7,17 +7,11 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import GlowingShadow from '../../templates/glowing-shadow/glowing-shadow';
 
 function Footer() {
   return (
-    <footer className="relative bg-bgPrimary px-7 py-14 dark:bg-darkPurple">
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.3)"
-        className="right-0 top-[80%] z-0"
-      />
-
-      <div className="relative z-[1] mx-auto max-w-[1150px]">
+    <footer className="bg-bgSecondary px-7 py-14 dark:bg-grayBackground">
+      <div className="mx-auto max-w-[1150px]">
         <Grid container rowSpacing={5} columnSpacing={3}>
           <Grid item xs={12} md={6}>
             <p className="text-justify text-[15px] leading-[30px] dark:text-textGray">

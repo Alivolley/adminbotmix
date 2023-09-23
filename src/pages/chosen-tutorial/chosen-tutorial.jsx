@@ -14,29 +14,13 @@ import articlePicTest4 from '../../assets/images/user.jpg';
 import sampleVideo from '../../assets/videos/sample_video.mp4';
 
 // Components
-import GlowingShadow from '../../components/templates/glowing-shadow/glowing-shadow';
 import TutorialCard from '../../components/templates/tutorial-card/tutorial-card';
 import LinkComponent from '../../components/form-group/link-component/link-component';
 
 function ChosenTutorial() {
   return (
     <ChosenTutorialStyle>
-      <GlowingShadow
-        color="rgba(60, 84, 166, 0.6)"
-        className="-left-1 top-0 z-0"
-      />
-
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.3)"
-        className="-right-12 top-[50%] z-0"
-      />
-
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.3)"
-        className="-left-12 bottom-[-60%] z-0"
-      />
-
-      <div className="relative z-[1] mx-auto mb-36 mt-14 max-w-[1150px] customMd:mt-[140px]">
+      <div className="mx-auto mb-36 mt-14 max-w-[1150px] customMd:mt-[140px]">
         <Grid container spacing={6}>
           <Grid item xs={12} md={8.5}>
             <div>

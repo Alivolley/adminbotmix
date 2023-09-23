@@ -34,6 +34,9 @@ const getDesignTokens = mode => ({
     darkPurple: {
       main: '#070A29',
     },
+    grayBackground: {
+      main: '#191D24',
+    },
 
     ...(mode === 'dark' && {
       bgPrimary: {

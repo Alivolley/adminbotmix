@@ -25,6 +25,7 @@ export default {
         bgSecondaryDark: '#1F2733',
         textMainDark: '#ffffff',
         darkPurple: '#070A29',
+        grayBackground: '#191D24',
       },
 
       backgroundImage: {

@@ -11,7 +11,6 @@ import { HowWeWorkStyle } from './how-we-work.style';
 
 // Components
 import HowWeWorkCard from '../how-we-work-card/how-we-work-card';
-import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function HowWeWork() {
   return (
@@ -23,12 +22,7 @@ function HowWeWork() {
       <div className="mt-32">
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <div className="relative space-y-[25px]">
-              <GlowingShadow
-                color="rgba(114, 91, 218, 0.3)"
-                className="bottom-[40%] right-[-50%] top-[30%] z-0"
-              />
-
+            <div className="space-y-[25px]">
               <HowWeWorkCard
                 imageSrc={telegramTest}
                 step="اتصال به تلگرام"

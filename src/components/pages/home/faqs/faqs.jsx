@@ -15,19 +15,13 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FaqsStyle } from './faqs.style';
 
 // Components
-import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function Faqs() {
   const [chosenCategory, setChosenCategory] = useState('robot_interface');
 
   return (
     <FaqsStyle>
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.5)"
-        className="left-[-10%] top-48 z-0"
-      />
-
-      <p className="relative z-[1] text-center font-lalezar text-3xl customMd:text-[60px]">
+      <p className="text-center font-lalezar text-3xl customMd:text-[60px]">
         سوالات متدوال
       </p>
       <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-9">
@@ -35,7 +29,7 @@ function Faqs() {
         نامفهوم استفاده از طراحان سادگی نامفهوم و سطرآنچنان که لازم است
       </p>
 
-      <div className="relative z-[1] mt-9 flex flex-wrap items-center justify-center gap-5">
+      <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
         <button
           type="button"
           className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
@@ -71,7 +65,7 @@ function Faqs() {
         </button>
       </div>
 
-      <div className="relative z-[1] mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
+      <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
         <Grid container rowSpacing={1.5} columnSpacing={4}>
           <Grid item xs={12} md={6}>
             <div className="space-y-3">

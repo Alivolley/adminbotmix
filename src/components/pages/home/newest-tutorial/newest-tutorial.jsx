@@ -19,21 +19,15 @@ import articlePicTest4 from '../../../../assets/images/user.jpg';
 
 // Components
 import TutorialCard from '../../../templates/tutorial-card/tutorial-card';
-import GlowingShadow from '../../../templates/glowing-shadow/glowing-shadow';
 
 function NewestTutorial() {
   return (
     <NewestTutorialStyle>
-      <GlowingShadow
-        color="rgba(114, 91, 218, 0.5)"
-        className="right-0 top-[50%] z-0"
-      />
-
-      <p className="relative z-[1] text-center font-lalezar text-3xl customMd:text-[60px]">
+      <p className="text-center font-lalezar text-3xl customMd:text-[60px]">
         آموزش های لازم
       </p>
 
-      <div className="relative z-[1] mx-[-20px] mt-32 customSm:mx-[-140px]">
+      <div className="mx-[-20px] mt-32 customSm:mx-[-140px]">
         <Swiper
           spaceBetween={30}
           loop

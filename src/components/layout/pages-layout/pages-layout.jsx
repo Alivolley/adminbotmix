@@ -31,7 +31,7 @@ function PagesLayout() {
 
   return (
     <PagesLayoutStyle className="text-textMain dark:text-textMainDark">
-      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgPrimary px-7 py-2 dark:bg-darkPurple">
+      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgSecondary px-7 py-2 dark:bg-grayBackground">
         <div className="hidden items-center customMd:flex">
           <Tooltip
             title="alicryptovolley@gmail.com"
@@ -179,7 +179,7 @@ function PagesLayout() {
           <MobileNavbar />
         </Drawer>
       </header>
-      <div className="overflow-x-hidden bg-bgPrimary px-7 dark:bg-darkPurple customXl:px-[140px]">
+      <div className="overflow-x-hidden bg-bgSecondary px-7 dark:bg-grayBackground customXl:px-[140px]">
         <Outlet />
       </div>
 
