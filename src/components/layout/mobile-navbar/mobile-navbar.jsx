@@ -147,11 +147,11 @@ function MobileNavbar({ setMobileMenuOpen }) {
           <li>
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
-              to="/aboutUs"
+              to="/contactUs"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-purple-600"
             >
               <GroupsIcon fontSize="small" />
-              <p>درباره ما</p>
+              <p>ارتباط با ما</p>
             </NavLink>
           </li>
 

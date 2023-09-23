@@ -82,10 +82,10 @@ function PagesLayout() {
           <ul className="hidden items-center justify-center gap-10 text-[13px] customLg:flex">
             <li>
               <NavLink
-                to="/aboutUs"
+                to="/contactUs"
                 className="transition-colors duration-200 hover:text-purple-600"
               >
-                درباره ی ما
+                ارتباط با ما
               </NavLink>
             </li>
 

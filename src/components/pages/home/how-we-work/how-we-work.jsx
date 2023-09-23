@@ -3,10 +3,13 @@ import { Grid } from '@mui/material';
 
 // Assets
 import portfolioTest from '../../../../assets/images/portfolioTest.png';
-import candlestickTest from '../../../../assets/icons/icon-candlestick.png';
-import exchangeTest from '../../../../assets/icons/icon-exchange.png';
 import robotTest from '../../../../assets/icons/icon-robot.png';
 import telegramTest from '../../../../assets/icons/icon-telegram.png';
+import codeTest from '../../../../assets/icons/icon-code.png';
+import portfolioTestIcon from '../../../../assets/icons/icon-portfolio.png';
+import robot2Test from '../../../../assets/icons/icon-robot-2.png';
+
+// Assets
 import { HowWeWorkStyle } from './how-we-work.style';
 
 // Components
@@ -24,7 +27,7 @@ function HowWeWork() {
           <Grid item xs={12} md={6}>
             <div className="space-y-[25px]">
               <HowWeWorkCard
-                imageSrc={telegramTest}
+                imageSrc={robotTest}
                 step="ربات تکنیکال"
                 title="ربات تریدر (تکنیکال) خودکار"
               >
@@ -33,7 +36,7 @@ function HowWeWork() {
               </HowWeWorkCard>
 
               <HowWeWorkCard
-                imageSrc={exchangeTest}
+                imageSrc={robot2Test}
                 step="ربات آربیتراژ"
                 title="ربات تریدر (آربیتراژ) خودکار"
               >
@@ -43,7 +46,7 @@ function HowWeWork() {
               </HowWeWorkCard>
 
               <HowWeWorkCard
-                imageSrc={candlestickTest}
+                imageSrc={portfolioTestIcon}
                 step="سبد گردانی"
                 title="سبد گردانی"
               >
@@ -53,7 +56,7 @@ function HowWeWork() {
               </HowWeWorkCard>
 
               <HowWeWorkCard
-                imageSrc={robotTest}
+                imageSrc={telegramTest}
                 step="ارسال سیگنال"
                 title="ارسال سیگنال از تریدینگ ویو به صرافی و تلگرام"
               >
@@ -66,7 +69,7 @@ function HowWeWork() {
               </HowWeWorkCard>
 
               <HowWeWorkCard
-                imageSrc={robotTest}
+                imageSrc={codeTest}
                 step="برنامه نویسی"
                 title="خدمات برنامه نویسی بازار های مالی ( ربات تریدر و ...)"
               >

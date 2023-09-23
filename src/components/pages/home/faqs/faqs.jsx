@@ -17,7 +17,7 @@ import { FaqsStyle } from './faqs.style';
 // Components
 
 function Faqs() {
-  const [chosenCategory, setChosenCategory] = useState('robot_interface');
+  const [chosenCategory, setChosenCategory] = useState('automatic_robot');
 
   return (
     <FaqsStyle>
@@ -33,35 +33,24 @@ function Faqs() {
         <button
           type="button"
           className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
+            chosenCategory === 'automatic_robot'
+              ? 'bg-gradientBtnPurple text-white'
+              : ''
+          }`}
+          onClick={() => setChosenCategory('automatic_robot')}
+        >
+          ربات تریدر اتوماتیک
+        </button>
+        <button
+          type="button"
+          className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
             chosenCategory === 'robot_interface'
               ? 'bg-gradientBtnPurple text-white'
               : ''
           }`}
           onClick={() => setChosenCategory('robot_interface')}
         >
-          ربات واسط
-        </button>
-        <button
-          type="button"
-          className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
-            chosenCategory === 'connect_to_telegram'
-              ? 'bg-gradientBtnPurple text-white'
-              : ''
-          }`}
-          onClick={() => setChosenCategory('connect_to_telegram')}
-        >
-          اتصال به تلگرام
-        </button>
-        <button
-          type="button"
-          className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
-            chosenCategory === 'trader_bot'
-              ? 'bg-gradientBtnPurple text-white'
-              : ''
-          }`}
-          onClick={() => setChosenCategory('trader_bot')}
-        >
-          ربات تریدر اتوماتیک
+          ربات واسط تریدینگ ویو به صرافی و تلگرام
         </button>
       </div>
 
