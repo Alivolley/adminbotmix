@@ -1,5 +1,6 @@
 // Components
 import BannerHome from '../../components/pages/home/banner-home/banner-home';
+import BenefitsOfUs from '../../components/pages/home/benefits-of-us/benefits-of-us';
 import Faqs from '../../components/pages/home/faqs/faqs';
 import HowWeWork from '../../components/pages/home/how-we-work/how-we-work';
 import NewestArticles from '../../components/pages/home/newest-articles/newest-articles';
@@ -11,6 +12,7 @@ function Home() {
       <BannerHome />
       <HowWeWork />
       <NewestArticles />
+      <BenefitsOfUs />
       <NewestTutorial />
       <Faqs />
     </main>

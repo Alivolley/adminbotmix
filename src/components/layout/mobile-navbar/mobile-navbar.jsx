@@ -170,6 +170,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
 
           <li>
             <NavLink
+              onClick={() => setMobileMenuOpen(false)}
               to="/login"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
             >

@@ -11,6 +11,7 @@ import Login from '../pages/login/login';
 import Products from '../pages/products/products';
 import ProfileSetting from '../pages/profile-setting/profile-setting';
 import Robots from '../pages/robots/robots';
+import Rules from '../pages/rules/rules';
 import Tutorials from '../pages/tutorials/tutorials';
 import PagesLayout from './layout/pages-layout/pages-layout';
 
@@ -23,6 +24,7 @@ const routes = [
       { path: 'login', element: <Login /> },
       { path: 'products', element: <Products /> },
       { path: 'contactUs', element: <ContactUs /> },
+      { path: 'rules', element: <Rules /> },
       { path: 'articles', element: <Articles /> },
       { path: 'tutorials', element: <Tutorials /> },
       { path: 'article/:id', element: <ChosenArticle /> },

@@ -12,7 +12,7 @@ import HiveIcon from '@mui/icons-material/Hive';
 
 function Footer() {
   return (
-    <footer className="bg-bgSecondary px-7 py-14 dark:bg-grayBackground">
+    <footer className="border-t border-gray-300 bg-bgSecondary px-7 py-14 dark:border-gray-800 dark:bg-grayBackground">
       <div className="mx-auto max-w-[1150px]">
         <Grid container rowSpacing={5} columnSpacing={3}>
           <Grid item xs={12} md={5}>
