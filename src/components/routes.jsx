@@ -7,6 +7,7 @@ import Connecting from '../pages/connecting/connecting';
 import ContactUs from '../pages/contactUs/contactUs';
 import Dashboard from '../pages/dashboard/dashboard';
 import Home from '../pages/home/Home';
+import Login from '../pages/login/login';
 import Products from '../pages/products/products';
 import ProfileSetting from '../pages/profile-setting/profile-setting';
 import Robots from '../pages/robots/robots';
@@ -19,6 +20,7 @@ const routes = [
     element: <PagesLayout />,
     children: [
       { path: '', element: <Home /> },
+      { path: 'login', element: <Login /> },
       { path: 'products', element: <Products /> },
       { path: 'contactUs', element: <ContactUs /> },
       { path: 'articles', element: <Articles /> },

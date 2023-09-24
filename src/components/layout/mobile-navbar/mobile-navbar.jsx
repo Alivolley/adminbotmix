@@ -12,6 +12,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined';
 import GroupsIcon from '@mui/icons-material/Groups';
+import LoginIcon from '@mui/icons-material/Login';
 
 // Assets
 import { MobileNavbarStyle } from './mobile-navbar.style';
@@ -165,6 +166,16 @@ function MobileNavbar({ setMobileMenuOpen }) {
               <PersonIcon fontSize="small" />
               <p>پنل کاربری</p>
             </Link>
+          </li>
+
+          <li>
+            <NavLink
+              to="/login"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+            >
+              <LoginIcon fontSize="small" />
+              <p>ورود</p>
+            </NavLink>
           </li>
 
           <li>

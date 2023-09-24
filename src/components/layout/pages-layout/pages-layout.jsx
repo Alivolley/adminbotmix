@@ -16,6 +16,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import HiveIcon from '@mui/icons-material/Hive';
 import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
 import Brightness5OutlinedIcon from '@mui/icons-material/Brightness5Outlined';
+import LoginIcon from '@mui/icons-material/Login';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
@@ -40,6 +41,14 @@ function PagesLayout() {
     <PagesLayoutStyle className="text-textMain dark:text-textMainDark">
       <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgSecondary px-7 py-2 dark:bg-grayBackground">
         <div className="hidden items-center customLg:flex">
+          <NavLink
+            to="/login"
+            className="flex items-center gap-2 rounded-md p-2 text-[13px] transition-colors duration-200 hover:text-violet-500"
+          >
+            <LoginIcon fontSize="small" />
+            <p>ورود</p>
+          </NavLink>
+
           <Tooltip
             title="alicryptovolley@gmail.com"
             classes={{

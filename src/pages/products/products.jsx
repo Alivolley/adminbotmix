@@ -49,7 +49,21 @@ function Products() {
         </button>
       </div>
 
-      {chosenCategory === 'robot_interface' && <div>some</div>}
+      {chosenCategory === 'robot_interface' && (
+        <div className="mt-9 customSm:mt-16">
+          <Grid container spacing={5}>
+            <Grid item xs={12} sm={6} md={4}>
+              کارت اشتراک ربات
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              کارت اشتراک ربات
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              کارت اشتراک ربات
+            </Grid>
+          </Grid>
+        </div>
+      )}
 
       {chosenCategory === 'portfolio_management' && (
         <div className="mt-9 customSm:mt-16">

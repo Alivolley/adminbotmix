@@ -58,6 +58,10 @@ export default {
         lalezar: 'lalezar',
         adlam: 'adlam',
       },
+
+      boxShadow: {
+        purpleShadow: '0px 0px 24px 7px rgba(47,40,108,0.7)',
+      },
     },
   },
   plugins: [],
