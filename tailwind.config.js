@@ -35,6 +35,9 @@ export default {
         gradientBtnPurple: 'linear-gradient(264.28deg,#5c27fe 0%,#dec7ff 150%)',
 
         gradientBtnGray:
+          'linear-gradient(264.28deg, hsl(0deg 0% 0% / 40%) -38.2%, hsl(0deg 0% 0% / 15%) 103.12%)',
+
+        gradientBtnGrayDark:
           'linear-gradient(264.28deg,hsla(0,0%,100%,0) -38.2%,hsla(0,0%,100%,.1) 103.12%)',
 
         gradientPagesLayout: 'linear-gradient(90deg, #fff 0%, #F7FAFC 55%)',
@@ -43,6 +46,9 @@ export default {
           'linear-gradient(90deg, rgba(47,40,108,1) 0%, #070A29 55%)',
 
         gradientAccordion:
+          'linear-gradient(89.96deg, hsl(0deg 0% 0% / 10%) .03%, hsl(0deg 0% 0% / 20%) 49.67%, hsl(0deg 0% 0% / 10%) 99.96%)',
+
+        gradientAccordionDark:
           'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
       },
 

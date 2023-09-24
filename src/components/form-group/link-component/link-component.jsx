@@ -5,10 +5,10 @@ function LinkComponent({ children, className, color, onClick }) {
   return (
     <LinkComponentStyle onClick={onClick}>
       <p
-        className={`${
+        className={`text-white ${
           color === 'gray'
-            ? 'bg-gradientBtnGray text-black dark:text-white'
-            : 'bg-gradientBtnPurple text-white'
+            ? 'bg-gradientBtnGray dark:bg-gradientBtnGrayDark'
+            : 'bg-gradientBtnPurple'
         } ${className}`}
       >
         {children}

@@ -33,22 +33,24 @@ function Faqs() {
       <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
         <button
           type="button"
-          className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
-            chosenCategory === 'automatic_robot'
-              ? 'bg-gradientBtnPurple text-white'
-              : ''
-          }`}
+          className={`whitespace-nowrap rounded-lg bg-gradientBtnGray px-4 py-[6px] text-sm backdrop:blur-sm
+           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+             chosenCategory === 'automatic_robot'
+               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
+               : ''
+           }`}
           onClick={() => setChosenCategory('automatic_robot')}
         >
           ربات تریدر اتوماتیک
         </button>
         <button
           type="button"
-          className={`whitespace-nowrap rounded-lg bg-[#ffffff1a] px-4 py-[6px] text-sm backdrop:blur-sm dark:text-textMainDark ${
-            chosenCategory === 'robot_interface'
-              ? 'bg-gradientBtnPurple text-white'
-              : ''
-          }`}
+          className={`whitespace-nowrap rounded-lg bg-gradientBtnGray px-4 py-[6px] text-sm backdrop:blur-sm
+           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+             chosenCategory === 'robot_interface'
+               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
+               : ''
+           }`}
           onClick={() => setChosenCategory('robot_interface')}
         >
           ربات واسط تریدینگ ویو به صرافی و تلگرام
@@ -63,27 +65,31 @@ function Faqs() {
                 {faqData?.automaticRobot?.map(
                   (item, index) =>
                     index < 3 && (
-                      <Accordion
+                      <div
                         key={item?.id}
-                        className="!bg-[#ffffff1a] bg-none"
-                        sx={{
-                          boxShadow: 'none',
-                          '&.MuiAccordion-root:before': {
-                            display: 'none',
-                          },
-                        }}
+                        className="bg-gradientAccordion dark:bg-gradientAccordionDark"
                       >
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                        <Accordion
+                          className="!bg-inherit"
+                          sx={{
+                            boxShadow: 'none',
+                            '&.MuiAccordion-root:before': {
+                              display: 'none',
+                            },
+                          }}
                         >
-                          <p>{item?.title}</p>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <p>{item?.description}</p>
-                        </AccordionDetails>
-                      </Accordion>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <p>{item?.title}</p>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <p>{item?.description}</p>
+                          </AccordionDetails>
+                        </Accordion>
+                      </div>
                     ),
                 )}
               </div>
@@ -93,27 +99,31 @@ function Faqs() {
                 {faqData?.automaticRobot?.map(
                   (item, index) =>
                     index >= 3 && (
-                      <Accordion
+                      <div
                         key={item?.id}
-                        className="!bg-[#ffffff1a] bg-none"
-                        sx={{
-                          boxShadow: 'none',
-                          '&.MuiAccordion-root:before': {
-                            display: 'none',
-                          },
-                        }}
+                        className="bg-gradientAccordion dark:bg-gradientAccordionDark"
                       >
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                        <Accordion
+                          className="!bg-inherit"
+                          sx={{
+                            boxShadow: 'none',
+                            '&.MuiAccordion-root:before': {
+                              display: 'none',
+                            },
+                          }}
                         >
-                          <p>{item?.title}</p>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <p>{item?.description}</p>
-                        </AccordionDetails>
-                      </Accordion>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <p>{item?.title}</p>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <p>{item?.description}</p>
+                          </AccordionDetails>
+                        </Accordion>
+                      </div>
                     ),
                 )}
               </div>
@@ -130,27 +140,31 @@ function Faqs() {
                 {faqData?.robotInterface?.map(
                   (item, index) =>
                     index < 3 && (
-                      <Accordion
+                      <div
                         key={item?.id}
-                        className="!bg-[#ffffff1a] bg-none"
-                        sx={{
-                          boxShadow: 'none',
-                          '&.MuiAccordion-root:before': {
-                            display: 'none',
-                          },
-                        }}
+                        className="bg-gradientAccordion dark:bg-gradientAccordionDark"
                       >
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                        <Accordion
+                          className="!bg-inherit"
+                          sx={{
+                            boxShadow: 'none',
+                            '&.MuiAccordion-root:before': {
+                              display: 'none',
+                            },
+                          }}
                         >
-                          <p>{item?.title}</p>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <p>{item?.description}</p>
-                        </AccordionDetails>
-                      </Accordion>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <p>{item?.title}</p>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <p>{item?.description}</p>
+                          </AccordionDetails>
+                        </Accordion>
+                      </div>
                     ),
                 )}
               </div>
@@ -160,27 +174,31 @@ function Faqs() {
                 {faqData?.robotInterface?.map(
                   (item, index) =>
                     index >= 3 && (
-                      <Accordion
+                      <div
                         key={item?.id}
-                        className="!bg-[#ffffff1a] bg-none"
-                        sx={{
-                          boxShadow: 'none',
-                          '&.MuiAccordion-root:before': {
-                            display: 'none',
-                          },
-                        }}
+                        className="bg-gradientAccordion dark:bg-gradientAccordionDark"
                       >
-                        <AccordionSummary
-                          expandIcon={<ExpandMoreIcon />}
-                          aria-controls="panel1a-content"
-                          id="panel1a-header"
+                        <Accordion
+                          className="!bg-inherit"
+                          sx={{
+                            boxShadow: 'none',
+                            '&.MuiAccordion-root:before': {
+                              display: 'none',
+                            },
+                          }}
                         >
-                          <p>{item?.title}</p>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                          <p>{item?.description}</p>
-                        </AccordionDetails>
-                      </Accordion>
+                          <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <p>{item?.title}</p>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <p>{item?.description}</p>
+                          </AccordionDetails>
+                        </Accordion>
+                      </div>
                     ),
                 )}
               </div>
