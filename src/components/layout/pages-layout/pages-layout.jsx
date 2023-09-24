@@ -50,7 +50,7 @@ function PagesLayout() {
           >
             <Link
               to="/admin-panel"
-              className="flex items-center gap-2 rounded-md p-2 text-[13px] transition-colors duration-200 hover:text-purple-600"
+              className="flex items-center gap-2 rounded-md p-2 text-[13px] transition-colors duration-200 hover:text-violet-500"
             >
               <PersonIcon fontSize="small" />
               <p>پنل کاربری</p>
@@ -83,7 +83,7 @@ function PagesLayout() {
             <li>
               <NavLink
                 to="/contactUs"
-                className="transition-colors duration-200 hover:text-purple-600"
+                className="transition-colors duration-200 hover:text-violet-500"
               >
                 ارتباط با ما
               </NavLink>
@@ -92,7 +92,7 @@ function PagesLayout() {
             <li>
               <NavLink
                 to="/rules"
-                className="transition-colors duration-200 hover:text-purple-600"
+                className="transition-colors duration-200 hover:text-violet-500"
               >
                 قوانین
               </NavLink>
@@ -101,7 +101,7 @@ function PagesLayout() {
             <li>
               <NavLink
                 to="/articles"
-                className="transition-colors duration-200 hover:text-purple-600"
+                className="transition-colors duration-200 hover:text-violet-500"
               >
                 مقاله ها
               </NavLink>
@@ -110,7 +110,7 @@ function PagesLayout() {
             <li>
               <NavLink
                 to="/tutorials"
-                className="transition-colors duration-200 hover:text-purple-600"
+                className="transition-colors duration-200 hover:text-violet-500"
               >
                 آموزش ها
               </NavLink>
@@ -121,7 +121,7 @@ function PagesLayout() {
                 <NavLink
                   to="/products"
                   id="dropdownBtn"
-                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-purple-600"
+                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-violet-500"
                 >
                   محصولات
                   <KeyboardArrowDownIcon fontSize="small" />
@@ -134,14 +134,14 @@ function PagesLayout() {
                   <NavLink
                     to="/some"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-purple-600 dark:text-textMain"
+                    hover:!text-violet-600 dark:text-textMain"
                   >
                     سبدگردانی
                   </NavLink>
                   <NavLink
                     to="/some"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-purple-600 dark:text-textMain"
+                    hover:!text-violet-600 dark:text-textMain"
                   >
                     اشتراک رباط واسط
                   </NavLink>
@@ -153,7 +153,7 @@ function PagesLayout() {
               <div id="dropdownWrapper">
                 <p
                   id="dropdownBtn"
-                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-purple-600"
+                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-violet-500"
                 >
                   بازار
                   <KeyboardArrowDownIcon fontSize="small" />
@@ -166,21 +166,21 @@ function PagesLayout() {
                   <NavLink
                     to="/some"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-purple-600 dark:text-textMain"
+                    hover:!text-violet-600 dark:text-textMain"
                   >
                     نمودار
                   </NavLink>
                   <NavLink
                     to="/some"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-purple-600 dark:text-textMain"
+                    hover:!text-violet-600 dark:text-textMain"
                   >
                     داده های اقتصادی
                   </NavLink>
                   <NavLink
                     to="/some"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-purple-600 dark:text-textMain"
+                    hover:!text-violet-600 dark:text-textMain"
                   >
                     قیمت ارزهای دیجیتال
                   </NavLink>
@@ -191,7 +191,7 @@ function PagesLayout() {
             <li>
               <NavLink
                 to="/"
-                className="text-2xl transition-colors duration-200 hover:text-purple-600"
+                className="text-2xl transition-colors duration-200 hover:text-violet-500"
               >
                 <HomeOutlinedIcon fontSize="inherit" />
               </NavLink>

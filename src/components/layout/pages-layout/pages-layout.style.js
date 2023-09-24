@@ -3,7 +3,7 @@ import { yellow } from '@mui/material/colors';
 
 export const PagesLayoutStyle = styled.div(() => ({
   '.active': {
-    color: '#7c3aed',
+    color: '#8b5cf6',
   },
 
   '& #dropdownWrapper': {

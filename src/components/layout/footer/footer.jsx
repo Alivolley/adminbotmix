@@ -8,7 +8,6 @@ import MailIcon from '@mui/icons-material/Mail';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import HiveIcon from '@mui/icons-material/Hive';
 
 function Footer() {
@@ -28,7 +27,7 @@ function Footer() {
 
               <p className="text-justify text-[15px] leading-[30px] dark:text-textGray">
                 وبسایت{' '}
-                <span className="font-bold text-purple-500"> باتمیکس</span>{' '}
+                <span className="font-bold text-violet-500"> باتمیکس</span>{' '}
                 ارائه دهنده ربات تریدر هوشمند ( تکنیکال و آربیتراژ اتوماتیک ) و
                 ربات کمک تریدر و واسط تریدینگ ، و خدمات برنامه نویسی بازارهای
                 مالی ، در شهر بندرانزلی است. ما با تمرکز بر سه ویژگی، یعنی: قابل
@@ -54,31 +53,31 @@ function Footer() {
               <div className="flex flex-col gap-4">
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-purple-500"
+                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
                 >
                   ربات تریدر
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-purple-500"
+                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
                 >
                   ربات واسط
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-purple-500"
+                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
                 >
                   قیمت رمزارزها
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-purple-500"
+                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
                 >
                   ربات واسط api
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-purple-500"
+                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
                 >
                   آموزش ها
                 </Link>
@@ -111,7 +110,7 @@ function Footer() {
                 </div>
               </div>
 
-              <p>botmix@gmail.com</p>
+              <p>contact@botmix.ir</p>
 
               <div className="space-y-2 text-sm tracking-[1px]">
                 <p>۰۹۹۶۲۵۶۳۴۰۰</p>
@@ -121,14 +120,6 @@ function Footer() {
               <p className="text-sm">
                 هفت روز هفته و ۲۴ ساعته پاسخگوی شما عزیزان هستیم
               </p>
-
-              <div className="mt-4 flex items-start">
-                <address className="text-sm not-italic text-textGray">
-                  گیلان / رشت - بلوار دیلمان - خیابان یلدا -کوچه توحید1 -
-                  آپارتمان پارسا (پلاک 19)
-                </address>
-                <LocationOnIcon color="secondary" />
-              </div>
             </div>
           </Grid>
           <Grid item xs={12}>
