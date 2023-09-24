@@ -13,6 +13,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 // Assets
 import { FaqsStyle } from './faqs.style';
+import faqData from './faqData';
 
 // Components
 
@@ -54,166 +55,139 @@ function Faqs() {
         </button>
       </div>
 
-      <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
-        <Grid container rowSpacing={1.5} columnSpacing={4}>
-          <Grid item xs={12} md={6}>
-            <div className="space-y-3">
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۱</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۲</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۳</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-            </div>
+      {chosenCategory === 'automatic_robot' && (
+        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
+          <Grid container rowSpacing={1.5} columnSpacing={4}>
+            <Grid item xs={12} md={6}>
+              <div className="space-y-3">
+                {faqData?.automaticRobot?.map(
+                  (item, index) =>
+                    index < 3 && (
+                      <Accordion
+                        key={item?.id}
+                        className="!bg-[#ffffff1a] bg-none"
+                        sx={{
+                          boxShadow: 'none',
+                          '&.MuiAccordion-root:before': {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <p>{item?.title}</p>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <p>{item?.description}</p>
+                        </AccordionDetails>
+                      </Accordion>
+                    ),
+                )}
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className="space-y-3">
+                {faqData?.automaticRobot?.map(
+                  (item, index) =>
+                    index >= 3 && (
+                      <Accordion
+                        key={item?.id}
+                        className="!bg-[#ffffff1a] bg-none"
+                        sx={{
+                          boxShadow: 'none',
+                          '&.MuiAccordion-root:before': {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <p>{item?.title}</p>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <p>{item?.description}</p>
+                        </AccordionDetails>
+                      </Accordion>
+                    ),
+                )}
+              </div>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <div className="space-y-3">
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۱</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
+        </div>
+      )}
 
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۲</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion
-                className="!bg-[#ffffff1a] bg-none"
-                sx={{
-                  boxShadow: 'none',
-                  '&.MuiAccordion-root:before': {
-                    display: 'none',
-                  },
-                }}
-              >
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <p>سوال ۳</p>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <p>
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و
-                    با سادگی نامفهوم استفاده از طراحان گرافیک است در ستون سادگی
-                    نامفهوم و سطرآنچنان که لازم است
-                  </p>
-                </AccordionDetails>
-              </Accordion>
-            </div>
+      {chosenCategory === 'robot_interface' && (
+        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
+          <Grid container rowSpacing={1.5} columnSpacing={4}>
+            <Grid item xs={12} md={6}>
+              <div className="space-y-3">
+                {faqData?.robotInterface?.map(
+                  (item, index) =>
+                    index < 3 && (
+                      <Accordion
+                        key={item?.id}
+                        className="!bg-[#ffffff1a] bg-none"
+                        sx={{
+                          boxShadow: 'none',
+                          '&.MuiAccordion-root:before': {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <p>{item?.title}</p>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <p>{item?.description}</p>
+                        </AccordionDetails>
+                      </Accordion>
+                    ),
+                )}
+              </div>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <div className="space-y-3">
+                {faqData?.robotInterface?.map(
+                  (item, index) =>
+                    index >= 3 && (
+                      <Accordion
+                        key={item?.id}
+                        className="!bg-[#ffffff1a] bg-none"
+                        sx={{
+                          boxShadow: 'none',
+                          '&.MuiAccordion-root:before': {
+                            display: 'none',
+                          },
+                        }}
+                      >
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <p>{item?.title}</p>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                          <p>{item?.description}</p>
+                        </AccordionDetails>
+                      </Accordion>
+                    ),
+                )}
+              </div>
+            </Grid>
           </Grid>
-        </Grid>
-      </div>
+        </div>
+      )}
     </FaqsStyle>
   );
 }
