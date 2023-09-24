@@ -121,7 +121,7 @@ function PagesLayout() {
                 <NavLink
                   to="/products"
                   id="dropdownBtn"
-                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-violet-500"
+                  className="flex items-center gap-2 py-3 transition-colors duration-200 hover:text-violet-500"
                 >
                   محصولات
                   <KeyboardArrowDownIcon fontSize="small" />
@@ -132,14 +132,16 @@ function PagesLayout() {
                   className="bg-grayBackground dark:bg-bgSecondary"
                 >
                   <NavLink
-                    to="/some"
+                    to="/products"
+                    state="portfolio_management"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
                     hover:!text-violet-600 dark:text-textMain"
                   >
                     سبدگردانی
                   </NavLink>
                   <NavLink
-                    to="/some"
+                    to="/products"
+                    state="robot_interface"
                     className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
                     hover:!text-violet-600 dark:text-textMain"
                   >
@@ -153,7 +155,7 @@ function PagesLayout() {
               <div id="dropdownWrapper">
                 <p
                   id="dropdownBtn"
-                  className="flex items-center gap-2 py-2 transition-colors duration-200 hover:text-violet-500"
+                  className="flex items-center gap-2 py-3 transition-colors duration-200 hover:text-violet-500"
                 >
                   بازار
                   <KeyboardArrowDownIcon fontSize="small" />

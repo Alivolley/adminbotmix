@@ -20,7 +20,7 @@ function Tutorials() {
         >
           لیست آموزش ها
         </h1>
-        <div className="relative mt-14 customSm:mt-24">
+        <div className="mt-14 customSm:mt-24">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6} md={4}>
               <TutorialCard imageSrc={articlePicTest} />

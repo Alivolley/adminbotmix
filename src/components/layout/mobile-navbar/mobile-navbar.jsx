@@ -95,14 +95,16 @@ function MobileNavbar({ setMobileMenuOpen }) {
               <div className="flex flex-col pr-4">
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
-                  to="/some"
+                  to="/products"
+                  state="portfolio_management"
                   className="px-3 py-4 text-sm transition-colors duration-200 hover:text-violet-600"
                 >
                   سبد گردانی
                 </NavLink>
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
-                  to="/some"
+                  to="/products"
+                  state="robot_interface"
                   className="p-3 text-sm transition-colors duration-200 hover:text-violet-600"
                 >
                   اشتراک ربات واسط
