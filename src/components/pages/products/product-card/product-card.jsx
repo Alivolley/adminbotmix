@@ -22,11 +22,7 @@ function ProductCard({ imageSrc }) {
         <p className="text-sm">325000 تومان</p>
       </div>
 
-      <Button
-        className="w-full !font-vazir"
-        variant="contained"
-        // color="textGray"
-      >
+      <Button className="w-full !font-vazir" variant="contained">
         خرید
       </Button>
     </ProductCardStyle>

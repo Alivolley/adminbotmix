@@ -16,12 +16,12 @@ import ProductCard from '../../components/pages/products/product-card/product-ca
 function Products() {
   const location = useLocation();
 
-  const [chosenCategory, setChosenCategory] = useState(
-    location.state || 'robot_interface',
-  );
+  const [chosenCategory, setChosenCategory] = useState('robot_interface');
 
   useEffect(() => {
-    setChosenCategory(location.state);
+    if (location.state) {
+      setChosenCategory(location.state);
+    }
   }, [location.state]);
 
   return (
