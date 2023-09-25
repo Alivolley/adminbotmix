@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // MUI
@@ -19,6 +19,10 @@ function Products() {
   const [chosenCategory, setChosenCategory] = useState(
     location.state || 'robot_interface',
   );
+
+  useEffect(() => {
+    setChosenCategory(location.state);
+  }, [location.state]);
 
   return (
     <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
