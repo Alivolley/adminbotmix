@@ -54,7 +54,7 @@ function AdminPanel() {
         }}
         className="font-vazir"
       >
-        <Sidebar />
+        <Sidebar setMobileMenuOpen={setMobileMenuOpen} />
       </Drawer>
     </div>
   );

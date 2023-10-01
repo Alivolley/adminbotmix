@@ -6,7 +6,8 @@ export const SidebarStyle = styled.div(props => ({
 
   '& .active , #navLink:hover': {
     transition: 'all 0.2s',
-    backgroundColor: props.theme.colors.bgPrimary,
+    backgroundColor:
+      props.theme.palette.mode === 'dark' ? '#1A202C' : '#F7FAFC',
 
     '& #iconWrapper': {
       transition: 'all 0.2s',
@@ -18,5 +19,12 @@ export const SidebarStyle = styled.div(props => ({
       transition: 'all 0.2s',
       color: props.theme.colors.textMain,
     },
+  },
+
+  '& #goHomeLink': {
+    color:
+      props.theme.palette.mode === 'dark'
+        ? 'white'
+        : props.theme.colors.textMain,
   },
 }));

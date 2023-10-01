@@ -160,7 +160,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
 
           <li>
             <Link
-              to="/admin-panel"
+              to="/admin-panel/dashboard"
               className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
             >
               <PersonIcon fontSize="small" />
@@ -180,7 +180,11 @@ function MobileNavbar({ setMobileMenuOpen }) {
           </li>
 
           <li>
-            <Button className="gap-2 !font-vazir" variant="text" color="error">
+            <Button
+              className="gap-2 !font-vazir"
+              variant="text"
+              color="inherit"
+            >
               خروج از حساب
             </Button>
           </li>

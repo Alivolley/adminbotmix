@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, NavLink, Outlet, useLocation } from 'react-router-dom';
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // MUI
 import { Button, Drawer, IconButton, Tooltip } from '@mui/material';
@@ -14,26 +14,20 @@ import PersonIcon from '@mui/icons-material/Person';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import HiveIcon from '@mui/icons-material/Hive';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import Brightness5OutlinedIcon from '@mui/icons-material/Brightness5Outlined';
 import LoginIcon from '@mui/icons-material/Login';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
-import {
-  changeToDarkMode,
-  changeToLightMode,
-} from '../../../store/reducers/themeReducer';
 
 // Components
 import MobileNavbar from '../mobile-navbar/mobile-navbar';
 import Footer from '../footer/footer';
+import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThemeComponent';
 
 function PagesLayout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const { pathname } = useLocation();
-  const dispatch = useDispatch();
 
   const theme = useSelector(state => state.themeReducer);
 
@@ -58,7 +52,7 @@ function PagesLayout() {
             arrow
           >
             <Link
-              to="/admin-panel"
+              to="/admin-panel/dashboard"
               className="flex items-center gap-2 rounded-md p-2 text-[13px] transition-colors duration-200 hover:text-violet-500"
             >
               <PersonIcon fontSize="small" />
@@ -75,15 +69,7 @@ function PagesLayout() {
           </Button>
 
           <div>
-            {theme === 'dark' ? (
-              <IconButton onClick={() => dispatch(changeToLightMode())}>
-                <DarkModeOutlinedIcon />
-              </IconButton>
-            ) : (
-              <IconButton onClick={() => dispatch(changeToDarkMode())}>
-                <Brightness5OutlinedIcon />
-              </IconButton>
-            )}
+            <ChangeThemeComponent />
           </div>
         </div>
 
