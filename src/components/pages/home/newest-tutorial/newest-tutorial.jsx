@@ -30,7 +30,7 @@ function NewestTutorial() {
       <div className="mx-[-20px] mt-32 customSm:mx-[-140px]">
         <Swiper
           spaceBetween={30}
-          loop
+          // loop
           freeMode
           navigation={{
             nextEl: '.swiper-button-next-custom',

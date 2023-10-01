@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
 // MUI
-import { Grid } from '@mui/material';
+import { Grid, IconButton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 
 // Icon
 import WalletIcon from '@mui/icons-material/Wallet';
 import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import GroupsIcon from '@mui/icons-material/Groups';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // Components
 import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
@@ -21,6 +24,8 @@ import TableComponent from '../../components/pages/dashboard/table-component/tab
 import userImage from '../../assets/images/user.jpg';
 
 function Dashboard() {
+  const [chosenChart, setChosenChart] = useState('robotsHistory');
+
   return (
     <div className="flex flex-col gap-4">
       <CardWrapper>
@@ -115,8 +120,46 @@ function Dashboard() {
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>
             <CardWrapper>
-              <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
-              <AreaChartComponent />
+              <div className="relative overflow-hidden">
+                <div
+                  className={`transition-all duration-500 ${
+                    chosenChart === 'transformHistory'
+                      ? 'visible translate-x-0 opacity-100'
+                      : 'invisible translate-x-[100%] opacity-0'
+                  }`}
+                >
+                  <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
+                  <AreaChartComponent />
+                </div>
+                <div
+                  className={`absolute inset-0 transition-all duration-500 ${
+                    chosenChart === 'robotsHistory'
+                      ? 'visible translate-x-0 opacity-100'
+                      : 'invisible translate-x-[-100%] opacity-0'
+                  }`}
+                >
+                  <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
+                  <AreaChartComponent />
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <IconButton
+                  onClick={() => setChosenChart('transformHistory')}
+                  disabled={chosenChart === 'transformHistory'}
+                  color="primary"
+                  size="small"
+                >
+                  <KeyboardArrowRightIcon />
+                </IconButton>
+                <IconButton
+                  onClick={() => setChosenChart('robotsHistory')}
+                  disabled={chosenChart === 'robotsHistory'}
+                  color="primary"
+                  size="small"
+                >
+                  <KeyboardArrowLeftIcon />
+                </IconButton>
+              </div>
             </CardWrapper>
           </Grid>
           <Grid item xs={12} md={4}>

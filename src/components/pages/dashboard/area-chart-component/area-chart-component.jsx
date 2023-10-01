@@ -12,38 +12,38 @@ function AreaChartComponent() {
   const data = [
     {
       name: 'Page A',
-      uv: 1200,
-      pv: 800,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page B',
-      uv: 3000,
-      pv: 1398,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page C',
-      uv: 2000,
-      pv: 5000,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page D',
-      uv: 2780,
-      pv: 3908,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page E',
-      uv: 1890,
-      pv: 4800,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page F',
-      uv: 2390,
-      pv: 3800,
+      uv: Math.random(),
+      pv: Math.random(),
     },
     {
       name: 'Page G',
-      uv: 3490,
-      pv: 4300,
+      uv: Math.random(),
+      pv: Math.random(),
     },
   ];
 
