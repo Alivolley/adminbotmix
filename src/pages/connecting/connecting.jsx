@@ -70,6 +70,7 @@ function Connecting() {
                     className="w-full !font-vazir"
                     variant="contained"
                     size="large"
+                    color="primaryBlue"
                     onClick={() => setAddGroupExpanded(prev => !prev)}
                     endIcon={addGroupExpanded && <CloseIcon />}
                   >
@@ -92,7 +93,7 @@ function Connecting() {
                 className="relative mr-auto mt-2 flex items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"
               >
                 <p
-                  className="grow overflow-hidden border-r-[1px] border-solid border-textGray bg-bgSecondary px-2 py-[6px] dark:bg-bgSecondaryDark"
+                  className="grow overflow-hidden border-r-[1px] border-solid border-textGray bg-bgPrimary px-2 py-[6px] dark:bg-bgPrimaryDark"
                   ref={linkRef}
                 >
                   jsfiuen54tgregt154er1g5esg5ds61

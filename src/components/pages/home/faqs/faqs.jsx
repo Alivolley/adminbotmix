@@ -33,11 +33,11 @@ function Faqs() {
       <div className="mt-9 flex flex-wrap items-center justify-center gap-5">
         <button
           type="button"
-          className={`whitespace-nowrap rounded-lg bg-gradientBtnGray px-4 py-[6px] text-sm backdrop:blur-sm
-           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+          className={`whitespace-nowrap rounded-lg px-4 py-[6px] text-sm backdrop:blur-sm
+           dark:text-textMainDark ${
              chosenCategory === 'automatic_robot'
-               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
-               : ''
+               ? 'bg-gradientBtnBlue text-white'
+               : 'bg-gradientGray dark:bg-gradientBtnDark'
            }`}
           onClick={() => setChosenCategory('automatic_robot')}
         >
@@ -45,11 +45,11 @@ function Faqs() {
         </button>
         <button
           type="button"
-          className={`whitespace-nowrap rounded-lg bg-gradientBtnGray px-4 py-[6px] text-sm backdrop:blur-sm
-           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+          className={`whitespace-nowrap rounded-lg px-4 py-[6px] text-sm backdrop:blur-sm
+           dark:text-textMainDark ${
              chosenCategory === 'robot_interface'
-               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
-               : ''
+               ? 'bg-gradientBtnBlue text-white'
+               : 'bg-gradientGray dark:bg-gradientBtnDark'
            }`}
           onClick={() => setChosenCategory('robot_interface')}
         >
@@ -58,7 +58,7 @@ function Faqs() {
       </div>
 
       {chosenCategory === 'automatic_robot' && (
-        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
+        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-gray-600">
           <Grid container rowSpacing={1.5} columnSpacing={4}>
             <Grid item xs={12} md={6}>
               <div className="space-y-3">
@@ -133,7 +133,7 @@ function Faqs() {
       )}
 
       {chosenCategory === 'robot_interface' && (
-        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-stone-600">
+        <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-gray-600">
           <Grid container rowSpacing={1.5} columnSpacing={4}>
             <Grid item xs={12} md={6}>
               <div className="space-y-3">

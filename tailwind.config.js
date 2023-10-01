@@ -13,37 +13,30 @@ export default {
 
       colors: {
         textGray: '#A0AEC0',
-        primaryBlue: '#4FD1C5',
+        primaryBlue: '#1f7191',
         success: '#48BB78',
         error: '#F56565',
 
-        bgPrimary: '#F7FAFC',
-        bgSecondary: '#ffffff',
+        bgPrimary: '#ffffff',
         textMain: '#1f2733',
 
-        bgPrimaryDark: '#1A202C',
-        bgSecondaryDark: '#1F2733',
+        bgPrimaryDark: '#212836',
         textMainDark: '#ffffff',
-        darkPurple: '#070A29',
-        grayBackground: '#191D24',
       },
 
       backgroundImage: {
         lineLinear:
           'linear-gradient(90deg, rgba(224, 225, 226, 0) 0%, rgb(224, 225, 226) 49.52%, rgba(224, 225, 226, 0) 100%)',
 
-        gradientBtnPurple: 'linear-gradient(264.28deg,#5c27fe 0%,#dec7ff 150%)',
+        gradientBtnBlue: 'linear-gradient(0deg, #256dac 0% ,#585b5b00 105%)',
 
-        gradientBtnGray:
+        gradientBtnGreen: 'linear-gradient(0deg, #118a97f5 0% ,#585b5b00 105%)',
+
+        gradientGray:
           'linear-gradient(264.28deg, hsl(0deg 0% 0% / 40%) -38.2%, hsl(0deg 0% 0% / 15%) 103.12%)',
 
-        gradientBtnGrayDark:
+        gradientBtnDark:
           'linear-gradient(264.28deg,hsla(0,0%,100%,0) -38.2%,hsla(0,0%,100%,.1) 103.12%)',
-
-        gradientPagesLayout: 'linear-gradient(90deg, #fff 0%, #F7FAFC 55%)',
-
-        gradientPagesLayoutDark:
-          'linear-gradient(90deg, rgba(47,40,108,1) 0%, #070A29 55%)',
 
         gradientAccordion:
           'linear-gradient(89.96deg, hsl(0deg 0% 0% / 10%) .03%, hsl(0deg 0% 0% / 20%) 49.67%, hsl(0deg 0% 0% / 10%) 99.96%)',
@@ -56,11 +49,6 @@ export default {
         vazir: 'vazir',
         vazirBold: 'vazirBold',
         lalezar: 'lalezar',
-        adlam: 'adlam',
-      },
-
-      boxShadow: {
-        purpleShadow: '0px 0px 24px 7px rgba(47,40,108,0.7)',
       },
     },
   },

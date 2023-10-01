@@ -7,7 +7,7 @@ import BenefitsOfUsCard from '../benefits-of-us-card/benefits-of-us-card';
 function BenefitsOfUs() {
   return (
     <div className="relative mx-auto max-w-[1150px]">
-      <div className="absolute -bottom-16 left-0 top-24 w-[1px] bg-gray-300 dark:bg-gray-800 customMd:right-[50%]" />
+      <div className="absolute -bottom-16 left-0 top-24 w-[1px] bg-gray-300 dark:bg-gray-600 customMd:right-[50%]" />
 
       <p className="text-center font-lalezar text-3xl customMd:text-[60px]">
         مزایای استفاده از باتمیکس

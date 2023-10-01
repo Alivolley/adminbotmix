@@ -29,11 +29,11 @@ function Products() {
       <div className="mt-9 flex flex-wrap items-center justify-center gap-2 border-b border-gray-300 pb-10 dark:border-gray-600 customSm:gap-5">
         <button
           type="button"
-          className={`whitespace-nowrap text-sm customSm:text-xl rounded-lg bg-gradientBtnGray customSm:px-8 px-4 customSm:py-4 py-3 backdrop:blur-sm
-           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+          className={`whitespace-nowrap text-sm customSm:text-xl rounded-lg customSm:px-8 px-4 customSm:py-4 py-3 backdrop:blur-sm
+           dark:text-textMainDark ${
              chosenCategory === 'robot_interface'
-               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
-               : ''
+               ? 'bg-gradientBtnBlue text-white'
+               : 'bg-gradientGray dark:bg-gradientBtnDark'
            }`}
           onClick={() => setChosenCategory('robot_interface')}
         >
@@ -41,11 +41,11 @@ function Products() {
         </button>
         <button
           type="button"
-          className={`whitespace-nowrap text-sm customSm:text-xl rounded-lg bg-gradientBtnGray customSm:px-8 px-4 customSm:py-4 py-3 backdrop:blur-sm
-           dark:bg-gradientBtnGrayDark dark:text-textMainDark ${
+          className={`whitespace-nowrap text-sm customSm:text-xl rounded-lg customSm:px-8 px-4 customSm:py-4 py-3 backdrop:blur-sm
+           dark:text-textMainDark ${
              chosenCategory === 'portfolio_management'
-               ? 'bg-gradientBtnPurple text-white dark:bg-gradientBtnPurple'
-               : ''
+               ? 'bg-gradientBtnBlue text-white'
+               : 'bg-gradientGray dark:bg-gradientBtnDark'
            }`}
           onClick={() => setChosenCategory('portfolio_management')}
         >

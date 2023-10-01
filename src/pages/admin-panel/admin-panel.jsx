@@ -46,7 +46,7 @@ function AdminPanel() {
         sx={{
           'div:nth-of-type(3)': {
             backgroundImage: 'none',
-            bgcolor: theme === 'dark' ? '#1F2733' : '#ffffff',
+            bgcolor: theme === 'dark' ? '#212836' : '#ffffff',
             '& > div': {
               bgcolor: 'transparent',
             },

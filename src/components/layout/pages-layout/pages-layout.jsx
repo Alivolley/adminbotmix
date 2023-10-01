@@ -39,7 +39,7 @@ function PagesLayout() {
 
   return (
     <PagesLayoutStyle className="text-textMain dark:text-textMainDark">
-      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgSecondary px-7 py-2 dark:bg-grayBackground">
+      <header className="sticky top-0 z-[11] flex items-center justify-between bg-bgPrimary px-7 py-2 dark:bg-bgPrimaryDark">
         <div className="hidden items-center customLg:flex">
           <NavLink
             to="/login"
@@ -52,8 +52,8 @@ function PagesLayout() {
           <Tooltip
             title="alicryptovolley@gmail.com"
             classes={{
-              tooltip: '!text-[13px] !bg-bgSecondaryDark',
-              arrow: '!text-bgSecondaryDark',
+              tooltip: '!text-[13px] !bg-bgPrimaryDark',
+              arrow: '!text-bgPrimaryDark',
             }}
             arrow
           >
@@ -138,7 +138,7 @@ function PagesLayout() {
 
                 <div
                   id="dropdownBox"
-                  className="bg-grayBackground dark:bg-bgSecondary"
+                  className="bg-bgPrimaryDark dark:bg-bgPrimary"
                 >
                   <NavLink
                     to="/products"
@@ -172,7 +172,7 @@ function PagesLayout() {
 
                 <div
                   id="dropdownBox"
-                  className="bg-grayBackground dark:bg-bgSecondary"
+                  className="bg-bgPrimaryDark dark:bg-bgPrimary"
                 >
                   <NavLink
                     to="/some"
@@ -253,7 +253,7 @@ function PagesLayout() {
           <MobileNavbar setMobileMenuOpen={setMobileMenuOpen} />
         </Drawer>
       </header>
-      <div className="overflow-x-hidden bg-bgSecondary px-7 dark:bg-grayBackground customXl:px-[140px]">
+      <div className="overflow-x-hidden bg-bgPrimary px-7 dark:bg-bgPrimaryDark customXl:px-[140px]">
         <Outlet />
       </div>
 

@@ -139,7 +139,7 @@ function AddApiForm() {
                         <RadioGroup row value={value} onChange={onChange}>
                           <FormControlLabel
                             value="future"
-                            control={<Radio size="small" />}
+                            control={<Radio size="small" color="primaryBlue" />}
                             label={
                               <Typography
                                 variant="body2"
@@ -152,7 +152,9 @@ function AddApiForm() {
                           {chosenExchange !== 'bingx' && (
                             <FormControlLabel
                               value="spot"
-                              control={<Radio size="small" />}
+                              control={
+                                <Radio size="small" color="primaryBlue" />
+                              }
                               label={
                                 <Typography
                                   variant="body2"
@@ -166,7 +168,9 @@ function AddApiForm() {
                           {chosenExchange !== 'bingx' && (
                             <FormControlLabel
                               value="future_testnet"
-                              control={<Radio size="small" />}
+                              control={
+                                <Radio size="small" color="primaryBlue" />
+                              }
                               label={
                                 <Typography
                                   variant="body2"
@@ -180,7 +184,9 @@ function AddApiForm() {
                           {chosenExchange !== 'bingx' && (
                             <FormControlLabel
                               value="spot_testnet"
-                              control={<Radio size="small" />}
+                              control={
+                                <Radio size="small" color="primaryBlue" />
+                              }
                               label={
                                 <Typography
                                   variant="body2"
@@ -273,7 +279,9 @@ function AddApiForm() {
                 chosenExchange === 'bingx') && (
                 <>
                   <FormControlLabel
-                    control={<Checkbox checked={hasLeverage} />}
+                    control={
+                      <Checkbox checked={hasLeverage} color="primaryBlue" />
+                    }
                     label={
                       <Typography variant="body2" sx={{ fontSize: '14px' }}>
                         تنظیم اهرم و مارجین
@@ -308,7 +316,9 @@ function AddApiForm() {
                               <RadioGroup row value={value} onChange={onChange}>
                                 <FormControlLabel
                                   value="isolated"
-                                  control={<Radio size="small" />}
+                                  control={
+                                    <Radio size="small" color="primaryBlue" />
+                                  }
                                   label={
                                     <Typography
                                       variant="body2"
@@ -320,7 +330,9 @@ function AddApiForm() {
                                 />
                                 <FormControlLabel
                                   value="crossed"
-                                  control={<Radio size="small" />}
+                                  control={
+                                    <Radio size="small" color="primaryBlue" />
+                                  }
                                   label={
                                     <Typography
                                       variant="body2"
@@ -370,6 +382,7 @@ function AddApiForm() {
                                   valueLabelFormat={getCustomLabelForSlider}
                                   value={value}
                                   onChange={onChange}
+                                  color="primaryBlue"
                                 />
                               )}
                             />
@@ -384,7 +397,7 @@ function AddApiForm() {
             </>
           )}
 
-          <Button type="submit" variant="contained">
+          <Button type="submit" variant="contained" color="primaryBlue">
             اضافه کردن
           </Button>
         </form>

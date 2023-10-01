@@ -7,8 +7,8 @@ function LinkComponent({ children, className, color, onClick }) {
       <p
         className={`text-white ${
           color === 'gray'
-            ? 'bg-gradientBtnGray dark:bg-gradientBtnGrayDark'
-            : 'bg-gradientBtnPurple'
+            ? 'bg-gradientBtnGreen text-black dark:text-white'
+            : 'bg-gradientBtnBlue text-black dark:text-white'
         } ${className}`}
       >
         {children}

@@ -17,9 +17,9 @@ function Login() {
   return (
     <LoginStyle className="min-h-screen gap-5 customSm:flex">
       <div className="mb-32 mt-5 grow customSm:mt-14 customMd:mt-[80px]">
-        <div className="mx-auto max-w-xl rounded-xl p-8 shadow-purpleShadow">
+        <div className="mx-auto max-w-xl rounded-xl p-8">
           <h2 className="mb-10 text-center font-lalezar text-3xl">
-            فرم ورود به حساب کاربری{' '}
+            فرم ورود به حساب کاربری
             <span className="text-violet-500">باتمیکس</span>
           </h2>
           <div>

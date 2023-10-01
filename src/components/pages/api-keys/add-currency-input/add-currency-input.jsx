@@ -12,9 +12,11 @@ function AddCurrencyInput({ currencyList, setCurrencyList, submitCount }) {
   const inputRef = useRef();
 
   const addToList = () => {
-    setCurrencyList(prev => [...prev, { id: uuidv4(), label: inputValue }]);
-    setInputValue('');
-    inputRef.current.focus();
+    if (inputValue.trim()) {
+      setCurrencyList(prev => [...prev, { id: uuidv4(), label: inputValue }]);
+      setInputValue('');
+      inputRef.current.focus();
+    }
   };
 
   return (

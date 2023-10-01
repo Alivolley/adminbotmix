@@ -87,7 +87,7 @@ function AccordionComponent() {
           className="relative mr-auto mt-2 flex w-fit items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"
         >
           <p
-            className="border-r-[1px] border-solid border-textGray bg-bgSecondary px-2 py-[6px] dark:bg-bgSecondaryDark"
+            className="border-r-[1px] border-solid border-textGray bg-bgPrimary px-2 py-[6px] dark:bg-bgPrimaryDark"
             ref={linkRef}
           >
             jsfiuen54tgregt154er1g5esg5ds61

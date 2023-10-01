@@ -28,7 +28,7 @@ function LinkAccordion() {
     <Accordion
       className="!bg-inherit !bg-none !text-inherit"
       sx={{
-        boxShadow: '0px 2px 5px 1px rgb(79, 209, 197 , 0.1)',
+        boxShadow: '0px 2px 5px 1px rgba(31, 113, 145, 0.2)',
         '&.MuiAccordion-root:before': {
           display: 'none',
         },

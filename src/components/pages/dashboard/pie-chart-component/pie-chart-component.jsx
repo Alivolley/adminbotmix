@@ -5,7 +5,7 @@ function PieChartComponent() {
     { name: 'Group A', value: 400 },
     { name: 'Group B', value: 300 },
   ];
-  const colors = ['#4FD1C5', '#0075FF'];
+  const colors = ['#1f7191', '#143542'];
 
   return (
     <div className="h-[220px] w-full">

@@ -2,14 +2,13 @@
 import { Grid } from '@mui/material';
 
 // Assets
-import portfolioTest from '../../../../assets/images/portfolioTest.png';
+// import portfolioTest from '../../../../assets/images/portfolioTest.png';
+import howWeWorkPic from '../../../../assets/images/howWeWorkPic.png';
 import robotTest from '../../../../assets/icons/icon-robot.png';
 import telegramTest from '../../../../assets/icons/icon-telegram.png';
 import codeTest from '../../../../assets/icons/icon-code.png';
 import portfolioTestIcon from '../../../../assets/icons/icon-portfolio.png';
 import robot2Test from '../../../../assets/icons/icon-robot-2.png';
-
-// Assets
 import { HowWeWorkStyle } from './how-we-work.style';
 
 // Components
@@ -80,9 +79,13 @@ function HowWeWork() {
             </div>
           </Grid>
           <Grid item xs={12} md={6}>
-            <div data-aos="fade-zoom-in" data-aos-duration="1500">
+            <div
+              data-aos="fade-zoom-in"
+              data-aos-duration="1500"
+              className="customMd:mt-36"
+            >
               <img
-                src={portfolioTest}
+                src={howWeWorkPic}
                 alt="how batmix work"
                 className="w-full"
                 id="how_we_work_image"

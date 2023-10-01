@@ -21,7 +21,8 @@ export const BannerHomeStyle = styled.div(({ theme }) => ({
 
   '& #linear-text': {
     WebkitTextFillColor: 'transparent',
-    background: 'linear-gradient(264.28deg,#5c27fe 0%,#dec7ff 120%)',
+    background:
+      'linear-gradient(0deg, rgb(40, 95, 145) 40%, rgba(203, 240, 237, 0.86) 82%)',
     WebkitBackgroundClip: 'text',
   },
 

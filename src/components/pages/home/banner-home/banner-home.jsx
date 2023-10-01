@@ -6,7 +6,7 @@ import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 import { Grid } from '@mui/material';
 
 // Assets
-import testPic from '../../../../assets/images/testPic.png';
+import homeBannerBg from '../../../../assets/images/homeBannerBg.png';
 import { BannerHomeStyle } from './banner-home.style';
 
 // Components
@@ -76,14 +76,14 @@ function BannerHome() {
               <div>
                 <img
                   className="mx-auto w-full rounded-[60px]"
-                  src={testPic}
+                  src={homeBannerBg}
                   alt="first pic"
                   id="home_first_image"
                 />
               </div>
 
               <div
-                className="mt-2 px-4 py-2"
+                className="mt-24 px-4 py-2"
                 id="home_card"
                 data-aos="fade-up"
                 data-aos-duration="1500"

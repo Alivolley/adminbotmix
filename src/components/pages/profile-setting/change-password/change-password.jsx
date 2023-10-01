@@ -98,7 +98,7 @@ function ChangePassword() {
             helperText={errors?.confirmPassword?.message}
           />
 
-          <Button type="submit" variant="contained">
+          <Button type="submit" variant="contained" color="primaryBlue">
             تغییر
           </Button>
         </form>

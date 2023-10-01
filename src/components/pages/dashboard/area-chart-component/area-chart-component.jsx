@@ -53,12 +53,12 @@ function AreaChartComponent() {
         <AreaChart data={data}>
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#4FD1C5" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#4FD1C5" stopOpacity={0} />
+              <stop offset="5%" stopColor="#1f7191" stopOpacity={0.3} />
+              <stop offset="95%" stopColor="#1f7191" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0075FF" stopOpacity={0.3} />
-              <stop offset="95%" stopColor="#0075FF" stopOpacity={0} />
+              <stop offset="5%" stopColor="#143542" stopOpacity={0.5} />
+              <stop offset="95%" stopColor="#143542" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis
@@ -80,7 +80,7 @@ function AreaChartComponent() {
           <Area
             type="monotone"
             dataKey="uv"
-            stroke="#4FD1C5"
+            stroke="#1f7191"
             strokeWidth="3px"
             fillOpacity={1}
             fill="url(#colorUv)"
@@ -88,7 +88,7 @@ function AreaChartComponent() {
           <Area
             type="monotone"
             dataKey="pv"
-            stroke="#0075FF"
+            stroke="#143542"
             strokeWidth="3px"
             fillOpacity={1}
             fill="url(#colorPv)"

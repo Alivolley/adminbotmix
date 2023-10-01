@@ -12,7 +12,7 @@ import HiveIcon from '@mui/icons-material/Hive';
 
 function Footer() {
   return (
-    <footer className="border-t border-gray-300 bg-bgSecondary px-7 py-14 dark:border-gray-800 dark:bg-grayBackground">
+    <footer className="border-t border-gray-300 bg-bgPrimary px-7 py-14 dark:border-gray-600 dark:bg-bgPrimaryDark">
       <div className="mx-auto px-5">
         <Grid container rowSpacing={5} columnSpacing={3}>
           <Grid item xs={12} md={5}>
@@ -47,7 +47,7 @@ function Footer() {
           </Grid>
 
           <Grid item xs={12} md={3}>
-            <div className="flex h-full flex-col items-center border-gray-300 text-center dark:border-gray-800 customMd:border-x">
+            <div className="flex h-full flex-col items-center border-gray-300 text-center dark:border-gray-600 customMd:border-x">
               <h2 className="mb-10 text-xl font-bold">خدمات مشتریان</h2>
 
               <div className="flex flex-col gap-4">
@@ -123,7 +123,7 @@ function Footer() {
             </div>
           </Grid>
           <Grid item xs={12}>
-            <p className="border-t border-gray-300 pt-4 text-center text-sm text-gray-500 dark:border-gray-800">
+            <p className="border-t border-gray-300 pt-4 text-center text-sm text-gray-500 dark:border-gray-600">
               تمامی حقوق برای Botmix محفوظ است
             </p>
           </Grid>

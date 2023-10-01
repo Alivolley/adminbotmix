@@ -15,8 +15,8 @@ import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThe
 function Sidebar({ shouldHide }) {
   return (
     <SidebarStyle
-      className={`h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgSecondary p-5
-      text-textMain transition-colors duration-200 dark:bg-bgSecondaryDark dark:text-textMainDark ${
+      className={`h-[93vh] w-[260px] min-w-[260px] rounded-[15px] bg-bgPrimary p-5
+      text-textMain transition-colors duration-200 dark:bg-bgPrimaryDark dark:text-textMainDark ${
         shouldHide ? 'hidden xl:block' : ''
       }`}
     >
@@ -35,7 +35,7 @@ function Sidebar({ shouldHide }) {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
             id="iconWrapper"
           >
             <HomeIcon color="inherit" fontSize="inherit" />
@@ -49,7 +49,7 @@ function Sidebar({ shouldHide }) {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
             id="iconWrapper"
           >
             <SmartToyIcon color="inherit" fontSize="inherit" />
@@ -63,7 +63,7 @@ function Sidebar({ shouldHide }) {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
             id="iconWrapper"
           >
             <KeyIcon color="inherit" fontSize="inherit" />
@@ -77,7 +77,7 @@ function Sidebar({ shouldHide }) {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
             id="iconWrapper"
           >
             <OfflineShareIcon color="inherit" fontSize="inherit" />
@@ -93,7 +93,7 @@ function Sidebar({ shouldHide }) {
           id="navLink"
         >
           <div
-            className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-bgPrimary text-[18px] text-primaryBlue dark:bg-bgPrimaryDark"
+            className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
             id="iconWrapper"
           >
             <ManageAccountsIcon color="inherit" fontSize="inherit" />

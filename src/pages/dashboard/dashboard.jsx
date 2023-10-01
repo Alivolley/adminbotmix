@@ -58,13 +58,13 @@ function Dashboard() {
                   text="۲۰"
                   styles={{
                     path: {
-                      stroke: '#4FD1C5',
+                      stroke: '#1f7191',
                     },
                     trail: {
                       stroke: '#A0AEC0',
                     },
                     text: {
-                      fill: '#4FD1C5',
+                      fill: '#1f7191',
                       fontSize: '30px',
                     },
                   }}
@@ -122,7 +122,7 @@ function Dashboard() {
           <Grid item xs={12} md={4}>
             <CardWrapper>
               <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
-                <div className="h-[9px] w-[9px] rounded-sm bg-[#0075FF]" />
+                <div className="h-[9px] w-[9px] rounded-sm bg-[#143542]" />
                 <p>سهم کاربر از سود ربات</p>
               </div>
               <PieChartComponent />
@@ -140,6 +140,7 @@ function Dashboard() {
               loading={false}
               variant="contained"
               className="!font-vazir"
+              color="primaryBlue"
             >
               بیشتر
             </LoadingButton>

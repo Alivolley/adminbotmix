@@ -38,6 +38,7 @@ function Robots() {
               loading={false}
               variant="contained"
               className="!font-vazir disabled:!bg-textGray"
+              color="primaryBlue"
             >
               بیشتر
             </LoadingButton>
