@@ -1,13 +1,17 @@
-import CountUp from 'react-countup';
 import { Link } from 'react-router-dom';
 import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 
 // MUi
-import { Grid } from '@mui/material';
+import { Grid, Tooltip } from '@mui/material';
 
 // Assets
 import homeBannerBg from '../../../../assets/images/homeBannerBg.png';
 import { BannerHomeStyle } from './banner-home.style';
+import binanceLogo from '../../../../assets/icons/binance.svg';
+import bingXLogo from '../../../../assets/icons/bing-x.svg';
+import byBitLogo from '../../../../assets/icons/bybit.svg';
+import kuCoinLogo from '../../../../assets/icons/kcs.svg';
+import wallexLogo from '../../../../assets/icons/x-byte-lab.svg';
 
 // Components
 import LinkComponent from '../../../form-group/link-component/link-component';
@@ -52,21 +56,57 @@ function BannerHome() {
                 </Link>
               </div>
 
-              <div className="mx-auto mt-12 flex w-fit items-center justify-between customSm:mx-0 customSm:mt-24">
-                <div className="flex flex-col items-center justify-center pl-5 text-textGray">
-                  <p className="font-lalezar text-xl customSm:text-5xl">
-                    <CountUp end={38000} duration={3} />
-                  </p>
-                  <p className="text-center text-[13px]">تعداد کاربران</p>
-                </div>
+              <div className="mt-12 customSm:mt-24">
+                <div className="flex items-center gap-3">
+                  <p className="whitespace-nowrap">صرافی های متصل :</p>
 
-                <div className="flex flex-col items-center justify-center border-r-[1px] border-solid border-stone-600 pr-5 text-textGray">
-                  <p className="font-lalezar text-xl customSm:text-5xl">
-                    $ <CountUp end={52000} duration={3} />
-                  </p>
-                  <p className="text-center text-[13px]">
-                    سرمایه در گردش ربات های باتمیکس
-                  </p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <Tooltip title="Binance" arrow placement="top">
+                      <div className="h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={binanceLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
+                    <Tooltip title="kuCoin" arrow placement="top">
+                      <div className="h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={kuCoinLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
+                    <Tooltip title="wallex" arrow placement="top">
+                      <div className="h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={wallexLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
+                    <Tooltip title="bingX" arrow placement="top">
+                      <div className="h-12 w-12 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={bingXLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
+                    <Tooltip title="byBit" arrow placement="top">
+                      <div className="h-12 w-12 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={byBitLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
+                  </div>
                 </div>
               </div>
             </div>
