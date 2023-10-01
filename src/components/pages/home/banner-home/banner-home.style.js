@@ -25,14 +25,4 @@ export const BannerHomeStyle = styled.div(({ theme }) => ({
       'linear-gradient(0deg, rgb(40, 95, 145) 40%, rgba(203, 240, 237, 0.86) 82%)',
     WebkitBackgroundClip: 'text',
   },
-
-  '& #home_first_image': {
-    animation: 'slideIn 20s alternate infinite ease-in-out',
-  },
-
-  '@keyframes slideIn': {
-    '0%': { transform: 'translateX(0)' },
-    '50%': { transform: 'translateX(-100px)' },
-    '100%': { transform: 'translateX(0px)' },
-  },
 }));

@@ -19,13 +19,13 @@ function BenefitsOfUsCard({ children, step, title, pingSide = 'left' }) {
         }`}
       >
         <div
-          className={`absolute top-[-6px] h-3 w-3 rounded-full bg-violet-500 ${
+          className={`absolute top-[-6px] h-3 w-3 rounded-full bg-primaryBlue ${
             pingSide === 'left'
               ? 'left-[-6px]'
               : 'left-[-6px] customMd:right-[-6px]'
           }`}
         >
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-500 opacity-75" />
+          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primaryBlue opacity-75" />
         </div>
       </div>
 

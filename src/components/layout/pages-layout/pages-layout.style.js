@@ -4,6 +4,7 @@ import { yellow } from '@mui/material/colors';
 export const PagesLayoutStyle = styled.div(({ theme }) => ({
   '.active': {
     color: theme.palette.secondaryBlue.main,
+    fontWeight: 'bold',
   },
 
   '& #dropdownWrapper': {

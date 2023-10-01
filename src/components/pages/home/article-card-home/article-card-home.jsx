@@ -10,7 +10,7 @@ function ArticleCardHome() {
       </div>
       <div className="space-y-1">
         <p className="text-center text-sm text-textGray">موضوع لورم</p>
-        <p className="px-6 text-center leading-8 transition-colors duration-200 hover:text-violet-600">
+        <p className="px-6 text-center leading-8 transition-colors duration-200 hover:text-secondaryBlue">
           لورم ایپسوم متن نامفهوم از صنعت چاپ و با سادگی نامفهوم است در ستون
           سادگی نامفهوم و سطرآنچنان که لازم است
         </p>

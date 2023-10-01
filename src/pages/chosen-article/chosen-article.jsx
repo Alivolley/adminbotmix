@@ -32,7 +32,7 @@ function ChosenArticle() {
               </h3>
               <div
                 className="my-5 flex items-center gap-2 border-b border-gray-300 pb-5 text-xs
-               text-textGray dark:border-gray-800 customSm:text-sm"
+               text-textGray dark:border-gray-600 customSm:text-sm"
               >
                 <InsertInvitationIcon fontSize="small" />
                 <p>اردیبهشت ۱۴۰۰/۴</p>
@@ -110,7 +110,7 @@ function ChosenArticle() {
             </div>
           </Grid>
           <Grid item xs={12} md={3.5}>
-            <div className="border-r border-gray-300 pr-5 dark:border-gray-800">
+            <div className="border-r border-gray-300 pr-5 dark:border-gray-600">
               <SuggestArticleCard imageSrc={articlePic} />
               <SuggestArticleCard imageSrc={articlePic2} />
               <SuggestArticleCard imageSrc={articlePic3} />

@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
-export const MobileNavbarStyle = styled.div(() => ({
+export const MobileNavbarStyle = styled.div(({ theme }) => ({
   '.active': {
-    color: '#7c3aed',
+    color: theme.palette.secondaryBlue.main,
+    fontWeight: 'bold',
   },
 }));

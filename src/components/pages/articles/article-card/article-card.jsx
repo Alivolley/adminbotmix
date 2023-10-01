@@ -22,7 +22,7 @@ function ArticleCard({ imageSrc }) {
               <InsertInvitationIcon fontSize="small" />
               <p>اردیبهشت ۱۴۰۰/۴</p>
             </div>
-            <h3 className="mb-6 font-bold transition-all duration-200 hover:text-violet-600 customSm:text-xl">
+            <h3 className="mb-6 font-bold transition-all duration-200 hover:text-secondaryBlue customSm:text-xl">
               در نتیجه طرح کلی دید درستی به کار فرما نمیدهد. اگر اصلی برداشته
               میشود و اینکار زمان بر خواهد بود.
             </h3>

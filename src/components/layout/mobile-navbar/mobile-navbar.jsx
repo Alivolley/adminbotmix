@@ -32,7 +32,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <HomeOutlinedIcon fontSize="small" />
               <p>صفحه اصلی</p>
@@ -57,21 +57,21 @@ function MobileNavbar({ setMobileMenuOpen }) {
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
                   to="/some"
-                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-violet-600"
+                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                 >
                   نمودار
                 </NavLink>
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
                   to="/some"
-                  className="p-3 text-sm transition-colors duration-200 hover:text-violet-600"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                 >
                   داده های اقتصادی
                 </NavLink>
                 <NavLink
                   onClick={() => setMobileMenuOpen(false)}
                   to="/some"
-                  className="p-3 text-sm transition-colors duration-200 hover:text-violet-600"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                 >
                   قیمت ارزهای دیجیتال
                 </NavLink>
@@ -98,7 +98,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                   onClick={() => setMobileMenuOpen(false)}
                   to="/products"
                   state="portfolio_management"
-                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-violet-600"
+                  className="px-3 py-4 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                 >
                   سبد گردانی
                 </NavLink>
@@ -106,7 +106,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                   onClick={() => setMobileMenuOpen(false)}
                   to="/products"
                   state="robot_interface"
-                  className="p-3 text-sm transition-colors duration-200 hover:text-violet-600"
+                  className="p-3 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                 >
                   اشتراک ربات واسط
                 </NavLink>
@@ -118,7 +118,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/tutorials"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <SchoolIcon fontSize="small" />
               <p>آموزش ها</p>
@@ -129,7 +129,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/articles"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <ArticleIcon fontSize="small" />
               <p>مقاله ها</p>
@@ -140,7 +140,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/rules"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <GavelOutlinedIcon fontSize="small" />
               <p>قوانین</p>
@@ -151,7 +151,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/contactUs"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <GroupsIcon fontSize="small" />
               <p>ارتباط با ما</p>
@@ -161,7 +161,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
           <li>
             <Link
               to="/admin-panel/dashboard"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <PersonIcon fontSize="small" />
               <p>پنل کاربری</p>
@@ -172,7 +172,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
             <NavLink
               onClick={() => setMobileMenuOpen(false)}
               to="/login"
-              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-violet-600"
+              className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
             >
               <LoginIcon fontSize="small" />
               <p>ورود</p>

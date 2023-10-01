@@ -27,7 +27,7 @@ function Footer() {
 
               <p className="text-justify text-[15px] leading-[30px] dark:text-textGray">
                 وبسایت{' '}
-                <span className="font-bold text-violet-500"> باتمیکس</span>{' '}
+                <span className="font-bold text-secondaryBlue"> باتمیکس</span>{' '}
                 ارائه دهنده ربات تریدر هوشمند ( تکنیکال و آربیتراژ اتوماتیک ) و
                 ربات کمک تریدر و واسط تریدینگ ، و خدمات برنامه نویسی بازارهای
                 مالی ، در شهر بندرانزلی است. ما با تمرکز بر سه ویژگی، یعنی: قابل
@@ -53,31 +53,31 @@ function Footer() {
               <div className="flex flex-col gap-4">
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
+                  className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                 >
                   ربات تریدر
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
+                  className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                 >
                   ربات واسط
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
+                  className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                 >
                   قیمت رمزارزها
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
+                  className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                 >
                   ربات واسط api
                 </Link>
                 <Link
                   to="/"
-                  className="text-blue-300 transition-all duration-150 hover:text-violet-500"
+                  className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                 >
                   آموزش ها
                 </Link>

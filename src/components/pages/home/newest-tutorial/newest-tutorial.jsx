@@ -93,14 +93,14 @@ function NewestTutorial() {
             <div
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className="swiper-button-prev-custom z-10 flex cursor-pointer items-center justify-center rounded-full
-              bg-[#5c27fe] text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
+              bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
             >
               <KeyboardArrowRightIcon fontSize="inherit" />
             </div>
             <div
               // eslint-disable-next-line tailwindcss/no-custom-classname
               className="swiper-button-next-custom z-10 flex cursor-pointer items-center justify-center rounded-full
-             bg-[#5c27fe] text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
+             bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
             >
               <KeyboardArrowLeftIcon fontSize="inherit" />
             </div>

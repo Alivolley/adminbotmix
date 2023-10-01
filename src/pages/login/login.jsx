@@ -1,7 +1,11 @@
 import { useState } from 'react';
 
+// MUI
+import { IconButton } from '@mui/material';
+
 // Icons
 import HiveIcon from '@mui/icons-material/Hive';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 // Assets
 import { Link } from 'react-router-dom';
@@ -32,8 +36,13 @@ function Login() {
             باتمیکس
           </h2>
 
-          <p className="text-lg font-bold">
+          <p className="flex items-center justify-between text-lg font-bold">
             {tabsValue === 'login' ? 'ورود به باتمیکس' : 'ساخت حساب در باتمیکس'}
+            <Link to={-1}>
+              <IconButton>
+                <KeyboardBackspaceIcon />
+              </IconButton>
+            </Link>
           </p>
 
           {tabsValue === 'register' ? <RegisterTemplate /> : <LoginTemplate />}

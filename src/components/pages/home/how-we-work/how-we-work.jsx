@@ -9,20 +9,19 @@ import telegramTest from '../../../../assets/icons/icon-telegram.png';
 import codeTest from '../../../../assets/icons/icon-code.png';
 import portfolioTestIcon from '../../../../assets/icons/icon-portfolio.png';
 import robot2Test from '../../../../assets/icons/icon-robot-2.png';
-import { HowWeWorkStyle } from './how-we-work.style';
 
 // Components
 import HowWeWorkCard from '../how-we-work-card/how-we-work-card';
 
 function HowWeWork() {
   return (
-    <HowWeWorkStyle className="mx-auto max-w-[1150px]">
+    <div className="mx-auto max-w-[1150px]">
       <p className="text-center font-lalezar text-3xl customMd:text-[60px]">
         باتمیکس چطور کار میکنه
       </p>
 
       <div className="mt-32">
-        <Grid container spacing={2}>
+        <Grid container columnSpacing={10} rowSpacing={3}>
           <Grid item xs={12} md={6}>
             <div className="space-y-[25px]">
               <HowWeWorkCard
@@ -88,13 +87,12 @@ function HowWeWork() {
                 src={howWeWorkPic}
                 alt="how batmix work"
                 className="w-full"
-                id="how_we_work_image"
               />
             </div>
           </Grid>
         </Grid>
       </div>
-    </HowWeWorkStyle>
+    </div>
   );
 }
 

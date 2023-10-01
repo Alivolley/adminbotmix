@@ -6,7 +6,7 @@ function SuggestArticleCard({ imageSrc }) {
   return (
     <Link
       to="/article/2"
-      className="mb-5 flex gap-4 border-b border-gray-300 pb-5 dark:border-gray-800"
+      className="mb-5 flex gap-4 border-b border-gray-300 pb-5 dark:border-gray-600"
     >
       <img
         src={imageSrc}

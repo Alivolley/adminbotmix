@@ -7,13 +7,13 @@ function Rules() {
     <RulesStyle className="min-h-screen">
       <div className="mx-auto mb-32 mt-14 max-w-[1150px] customMd:mt-[80px]">
         <h1
-          className="rounded-2xl py-6 text-center font-lalezar text-4xl customSm:text-5xl"
+          className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-5xl"
           id="rules_page_title"
         >
           قوانین و مقررات استفاده از خدمات و محصولات باتمیکس
         </h1>
 
-        <div className="mt-12 space-y-10">
+        <div className="mt-16 space-y-10">
           <div className="space-y-3">
             <p>
               تعهدات باتمیکس به منزله تعهدات مدیریت وبسایت و ادمین ها میباشد.
@@ -25,7 +25,7 @@ function Rules() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-xl font-bold text-violet-500">
+            <p className="text-xl font-bold text-secondaryBlue">
               حریم شخصی کاربران :
             </p>
             <p className="leading-7">
@@ -36,7 +36,7 @@ function Rules() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-xl font-bold text-violet-500">
+            <p className="text-xl font-bold text-secondaryBlue">
               عدم کارکرد سایت :
             </p>
             <p className="leading-7">
@@ -48,7 +48,7 @@ function Rules() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-xl font-bold text-violet-500">
+            <p className="text-xl font-bold text-secondaryBlue">
               شرایط عودت وجه :
             </p>
             <p className="leading-7">
@@ -65,7 +65,9 @@ function Rules() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-xl font-bold text-violet-500">شرایط پرداخت :</p>
+            <p className="text-xl font-bold text-secondaryBlue">
+              شرایط پرداخت :
+            </p>
             <p className="leading-7">
               کاربر میتواند با استفاده از درگاه پرداخت امن ریالی یا کریپتو
               پرداخت برای خدمات مدنظر خود را انجام دهد . پرداخت برای تمامی خدمات
@@ -75,7 +77,7 @@ function Rules() {
           </div>
 
           <div className="space-y-3">
-            <p className="text-xl font-bold text-violet-500">مالکیت :</p>
+            <p className="text-xl font-bold text-secondaryBlue">مالکیت :</p>
             <p className="leading-7">
               مالکیت معنوی محتویات وبسایت “باتمیکس” شامل قانون حق تکثیر بوده و
               متعلق به فروشگاه اینترنتی “باتمیکس”می باشد. خدمات و محتویات سایت،

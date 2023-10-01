@@ -118,7 +118,6 @@ function BannerHome() {
                   className="mx-auto w-full rounded-[60px]"
                   src={homeBannerBg}
                   alt="first pic"
-                  id="home_first_image"
                 />
               </div>
 
