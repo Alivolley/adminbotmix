@@ -38,7 +38,12 @@ function RobotCart() {
         </p>
       </div>
 
-      <Button className="w-full !font-vazir" variant="outlined" color="primary">
+      <Button
+        className="!mb-3 w-full !font-vazir"
+        variant="outlined"
+        color="primary"
+        size="large"
+      >
         خرید اشتراک
       </Button>
     </RobotCartStyle>

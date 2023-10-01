@@ -7,8 +7,6 @@ export const LinkComponentStyle = styled.button(({ theme }) => ({
 
   ...(theme.palette.mode === 'dark'
     ? {
-        // background:
-        //   'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
         backgroundColor: '#ffffff0d',
       }
     : {

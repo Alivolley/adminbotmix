@@ -4,12 +4,6 @@ import { useLocation } from 'react-router-dom';
 // MUI
 import { Grid } from '@mui/material';
 
-// Assets
-import articlePicTest from '../../assets/images/articlePicTest.png';
-import articlePicTest2 from '../../assets/images/portfolioTest.png';
-import articlePicTest3 from '../../assets/images/testPic.png';
-import articlePicTest4 from '../../assets/images/user.jpg';
-
 // Components
 import ProductCard from '../../components/pages/products/product-card/product-card';
 import RobotCart from '../../components/pages/products/robot-cart/robot-cart';
@@ -74,22 +68,22 @@ function Products() {
         <div className="mt-9 customSm:mt-16">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest} />
+              <ProductCard />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest2} />
+              <ProductCard />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest3} />
+              <ProductCard />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest4} />
+              <ProductCard />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest} />
+              <ProductCard />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              <ProductCard imageSrc={articlePicTest} />
+              <ProductCard />
             </Grid>
           </Grid>
         </div>

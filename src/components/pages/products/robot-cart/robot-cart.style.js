@@ -1,15 +1,8 @@
 import styled from '@emotion/styled';
 
-export const RobotCartStyle = styled.div(({ theme }) => ({
-  ...(theme.palette.mode === 'dark'
-    ? {
-        background:
-          'linear-gradient(89.96deg,hsla(0,0%,100%,.05) .03%,hsla(0,0%,100%,.008) 49.67%,hsla(0,0%,100%,.05) 99.96%)',
-      }
-    : {
-        background:
-          'linear-gradient(89.96deg, hsl(0deg 0% 0% / 10%) .03%, hsl(0deg 0% 0% / 20%) 49.67%, hsl(0deg 0% 0% / 10%) 99.96%)',
-      }),
+export const RobotCartStyle = styled.div(() => ({
+  background:
+    'linear-gradient(89.96deg, rgb(22 20 24 / 23%) 1%, rgb(22 20 24 / 10%) 49.67%, rgb(22 20 24 / 23%) 99%)',
 
   width: '100%',
   backdropFilter: 'blur(4px)',
