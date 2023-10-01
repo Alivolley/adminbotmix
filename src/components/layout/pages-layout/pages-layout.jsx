@@ -46,8 +46,8 @@ function PagesLayout() {
           <Tooltip
             title="alicryptovolley@gmail.com"
             classes={{
-              tooltip: '!text-[13px] !bg-bgPrimaryDark',
-              arrow: '!text-bgPrimaryDark',
+              tooltip: '!text-[13px] !bg-[#1A202C]',
+              arrow: '!text-[#1A202C]',
             }}
             arrow
           >

@@ -12,6 +12,7 @@ import articlePicTest4 from '../../assets/images/user.jpg';
 
 // Components
 import ProductCard from '../../components/pages/products/product-card/product-card';
+import RobotCart from '../../components/pages/products/robot-cart/robot-cart';
 
 function Products() {
   const location = useLocation();
@@ -57,13 +58,13 @@ function Products() {
         <div className="mt-9 customSm:mt-16">
           <Grid container spacing={5}>
             <Grid item xs={12} sm={6} md={4}>
-              کارت اشتراک ربات
+              <RobotCart />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              کارت اشتراک ربات
+              <RobotCart />
             </Grid>
             <Grid item xs={12} sm={6} md={4}>
-              کارت اشتراک ربات
+              <RobotCart />
             </Grid>
           </Grid>
         </div>
