@@ -16,12 +16,13 @@ import Tutorials from '../pages/tutorials/tutorials';
 import PagesLayout from './layout/pages-layout/pages-layout';
 
 const routes = [
+  { path: 'login', element: <Login /> },
+
   {
     path: '/',
     element: <PagesLayout />,
     children: [
       { path: '', element: <Home /> },
-      { path: 'login', element: <Login /> },
       { path: 'products', element: <Products /> },
       { path: 'contactUs', element: <ContactUs /> },
       { path: 'rules', element: <Rules /> },

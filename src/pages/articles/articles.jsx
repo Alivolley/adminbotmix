@@ -48,7 +48,7 @@ function Articles() {
             count={11}
             defaultPage={1}
             boundaryCount={2}
-            color="buttonPurple"
+            color="primaryBlue"
             sx={{
               '& .Mui-selected': {
                 color: 'white',

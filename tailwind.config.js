@@ -14,6 +14,7 @@ export default {
       colors: {
         textGray: '#A0AEC0',
         primaryBlue: '#1f7191',
+        secondaryBlue: '#256dac',
         success: '#48BB78',
         error: '#F56565',
 

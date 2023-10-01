@@ -22,7 +22,7 @@ function LoginTemplate() {
       email: '',
       password: '',
     },
-    mode: 'onTouched',
+    mode: 'onSubmit',
   });
 
   const formSubmit = data => {
@@ -30,62 +30,72 @@ function LoginTemplate() {
   };
 
   return (
-    <div className="mt-16">
+    <div className="mt-10">
       <RtlProvider>
         <form
           className="flex w-full flex-col space-y-10"
           onSubmit={handleSubmit(formSubmit)}
           id="detail_form"
         >
-          <TextField
-            label="ایمیل"
-            variant="outlined"
-            {...register('email', {
-              required: {
-                value: true,
-                message: 'این فیلد اجباری است',
-              },
-              pattern: {
-                value: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/,
-                message: 'لطفا یک ایمیل معتبر وارد کنید',
-              },
-            })}
-            error={!!errors?.email}
-            helperText={errors?.email?.message}
-          />
+          <div className="flex flex-col gap-3">
+            <p>ایمیل</p>
+            <TextField
+              variant="outlined"
+              color="primaryBlue"
+              placeholder="ایمیل خود را وارد کنید"
+              {...register('email', {
+                required: {
+                  value: true,
+                  message: 'این فیلد اجباری است',
+                },
+                pattern: {
+                  value: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/,
+                  message: 'لطفا یک ایمیل معتبر وارد کنید',
+                },
+              })}
+              error={!!errors?.email}
+              helperText={errors?.email?.message}
+            />
+          </div>
 
-          <TextField
-            label="رمز عبور"
-            variant="outlined"
-            type={showPassword ? 'text' : 'password'}
-            {...register('password', {
-              required: {
-                value: true,
-                message: 'این فیلد اجباری است',
-              },
-              minLength: {
-                value: 8,
-                message: 'رمز عبور باید بیشتر از ۸ حرف باشد',
-              },
-            })}
-            error={!!errors?.password}
-            helperText={errors?.password?.message}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton onClick={() => setShowPassword(prev => !prev)}>
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-          />
+          <div className="flex flex-col gap-3">
+            <p>رمز عبور</p>
+
+            <TextField
+              variant="outlined"
+              color="primaryBlue"
+              placeholder="رمز عبور خود را وارد کنید"
+              type={showPassword ? 'text' : 'password'}
+              {...register('password', {
+                required: {
+                  value: true,
+                  message: 'این فیلد اجباری است',
+                },
+                minLength: {
+                  value: 8,
+                  message: 'رمز عبور باید بیشتر از ۸ حرف باشد',
+                },
+              })}
+              error={!!errors?.password}
+              helperText={errors?.password?.message}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton onClick={() => setShowPassword(prev => !prev)}>
+                      {showPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+            />
+          </div>
 
           <Button
             variant="contained"
-            className="!font-vazir"
+            className="!py-3 !font-vazir"
             type="submit"
             size="large"
+            color="primaryBlue"
           >
             ورود
           </Button>

@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { yellow } from '@mui/material/colors';
 
-export const PagesLayoutStyle = styled.div(() => ({
+export const PagesLayoutStyle = styled.div(({ theme }) => ({
   '.active': {
-    color: '#8b5cf6',
+    color: theme.palette.secondaryBlue.main,
   },
 
   '& #dropdownWrapper': {
@@ -49,7 +49,7 @@ export const PagesLayoutStyle = styled.div(() => ({
       right: 0,
       bottom: '-1px',
       height: '1px',
-      background: '#7c3aed',
+      background: theme.palette.secondaryBlue.main,
       transition: 'all 0.4s ease',
     },
 
