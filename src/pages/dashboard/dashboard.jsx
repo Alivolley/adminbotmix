@@ -18,7 +18,7 @@ import AlertComponent from '../../components/templates/alert-component/alert-com
 import InfoCard from '../../components/pages/dashboard/info-card/info-card';
 import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
 import AreaChartComponent from '../../components/pages/dashboard/area-chart-component/area-chart-component';
-import TableComponent from '../../components/pages/dashboard/table-component/table-component';
+import LogsComponent from '../../components/pages/dashboard/logs-component/logs-component';
 
 // Assets
 import userImage from '../../assets/images/user.jpg';
@@ -177,7 +177,7 @@ function Dashboard() {
       <div>
         <CardWrapper>
           <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
-          <TableComponent />
+          <LogsComponent />
           <div className="mt-6 flex items-center justify-center">
             <LoadingButton
               loading={false}

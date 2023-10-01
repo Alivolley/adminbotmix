@@ -22,7 +22,7 @@ function ProductCard({ imageSrc }) {
         variant="contained"
         color="primaryBlue"
       >
-        خرید
+        فعالسازی
       </Button>
     </ProductCardStyle>
   );
