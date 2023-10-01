@@ -21,7 +21,7 @@ function Login() {
 
   return (
     <LoginStyle className="gap-5 bg-bgPrimary text-textMain dark:bg-bgPrimaryDark dark:text-textMainDark customSm:flex customSm:min-h-screen">
-      <div className="aspect-video customSm:order-2 customSm:aspect-auto customSm:max-w-xs customMd:max-w-sm customLg:max-w-md customXl:max-w-lg 2xl:max-w-xl">
+      <div className="aspect-video customSm:order-2 customSm:aspect-auto customSm:max-w-xs customMd:max-w-sm customLg:max-w-md customXl:max-w-xl 2xl:max-w-3xl">
         <img
           src={loginBackground}
           alt="login"
@@ -31,7 +31,7 @@ function Login() {
 
       <div className="mt-5 grow customSm:order-1 customSm:mt-14 customMd:mt-[80px]">
         <div className="mx-auto max-w-xl rounded-xl p-8">
-          <h2 className="mb-20 flex items-center justify-center gap-2 font-lalezar text-4xl">
+          <h2 className="mb-20 flex items-center justify-center gap-2 font-lalezar text-4xl text-primaryBlue">
             <HiveIcon fontSize="large" />
             باتمیکس
           </h2>
