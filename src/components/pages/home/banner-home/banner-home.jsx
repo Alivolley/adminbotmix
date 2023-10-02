@@ -8,10 +8,10 @@ import { Grid, Tooltip } from '@mui/material';
 import homeBannerBg from '../../../../assets/images/homeBannerBg.png';
 import { BannerHomeStyle } from './banner-home.style';
 import binanceLogo from '../../../../assets/icons/binance.svg';
-import bingXLogo from '../../../../assets/icons/bing-x.svg';
-import byBitLogo from '../../../../assets/icons/bybit.svg';
+import bingXLogo from '../../../../assets/icons/bingx.com.svg';
+import byBitLogo from '../../../../assets/icons/bybit-logo.svg';
 import kuCoinLogo from '../../../../assets/icons/kcs.svg';
-import wallexLogo from '../../../../assets/icons/x-byte-lab.svg';
+import wallexLogo from '../../../../assets/icons/wallex-logo-v-light.svg';
 
 // Components
 import LinkComponent from '../../../form-group/link-component/link-component';
@@ -79,17 +79,9 @@ function BannerHome() {
                         />
                       </div>
                     </Tooltip>
-                    <Tooltip title="wallex" arrow placement="top">
-                      <div className="h-8 w-8 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
-                        <img
-                          src={wallexLogo}
-                          alt="exchange"
-                          className="h-full w-full"
-                        />
-                      </div>
-                    </Tooltip>
+
                     <Tooltip title="bingX" arrow placement="top">
-                      <div className="h-12 w-12 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                      <div className="h-10 w-10 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
                         <img
                           src={bingXLogo}
                           alt="exchange"
@@ -97,8 +89,17 @@ function BannerHome() {
                         />
                       </div>
                     </Tooltip>
+                    <Tooltip title="wallex" arrow placement="top">
+                      <div className="flex h-10 w-10 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                        <img
+                          src={wallexLogo}
+                          alt="exchange"
+                          className="h-full w-full"
+                        />
+                      </div>
+                    </Tooltip>
                     <Tooltip title="byBit" arrow placement="top">
-                      <div className="h-12 w-12 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
+                      <div className="h-10 w-10 cursor-pointer transition-all duration-300 hover:scale-[1.2]">
                         <img
                           src={byBitLogo}
                           alt="exchange"
