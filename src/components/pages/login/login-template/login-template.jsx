@@ -1,104 +1,124 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // MUI
-import { Button, IconButton, InputAdornment, TextField } from '@mui/material';
+import { IconButton, InputAdornment, TextField } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 // Icons
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
+// Redux
+import { useDispatch } from 'react-redux';
+import { changeToLoginTrue } from '../../../../store/reducers/loginStatusReducer';
+
 // Assets
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
+// Apis
+import useLogin from '../../../../apis/useLogin/useLogin';
+
 function LoginTemplate() {
-  const [showPassword, setShowPassword] = useState(false);
+   const [showPassword, setShowPassword] = useState(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      email: '',
-      password: '',
-    },
-    mode: 'onSubmit',
-  });
+   const navigate = useNavigate();
+   const dispatch = useDispatch();
+   const { mutate: sendLoginData, isLoading: LoginLoading } = useLogin();
 
-  const formSubmit = data => {
-    console.log(data);
-  };
+   const {
+      register,
+      handleSubmit,
+      formState: { errors },
+   } = useForm({
+      defaultValues: {
+         email_or_phone: '',
+         password: '',
+      },
+      mode: 'onSubmit',
+   });
 
-  return (
-    <div className="mt-10">
-      <RtlProvider>
-        <form
-          className="flex w-full flex-col space-y-10"
-          onSubmit={handleSubmit(formSubmit)}
-          id="detail_form"
-        >
-          <div className="flex flex-col gap-3">
-            <p>ایمیل</p>
-            <TextField
-              variant="outlined"
-              color="primaryBlue"
-              placeholder="ایمیل خود را وارد کنید"
-              {...register('email', {
-                required: {
-                  value: true,
-                  message: 'این فیلد اجباری است',
-                },
-                pattern: {
-                  value: /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/,
-                  message: 'لطفا یک ایمیل معتبر وارد کنید',
-                },
-              })}
-              error={!!errors?.email}
-              helperText={errors?.email?.message}
-            />
-          </div>
+   const formSubmit = data => {
+      sendLoginData(data, {
+         onSuccess: () => {
+            dispatch(changeToLoginTrue());
+            navigate(-1);
+            toast.success('ورود با موفقیت انجام شد', {
+               style: {
+                  direction: 'rtl',
+                  fontFamily: 'vazir',
+               },
+               theme: 'colored',
+               autoClose: 6000,
+            });
+         },
+      });
+   };
 
-          <div className="flex flex-col gap-3">
-            <p>رمز عبور</p>
+   return (
+      <div className="mt-10">
+         <RtlProvider>
+            <form className="flex w-full flex-col space-y-10" onSubmit={handleSubmit(formSubmit)} id="detail_form">
+               <div className="flex flex-col gap-3">
+                  <p>ایمیل یا شماره تلفن</p>
+                  <TextField
+                     variant="outlined"
+                     color="primaryBlue"
+                     placeholder="ایمیل یا شماره تلفن خود را وارد کنید"
+                     {...register('email_or_phone', {
+                        required: {
+                           value: true,
+                           message: 'این فیلد اجباری است',
+                        },
+                     })}
+                     error={!!errors?.email_or_phone}
+                     helperText={errors?.email_or_phone?.message}
+                  />
+               </div>
 
-            <TextField
-              variant="outlined"
-              color="primaryBlue"
-              placeholder="رمز عبور خود را وارد کنید"
-              type={showPassword ? 'text' : 'password'}
-              {...register('password', {
-                required: {
-                  value: true,
-                  message: 'این فیلد اجباری است',
-                },
-              })}
-              error={!!errors?.password}
-              helperText={errors?.password?.message}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setShowPassword(prev => !prev)}>
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-          </div>
+               <div className="flex flex-col gap-3">
+                  <p>رمز عبور</p>
 
-          <Button
-            variant="contained"
-            className="!py-3 !font-vazir"
-            type="submit"
-            size="large"
-            color="primaryBlue"
-          >
-            ورود
-          </Button>
-        </form>
-      </RtlProvider>
-    </div>
-  );
+                  <TextField
+                     variant="outlined"
+                     color="primaryBlue"
+                     placeholder="رمز عبور خود را وارد کنید"
+                     type={showPassword ? 'text' : 'password'}
+                     {...register('password', {
+                        required: {
+                           value: true,
+                           message: 'این فیلد اجباری است',
+                        },
+                     })}
+                     error={!!errors?.password}
+                     helperText={errors?.password?.message}
+                     InputProps={{
+                        endAdornment: (
+                           <InputAdornment position="end">
+                              <IconButton onClick={() => setShowPassword(prev => !prev)}>
+                                 {showPassword ? <VisibilityOff /> : <Visibility />}
+                              </IconButton>
+                           </InputAdornment>
+                        ),
+                     }}
+                  />
+               </div>
+
+               <LoadingButton
+                  variant="contained"
+                  className="!py-3 !font-vazir"
+                  type="submit"
+                  size="large"
+                  color="primaryBlue"
+                  loading={LoginLoading}
+               >
+                  ورود
+               </LoadingButton>
+            </form>
+         </RtlProvider>
+      </div>
+   );
 }
 
 export default LoginTemplate;
