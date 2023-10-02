@@ -71,10 +71,6 @@ function LoginTemplate() {
                   value: true,
                   message: 'این فیلد اجباری است',
                 },
-                minLength: {
-                  value: 8,
-                  message: 'رمز عبور باید بیشتر از ۸ حرف باشد',
-                },
               })}
               error={!!errors?.password}
               helperText={errors?.password?.message}

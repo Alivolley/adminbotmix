@@ -31,10 +31,12 @@ function Login() {
 
       <div className="grow customSm:order-1 customSm:mt-14 customMd:mt-[80px]">
         <div className="mx-auto max-w-xl rounded-xl p-8">
-          <h2 className="mb-20 flex items-center justify-center gap-2 font-lalezar text-4xl text-primaryBlue">
-            <HiveIcon fontSize="large" />
-            باتمیکس
-          </h2>
+          <Link to="/">
+            <h2 className="mb-20 flex items-center justify-center gap-2 font-lalezar text-4xl text-primaryBlue">
+              <HiveIcon fontSize="large" />
+              باتمیکس
+            </h2>
+          </Link>
 
           <p className="flex items-center justify-between text-lg font-bold">
             {tabsValue === 'login' ? 'ورود به باتمیکس' : 'ساخت حساب در باتمیکس'}

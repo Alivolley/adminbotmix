@@ -1,6 +1,10 @@
+import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AOS from 'aos';
+
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // MUI
 import { ThemeProvider, createTheme } from '@mui/material';
@@ -9,6 +13,8 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 import getDesignTokens from '../../configs/theme';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function AppLayout({ children }) {
   const { pathname } = useLocation();
@@ -27,14 +33,19 @@ function AppLayout({ children }) {
   }, [pathname]);
 
   const themeMode = useSelector(state => state.themeReducer);
-
   const themeConfig = createTheme(getDesignTokens(themeMode));
+
+  const client = new QueryClient();
 
   return (
     <ThemeProvider theme={themeConfig}>
-      <div className={`font-vazir ${themeMode === 'dark' ? 'dark' : ''}`}>
-        {children}
-      </div>
+      <QueryClientProvider client={client}>
+        <ReactQueryDevtools />
+        <ToastContainer />
+        <div className={`font-vazir ${themeMode === 'dark' ? 'dark' : ''}`}>
+          {children}
+        </div>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
