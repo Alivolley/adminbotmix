@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom';
 import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 
 // MUI
 import { Button } from '@mui/material';
 
+// Icons
+import BarChartIcon from '@mui/icons-material/BarChart';
+
 // Assets
 import { ProductCardStyle } from './product-card.style';
+import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 function ProductCard() {
   const testArray = [
@@ -63,13 +68,23 @@ function ProductCard() {
         </div>
       </div>
 
-      <Button
-        className="w-full !font-vazir"
-        variant="contained"
-        color="primaryBlue"
-      >
-        فعالسازی
-      </Button>
+      <div className="flex items-center justify-between gap-3">
+        <Button className="!font-vazir" variant="contained" color="primaryBlue">
+          فعالسازی
+        </Button>
+        <RtlProvider>
+          <Link to="/robotFunctionality/2">
+            <Button
+              className="!font-vazir"
+              variant="outlined"
+              color="primary"
+              endIcon={<BarChartIcon />}
+            >
+              عملکرد ربات
+            </Button>
+          </Link>
+        </RtlProvider>
+      </div>
     </ProductCardStyle>
   );
 }

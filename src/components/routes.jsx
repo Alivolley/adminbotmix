@@ -10,6 +10,7 @@ import Home from '../pages/home/Home';
 import Login from '../pages/login/login';
 import Products from '../pages/products/products';
 import ProfileSetting from '../pages/profile-setting/profile-setting';
+import RobotFunctionality from '../pages/robot-functionality/robot-functionality';
 import Robots from '../pages/robots/robots';
 import Rules from '../pages/rules/rules';
 import Tutorials from '../pages/tutorials/tutorials';
@@ -30,6 +31,7 @@ const routes = [
       { path: 'tutorials', element: <Tutorials /> },
       { path: 'article/:id', element: <ChosenArticle /> },
       { path: 'tutorial/:id', element: <ChosenTutorial /> },
+      { path: 'robotFunctionality/:id', element: <RobotFunctionality /> },
     ],
   },
   {
