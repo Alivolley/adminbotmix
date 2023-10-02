@@ -137,16 +137,14 @@ function PagesLayout() {
                            <NavLink
                               to="/products"
                               state="portfolio_management"
-                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-secondaryBlue dark:text-textMain"
+                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
                               سبدگردانی
                            </NavLink>
                            <NavLink
                               to="/products"
                               state="robot_interface"
-                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-secondaryBlue dark:text-textMain"
+                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
                               اشتراک رباط واسط
                            </NavLink>
