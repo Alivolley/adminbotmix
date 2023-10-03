@@ -82,12 +82,12 @@ function PagesLayout() {
                      </Tooltip>
 
                      <Button
-                        className="gap-2 !font-vazir !text-xs"
+                        className="gap-2 !font-vazirBold !text-xs"
                         variant="text"
-                        color="inherit"
+                        color="error"
                         onClick={() => setConfirmLogoutModal(true)}
                      >
-                        خروج از حساب
+                        خروج
                      </Button>
                   </>
                )}
@@ -204,21 +204,21 @@ function PagesLayout() {
             </div>
 
             <div className="flex w-full items-center justify-between customLg:hidden">
-               <Link to="/" className="flex items-start gap-2 text-xl font-bold">
-                  <HiveIcon fontSize="medium" />
-                  Botmix
-               </Link>
-
                <IconButton onClick={() => setMobileMenuOpen(true)}>
                   {mobileMenuOpen ? <MenuOpenIcon className="rotate-180" /> : <MenuIcon />}
                </IconButton>
+
+               <Link to="/" className="flex items-start gap-2 text-xl font-bold">
+                  Botmix
+                  <HiveIcon fontSize="medium" />
+               </Link>
             </div>
 
             <Drawer
-               anchor="right"
+               anchor="left"
                open={mobileMenuOpen}
                SlideProps={{
-                  direction: 'left',
+                  direction: 'right',
                }}
                onClose={() => setMobileMenuOpen(false)}
                sx={{

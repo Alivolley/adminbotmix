@@ -44,6 +44,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
       deleteCookie('isLogin');
       dispatch(changeToLoginFalse());
       setConfirmLogoutModal(false);
+      setMobileMenuOpen(false);
    };
 
    return (
@@ -51,15 +52,31 @@ function MobileNavbar({ setMobileMenuOpen }) {
          <div>
             <ul className="space-y-4">
                <li>
-                  <NavLink
-                     onClick={() => setMobileMenuOpen(false)}
-                     to="/"
-                     className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                  >
-                     <HomeOutlinedIcon fontSize="small" />
-                     <p>صفحه اصلی</p>
-                  </NavLink>
+                  <div className="flex items-center justify-between">
+                     <NavLink
+                        onClick={() => setMobileMenuOpen(false)}
+                        to="/"
+                        className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
+                     >
+                        <HomeOutlinedIcon fontSize="small" />
+                        <p>صفحه اصلی</p>
+                     </NavLink>
+                     <ChangeThemeComponent />
+                  </div>
                </li>
+
+               {!isLogin && (
+                  <li>
+                     <NavLink
+                        onClick={() => setMobileMenuOpen(false)}
+                        to="/login"
+                        className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
+                     >
+                        <LoginIcon fontSize="small" />
+                        <p>ورود</p>
+                     </NavLink>
+                  </li>
+               )}
 
                <li dir="ltr" className="pr-1">
                   <Button
@@ -172,19 +189,6 @@ function MobileNavbar({ setMobileMenuOpen }) {
                   </NavLink>
                </li>
 
-               {!isLogin && (
-                  <li>
-                     <NavLink
-                        onClick={() => setMobileMenuOpen(false)}
-                        to="/login"
-                        className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                     >
-                        <LoginIcon fontSize="small" />
-                        <p>ورود</p>
-                     </NavLink>
-                  </li>
-               )}
-
                {isLogin && (
                   <>
                      <li>
@@ -199,12 +203,12 @@ function MobileNavbar({ setMobileMenuOpen }) {
 
                      <li>
                         <Button
-                           className="gap-2 !font-vazir"
+                           className="gap-2 !font-vazirBold"
                            variant="text"
-                           color="inherit"
+                           color="error"
                            onClick={() => setConfirmLogoutModal(true)}
                         >
-                           خروج از حساب
+                           خروج
                         </Button>
                      </li>
                   </>
@@ -217,13 +221,6 @@ function MobileNavbar({ setMobileMenuOpen }) {
             title="آیا از خروج از حساب خود مطمئن هستید ؟"
             confirmHandler={confirmHandler}
          />
-
-         <div className="mt-12">
-            <div className="mt-6 flex items-center justify-between">
-               <p>حالت :</p>
-               <ChangeThemeComponent />
-            </div>
-         </div>
       </MobileNavbarStyle>
    );
 }
