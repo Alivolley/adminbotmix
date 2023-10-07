@@ -4,6 +4,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 // MUI
 import { Grid, IconButton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+import CircularProgress from '@mui/material/CircularProgress';
 
 // Icon
 import WalletIcon from '@mui/icons-material/Wallet';
@@ -23,175 +24,179 @@ import LogsComponent from '../../components/pages/dashboard/logs-component/logs-
 // Assets
 import userImage from '../../assets/images/user.jpg';
 
+// Apis
+import useDashboard from '../../apis/useDashboard/useDashboard';
+
 function Dashboard() {
-  const [chosenChart, setChosenChart] = useState('robotsHistory');
+   const [chosenChart, setChosenChart] = useState('robotsHistory');
 
-  return (
-    <div className="flex flex-col gap-4">
-      <CardWrapper>
-        <div className="flex items-center gap-4">
-          <img
-            src={userImage}
-            alt="profile"
-            className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
-          />
-          <p>علی ازقندی</p>
-        </div>
-      </CardWrapper>
-      <div className="flex flex-col gap-2">
-        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
-        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+   const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
+
+   console.log(dashboardData);
+
+   return (
+      <div className="flex flex-col gap-4">
+         {dashboardIsLoading ? (
+            <div>
+               <CircularProgress />
+            </div>
+         ) : (
+            <>
+               <CardWrapper>
+                  <div className="flex items-center gap-4">
+                     <img
+                        src={userImage}
+                        alt="profile"
+                        className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
+                     />
+                     <p>{dashboardData?.email}</p>
+                  </div>
+               </CardWrapper>
+               <div className="flex flex-col gap-2">
+                  <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+                  <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+               </div>
+
+               <div>
+                  <Grid container spacing={2}>
+                     <Grid item xs={12} sm={6} lg={3}>
+                        <InfoCard icon={<WalletIcon fontSize="inherit" color="inherit" />}>
+                           <div className="flex flex-col gap-2 text-[14px]">
+                              <p className="font-bold text-textGray">شارژ حساب کاربری : </p>
+                              <p>{dashboardData?.balance}</p>
+                           </div>
+                        </InfoCard>
+                     </Grid>
+                     <Grid item xs={12} sm={6} lg={3}>
+                        <InfoCard
+                           progress={
+                              <CircularProgressbar
+                                 minValue={0}
+                                 maxValue={30}
+                                 value={dashboardData?.paln_remain_day}
+                                 text={dashboardData?.paln_remain_day}
+                                 styles={{
+                                    path: {
+                                       stroke: '#1f7191',
+                                    },
+                                    trail: {
+                                       stroke: '#A0AEC0',
+                                    },
+                                    text: {
+                                       fill: '#1f7191',
+                                       fontSize: '30px',
+                                    },
+                                 }}
+                              />
+                           }
+                        >
+                           <div className="flex flex-col gap-2 text-[14px]">
+                              <p className="font-bold text-textGray">پلن {dashboardData?.plan}</p>
+                              <p className="whitespace-nowrap">تعداد روز های باقی مانده :</p>
+                           </div>
+                        </InfoCard>
+                     </Grid>
+                     <Grid item xs={12} sm={6} lg={3}>
+                        <InfoCard icon={<CandlestickChartIcon fontSize="inherit" color="inherit" />}>
+                           <div className="flex flex-col gap-2 text-[14px]">
+                              <p className="font-bold text-textGray">تعداد پوزیشن های باز :</p>
+                              <p>{dashboardData?.open_positions}</p>
+                           </div>
+                        </InfoCard>
+                     </Grid>
+                     <Grid item xs={12} sm={6} lg={3}>
+                        <InfoCard icon={<GroupsIcon fontSize="inherit" color="inherit" />}>
+                           <div className="flex flex-col gap-2">
+                              <div className="flex gap-1">
+                                 <p className="whitespace-nowrap text-[13px] font-bold text-textGray">
+                                    تعداد api های ثبت شده :
+                                 </p>
+                                 <p className="text-[12px]">{dashboardData?.api_keys_count}</p>
+                              </div>
+
+                              <div className="flex gap-1">
+                                 <p className="text-[13px] font-bold text-textGray">تعداد گروه های تلگرام :</p>
+                                 <p className="text-[12px]">{dashboardData?.telegram_groups_count}</p>
+                              </div>
+                           </div>
+                        </InfoCard>
+                     </Grid>
+                  </Grid>
+               </div>
+
+               <div>
+                  <Grid container spacing={2}>
+                     <Grid item xs={12} md={8}>
+                        <CardWrapper>
+                           <div className="relative overflow-hidden">
+                              <div
+                                 className={`transition-all duration-500 ${
+                                    chosenChart === 'transformHistory'
+                                       ? 'visible translate-x-0 opacity-100'
+                                       : 'invisible translate-x-[100%] opacity-0'
+                                 }`}
+                              >
+                                 <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
+                                 <AreaChartComponent />
+                              </div>
+                              <div
+                                 className={`absolute inset-0 transition-all duration-500 ${
+                                    chosenChart === 'robotsHistory'
+                                       ? 'visible translate-x-0 opacity-100'
+                                       : 'invisible translate-x-[-100%] opacity-0'
+                                 }`}
+                              >
+                                 <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
+                                 <AreaChartComponent />
+                              </div>
+                           </div>
+                           <div className="flex items-center justify-center">
+                              <IconButton
+                                 onClick={() => setChosenChart('transformHistory')}
+                                 disabled={chosenChart === 'transformHistory'}
+                                 color="primary"
+                                 size="small"
+                              >
+                                 <KeyboardArrowRightIcon />
+                              </IconButton>
+                              <IconButton
+                                 onClick={() => setChosenChart('robotsHistory')}
+                                 disabled={chosenChart === 'robotsHistory'}
+                                 color="primary"
+                                 size="small"
+                              >
+                                 <KeyboardArrowLeftIcon />
+                              </IconButton>
+                           </div>
+                        </CardWrapper>
+                     </Grid>
+                     <Grid item xs={12} md={4}>
+                        <CardWrapper>
+                           <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
+                              <div className="h-[9px] w-[9px] rounded-sm bg-[#143542]" />
+                              <p>سهم کاربر از سود ربات</p>
+                           </div>
+                           <PieChartComponent />
+                        </CardWrapper>
+                     </Grid>
+                  </Grid>
+               </div>
+
+               <div>
+                  <CardWrapper>
+                     <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
+                     <LogsComponent />
+                     <div className="mt-6 flex items-center justify-center">
+                        <LoadingButton loading={false} variant="contained" className="!font-vazir" color="primaryBlue">
+                           بیشتر
+                        </LoadingButton>
+                     </div>
+                  </CardWrapper>
+               </div>
+            </>
+         )}
       </div>
-
-      <div>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} lg={3}>
-            <InfoCard icon={<WalletIcon fontSize="inherit" color="inherit" />}>
-              <div className="flex flex-col gap-2 text-[14px]">
-                <p className="font-bold text-textGray">شارژ حساب کاربری : </p>
-                <p>۲۳۵۰۰۰</p>
-              </div>
-            </InfoCard>
-          </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
-            <InfoCard
-              progress={
-                <CircularProgressbar
-                  minValue={0}
-                  maxValue={30}
-                  value={20}
-                  text="۲۰"
-                  styles={{
-                    path: {
-                      stroke: '#1f7191',
-                    },
-                    trail: {
-                      stroke: '#A0AEC0',
-                    },
-                    text: {
-                      fill: '#1f7191',
-                      fontSize: '30px',
-                    },
-                  }}
-                />
-              }
-            >
-              <div className="flex flex-col gap-2 text-[14px]">
-                <p className="font-bold text-textGray">پلن طلایی</p>
-                <p className="whitespace-nowrap">تعداد روز های باقی مانده :</p>
-              </div>
-            </InfoCard>
-          </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
-            <InfoCard
-              icon={<CandlestickChartIcon fontSize="inherit" color="inherit" />}
-            >
-              <div className="flex flex-col gap-2 text-[14px]">
-                <p className="font-bold text-textGray">
-                  تعداد پوزیشن های باز :
-                </p>
-                <p>۳۷</p>
-              </div>
-            </InfoCard>
-          </Grid>
-          <Grid item xs={12} sm={6} lg={3}>
-            <InfoCard icon={<GroupsIcon fontSize="inherit" color="inherit" />}>
-              <div className="flex flex-col gap-2">
-                <div className="flex gap-1">
-                  <p className="whitespace-nowrap text-[13px] font-bold text-textGray">
-                    تعداد api های ثبت شده :
-                  </p>
-                  <p className="text-[12px]">۱۲۳</p>
-                </div>
-
-                <div className="flex gap-1">
-                  <p className="text-[13px] font-bold text-textGray">
-                    تعداد گروه های تلگرام :
-                  </p>
-                  <p className="text-[12px]">۳۷</p>
-                </div>
-              </div>
-            </InfoCard>
-          </Grid>
-        </Grid>
-      </div>
-
-      <div>
-        <Grid container spacing={2}>
-          <Grid item xs={12} md={8}>
-            <CardWrapper>
-              <div className="relative overflow-hidden">
-                <div
-                  className={`transition-all duration-500 ${
-                    chosenChart === 'transformHistory'
-                      ? 'visible translate-x-0 opacity-100'
-                      : 'invisible translate-x-[100%] opacity-0'
-                  }`}
-                >
-                  <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
-                  <AreaChartComponent />
-                </div>
-                <div
-                  className={`absolute inset-0 transition-all duration-500 ${
-                    chosenChart === 'robotsHistory'
-                      ? 'visible translate-x-0 opacity-100'
-                      : 'invisible translate-x-[-100%] opacity-0'
-                  }`}
-                >
-                  <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
-                  <AreaChartComponent />
-                </div>
-              </div>
-              <div className="flex items-center justify-center">
-                <IconButton
-                  onClick={() => setChosenChart('transformHistory')}
-                  disabled={chosenChart === 'transformHistory'}
-                  color="primary"
-                  size="small"
-                >
-                  <KeyboardArrowRightIcon />
-                </IconButton>
-                <IconButton
-                  onClick={() => setChosenChart('robotsHistory')}
-                  disabled={chosenChart === 'robotsHistory'}
-                  color="primary"
-                  size="small"
-                >
-                  <KeyboardArrowLeftIcon />
-                </IconButton>
-              </div>
-            </CardWrapper>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <CardWrapper>
-              <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
-                <div className="h-[9px] w-[9px] rounded-sm bg-[#143542]" />
-                <p>سهم کاربر از سود ربات</p>
-              </div>
-              <PieChartComponent />
-            </CardWrapper>
-          </Grid>
-        </Grid>
-      </div>
-
-      <div>
-        <CardWrapper>
-          <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
-          <LogsComponent />
-          <div className="mt-6 flex items-center justify-center">
-            <LoadingButton
-              loading={false}
-              variant="contained"
-              className="!font-vazir"
-              color="primaryBlue"
-            >
-              بیشتر
-            </LoadingButton>
-          </div>
-        </CardWrapper>
-      </div>
-    </div>
-  );
+   );
 }
 
 export default Dashboard;

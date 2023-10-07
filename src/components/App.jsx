@@ -9,13 +9,13 @@ import store from '../store/store';
 import AppLayout from './layout/app-layout';
 
 function App() {
-  const router = useRoutes(routes);
+   const router = useRoutes(routes);
 
-  return (
-    <Provider store={store}>
-      <AppLayout>{router}</AppLayout>
-    </Provider>
-  );
+   return (
+      <Provider store={store}>
+         <AppLayout>{router}</AppLayout>
+      </Provider>
+   );
 }
 
 export default App;
