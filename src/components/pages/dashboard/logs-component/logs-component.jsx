@@ -1,46 +1,33 @@
-function LogsComponent() {
-  const arrayTest = [1, 2, 3, 4, 5, 6];
+import { v4 as uuidv4 } from 'uuid';
 
-  return (
-    <div className="overflow-auto">
-      {arrayTest.map(item => (
-        <div className="flex items-center text-sm" key={item}>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">نام :</p>
-            <p>علی</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">عنوان :</p>
-            <p>فرانت اند</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">شغل :</p>
-            <p>برنامه نویس</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">رشته :</p>
-            <p>والیبال</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">سن :</p>
-            <p>۲۵</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">وزن :</p>
-            <p>۹۰ کیلوگرم</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">قد :</p>
-            <p>192</p>
-          </div>
-          <div className="flex grow items-center gap-1 whitespace-nowrap p-3">
-            <p className="text-textGray">امتیاز :</p>
-            <p>عالی</p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+function LogsComponent({ detail }) {
+   return (
+      <div className="overflow-auto">
+         {detail?.pages?.map(item =>
+            item?.map(innerItem => (
+               <div
+                  className={`border-b border-gray-300 dark:border-gray-600 ${
+                     innerItem?.has_error ? 'text-red-400' : ''
+                  }`}
+                  key={uuidv4()}
+               >
+                  <div className="py-5">
+                     <p>{innerItem?.type}</p>
+                     <p className="text-[10px]">( {innerItem?.created_at} )</p>
+                  </div>
+                  <div className="flex flex-wrap items-start text-sm">
+                     {Object.keys(innerItem?.data).map(key => (
+                        <div className="flex items-start gap-1 p-3" key={uuidv4()}>
+                           <p className="whitespace-nowrap text-textGray">{key} :</p>
+                           <p>{innerItem?.data[key]}</p>
+                        </div>
+                     ))}
+                  </div>
+               </div>
+            ))
+         )}
+      </div>
+   );
 }
 
 export default LogsComponent;

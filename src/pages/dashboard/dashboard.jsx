@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
 // MUI
@@ -26,18 +26,32 @@ import userImage from '../../assets/images/user.jpg';
 
 // Apis
 import useDashboard from '../../apis/useDashboard/useDashboard';
+import useLogs from '../../apis/useLogs/useLogs';
 
 function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
 
    const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
+   const { data: logsData, isLoading: logsIsLoading, hasNextPage, fetchNextPage, isFetchingNextPage } = useLogs();
 
-   console.log(dashboardData);
+   useEffect(() => {
+      if (dashboardData?.has_history_chart) {
+         setChosenChart('transformHistory');
+      } else if (dashboardData?.has_bot_chart) {
+         setChosenChart('robotsHistory');
+      }
+   }, [dashboardData]);
+
+   //  console.log(logsData);
+
+   const addMoreLogs = () => {
+      //
+   };
 
    return (
       <div className="flex flex-col gap-4">
          {dashboardIsLoading ? (
-            <div>
+            <div className="flex items-center justify-center">
                <CircularProgress />
             </div>
          ) : (
@@ -129,45 +143,52 @@ function Dashboard() {
                      <Grid item xs={12} md={8}>
                         <CardWrapper>
                            <div className="relative overflow-hidden">
-                              <div
-                                 className={`transition-all duration-500 ${
-                                    chosenChart === 'transformHistory'
-                                       ? 'visible translate-x-0 opacity-100'
-                                       : 'invisible translate-x-[100%] opacity-0'
-                                 }`}
-                              >
-                                 <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
-                                 <AreaChartComponent />
-                              </div>
-                              <div
-                                 className={`absolute inset-0 transition-all duration-500 ${
-                                    chosenChart === 'robotsHistory'
-                                       ? 'visible translate-x-0 opacity-100'
-                                       : 'invisible translate-x-[-100%] opacity-0'
-                                 }`}
-                              >
-                                 <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
-                                 <AreaChartComponent />
-                              </div>
+                              {dashboardData?.has_history_chart && (
+                                 <div
+                                    className={`transition-all duration-500 ${
+                                       chosenChart === 'transformHistory'
+                                          ? 'visible translate-x-0 opacity-100'
+                                          : 'invisible translate-x-[100%] opacity-0'
+                                    }`}
+                                 >
+                                    <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
+                                    <AreaChartComponent detail={dashboardData?.history_chart} />
+                                 </div>
+                              )}
+
+                              {dashboardData?.has_bot_chart && (
+                                 <div
+                                    className={`absolute inset-0 transition-all duration-500 ${
+                                       chosenChart === 'robotsHistory'
+                                          ? 'visible translate-x-0 opacity-100'
+                                          : 'invisible translate-x-[-100%] opacity-0'
+                                    }`}
+                                 >
+                                    <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
+                                    <AreaChartComponent detail={dashboardData?.bot_chart} />
+                                 </div>
+                              )}
                            </div>
-                           <div className="flex items-center justify-center">
-                              <IconButton
-                                 onClick={() => setChosenChart('transformHistory')}
-                                 disabled={chosenChart === 'transformHistory'}
-                                 color="primary"
-                                 size="small"
-                              >
-                                 <KeyboardArrowRightIcon />
-                              </IconButton>
-                              <IconButton
-                                 onClick={() => setChosenChart('robotsHistory')}
-                                 disabled={chosenChart === 'robotsHistory'}
-                                 color="primary"
-                                 size="small"
-                              >
-                                 <KeyboardArrowLeftIcon />
-                              </IconButton>
-                           </div>
+                           {dashboardData?.has_history_chart && dashboardData?.has_bot_chart && (
+                              <div className="flex items-center justify-center">
+                                 <IconButton
+                                    onClick={() => setChosenChart('transformHistory')}
+                                    disabled={chosenChart === 'transformHistory'}
+                                    color="primary"
+                                    size="small"
+                                 >
+                                    <KeyboardArrowRightIcon />
+                                 </IconButton>
+                                 <IconButton
+                                    onClick={() => setChosenChart('robotsHistory')}
+                                    disabled={chosenChart === 'robotsHistory'}
+                                    color="primary"
+                                    size="small"
+                                 >
+                                    <KeyboardArrowLeftIcon />
+                                 </IconButton>
+                              </div>
+                           )}
                         </CardWrapper>
                      </Grid>
                      <Grid item xs={12} md={4}>
@@ -185,12 +206,26 @@ function Dashboard() {
                <div>
                   <CardWrapper>
                      <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
-                     <LogsComponent />
-                     <div className="mt-6 flex items-center justify-center">
-                        <LoadingButton loading={false} variant="contained" className="!font-vazir" color="primaryBlue">
-                           بیشتر
-                        </LoadingButton>
-                     </div>
+                     {dashboardIsLoading ? (
+                        <div className="flex items-center justify-center">
+                           <CircularProgress />
+                        </div>
+                     ) : (
+                        <>
+                           <LogsComponent detail={logsData} />
+                           <div className="mt-6 flex items-center justify-center">
+                              <LoadingButton
+                                 loading={false}
+                                 variant="contained"
+                                 className="!font-vazir"
+                                 color="primaryBlue"
+                                 onClick={addMoreLogs}
+                              >
+                                 بیشتر
+                              </LoadingButton>
+                           </div>
+                        </>
+                     )}
                   </CardWrapper>
                </div>
             </>
