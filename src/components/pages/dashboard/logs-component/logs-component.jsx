@@ -1,5 +1,11 @@
 import { v4 as uuidv4 } from 'uuid';
 
+// MUI
+import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
+
+// Icons
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
 function LogsComponent({ detail }) {
    return (
       <div className="overflow-auto" dir="ltr">
@@ -18,8 +24,30 @@ function LogsComponent({ detail }) {
                   <div className="flex flex-wrap items-start text-sm">
                      {Object.keys(innerItem?.data).map(key => (
                         <div className="flex items-start gap-1 p-3" key={uuidv4()}>
-                           <p className="whitespace-nowrap text-textGray">{key} :</p>
-                           <p>{innerItem?.data[key]}</p>
+                           {key !== 'response' ? (
+                              <>
+                                 <p className="whitespace-nowrap text-textGray">{key} :</p>
+                                 <p>{innerItem?.data[key]}</p>
+                              </>
+                           ) : (
+                              <div>
+                                 <Accordion
+                                    className="!bg-inherit !bg-none !text-inherit"
+                                    sx={{
+                                       boxShadow: '0px 5px 6px 1px rgba(0, 0, 0, 0.04)',
+                                       '&.MuiAccordion-root:before': {
+                                          display: 'none',
+                                       },
+                                    }}
+                                 >
+                                    <AccordionSummary expandIcon={<ExpandMoreIcon />} />
+                                    <AccordionDetails>
+                                       <p className="whitespace-nowrap text-textGray">{key} :</p>
+                                       <p>{innerItem?.data[key]}</p>
+                                    </AccordionDetails>
+                                 </Accordion>
+                              </div>
+                           )}
                         </div>
                      ))}
                   </div>
