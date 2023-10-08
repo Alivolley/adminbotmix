@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 // MUI
 import { IconButton, InputAdornment, TextField } from '@mui/material';
@@ -44,14 +43,6 @@ function LoginTemplate() {
          onSuccess: () => {
             dispatch(changeToLoginTrue());
             navigate(-1);
-            toast.success('ورود با موفقیت انجام شد', {
-               style: {
-                  direction: 'rtl',
-                  fontFamily: 'vazir',
-               },
-               theme: 'colored',
-               autoClose: 6000,
-            });
          },
       });
    };

@@ -78,6 +78,18 @@ function MobileNavbar({ setMobileMenuOpen }) {
                   </li>
                )}
 
+               {isLogin && (
+                  <li>
+                     <Link
+                        to="/admin-panel/profile-setting"
+                        className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
+                     >
+                        <PersonIcon fontSize="small" />
+                        <p>پنل کاربری</p>
+                     </Link>
+                  </li>
+               )}
+
                <li dir="ltr" className="pr-1">
                   <Button
                      className="!font-vazir"
@@ -190,28 +202,16 @@ function MobileNavbar({ setMobileMenuOpen }) {
                </li>
 
                {isLogin && (
-                  <>
-                     <li>
-                        <Link
-                           to="/admin-panel/dashboard"
-                           className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                        >
-                           <PersonIcon fontSize="small" />
-                           <p>پنل کاربری</p>
-                        </Link>
-                     </li>
-
-                     <li>
-                        <Button
-                           className="gap-2 !font-vazirBold"
-                           variant="text"
-                           color="error"
-                           onClick={() => setConfirmLogoutModal(true)}
-                        >
-                           خروج
-                        </Button>
-                     </li>
-                  </>
+                  <li>
+                     <Button
+                        className="gap-2 !font-vazirBold"
+                        variant="text"
+                        color="error"
+                        onClick={() => setConfirmLogoutModal(true)}
+                     >
+                        خروج
+                     </Button>
+                  </li>
                )}
             </ul>
          </div>

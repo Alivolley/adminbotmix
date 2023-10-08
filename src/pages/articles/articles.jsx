@@ -10,28 +10,28 @@ import articlePicTest4 from '../../assets/images/user.jpg';
 import { ArticlesStyle } from './articles.style';
 
 function Articles() {
-  return (
-    <div>
-      <ArticlesStyle className="mx-auto mb-32 mt-14 max-w-[1150px] customMd:mt-[80px]">
-        <h1
-          className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-7xl"
-          id="articles_page_title"
-        >
-          لیست مقالات
-        </h1>
-        <div className="relative mt-14 customSm:mt-24">
-          <ArticleCard imageSrc={articlePicTest} />
-          <ArticleCard imageSrc={articlePicTest2} />
-          <ArticleCard imageSrc={articlePicTest3} />
-          <ArticleCard imageSrc={articlePicTest4} />
-          <ArticleCard imageSrc={articlePicTest} />
-          <ArticleCard imageSrc={articlePicTest2} />
-          <ArticleCard imageSrc={articlePicTest3} />
-          <ArticleCard imageSrc={articlePicTest4} />
-        </div>
+   return (
+      <div>
+         <ArticlesStyle className="mx-auto mb-32 mt-14 max-w-[1150px] customMd:mt-[80px]">
+            <h1
+               className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-6xl"
+               id="articles_page_title"
+            >
+               لیست مقالات
+            </h1>
+            <div className="relative mt-14 customSm:mt-24">
+               <ArticleCard imageSrc={articlePicTest} />
+               <ArticleCard imageSrc={articlePicTest2} />
+               <ArticleCard imageSrc={articlePicTest3} />
+               <ArticleCard imageSrc={articlePicTest4} />
+               <ArticleCard imageSrc={articlePicTest} />
+               <ArticleCard imageSrc={articlePicTest2} />
+               <ArticleCard imageSrc={articlePicTest3} />
+               <ArticleCard imageSrc={articlePicTest4} />
+            </div>
 
-        <div className="mt-14 flex justify-center">
-          {/* <Pagination
+            <div className="mt-14 flex justify-center">
+               {/* <Pagination
           count={pageStatus.total}
           page={pageStatus.current}
           onChange={(_, value) =>
@@ -44,21 +44,21 @@ function Articles() {
           }
         /> */}
 
-          <Pagination
-            count={11}
-            defaultPage={1}
-            boundaryCount={2}
-            color="primaryBlue"
-            sx={{
-              '& .Mui-selected': {
-                color: 'white',
-              },
-            }}
-          />
-        </div>
-      </ArticlesStyle>
-    </div>
-  );
+               <Pagination
+                  count={11}
+                  defaultPage={1}
+                  boundaryCount={2}
+                  color="primaryBlue"
+                  sx={{
+                     '& .Mui-selected': {
+                        color: 'white',
+                     },
+                  }}
+               />
+            </div>
+         </ArticlesStyle>
+      </div>
+   );
 }
 
 export default Articles;

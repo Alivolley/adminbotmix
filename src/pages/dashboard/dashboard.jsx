@@ -57,19 +57,21 @@ function Dashboard() {
          ) : (
             <>
                <CardWrapper>
-                  <div className="flex items-center gap-4">
-                     <img
-                        src={userImage}
-                        alt="profile"
-                        className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
-                     />
-                     <p>{dashboardData?.email}</p>
+                  <div className="flex flex-wrap items-start gap-4">
+                     <div className="flex items-center gap-4">
+                        <img
+                           src={userImage}
+                           alt="profile"
+                           className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
+                        />
+                        <p>{dashboardData?.email}</p>
+                     </div>
+                     <div className="flex grow flex-col gap-2">
+                        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+                        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+                     </div>
                   </div>
                </CardWrapper>
-               <div className="flex flex-col gap-2">
-                  <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
-                  <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
-               </div>
 
                <div>
                   <Grid container spacing={2}>
@@ -194,7 +196,7 @@ function Dashboard() {
                      <Grid item xs={12} md={4}>
                         <CardWrapper>
                            <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
-                              <div className="h-[9px] w-[9px] rounded-sm bg-[#143542]" />
+                              <div className="h-[9px] w-[9px] rounded-sm bg-[#3D92C9]" />
                               <p>سهم کاربر از سود ربات</p>
                            </div>
                            <PieChartComponent />
@@ -205,7 +207,7 @@ function Dashboard() {
 
                <div>
                   <CardWrapper>
-                     <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
+                     <p className="mb-[40px] text-sm font-bold">جدول لاگ ها</p>
                      {dashboardIsLoading ? (
                         <div className="flex items-center justify-center">
                            <CircularProgress />

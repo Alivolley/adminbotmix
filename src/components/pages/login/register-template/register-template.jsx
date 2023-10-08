@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
 // MUI
@@ -75,14 +74,6 @@ function RegisterTemplate() {
             onSuccess: () => {
                dispatch(changeToLoginTrue());
                navigate(-1);
-               toast.success('ثبت نام با موفقیت انجام شد', {
-                  style: {
-                     direction: 'rtl',
-                     fontFamily: 'vazir',
-                  },
-                  theme: 'colored',
-                  autoClose: 6000,
-               });
             },
          });
       }

@@ -19,6 +19,7 @@ export default {
             error: '#F56565',
 
             bgPrimary: '#ffffff',
+            bgSecondary: '#2e45532e',
             textMain: '#1f2733',
 
             bgPrimaryDark: '#212836',

@@ -13,11 +13,4 @@ export const HowWeWorkCardStyle = styled.div(({ theme }) => ({
    padding: '40px 23px',
    position: 'relative',
    zIndex: 1,
-
-   '& #linear-text': {
-      WebkitTextFillColor: 'transparent',
-      background:
-         'linear-gradient(0deg, rgba(167, 167, 180, 0.8) -10%, rgb(27, 89, 145) 42%, rgba(167, 167, 180, 0.8) 110%)',
-      WebkitBackgroundClip: 'text',
-   },
 }));

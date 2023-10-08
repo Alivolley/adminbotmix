@@ -73,7 +73,7 @@ function PagesLayout() {
                         arrow
                      >
                         <Link
-                           to="/admin-panel/dashboard"
+                           to="/admin-panel/profile-setting"
                            className="flex items-center gap-2 rounded-md p-2 text-[13px] transition-colors duration-200 hover:text-secondaryBlue"
                         >
                            <PersonIcon fontSize="small" />

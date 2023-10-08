@@ -47,12 +47,12 @@ function AreaChartComponent({ detail }) {
             <AreaChart data={data}>
                <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset="5%" stopColor="#1f7191" stopOpacity={0.3} />
-                     <stop offset="95%" stopColor="#1f7191" stopOpacity={0} />
+                     <stop offset="10%" stopColor="#0E65F6" stopOpacity={0.3} />
+                     <stop offset="90%" stopColor="#0E65F6" stopOpacity={0} />
                   </linearGradient>
                   <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset="5%" stopColor="#143542" stopOpacity={0.5} />
-                     <stop offset="95%" stopColor="#143542" stopOpacity={0} />
+                     <stop offset="10%" stopColor="#03B2D9" stopOpacity={0.5} />
+                     <stop offset="90%" stopColor="#03B2D9" stopOpacity={0} />
                   </linearGradient>
                </defs>
                <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
@@ -62,16 +62,16 @@ function AreaChartComponent({ detail }) {
                <Area
                   type="monotone"
                   dataKey="uv"
-                  stroke="#1f7191"
-                  strokeWidth="3px"
+                  stroke="#0E65F6"
+                  strokeWidth="2px"
                   fillOpacity={1}
                   fill="url(#colorUv)"
                />
                <Area
                   type="monotone"
                   dataKey="pv"
-                  stroke="#143542"
-                  strokeWidth="3px"
+                  stroke="#03B2D9"
+                  strokeWidth="2px"
                   fillOpacity={1}
                   fill="url(#colorPv)"
                />

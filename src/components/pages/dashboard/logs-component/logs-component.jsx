@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function LogsComponent({ detail }) {
    return (
-      <div className="overflow-auto">
+      <div className="overflow-auto" dir="ltr">
          {detail?.pages?.map(item =>
             item?.map(innerItem => (
                <div
