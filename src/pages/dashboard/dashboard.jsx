@@ -32,7 +32,13 @@ function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
 
    const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
-   const { data: logsData, isLoading: logsIsLoading, hasNextPage, fetchNextPage, isFetchingNextPage } = useLogs();
+   const {
+      data: logsData,
+      isLoading: logsIsLoading,
+      hasNextPage: logsHasNextPage,
+      fetchNextPage: logsFetchNextPage,
+      isFetchingNextPage: logsIsFetchingNextPage,
+   } = useLogs();
 
    useEffect(() => {
       if (dashboardData?.has_history_chart) {
@@ -42,11 +48,11 @@ function Dashboard() {
       }
    }, [dashboardData]);
 
-   //  console.log(logsData);
-
    const addMoreLogs = () => {
-      //
+      logsFetchNextPage();
    };
+
+   console.log(dashboardData);
 
    return (
       <div className="flex flex-col gap-4">
@@ -67,8 +73,11 @@ function Dashboard() {
                         <p>{dashboardData?.email}</p>
                      </div>
                      <div className="flex grow flex-col gap-2">
-                        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
-                        <AlertComponent>شما یک پیغام لورم ایپسوم دارید</AlertComponent>
+                        {dashboardData?.alerts?.map(item => (
+                           <AlertComponent key={item?.id} type={item?.type} alertId={item?.id}>
+                              {item?.text}
+                           </AlertComponent>
+                        ))}
                      </div>
                   </div>
                </CardWrapper>
@@ -208,24 +217,26 @@ function Dashboard() {
                <div>
                   <CardWrapper>
                      <p className="mb-[40px] text-sm font-bold">جدول لاگ ها</p>
-                     {dashboardIsLoading ? (
+                     {logsIsLoading ? (
                         <div className="flex items-center justify-center">
                            <CircularProgress />
                         </div>
                      ) : (
                         <>
                            <LogsComponent detail={logsData} />
-                           <div className="mt-6 flex items-center justify-center">
-                              <LoadingButton
-                                 loading={false}
-                                 variant="contained"
-                                 className="!font-vazir"
-                                 color="primaryBlue"
-                                 onClick={addMoreLogs}
-                              >
-                                 بیشتر
-                              </LoadingButton>
-                           </div>
+                           {logsHasNextPage && (
+                              <div className="mt-10 flex items-center justify-center">
+                                 <LoadingButton
+                                    loading={logsIsFetchingNextPage}
+                                    variant="contained"
+                                    className="!font-vazir"
+                                    color="primaryBlue"
+                                    onClick={addMoreLogs}
+                                 >
+                                    بیشتر
+                                 </LoadingButton>
+                              </div>
+                           )}
                         </>
                      )}
                   </CardWrapper>

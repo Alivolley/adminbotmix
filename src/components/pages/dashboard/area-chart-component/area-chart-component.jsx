@@ -1,45 +1,12 @@
+import { useEffect, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function AreaChartComponent({ detail }) {
-   // console.log(detail);
+   const [data, setData] = useState([]);
 
-   const data = [
-      {
-         name: 'Page A',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page B',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page C',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page D',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page E',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page F',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-      {
-         name: 'Page G',
-         uv: Math.random(),
-         pv: Math.random(),
-      },
-   ];
+   useEffect(() => {
+      detail?.forEach(item => setData(prev => [...prev, { name: item?.label, uv: detail?.order, pv: detail?.alert }]));
+   }, [detail]);
 
    return (
       <div className="h-[220px] w-full font-vazir">

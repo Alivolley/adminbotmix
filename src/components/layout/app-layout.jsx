@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AOS from 'aos';
 
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
 // MUI
@@ -37,15 +36,11 @@ function AppLayout({ children }) {
    const themeMode = useSelector(state => state.themeReducer);
    const themeConfig = createTheme(getDesignTokens(themeMode));
 
-   const client = new QueryClient();
-
    return (
       <ThemeProvider theme={themeConfig}>
-         <QueryClientProvider client={client}>
-            <ReactQueryDevtools />
-            <ToastContainer />
-            <div className={`font-vazir ${themeMode === 'dark' ? 'dark' : ''}`}>{children}</div>
-         </QueryClientProvider>
+         <ReactQueryDevtools />
+         <ToastContainer />
+         <div className={`font-vazir ${themeMode === 'dark' ? 'dark' : ''}`}>{children}</div>
       </ThemeProvider>
    );
 }

@@ -10,7 +10,7 @@ function LogsComponent({ detail }) {
    return (
       <div className="overflow-auto" dir="ltr">
          {detail?.pages?.map(item =>
-            item?.map(innerItem => (
+            item?.data?.map(innerItem => (
                <div
                   className={`border-b border-gray-300 dark:border-gray-600 ${
                      innerItem?.has_error ? 'text-red-400' : ''
