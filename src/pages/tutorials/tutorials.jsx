@@ -22,40 +22,40 @@ function Tutorials() {
             </h1>
             <div className="mt-14 customSm:mt-24">
                <Grid container spacing={5}>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest2} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest3} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest4} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest2} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest3} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest4} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest2} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest3} />
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
+                  <Grid item xs={10} sm={6} md={4} marginX="auto">
                      <TutorialCard imageSrc={articlePicTest4} />
                   </Grid>
                </Grid>

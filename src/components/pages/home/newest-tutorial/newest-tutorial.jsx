@@ -25,7 +25,7 @@ function NewestTutorial() {
       <NewestTutorialStyle>
          <p className="text-center font-lalezar text-3xl customMd:text-[50px]">آموزش های لازم</p>
 
-         <div className="mx-[-20px] mt-32 customSm:mx-[-140px]">
+         <div className="mx-[20px] mt-32 customSm:mx-[-140px]">
             <Swiper
                spaceBetween={30}
                // loop

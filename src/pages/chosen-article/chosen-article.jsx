@@ -25,7 +25,7 @@ function ChosenArticle() {
       <ChosenArticleStyle>
          <div className="mx-auto mb-36 mt-14 max-w-[1150px] customMd:mt-[140px]">
             <Grid container spacing={6}>
-               <Grid item xs={12} md={3.5}>
+               <Grid item xs={12} md={3.5} order={{ xs: 2, md: 1 }}>
                   <div className="border-l border-gray-300 pl-5 dark:border-gray-600">
                      <SuggestArticleCard imageSrc={articlePic} />
                      <SuggestArticleCard imageSrc={articlePic2} />
@@ -45,7 +45,7 @@ function ChosenArticle() {
                   </div>
                </Grid>
 
-               <Grid item xs={12} md={8.5}>
+               <Grid item xs={12} md={8.5} order={{ xs: 1, md: 2 }}>
                   <div>
                      <h3 className="font-lalezar text-3xl customSm:text-6xl">موضوع مقاله ی انتخاب شده</h3>
                      <div
