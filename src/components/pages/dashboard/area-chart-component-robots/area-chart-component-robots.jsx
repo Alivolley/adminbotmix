@@ -1,17 +1,11 @@
-import { useEffect, useState } from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-function AreaChartComponent({ detail }) {
-   const [data, setData] = useState([]);
-
-   useEffect(() => {
-      detail?.forEach(item => setData(prev => [...prev, { name: item?.label, uv: detail?.order, pv: detail?.alert }]));
-   }, [detail]);
-
+function AreaChartComponentRobots({ detail }) {
+   console.log(detail);
    return (
       <div className="h-[220px] w-full font-vazir">
          <ResponsiveContainer>
-            <AreaChart data={data}>
+            <AreaChart data={detail || []}>
                <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                      <stop offset="10%" stopColor="#0E65F6" stopOpacity={0.3} />
@@ -22,13 +16,13 @@ function AreaChartComponent({ detail }) {
                      <stop offset="90%" stopColor="#03B2D9" stopOpacity={0} />
                   </linearGradient>
                </defs>
-               <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
+               <XAxis dataKey="label" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <CartesianGrid strokeDasharray="5" vertical={false} strokeOpacity={0.2} />
                <Tooltip />
                <Area
                   type="monotone"
-                  dataKey="uv"
+                  dataKey="Lazy Binance"
                   stroke="#0E65F6"
                   strokeWidth="2px"
                   fillOpacity={1}
@@ -36,7 +30,7 @@ function AreaChartComponent({ detail }) {
                />
                <Area
                   type="monotone"
-                  dataKey="pv"
+                  dataKey="QT Bingx"
                   stroke="#03B2D9"
                   strokeWidth="2px"
                   fillOpacity={1}
@@ -48,4 +42,4 @@ function AreaChartComponent({ detail }) {
    );
 }
 
-export default AreaChartComponent;
+export default AreaChartComponentRobots;

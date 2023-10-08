@@ -18,8 +18,9 @@ import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
 import AlertComponent from '../../components/templates/alert-component/alert-component';
 import InfoCard from '../../components/pages/dashboard/info-card/info-card';
 import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
-import AreaChartComponent from '../../components/pages/dashboard/area-chart-component/area-chart-component';
 import LogsComponent from '../../components/pages/dashboard/logs-component/logs-component';
+import AreaChartComponentTransform from '../../components/pages/dashboard/area-chart-component-transforms/area-chart-component-transforms';
+import AreaChartComponentRobots from '../../components/pages/dashboard/area-chart-component-robots/area-chart-component-robots';
 
 // Assets
 import userImage from '../../assets/images/user.jpg';
@@ -51,8 +52,6 @@ function Dashboard() {
    const addMoreLogs = () => {
       logsFetchNextPage();
    };
-
-   console.log(dashboardData);
 
    return (
       <div className="flex flex-col gap-4">
@@ -163,7 +162,7 @@ function Dashboard() {
                                     }`}
                                  >
                                     <p className="mb-[60px] text-sm font-bold">سوابق ارسال ها</p>
-                                    <AreaChartComponent detail={dashboardData?.history_chart} />
+                                    <AreaChartComponentTransform detail={dashboardData?.history_chart} />
                                  </div>
                               )}
 
@@ -176,7 +175,7 @@ function Dashboard() {
                                     }`}
                                  >
                                     <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
-                                    <AreaChartComponent detail={dashboardData?.bot_chart} />
+                                    <AreaChartComponentRobots detail={dashboardData?.bot_chart} />
                                  </div>
                               )}
                            </div>
@@ -208,7 +207,9 @@ function Dashboard() {
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#3D92C9]" />
                               <p>سهم کاربر از سود ربات</p>
                            </div>
-                           <PieChartComponent />
+                           <PieChartComponent
+                              hasBiggerHeight={dashboardData?.has_history_chart && dashboardData?.has_bot_chart}
+                           />
                         </CardWrapper>
                      </Grid>
                   </Grid>

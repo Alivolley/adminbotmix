@@ -19,7 +19,6 @@ import LinkComponent from '../../components/form-group/link-component/link-compo
 
 function ChosenArticle() {
    const { id } = useParams();
-   console.log(id);
 
    return (
       <ChosenArticleStyle>
