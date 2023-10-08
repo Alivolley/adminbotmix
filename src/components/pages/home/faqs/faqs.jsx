@@ -28,9 +28,7 @@ function Faqs() {
                type="button"
                className={`whitespace-nowrap rounded-lg px-4 py-[6px] text-sm backdrop:blur-sm
            dark:text-textMainDark ${
-              chosenCategory === 'automatic_robot'
-                 ? 'bg-gradientBtnBlue text-white'
-                 : 'bg-gradientGray dark:bg-gradientBtnDark'
+              chosenCategory === 'automatic_robot' ? 'bg-gradientBtnBlue text-white' : 'bg-gradientGray'
            }`}
                onClick={() => setChosenCategory('automatic_robot')}
             >
@@ -40,9 +38,7 @@ function Faqs() {
                type="button"
                className={`whitespace-nowrap rounded-lg px-4 py-[6px] text-sm backdrop:blur-sm
            dark:text-textMainDark ${
-              chosenCategory === 'robot_interface'
-                 ? 'bg-gradientBtnBlue text-white'
-                 : 'bg-gradientGray dark:bg-gradientBtnDark'
+              chosenCategory === 'robot_interface' ? 'bg-gradientBtnBlue text-white' : 'bg-gradientGray'
            }`}
                onClick={() => setChosenCategory('robot_interface')}
             >

@@ -81,7 +81,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                {isLogin && (
                   <li>
                      <Link
-                        to="/admin-panel/profile-setting"
+                        to="/admin-panel/dashboard"
                         className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                      >
                         <PersonIcon fontSize="small" />

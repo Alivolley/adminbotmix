@@ -4,6 +4,9 @@ import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 // MUi
 import { Grid, Tooltip } from '@mui/material';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // Assets
 import homeBannerBg from '../../../../assets/images/homeBannerBg.png';
 import { BannerHomeStyle } from './banner-home.style';
@@ -17,6 +20,7 @@ import wallexLogo from '../../../../assets/icons/wallex-logo-v-light.svg';
 import LinkComponent from '../../../form-group/link-component/link-component';
 
 function BannerHome() {
+   const isLogin = useSelector(state => state.loginStatusReducer);
    const testArray = [{ uv: 1200 }, { uv: 3000 }, { uv: 2000 }, { uv: 2780 }, { uv: 1890 }, { uv: 2390 }, { uv: 3490 }];
 
    return (
@@ -36,17 +40,19 @@ function BannerHome() {
                         <li>خدمات برنامه نویسی بازار رمزارزها</li>
                         <li>سبدگردانی و کپی ترید اسپات</li>
                      </ul>
-                     <div className="mt-6 flex items-center justify-center gap-2 customSm:mt-12 customSm:justify-start customSm:gap-5">
-                        <Link to="/login">
-                           <LinkComponent className="px-10 customSm:px-[82px]">ثبت نام</LinkComponent>
-                        </Link>
+                     {!isLogin && (
+                        <div className="mt-6 flex items-center justify-center gap-2 customSm:mt-12 customSm:justify-start customSm:gap-5">
+                           <Link to="/login">
+                              <LinkComponent className="px-10 customSm:px-[82px]">ثبت نام</LinkComponent>
+                           </Link>
 
-                        <Link to="/login">
-                           <LinkComponent className="px-6 customSm:px-[65px]" color="green">
-                              ورود
-                           </LinkComponent>
-                        </Link>
-                     </div>
+                           <Link to="/login">
+                              <LinkComponent className="px-6 customSm:px-[65px]" color="green">
+                                 ورود
+                              </LinkComponent>
+                           </Link>
+                        </div>
+                     )}
 
                      <div className="mt-12 customSm:mt-24">
                         <div className="flex flex-wrap items-center gap-3">
