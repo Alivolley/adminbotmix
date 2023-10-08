@@ -29,8 +29,6 @@ export const ArticleCardStyle = styled(Link)(({ theme }) => ({
            }),
 
       border: '1px solid hsla(0,0%,100%,.1)',
-      borderRadius: '20px',
-      padding: '15px',
       overflow: 'hidden',
 
       '&:after': {
@@ -46,14 +44,13 @@ export const ArticleCardStyle = styled(Link)(({ theme }) => ({
       },
 
       img: {
-         borderRadius: '20px',
-         aspectRatio: '3/2',
+         aspectRatio: '1/0.9',
 
          '@media(min-width : 900px)': {
             aspectRatio: '10/8',
          },
 
-         objectFit: 'fill',
+         objectFit: 'cover',
       },
    },
 }));
