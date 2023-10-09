@@ -1,7 +1,6 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function AreaChartComponentRobots({ detail }) {
-   console.log(detail);
    return (
       <div className="h-[220px] w-full font-vazir">
          <ResponsiveContainer>
