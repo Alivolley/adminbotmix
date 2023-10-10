@@ -17,7 +17,7 @@ import { changeToLoginTrue } from '../../../../store/reducers/loginStatusReducer
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 // Apis
-import useLogin from '../../../../apis/useLogin/useLogin';
+import useLogin from '../../../../apis/auth/useLogin/useLogin';
 
 function LoginTemplate() {
    const [showPassword, setShowPassword] = useState(false);

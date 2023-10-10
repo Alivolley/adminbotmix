@@ -10,7 +10,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
 
 // Apis
-import useDeleteTelegramGroup from '../../../../apis/useDeleteTelegramGroup/useDeleteTelegramGroup';
+import useDeleteTelegramGroup from '../../../../apis/connect-telegram/useDeleteTelegramGroup/useDeleteTelegramGroup';
 
 function GroupCard({ detail }) {
    const [confirmDeleteModal, setConfirmDeleteModal] = useState(false);

@@ -28,8 +28,8 @@ import AddGroupForm from '../../components/pages/connecting/add-group-form/add-g
 import RtlProvider from '../../components/layout/rtlProvider/rtlProvider';
 
 // Apis
-import useTelegramGroups from '../../apis/useTelegramGroups/useTelegramGroups';
-import useTelegramRefresh from '../../apis/useTelegramRefresh/useTelegramRefresh';
+import useTelegramGroups from '../../apis/connect-telegram/useTelegramGroups/useTelegramGroups';
+import useTelegramRefresh from '../../apis/connect-telegram/useTelegramRefresh/useTelegramRefresh';
 
 function Connecting() {
    const [addGroupExpanded, setAddGroupExpanded] = useState(false);

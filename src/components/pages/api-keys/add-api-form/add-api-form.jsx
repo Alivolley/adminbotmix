@@ -23,7 +23,7 @@ import { AddApiFormStyle } from './add-api-form.style';
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 // Apis
-import useAddApiKey from '../../../../apis/useAddApiKey/useAddApiKey';
+import useAddApiKey from '../../../../apis/api-keys/useAddApiKey/useAddApiKey';
 
 function AddApiForm() {
    const { isLoading: addApiKeyLoading, mutate: addApiKey } = useAddApiKey();

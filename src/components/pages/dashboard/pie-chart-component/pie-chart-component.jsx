@@ -13,7 +13,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
    );
 };
 
-function PieChartComponent({ hasBiggerHeight }) {
+function PieChartComponent() {
    const data = [
       { name: 'Group A', value: 30 },
       { name: 'Group B', value: 70 },
@@ -21,7 +21,7 @@ function PieChartComponent({ hasBiggerHeight }) {
    const colors = ['#7F9DC3', '#3D92C9'];
 
    return (
-      <div className={`w-full ${hasBiggerHeight ? 'h-[255px]' : 'h-[220px]'}`}>
+      <div className="h-[220px] w-full">
          <ResponsiveContainer width="100%" height="100%">
             <PieChart width="100%" height="100%">
                <Pie

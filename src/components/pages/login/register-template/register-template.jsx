@@ -18,8 +18,8 @@ import { changeToLoginTrue } from '../../../../store/reducers/loginStatusReducer
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 // Apis
-import useRegisterOtp from '../../../../apis/useRegisterOtp/useRegisterOtp';
-import useRegisterData from '../../../../apis/useRegisterData/useRegisterData';
+import useRegisterOtp from '../../../../apis/auth/useRegisterOtp/useRegisterOtp';
+import useRegisterData from '../../../../apis/auth/useRegisterData/useRegisterData';
 
 // Components
 import CountdownTimer from '../../../templates/countdown-timer/countdown-timer';

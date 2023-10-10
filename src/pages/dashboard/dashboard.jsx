@@ -26,8 +26,8 @@ import AreaChartComponentRobots from '../../components/pages/dashboard/area-char
 import userImage from '../../assets/images/user.jpg';
 
 // Apis
-import useDashboard from '../../apis/useDashboard/useDashboard';
-import useLogs from '../../apis/useLogs/useLogs';
+import useDashboard from '../../apis/dashboard/useDashboard/useDashboard';
+import useLogs from '../../apis/dashboard/useLogs/useLogs';
 
 function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
@@ -151,7 +151,7 @@ function Dashboard() {
                <div>
                   <Grid container spacing={2}>
                      <Grid item xs={12} md={8}>
-                        <CardWrapper>
+                        <CardWrapper heightFull>
                            <div className="relative overflow-hidden">
                               {dashboardData?.has_history_chart && (
                                  <div
@@ -202,14 +202,12 @@ function Dashboard() {
                         </CardWrapper>
                      </Grid>
                      <Grid item xs={12} md={4}>
-                        <CardWrapper>
+                        <CardWrapper heightFull>
                            <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#3D92C9]" />
                               <p>سهم کاربر از سود ربات</p>
                            </div>
-                           <PieChartComponent
-                              hasBiggerHeight={dashboardData?.has_history_chart && dashboardData?.has_bot_chart}
-                           />
+                           <PieChartComponent />
                         </CardWrapper>
                      </Grid>
                   </Grid>

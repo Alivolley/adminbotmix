@@ -7,7 +7,7 @@ import AccordionComponent from '../../components/pages/api-keys/accordion-compon
 import AddApiForm from '../../components/pages/api-keys/add-api-form/add-api-form';
 
 // Apis
-import useApiKeys from '../../apis/useApiKeys/useApiKeys';
+import useApiKeys from '../../apis/api-keys/useApiKeys/useApiKeys';
 
 function ApiKeys() {
    const { data: apiKeysData, isLoading: apiKeysIsLoading } = useApiKeys();

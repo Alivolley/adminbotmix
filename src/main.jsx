@@ -10,7 +10,6 @@ import 'aos/dist/aos.css';
 const client = new QueryClient({
    defaultOptions: {
       queries: {
-         cacheTime: 60000,
          staleTime: 5000,
       },
    },

@@ -20,9 +20,9 @@ import LinkAccordion from '../link-accordion/link-accordion';
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
 
 // Apis
-import useApiKeysAccordion from '../../../../apis/useApiKeysAccordion/useApiKeysAccordion';
-import useApiKeysRefresh from '../../../../apis/useApiKeysRefresh/useApiKeysRefresh';
-import useDeleteApiKey from '../../../../apis/useDeleteApiKey/useDeleteApiKey';
+import useApiKeysAccordion from '../../../../apis/api-keys/useApiKeysAccordion/useApiKeysAccordion';
+import useApiKeysRefresh from '../../../../apis/api-keys/useApiKeysRefresh/useApiKeysRefresh';
+import useDeleteApiKey from '../../../../apis/api-keys/useDeleteApiKey/useDeleteApiKey';
 
 function AccordionComponent({ detail }) {
    const [copyStatus, setCopyStatus] = useState(false);

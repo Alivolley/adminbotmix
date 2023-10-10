@@ -11,7 +11,7 @@ import { AddGroupFormStyle } from './add-group-form.style';
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 // Apis
-import useAddTelegramGroup from '../../../../apis/useAddTelegramGroup/useAddTelegramGroup';
+import useAddTelegramGroup from '../../../../apis/connect-telegram/useAddTelegramGroup/useAddTelegramGroup';
 
 function AddGroupForm() {
    const { isLoading: addGroupLoading, mutate: addGroup } = useAddTelegramGroup();
