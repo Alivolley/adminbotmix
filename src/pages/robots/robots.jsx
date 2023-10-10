@@ -20,14 +20,24 @@ function Robots() {
    const [robotId, setRobotId] = useState('default');
 
    const { data: robotsListData, isLoading: robotsListIsLoading } = useRobotsList();
-   const { data: robotsSpecificData, isLoading: robotsSpecificIsLoading } = useSpecificRobot(robotId);
+   const {
+      data: robotsSpecificData,
+      isLoading: robotsSpecificIsLoading,
+      refetch: robotsSpecificRefetch,
+   } = useSpecificRobot(robotId);
    const {
       data: robotsTableData,
       isLoading: robotsTableIsLoading,
       hasNextPage: robotsTableHasNextPage,
       isFetchingNextPage: robotsTableIsFetchingNextPage,
       fetchNextPage: robotsTableFetchNextPage,
+      refetch: robotsTableRefetch,
    } = useRobotsTable(robotId);
+
+   const refetchData = () => {
+      robotsSpecificRefetch();
+      robotsTableRefetch();
+   };
 
    return (
       <div>
@@ -75,7 +85,7 @@ function Robots() {
                   </div>
                ) : (
                   <>
-                     <RobotsTable detail={robotsTableData} />
+                     <RobotsTable detail={robotsTableData} refetchData={refetchData} />
                      {robotsTableHasNextPage && (
                         <div className="mt-6 flex items-center justify-center">
                            <LoadingButton
