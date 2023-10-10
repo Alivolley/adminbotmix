@@ -42,7 +42,7 @@ function BannerHome() {
                      </ul>
                      {!isLogin && (
                         <div className="mt-6 flex items-center justify-center gap-2 customSm:mt-12 customSm:justify-start customSm:gap-5">
-                           <Link to="/login">
+                           <Link to="/login" state="register">
                               <LinkComponent className="px-10 customSm:px-[82px]">ثبت نام</LinkComponent>
                            </Link>
 

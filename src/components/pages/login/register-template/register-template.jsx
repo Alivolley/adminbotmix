@@ -189,10 +189,6 @@ function RegisterTemplate() {
                            value: true,
                            message: 'این فیلد اجباری است',
                         },
-                        pattern: {
-                           value: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-                           message: 'رمز عبور باید حداقل ۸ حرف و شامل حروف بزرگ و کوچک باشد',
-                        },
                         validate: value => value === passwordValue || 'پسورد ها با یکدیگر همخوانی ندارند',
                      })}
                      error={!!errors?.confirmPassword}
