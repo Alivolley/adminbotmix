@@ -30,6 +30,7 @@ function Faqs() {
             >
                ربات تریدر اتوماتیک
             </button>
+
             <button
                type="button"
                className={`whitespace-nowrap rounded-lg px-4 py-[6px] backdrop:blur-sm
@@ -39,6 +40,17 @@ function Faqs() {
                onClick={() => setChosenCategory('robot_interface')}
             >
                ربات واسط تریدینگ ویو به صرافی و تلگرام
+            </button>
+
+            <button
+               type="button"
+               className={`whitespace-nowrap rounded-lg px-4 py-[6px] backdrop:blur-sm
+           dark:text-textMainDark ${
+              chosenCategory === 'programming' ? 'bg-gradientBtnBlue text-white' : 'bg-gradientGray'
+           }`}
+               onClick={() => setChosenCategory('programming')}
+            >
+               برنامه نویسی
             </button>
          </div>
 
@@ -148,6 +160,75 @@ function Faqs() {
                   <Grid item xs={12} md={6}>
                      <div className="space-y-3">
                         {faqData?.robotInterface?.map(
+                           (item, index) =>
+                              index >= 3 && (
+                                 <div key={item?.id} className="bg-gradientAccordion dark:bg-gradientAccordionDark">
+                                    <Accordion
+                                       className="!bg-inherit"
+                                       sx={{
+                                          boxShadow: 'none',
+                                          '&.MuiAccordion-root:before': {
+                                             display: 'none',
+                                          },
+                                       }}
+                                    >
+                                       <AccordionSummary
+                                          expandIcon={<ExpandMoreIcon />}
+                                          aria-controls="panel1a-content"
+                                          id="panel1a-header"
+                                       >
+                                          <p>{item?.title}</p>
+                                       </AccordionSummary>
+                                       <AccordionDetails>
+                                          <p>{item?.description}</p>
+                                       </AccordionDetails>
+                                    </Accordion>
+                                 </div>
+                              )
+                        )}
+                     </div>
+                  </Grid>
+               </Grid>
+            </div>
+         )}
+
+         {chosenCategory === 'programming' && (
+            <div className="mx-auto mt-7 max-w-[1150px] border-t pt-7 dark:border-gray-600">
+               <Grid container rowSpacing={1.5} columnSpacing={4}>
+                  <Grid item xs={12} md={6}>
+                     <div className="space-y-3">
+                        {faqData?.programming?.map(
+                           (item, index) =>
+                              index < 3 && (
+                                 <div key={item?.id} className="bg-gradientAccordion dark:bg-gradientAccordionDark">
+                                    <Accordion
+                                       className="!bg-inherit"
+                                       sx={{
+                                          boxShadow: 'none',
+                                          '&.MuiAccordion-root:before': {
+                                             display: 'none',
+                                          },
+                                       }}
+                                    >
+                                       <AccordionSummary
+                                          expandIcon={<ExpandMoreIcon />}
+                                          aria-controls="panel1a-content"
+                                          id="panel1a-header"
+                                       >
+                                          <p>{item?.title}</p>
+                                       </AccordionSummary>
+                                       <AccordionDetails>
+                                          <p>{item?.description}</p>
+                                       </AccordionDetails>
+                                    </Accordion>
+                                 </div>
+                              )
+                        )}
+                     </div>
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                     <div className="space-y-3">
+                        {faqData?.programming?.map(
                            (item, index) =>
                               index >= 3 && (
                                  <div key={item?.id} className="bg-gradientAccordion dark:bg-gradientAccordionDark">

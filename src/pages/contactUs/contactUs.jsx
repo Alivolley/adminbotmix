@@ -38,19 +38,24 @@ function ContactUs() {
                راه های ارتباطی
             </p>
             <div className="mt-7 space-y-3">
-               <div className="flex items-center justify-center gap-3">
+               <a
+                  href="https://t.me/Botmix_Support"
+                  target="_blank"
+                  className="flex items-center justify-center gap-3"
+                  rel="noreferrer"
+               >
                   <TelegramIcon fontSize="medium" color="primaryBlue" />
                   <p>پشتیبانی تلگرام</p>
-               </div>
+               </a>
                <div className="flex items-center justify-center gap-3">
                   <MailIcon fontSize="medium" color="primaryBlue" />
                   <p>contact@botmix.ir</p>
                </div>
 
-               <div className="flex items-center justify-center gap-3">
+               <a href="tel:09962563400" className="flex items-center justify-center gap-3">
                   <PhoneEnabledIcon fontSize="medium" color="primaryBlue" />
                   <p>09962563400</p>
-               </div>
+               </a>
             </div>
          </div>
 

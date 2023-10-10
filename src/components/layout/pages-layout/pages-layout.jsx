@@ -18,7 +18,7 @@ import { changeToLoginFalse } from '../../../store/reducers/loginStatusReducer';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
-import navbarLogo from '../../../assets/images/favicon.png';
+import logo3 from '../../../assets/images/logo3.png';
 
 // Hooks
 import useCookie from '../../../hooks/useCookie';
@@ -196,11 +196,9 @@ function PagesLayout() {
 
                   <li>
                      <Link to="/" className="flex items-start text-xl font-bold">
-                        Botmix
-                        <div className="h-6">
-                           <img src={navbarLogo} alt="logo" className="h-full w-full" />
+                        <div className="h-12">
+                           <img src={logo3} alt="logo" className="h-full w-full" />
                         </div>
-                        {/* <HiveIcon fontSize="medium" /> */}
                      </Link>
                   </li>
                </ul>
@@ -212,11 +210,9 @@ function PagesLayout() {
                </IconButton>
 
                <Link to="/" className="flex items-start text-xl font-bold">
-                  Botmix
-                  <div className="h-6">
-                     <img src={navbarLogo} alt="logo" className="h-full w-full" />
+                  <div className="h-12">
+                     <img src={logo3} alt="logo" className="h-full w-full" />
                   </div>
-                  {/* <HiveIcon fontSize="medium" /> */}
                </Link>
             </div>
 

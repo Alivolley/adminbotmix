@@ -46,13 +46,14 @@ function Footer() {
 
                      <div className="flex flex-col gap-4">
                         <Link
-                           to="/"
+                           to="/products"
+                           state="portfolio_management"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                         >
                            ربات تریدر
                         </Link>
                         <Link
-                           to="/"
+                           to="/products"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                         >
                            ربات واسط
@@ -70,7 +71,7 @@ function Footer() {
                            ربات واسط api
                         </Link>
                         <Link
-                           to="/"
+                           to="/tutorials"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                         >
                            آموزش ها
@@ -84,20 +85,26 @@ function Footer() {
                      <div>
                         <h2 className="mb-10 text-xl font-bold">تماس با ما</h2>
                         <div className="mt-3 flex items-center gap-2 text-3xl">
-                           <IconButton color="warning">
-                              <MailIcon fontSize="inherit" />
-                           </IconButton>
-                           <IconButton color="info">
-                              <TelegramIcon fontSize="inherit" />
-                           </IconButton>
-
-                           <IconButton color="success">
-                              <PhoneEnabledIcon fontSize="inherit" />
-                           </IconButton>
-
-                           <IconButton color="error">
-                              <YouTubeIcon fontSize="inherit" />
-                           </IconButton>
+                           <a href="mailto:contact@botmix.ir" target="_blank" rel="noreferrer">
+                              <IconButton color="warning">
+                                 <MailIcon fontSize="inherit" />
+                              </IconButton>
+                           </a>
+                           <a href="https://t.me/Botmix_Support" target="_blank" rel="noreferrer">
+                              <IconButton color="info">
+                                 <TelegramIcon fontSize="inherit" />
+                              </IconButton>
+                           </a>
+                           <a href="tel:09962563400">
+                              <IconButton color="success">
+                                 <PhoneEnabledIcon fontSize="inherit" />
+                              </IconButton>
+                           </a>
+                           <a href="https://www.youtube.com/@Botmix" target="_blank" rel="noreferrer">
+                              <IconButton color="error">
+                                 <YouTubeIcon fontSize="inherit" />
+                              </IconButton>
+                           </a>
                         </div>
                      </div>
 

@@ -1,3 +1,5 @@
+import { LoadingButton } from '@mui/lab';
+
 function DetailsTable({ detail }) {
    return (
       <div>
@@ -75,6 +77,12 @@ function DetailsTable({ detail }) {
                <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
                <p className="text-sm">{detail?.win_trade}</p>
             </div>
+         </div>
+
+         <div className="mt-5">
+            <LoadingButton className="w-full !font-vazir" variant="contained" color="primaryBlue" loading={false}>
+               فعالسازی ربات
+            </LoadingButton>
          </div>
       </div>
    );

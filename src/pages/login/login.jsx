@@ -10,7 +10,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { Link } from 'react-router-dom';
 import { LoginStyle } from './login.style';
 import loginBackground from '../../assets/images/loginPic.jpg';
-import logo from '../../assets/images/favicon.png';
+import logo from '../../assets/images/logo3.png';
 
 // Components
 import LoginTemplate from '../../components/pages/login/login-template/login-template';
@@ -29,8 +29,7 @@ function Login() {
             <div className="mx-auto max-w-xl rounded-xl p-8">
                <Link to="/">
                   <h2 className="mb-20 flex items-end justify-center font-lalezar text-4xl text-primaryBlue">
-                     Botmix
-                     <div className="h-11">
+                     <div className="h-16">
                         <img src={logo} alt="logo" className="h-full w-full" />
                      </div>
                   </h2>
