@@ -15,8 +15,8 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 function PieChartComponent() {
    const data = [
-      { name: 'Group A', value: 30 },
-      { name: 'Group B', value: 70 },
+      { name: 'Group A', value: 25 },
+      { name: 'Group B', value: 75 },
    ];
    const colors = ['#7F9DC3', '#3D92C9'];
 

@@ -23,7 +23,7 @@ import TutorialCard from '../../../templates/tutorial-card/tutorial-card';
 function NewestTutorial() {
    return (
       <NewestTutorialStyle>
-         <p className="text-center font-lalezar text-3xl customMd:text-[50px]">آموزش های لازم</p>
+         <p className="text-center font-lalezar text-3xl customMd:text-[50px]">آموزش</p>
 
          <div className="mx-[20px] mt-32 customSm:mx-[-140px]">
             <Swiper

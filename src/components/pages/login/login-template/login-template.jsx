@@ -54,9 +54,10 @@ function LoginTemplate() {
                <div className="flex flex-col gap-3">
                   <p>ایمیل یا شماره تلفن</p>
                   <TextField
+                     dir="ltr"
                      variant="outlined"
                      color="primaryBlue"
-                     placeholder="ایمیل یا شماره تلفن خود را وارد کنید"
+                     placeholder="Email"
                      {...register('email_or_phone', {
                         required: {
                            value: true,
@@ -72,9 +73,10 @@ function LoginTemplate() {
                   <p>رمز عبور</p>
 
                   <TextField
+                     dir="ltr"
                      variant="outlined"
                      color="primaryBlue"
-                     placeholder="رمز عبور خود را وارد کنید"
+                     placeholder="Password"
                      type={showPassword ? 'text' : 'password'}
                      {...register('password', {
                         required: {

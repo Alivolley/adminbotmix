@@ -30,7 +30,7 @@ function Products() {
            }`}
                onClick={() => setChosenCategory('robot_interface')}
             >
-               اشتراک رباط واسط
+               اشتراک ربات واسط
             </button>
             <button
                type="button"
@@ -40,7 +40,7 @@ function Products() {
            }`}
                onClick={() => setChosenCategory('portfolio_management')}
             >
-               سبدگردانی
+               ربات تریدر و سبدگردانی
             </button>
          </div>
 

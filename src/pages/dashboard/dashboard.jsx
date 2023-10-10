@@ -203,9 +203,13 @@ function Dashboard() {
                      </Grid>
                      <Grid item xs={12} md={4}>
                         <CardWrapper heightFull>
-                           <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
+                           <div className="mb-2 flex items-center gap-3 text-sm font-bold">
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#3D92C9]" />
-                              <p>سهم کاربر از سود ربات</p>
+                              <p>سهم کاربر</p>
+                           </div>
+                           <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
+                              <div className="h-[9px] w-[9px] rounded-sm bg-[#7F9DC3]" />
+                              <p>سهم باتمیکس</p>
                            </div>
                            <PieChartComponent />
                         </CardWrapper>

@@ -15,7 +15,7 @@ function Tutorials() {
       <TutorialsStyle className="relative">
          <div className="mx-auto mb-32 mt-14 max-w-[1150px] customMd:mt-[80px]">
             <h1
-               className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-6xl"
+               className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-5xl"
                id="tutorials_page_title"
             >
                لیست آموزش ها

@@ -16,7 +16,7 @@ import HowWeWorkCard from '../how-we-work-card/how-we-work-card';
 function HowWeWork() {
    return (
       <div className="mx-auto max-w-[1150px]">
-         <p className="text-center font-lalezar text-3xl customMd:text-[50px]">باتمیکس چطور کار میکنه</p>
+         <p className="text-center font-lalezar text-3xl customMd:text-[50px]">خدمات باتمیکس</p>
 
          <div className="mt-32">
             <Grid container columnSpacing={10} rowSpacing={3}>

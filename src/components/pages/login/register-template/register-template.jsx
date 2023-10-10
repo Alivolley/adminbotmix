@@ -96,8 +96,9 @@ function RegisterTemplate() {
                   <p>ایمیل</p>
 
                   <TextField
+                     dir="ltr"
                      variant="outlined"
-                     placeholder="ایمیل خود را وارد کنید"
+                     placeholder="Email"
                      color="primaryBlue"
                      {...register('email', {
                         required: {
@@ -119,8 +120,9 @@ function RegisterTemplate() {
                   <p>شماره تلفن</p>
 
                   <TextField
+                     dir="ltr"
                      variant="outlined"
-                     placeholder="شماره تلفن خود را وارد کنید"
+                     placeholder="Phone number"
                      color="primaryBlue"
                      type="number"
                      {...register('phone_number', {
@@ -143,9 +145,10 @@ function RegisterTemplate() {
                   <p>رمز عبور</p>
 
                   <TextField
+                     dir="ltr"
                      variant="outlined"
                      color="primaryBlue"
-                     placeholder="رمز عبور خود را وارد کنید"
+                     placeholder="Password"
                      type={showPassword ? 'text' : 'password'}
                      {...register('password', {
                         required: {
@@ -176,9 +179,10 @@ function RegisterTemplate() {
                   <p>تکرار رمز عبور</p>
 
                   <TextField
+                     dir="ltr"
                      variant="outlined"
                      color="primaryBlue"
-                     placeholder="رمز عبور خود را تکرار کنید"
+                     placeholder="Confirm password"
                      type={showPassword ? 'text' : 'password'}
                      {...register('confirmPassword', {
                         required: {

@@ -10,7 +10,6 @@ import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import PersonIcon from '@mui/icons-material/Person';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import HiveIcon from '@mui/icons-material/Hive';
 import LoginIcon from '@mui/icons-material/Login';
 
 // Redux
@@ -19,6 +18,7 @@ import { changeToLoginFalse } from '../../../store/reducers/loginStatusReducer';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
+import navbarLogo from '../../../assets/images/favicon.png';
 
 // Hooks
 import useCookie from '../../../hooks/useCookie';
@@ -139,14 +139,14 @@ function PagesLayout() {
                               state="portfolio_management"
                               className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
-                              سبدگردانی
+                              ربات تریدر و سبدگردانی
                            </NavLink>
                            <NavLink
                               to="/products"
                               state="robot_interface"
                               className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
-                              اشتراک رباط واسط
+                              اشتراک ربات واسط
                            </NavLink>
                         </div>
                      </div>
@@ -195,9 +195,12 @@ function PagesLayout() {
                   </li>
 
                   <li>
-                     <Link to="/" className="flex items-start gap-2 text-xl font-bold">
+                     <Link to="/" className="flex items-start text-xl font-bold">
                         Botmix
-                        <HiveIcon fontSize="medium" />
+                        <div className="h-6">
+                           <img src={navbarLogo} alt="logo" className="h-full w-full" />
+                        </div>
+                        {/* <HiveIcon fontSize="medium" /> */}
                      </Link>
                   </li>
                </ul>
@@ -208,9 +211,12 @@ function PagesLayout() {
                   {mobileMenuOpen ? <MenuOpenIcon className="rotate-180" /> : <MenuIcon />}
                </IconButton>
 
-               <Link to="/" className="flex items-start gap-2 text-xl font-bold">
+               <Link to="/" className="flex items-start text-xl font-bold">
                   Botmix
-                  <HiveIcon fontSize="medium" />
+                  <div className="h-6">
+                     <img src={navbarLogo} alt="logo" className="h-full w-full" />
+                  </div>
+                  {/* <HiveIcon fontSize="medium" /> */}
                </Link>
             </div>
 

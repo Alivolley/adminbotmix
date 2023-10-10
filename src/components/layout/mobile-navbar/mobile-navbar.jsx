@@ -143,7 +143,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                            state="portfolio_management"
                            className="px-3 py-4 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                         >
-                           سبد گردانی
+                           ربات تریدر و سبد گردانی
                         </NavLink>
                         <NavLink
                            onClick={() => setMobileMenuOpen(false)}
