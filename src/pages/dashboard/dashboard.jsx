@@ -207,7 +207,7 @@ function Dashboard() {
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#3D92C9]" />
                               <p>سهم کاربر</p>
                            </div>
-                           <div className="mb-[60px] flex items-center gap-3 text-sm font-bold">
+                           <div className="flex items-center gap-3 text-sm font-bold">
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#7F9DC3]" />
                               <p>سهم باتمیکس</p>
                            </div>

@@ -1,46 +1,98 @@
-import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+import React, { useEffect } from 'react';
+import Highcharts from 'highcharts';
 
-const RADIAN = Math.PI / 180;
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-   const x = cx + radius * Math.cos(-midAngle * RADIAN);
-   const y = cy + radius * Math.sin(-midAngle * RADIAN);
+import HCExporting from 'highcharts/modules/exporting';
+import HCExportData from 'highcharts/modules/export-data';
 
-   return (
-      <text x={x} y={y} fill="white" textAnchor={x > cx ? 'end' : 'start'} dominantBaseline="central" fontSize={12}>
-         {`${(percent * 100).toFixed(0)}%`}
-      </text>
-   );
-};
+HCExporting(Highcharts);
+HCExportData(Highcharts);
+
+// import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
+
+// const RADIAN = Math.PI / 180;
+// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
+//    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+//    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+//    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+//    return (
+//       <text x={x} y={y} fill="white" textAnchor={x > cx ? 'end' : 'start'} dominantBaseline="central" fontSize={12}>
+//          {`${(percent * 100).toFixed(0)}%`}
+//       </text>
+//    );
+// };
 
 function PieChartComponent() {
-   const data = [
-      { name: 'Group A', value: 25 },
-      { name: 'Group B', value: 75 },
-   ];
-   const colors = ['#7F9DC3', '#3D92C9'];
+   useEffect(() => {
+      const colors = Highcharts.getOptions().colors.map((c, i) =>
+         Highcharts.color(Highcharts.getOptions().colors[0])
+            .brighten((i - 3) / 7)
+            .get()
+      );
 
-   return (
-      <div className="h-[220px] w-full">
-         <ResponsiveContainer width="100%" height="100%">
-            <PieChart width="100%" height="100%">
-               <Pie
-                  data={data}
-                  labelLine={false}
-                  label={renderCustomizedLabel}
-                  dataKey="value"
-                  startAngle={-270}
-                  paddingAngle={2}
-               >
-                  {data.map((entry, index) => (
-                     // eslint-disable-next-line react/no-array-index-key
-                     <Cell key={`cell-${index}`} fill={colors[index % colors.length]} stroke="none" cornerRadius={3} />
-                  ))}
-               </Pie>
-            </PieChart>
-         </ResponsiveContainer>
-      </div>
-   );
+      const options = {
+         chart: {
+            backgroundColor: 'transparent',
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie',
+            style: {
+               fontFamily: 'vazir',
+               height: '300px',
+               fontSize: '18px',
+            },
+         },
+         title: {
+            text: '',
+         },
+
+         tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+         },
+
+         plotOptions: {
+            pie: {
+               allowPointSelect: true,
+               cursor: 'pointer',
+               colors,
+               borderRadius: 5,
+               dataLabels: {
+                  enabled: true,
+                  format: '<b>{point.name}</b><br>{point.percentage:.1f} %',
+                  distance: -50,
+                  filter: {
+                     property: 'percentage',
+                     operator: '>',
+                     value: 4,
+                  },
+               },
+            },
+         },
+
+         exporting: {
+            enabled: false,
+         },
+
+         credits: {
+            enabled: false,
+         },
+
+         series: [
+            {
+               name: 'Share',
+               data: [
+                  { name: 'کاربر', y: 75, color: '#3D92C9' },
+                  { name: 'باتمیکس', y: 25, color: '#7F9DC3' },
+               ],
+            },
+         ],
+      };
+
+      Highcharts.chart('container', options);
+   }, []);
+
+   return <div id="container" />;
 }
 
 export default PieChartComponent;
