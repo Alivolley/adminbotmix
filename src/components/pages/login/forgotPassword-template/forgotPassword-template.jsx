@@ -73,10 +73,10 @@ function ForgotPasswordTemplate() {
          };
 
          sendPasswordResetData(newData, {
-            //  onSuccess: () => {
-            //     dispatch(changeToLoginTrue());
-            //     navigate(-1);
-            //  },
+            onSuccess: () => {
+               dispatch(changeToLoginTrue());
+               navigate(-1);
+            },
          });
       }
    };

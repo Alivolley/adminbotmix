@@ -5,14 +5,13 @@ import Cookies from 'js-cookie';
 const usePasswordReset = () =>
    useMutation(data =>
       axiosInstance.post('account/setPassword/', data).then(res => {
-         console.log(res);
-         //  Cookies.set('botmix_accessToken', res?.data?.access);
-         //  Cookies.set('botmix_refreshToken', res?.data?.refresh);
-         //  Cookies.set('isLogin', true);
-         //  axiosInstance.interceptors.request.use(config => {
-         //     config.headers.Authorization = `Bearer ${res?.data?.access}`;
-         //     return config;
-         //  });
+         Cookies.set('botmix_accessToken', res?.data?.access);
+         Cookies.set('botmix_refreshToken', res?.data?.refresh);
+         Cookies.set('isLogin', true);
+         axiosInstance.interceptors.request.use(config => {
+            config.headers.Authorization = `Bearer ${res?.data?.access}`;
+            return config;
+         });
       })
    );
 
