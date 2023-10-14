@@ -1,86 +1,95 @@
+/* eslint-disable react/no-danger */
+import { Link, useParams } from 'react-router-dom';
+import DOMPurify from 'dompurify';
+
 // MUI
-import { Grid } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 
 // Icon
 import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
 
 // Assets
-import { Link } from 'react-router-dom';
 import { ChosenTutorialStyle } from './chosen-tutorial.style';
-import articlePicTest from '../../assets/images/articlePicTest.png';
-import articlePicTest2 from '../../assets/images/portfolioTest.png';
-import articlePicTest3 from '../../assets/images/testPic.png';
-import articlePicTest4 from '../../assets/images/user.jpg';
-import sampleVideo from '../../assets/videos/sample_video.mp4';
 
 // Components
 import TutorialCard from '../../components/templates/tutorial-card/tutorial-card';
 import LinkComponent from '../../components/form-group/link-component/link-component';
 
+// Apis
+import useTutorials from '../../apis/tutorials/useTutorials/useTutorials';
+import useTutorialDetail from '../../apis/tutorials/useTutorialDetail/useTutorialDetail';
+
 function ChosenTutorial() {
+   const { id } = useParams();
+
+   const { data: tutorialDetail, isLoading: tutorialIsLoading } = useTutorialDetail(id);
+   const { data: tutorialsData, isLoading: tutorialsIsLoading } = useTutorials(1);
+
    return (
-      <ChosenTutorialStyle>
-         <div className="mx-auto mb-36 mt-14 max-w-[1150px] customMd:mt-[140px]">
-            <Grid container spacing={6}>
-               <Grid item xs={12} md={3.5} order={{ xs: 2, md: 1 }}>
-                  <div className="mx-6 space-y-10 border-l border-gray-300 pl-5 dark:border-gray-600">
-                     <div className="mx-auto max-w-sm">
-                        <TutorialCard imageSrc={articlePicTest} />
-                     </div>
-                     <div className="mx-auto max-w-sm">
-                        <TutorialCard imageSrc={articlePicTest2} />
-                     </div>
-                     <div className="mx-auto max-w-sm">
-                        <TutorialCard imageSrc={articlePicTest3} />
-                     </div>
-                     <div className="mx-auto max-w-sm">
-                        <TutorialCard imageSrc={articlePicTest4} />
-                     </div>
+      <ChosenTutorialStyle className="min-h-screen">
+         {tutorialIsLoading ? (
+            <div className="flex items-center justify-center">
+               <CircularProgress />
+            </div>
+         ) : (
+            <div className="mx-auto mb-36 mt-14 max-w-[1150px] customMd:mt-[140px]">
+               <Grid container spacing={6}>
+                  <Grid item xs={12} md={3.5} order={{ xs: 2, md: 1 }}>
+                     <div className="mx-6 space-y-10 border-l border-gray-300 pl-5 dark:border-gray-600">
+                        {tutorialsIsLoading ? (
+                           <div className="flex items-center justify-center">
+                              <CircularProgress />
+                           </div>
+                        ) : (
+                           tutorialsData?.data?.map(
+                              item =>
+                                 Number(item?.id) !== Number(id) && (
+                                    <div className="mx-auto max-w-sm" key={item?.id}>
+                                       <TutorialCard detail={item} />
+                                    </div>
+                                 )
+                           )
+                        )}
 
-                     <Link to="/tutorials" className="mt-16 flex justify-center">
-                        <LinkComponent className="px-5">مشاهده همه آموزش ها</LinkComponent>
-                     </Link>
-                  </div>
-               </Grid>
+                        <Link to="/tutorials" className="mt-16 flex justify-center">
+                           <LinkComponent className="px-5">مشاهده همه آموزش ها</LinkComponent>
+                        </Link>
+                     </div>
+                  </Grid>
 
-               <Grid item xs={12} md={8.5} order={{ xs: 1, md: 2 }}>
-                  <div>
-                     <h3 className="font-lalezar text-3xl customSm:text-6xl">آموزش اتصال به صرافی</h3>
-                     <div
-                        className="my-5 flex items-center gap-2 border-b border-gray-300 pb-5 text-xs
+                  <Grid item xs={12} md={8.5} order={{ xs: 1, md: 2 }}>
+                     <div>
+                        <h3 className="font-lalezar text-3xl customSm:text-6xl">{tutorialDetail?.title}</h3>
+                        <div
+                           className="my-5 flex items-center gap-2 border-b border-gray-300 pb-5 text-xs
                text-textGray dark:border-gray-600 customSm:text-sm"
-                     >
-                        <InsertInvitationIcon fontSize="small" />
-                        <p>اردیبهشت ۱۴۰۰/۴</p>
-                     </div>
-
-                     <div className="space-y-10 text-sm !leading-[30px] customSm:text-base">
-                        <div className="aspect-[5/3] object-contain px-10">
-                           <video
-                              controls
-                              alt="tutorial"
-                              className="h-full w-full"
-                              poster={articlePicTest4}
-                              preload="metadata"
-                           >
-                              <source src={sampleVideo} />
-                              <track src="captions.vtt" kind="captions" label="English" />
-                           </video>
+                        >
+                           <InsertInvitationIcon fontSize="small" />
+                           <p>{tutorialDetail?.created_at}</p>
                         </div>
-                        <p>
-                           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                           چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-                           تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در
-                           شصت و سه درصد گذشته حال و کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و کاربردی
-                           می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و کاربردی می باشد، کتابهای زیادی در شصت و
-                           سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت
-                           بیشتری را برای طراحان رایانه ای علی الخصوص
-                        </p>
+
+                        <div className="space-y-10 text-sm !leading-[30px] customSm:text-base">
+                           <div className="aspect-[5/3] object-contain px-10">
+                              <video
+                                 controls
+                                 alt="tutorial"
+                                 className="h-full w-full"
+                                 poster={tutorialDetail?.cover}
+                                 preload="metadata"
+                              >
+                                 <source src={tutorialDetail?.play_link} />
+                                 <track src="captions.vtt" kind="captions" label="English" />
+                              </video>
+                           </div>
+                           <div className="space-y-10 text-sm leading-[30px] customSm:text-base">
+                              <div dangerouslySetInnerHTML={{ __html: DOMPurify?.sanitize(tutorialDetail?.text) }} />
+                           </div>
+                        </div>
                      </div>
-                  </div>
+                  </Grid>
                </Grid>
-            </Grid>
-         </div>
+            </div>
+         )}
       </ChosenTutorialStyle>
    );
 }

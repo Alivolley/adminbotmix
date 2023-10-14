@@ -25,8 +25,6 @@ function ChosenArticle() {
    const { data: articleDetail, isLoading: articleIsLoading } = useArticleDetail(id);
    const { data: articlesData, isLoading: articlesIsLoading } = useArticles(1);
 
-   console.log(articlesData);
-
    return (
       <ChosenArticleStyle className="min-h-screen">
          {articleIsLoading ? (

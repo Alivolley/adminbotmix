@@ -1,92 +1,79 @@
-import { Grid, Pagination } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+
+import { CircularProgress, Grid, Pagination } from '@mui/material';
 
 // Assets
 import { TutorialsStyle } from './tutorials.style';
-import articlePicTest from '../../assets/images/articlePicTest.png';
-import articlePicTest2 from '../../assets/images/portfolioTest.png';
-import articlePicTest3 from '../../assets/images/testPic.png';
-import articlePicTest4 from '../../assets/images/user.jpg';
 
 // Components
 import TutorialCard from '../../components/templates/tutorial-card/tutorial-card';
 
+// Apis
+import useTutorials from '../../apis/tutorials/useTutorials/useTutorials';
+
 function Tutorials() {
+   const [pageStatus, setPageStatus] = useState(1);
+   const navigate = useNavigate();
+   const location = useLocation();
+
+   const currentPage = location.search ? Number(location.search.charAt(location.search.length - 1)) : 1;
+
+   useEffect(() => {
+      setPageStatus(currentPage);
+   }, [location]);
+
+   const { data: tutorialsData, isLoading: tutorialsIsLoading } = useTutorials(currentPage);
+
    return (
       <TutorialsStyle className="relative">
-         <div className="mx-auto mb-32 mt-14 max-w-[1150px] customMd:mt-[80px]">
+         <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
             <h1
                className="rounded-2xl py-6 text-center font-lalezar text-4xl text-secondaryBlue customSm:text-5xl"
                id="tutorials_page_title"
             >
                لیست آموزش ها
             </h1>
-            <div className="mt-14 customSm:mt-24">
-               <Grid container spacing={5}>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest2} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest3} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest4} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest2} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest3} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest4} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest2} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest3} />
-                  </Grid>
-                  <Grid item xs={10} sm={6} md={4} marginX="auto">
-                     <TutorialCard imageSrc={articlePicTest4} />
-                  </Grid>
-               </Grid>
-            </div>
 
-            <div className="mt-14 flex justify-center">
-               {/* <Pagination
-          count={pageStatus.total}
-          page={pageStatus.current}
-          onChange={(_, value) =>
-            setPageStatus(prev => {
-              return {
-                ...prev,
-                current: value,
-              };
-            })
-          }
-        /> */}
+            {tutorialsIsLoading ? (
+               <div className="flex items-center justify-center">
+                  <CircularProgress />
+               </div>
+            ) : (
+               <>
+                  <div className="mt-14 customSm:mt-24">
+                     <Grid container spacing={5}>
+                        {tutorialsData?.data?.map(item => (
+                           <Grid item xs={10} sm={6} md={4} marginX="auto" key={item.id}>
+                              <TutorialCard detail={item} />
+                           </Grid>
+                        ))}
+                     </Grid>
+                  </div>
 
-               <Pagination
-                  count={11}
-                  defaultPage={1}
-                  boundaryCount={2}
-                  color="primaryBlue"
-                  sx={{
-                     '& .Mui-selected': {
-                        color: 'white',
-                     },
-                  }}
-               />
-            </div>
+                  <div className="mt-14 flex justify-center">
+                     <Pagination
+                        count={tutorialsData?.total_pages}
+                        page={pageStatus}
+                        onChange={(e, newValue) => {
+                           setPageStatus(newValue);
+                           if (newValue > 1) {
+                              navigate(`?page=${newValue}`);
+                           } else {
+                              navigate('/tutorials');
+                           }
+                        }}
+                        boundaryCount={2}
+                        color="primaryBlue"
+                        sx={{
+                           '& .Mui-selected': {
+                              color: 'white',
+                           },
+                        }}
+                     />
+                  </div>
+               </>
+            )}
          </div>
       </TutorialsStyle>
    );

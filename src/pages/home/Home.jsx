@@ -9,10 +9,12 @@ import NewestTutorial from '../../components/pages/home/newest-tutorial/newest-t
 // Apis
 import usePromoteProduct from '../../apis/home/usePromoteProduct/usePromoteProduct';
 import useArticlesPromote from '../../apis/home/useArticlesPromote/useArticlesPromote';
+import useTutorialsPromote from '../../apis/home/useTutorialsPromote/useTutorialsPromote';
 
 function Home() {
    const { data: promoteProductData, isLoading: promoteProductIsLoading } = usePromoteProduct();
    const { data: promoteArticlesData, isLoading: promoteArticlesIsLoading } = useArticlesPromote();
+   const { data: promoteTutorialData, isLoading: promoteTutorialIsLoading } = useTutorialsPromote();
 
    return (
       <main className="mb-56 space-y-56">
@@ -20,7 +22,7 @@ function Home() {
          <HowWeWork />
          <NewestArticles detail={promoteArticlesData} loading={promoteArticlesIsLoading} />
          <BenefitsOfUs />
-         <NewestTutorial />
+         <NewestTutorial detail={promoteTutorialData} loading={promoteTutorialIsLoading} />
          <Faqs />
       </main>
    );

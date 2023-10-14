@@ -1,12 +1,12 @@
 // Assets
 import { TutorialCardStyle } from './tutorial-card.style';
 
-function TutorialCard({ imageSrc }) {
+function TutorialCard({ detail }) {
    return (
-      <TutorialCardStyle to="/tutorial/3" className="block" id="image_wrapper">
-         <img src={imageSrc} alt="tutorial cover" className="aspect-square w-full" />
+      <TutorialCardStyle to={`/tutorial/${detail?.id}`} className="block" id="image_wrapper">
+         <img src={detail?.cover} alt="tutorial cover" className="aspect-square w-full object-cover" />
          <p id="title" className="text-xs customMd:text-sm">
-            آموزش اتصال به صرافی
+            {detail?.title}
          </p>
       </TutorialCardStyle>
    );
