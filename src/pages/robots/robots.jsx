@@ -39,8 +39,6 @@ function Robots() {
       robotsTableRefetch();
    };
 
-   // console.log(robotsTableData?.pages?.flatMap(page => page?.data?.map(item => item)));
-
    return (
       <div>
          <Grid container spacing={2}>
