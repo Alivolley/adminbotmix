@@ -12,6 +12,7 @@ import CandlestickChartIcon from '@mui/icons-material/CandlestickChart';
 import GroupsIcon from '@mui/icons-material/Groups';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import PersonIcon from '@mui/icons-material/Person';
 
 // Components
 import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
@@ -21,9 +22,6 @@ import PieChartComponent from '../../components/pages/dashboard/pie-chart-compon
 import LogsComponent from '../../components/pages/dashboard/logs-component/logs-component';
 import AreaChartComponentTransform from '../../components/pages/dashboard/area-chart-component-transforms/area-chart-component-transforms';
 import AreaChartComponentRobots from '../../components/pages/dashboard/area-chart-component-robots/area-chart-component-robots';
-
-// Assets
-import userImage from '../../assets/images/user.jpg';
 
 // Apis
 import useDashboard from '../../apis/dashboard/useDashboard/useDashboard';
@@ -63,12 +61,10 @@ function Dashboard() {
             <>
                <CardWrapper>
                   <div className="flex flex-wrap items-start gap-4">
-                     <div className="flex items-center gap-4">
-                        <img
-                           src={userImage}
-                           alt="profile"
-                           className="h-[51px] w-[51px] rounded-full border-[2px] border-solid border-transparent outline outline-[2px] outline-primaryBlue"
-                        />
+                     <div className="flex items-center gap-3">
+                        <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
+                           <PersonIcon fontSize="large" />
+                        </div>
                         <p>{dashboardData?.email}</p>
                      </div>
                      <div className="flex grow flex-col gap-2">

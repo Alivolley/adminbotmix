@@ -1,7 +1,8 @@
 import { useForm } from 'react-hook-form';
 
 // MUI
-import { Button, TextField } from '@mui/material';
+import { TextField } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 // Icons
 import MailIcon from '@mui/icons-material/Mail';
@@ -14,21 +15,27 @@ import { ContactUsStyle } from './contactUs.style';
 // Components
 import RtlProvider from '../../components/layout/rtlProvider/rtlProvider';
 
+// Apis
+import useContactUs from '../../apis/contactUs/useContactUs/useContactUs';
+
 function ContactUs() {
+   const { mutate: sendContactData, isLoading: sendContactIsLoading } = useContactUs();
+
    const {
       register,
       handleSubmit,
       formState: { errors },
+      reset,
    } = useForm({
       defaultValues: {
-         contactDetail: '',
-         textMessage: '',
+         call_info: '',
+         message: '',
       },
       mode: 'onSubmit',
    });
 
    const formSubmit = data => {
-      console.log(data);
+      sendContactData(data, { onSuccess: () => reset() });
    };
 
    return (
@@ -74,14 +81,14 @@ function ContactUs() {
                      variant="outlined"
                      color="primaryBlue"
                      InputLabelProps={{ style: { fontSize: '14px' } }}
-                     {...register('contactDetail', {
+                     {...register('call_info', {
                         required: {
                            value: true,
                            message: 'این فیلد اجباری است',
                         },
                      })}
-                     error={!!errors?.contactDetail}
-                     helperText={errors?.contactDetail?.message}
+                     error={!!errors?.call_info}
+                     helperText={errors?.call_info?.message}
                   />
                   <TextField
                      label="متن پیام"
@@ -90,18 +97,25 @@ function ContactUs() {
                      InputLabelProps={{ style: { fontSize: '14px' } }}
                      multiline
                      minRows={5}
-                     {...register('textMessage', {
+                     {...register('message', {
                         required: {
                            value: true,
                            message: 'این فیلد اجباری است',
                         },
                      })}
-                     error={!!errors?.textMessage}
-                     helperText={errors?.textMessage?.message}
+                     error={!!errors?.message}
+                     helperText={errors?.message?.message}
                   />
-                  <Button variant="contained" className="!font-vazir" type="submit" color="primaryBlue" size="large">
+                  <LoadingButton
+                     variant="contained"
+                     className="!font-vazir"
+                     type="submit"
+                     color="primaryBlue"
+                     size="large"
+                     loading={sendContactIsLoading}
+                  >
                      ارسال
-                  </Button>
+                  </LoadingButton>
                </form>
             </RtlProvider>
          </div>
