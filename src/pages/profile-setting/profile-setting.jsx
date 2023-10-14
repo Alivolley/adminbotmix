@@ -1,6 +1,9 @@
 // MUI
 import { Grid } from '@mui/material';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // Icons
 import PersonIcon from '@mui/icons-material/Person';
 
@@ -10,6 +13,8 @@ import ChangePassword from '../../components/pages/profile-setting/change-passwo
 import ChangeEmail from '../../components/pages/profile-setting/change-email/change-email';
 
 function ProfileSetting() {
+   const userEmail = useSelector(state => state.emailReducer);
+
    return (
       <div>
          <CardWrapper>
@@ -17,10 +22,7 @@ function ProfileSetting() {
                <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
                   <PersonIcon fontSize="large" />
                </div>
-               <p className="text-xs customSm:text-base">
-                  {/* {dashboardData?.email} */}
-                  alicryptovolley@gmail.com
-               </p>
+               <p className="text-xs customSm:text-base">{userEmail?.value}</p>
             </div>
          </CardWrapper>
 

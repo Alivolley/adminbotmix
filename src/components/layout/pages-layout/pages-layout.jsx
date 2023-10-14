@@ -39,6 +39,7 @@ function PagesLayout() {
 
    const theme = useSelector(state => state.themeReducer);
    const isLogin = useSelector(state => state.loginStatusReducer);
+   const userEmail = useSelector(state => state.emailReducer);
 
    const confirmHandler = () => {
       deleteCookie('botmix_accessToken');
@@ -65,7 +66,7 @@ function PagesLayout() {
                {isLogin && (
                   <>
                      <Tooltip
-                        title="alicryptovolley@gmail.com"
+                        title={userEmail?.value}
                         classes={{
                            tooltip: '!text-[13px] !bg-[#1A202C]',
                            arrow: '!text-[#1A202C]',

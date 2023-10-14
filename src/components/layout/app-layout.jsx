@@ -11,7 +11,8 @@ import { ThemeProvider, createTheme } from '@mui/material';
 import Box from '@mui/material/Box';
 
 // Redux
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserEmail } from '../../store/reducers/emailReducer';
 
 import getDesignTokens from '../../configs/theme';
 
@@ -19,10 +20,19 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function AppLayout({ children }) {
    const { pathname } = useLocation();
+   const dispatch = useDispatch();
+
+   const themeMode = useSelector(state => state.themeReducer);
+   const isLogin = useSelector(state => state.loginStatusReducer);
+   const themeConfig = createTheme(getDesignTokens(themeMode));
 
    useEffect(() => {
       AOS.init();
       AOS.refresh();
+
+      if (isLogin) {
+         dispatch(getUserEmail());
+      }
    }, []);
 
    useEffect(() => {
@@ -32,9 +42,6 @@ function AppLayout({ children }) {
          behavior: 'instant',
       });
    }, [pathname]);
-
-   const themeMode = useSelector(state => state.themeReducer);
-   const themeConfig = createTheme(getDesignTokens(themeMode));
 
    return (
       <ThemeProvider theme={themeConfig}>

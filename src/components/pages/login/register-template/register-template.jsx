@@ -13,6 +13,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 // Redux
 import { useDispatch } from 'react-redux';
 import { changeToLoginTrue } from '../../../../store/reducers/loginStatusReducer';
+import { getUserEmail } from '../../../../store/reducers/emailReducer';
 
 // Assets
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
@@ -73,6 +74,7 @@ function RegisterTemplate() {
          sendRegisterData(newData, {
             onSuccess: () => {
                dispatch(changeToLoginTrue());
+               dispatch(getUserEmail());
                navigate(-1);
             },
          });

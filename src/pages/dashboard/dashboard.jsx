@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // MUI
 import { Grid, IconButton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
@@ -29,6 +32,7 @@ import useLogs from '../../apis/dashboard/useLogs/useLogs';
 
 function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
+   const userEmail = useSelector(state => state.emailReducer);
 
    const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
    const {
@@ -65,7 +69,7 @@ function Dashboard() {
                         <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
                            <PersonIcon fontSize="large" />
                         </div>
-                        <p>{dashboardData?.email}</p>
+                        <p>{userEmail?.value}</p>
                      </div>
                      <div className="flex grow flex-col gap-2">
                         {dashboardData?.alerts?.map(item => (
