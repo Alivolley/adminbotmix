@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Area, AreaChart, ResponsiveContainer } from 'recharts';
 
 // MUi
-import { Grid, Tooltip } from '@mui/material';
+import { CircularProgress, Grid, Tooltip } from '@mui/material';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -19,9 +19,8 @@ import wallexLogo from '../../../../assets/icons/wallex-logo-v-light.svg';
 // Components
 import LinkComponent from '../../../form-group/link-component/link-component';
 
-function BannerHome() {
+function BannerHome({ detail, loading }) {
    const isLogin = useSelector(state => state.loginStatusReducer);
-   const testArray = [{ uv: 1200 }, { uv: 3000 }, { uv: 2000 }, { uv: 2780 }, { uv: 1890 }, { uv: 2390 }, { uv: 3490 }];
 
    return (
       <BannerHomeStyle>
@@ -101,49 +100,59 @@ function BannerHome() {
                            محصول پیشنهادی باتمیکس
                         </p>
                         <div className="mt-4 flex items-center justify-between gap-6 pb-12 customMd:gap-16" dir="ltr">
-                           <div className="space-y-2">
-                              <div className="flex flex-wrap gap-2">
-                                 <p className="whitespace-nowrap text-textGray">Exchange :</p>
-                                 <p>Binance</p>
+                           {loading ? (
+                              <div className="flex items-center justify-center">
+                                 <CircularProgress />
                               </div>
-                              <div className="flex flex-wrap gap-2">
-                                 <p className="whitespace-nowrap text-textGray">Total profit :</p>
-                                 <p>12.6%</p>
-                              </div>
-                              <div className="flex flex-wrap gap-2">
-                                 <p className="whitespace-nowrap text-textGray">WinRate :</p>
-                                 <p>67%</p>
-                              </div>
-                              <div className="flex flex-wrap gap-2">
-                                 <p className="whitespace-nowrap text-textGray">DrawDown :</p>
-                                 <p>2%</p>
-                              </div>
-                           </div>
+                           ) : (
+                              <>
+                                 <div className="space-y-2">
+                                    <div className="flex flex-wrap gap-2">
+                                       <p className="whitespace-nowrap text-textGray">Name :</p>
+                                       <p>{detail?.name}</p>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                       <p className="whitespace-nowrap text-textGray">Total profit :</p>
+                                       <p>{detail?.total_profit}%</p>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                       <p className="whitespace-nowrap text-textGray">WinRate :</p>
+                                       <p>{detail?.winRate}%</p>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2">
+                                       <p className="whitespace-nowrap text-textGray">DrawDown :</p>
+                                       <p>{detail?.drawdown}%</p>
+                                    </div>
+                                 </div>
 
-                           <div className="w-[70px] customSm:max-w-[250px] customSm:grow">
-                              <ResponsiveContainer width="100%" height={100}>
-                                 <AreaChart data={testArray}>
-                                    <defs>
-                                       <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                                          <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
-                                          <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
-                                       </linearGradient>
-                                    </defs>
+                                 <div className="w-[70px] customSm:max-w-[250px] customSm:grow">
+                                    <ResponsiveContainer width="100%" height={100}>
+                                       <AreaChart data={detail?.chart || []}>
+                                          <defs>
+                                             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                                <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
+                                                <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
+                                             </linearGradient>
+                                          </defs>
 
-                                    <Area
-                                       type="monotone"
-                                       dataKey="uv"
-                                       stroke="#48BB78"
-                                       strokeWidth="3px"
-                                       fillOpacity={1}
-                                       fill="url(#colorUv)"
-                                    />
-                                 </AreaChart>
-                              </ResponsiveContainer>
-                           </div>
+                                          <Area
+                                             type="monotone"
+                                             dataKey="profit"
+                                             stroke="#48BB78"
+                                             strokeWidth="3px"
+                                             fillOpacity={1}
+                                             fill="url(#colorUv)"
+                                          />
+                                       </AreaChart>
+                                    </ResponsiveContainer>
+                                 </div>
+                              </>
+                           )}
                         </div>
                         <div className="absolute inset-x-0 bottom-[-13%] flex justify-center">
-                           <LinkComponent className="px-16">ایجاد سفارش</LinkComponent>
+                           <Link to={`/robotFunctionality/${detail?.id}`} state="register">
+                              <LinkComponent className="px-16">ایجاد سفارش</LinkComponent>
+                           </Link>
                         </div>
                      </div>
                   </div>

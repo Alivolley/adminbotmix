@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // MUI
-import { Grid } from '@mui/material';
+import { CircularProgress, Grid } from '@mui/material';
 
 // Components
 import ProductCard from '../../components/pages/products/product-card/product-card';
 import RobotCart from '../../components/pages/products/robot-cart/robot-cart';
 
+// Api
+import useAllProducts from '../../apis/products/useAllProducts/useAllProducts';
+
 function Products() {
+   const { data: allProductsData, isLoading: allProductsIsLoading } = useAllProducts();
+
    const location = useLocation();
 
    const [chosenCategory, setChosenCategory] = useState('robot_interface');
@@ -62,26 +67,19 @@ function Products() {
 
          {chosenCategory === 'portfolio_management' && (
             <div className="mt-9 customSm:mt-16">
-               <Grid container spacing={5}>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
+               {allProductsIsLoading ? (
+                  <div className="flex items-center justify-center">
+                     <CircularProgress />
+                  </div>
+               ) : (
+                  <Grid container spacing={5}>
+                     {allProductsData?.map(product => (
+                        <Grid item xs={12} sm={6} md={4} key={product?.id}>
+                           <ProductCard detail={product} />
+                        </Grid>
+                     ))}
                   </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
-                  </Grid>
-                  <Grid item xs={12} sm={6} md={4}>
-                     <ProductCard />
-                  </Grid>
-               </Grid>
+               )}
             </div>
          )}
       </div>

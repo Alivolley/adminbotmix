@@ -42,11 +42,9 @@ function RobotsTable({ detail, refetchData }) {
                </tr>
             </thead>
             <tbody>
-               {detail?.pages?.map(item =>
-                  item?.data?.map((innerItem, index) => (
-                     <RobotsTableItem key={innerItem.id} index={index} detail={innerItem} refetchData={refetchData} />
-                  ))
-               )}
+               {detail?.map((innerItem, index) => (
+                  <RobotsTableItem key={innerItem.id} index={index} detail={innerItem} refetchData={refetchData} />
+               ))}
             </tbody>
          </table>
       </div>

@@ -6,17 +6,22 @@ import HowWeWork from '../../components/pages/home/how-we-work/how-we-work';
 import NewestArticles from '../../components/pages/home/newest-articles/newest-articles';
 import NewestTutorial from '../../components/pages/home/newest-tutorial/newest-tutorial';
 
+// Apis
+import usePromoteProduct from '../../apis/home/usePromoteProduct/usePromoteProduct';
+
 function Home() {
-  return (
-    <main className="mb-56 space-y-56">
-      <BannerHome />
-      <HowWeWork />
-      <NewestArticles />
-      <BenefitsOfUs />
-      <NewestTutorial />
-      <Faqs />
-    </main>
-  );
+   const { data: promoteProductData, isLoading: promoteProductIsLoading } = usePromoteProduct();
+
+   return (
+      <main className="mb-56 space-y-56">
+         <BannerHome detail={promoteProductData} loading={promoteProductIsLoading} />
+         <HowWeWork />
+         <NewestArticles />
+         <BenefitsOfUs />
+         <NewestTutorial />
+         <Faqs />
+      </main>
+   );
 }
 
 export default Home;

@@ -39,6 +39,8 @@ function Robots() {
       robotsTableRefetch();
    };
 
+   // console.log(robotsTableData?.pages?.flatMap(page => page?.data?.map(item => item)));
+
    return (
       <div>
          <Grid container spacing={2}>
@@ -85,7 +87,10 @@ function Robots() {
                   </div>
                ) : (
                   <>
-                     <RobotsTable detail={robotsTableData} refetchData={refetchData} />
+                     <RobotsTable
+                        detail={robotsTableData?.pages?.flatMap(page => page?.data?.map(item => item))}
+                        refetchData={refetchData}
+                     />
                      {robotsTableHasNextPage && (
                         <div className="mt-6 flex items-center justify-center">
                            <LoadingButton
