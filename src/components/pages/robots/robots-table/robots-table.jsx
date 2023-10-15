@@ -1,6 +1,6 @@
 import RobotsTableItem from '../robots-table-item/robots-table-item';
 
-function RobotsTable({ detail, refetchData }) {
+function RobotsTable({ detail, refetchData, hasMoreDetail }) {
    return (
       <div className="overflow-auto" dir="ltr">
          <table className="w-full border-collapse border-[1px] border-solid border-gray-200 text-center dark:border-gray-600">
@@ -33,17 +33,27 @@ function RobotsTable({ detail, refetchData }) {
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
                      Profit
                   </th>
-                  <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                     is closed manual
-                  </th>
-                  <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                     actions
-                  </th>
+                  {hasMoreDetail && (
+                     <>
+                        <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
+                           is closed manual
+                        </th>
+                        <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
+                           actions
+                        </th>
+                     </>
+                  )}
                </tr>
             </thead>
             <tbody>
                {detail?.map((innerItem, index) => (
-                  <RobotsTableItem key={innerItem?.id} index={index} detail={innerItem} refetchData={refetchData} />
+                  <RobotsTableItem
+                     key={innerItem?.id}
+                     index={index}
+                     detail={innerItem}
+                     refetchData={refetchData}
+                     hasMoreDetail={hasMoreDetail}
+                  />
                ))}
             </tbody>
          </table>

@@ -13,7 +13,7 @@ import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
 // Apis
 import useCloseDeal from '../../../../apis/robots/useCloseDeal/useCloseDeal';
 
-function RobotsTableItem({ index, detail, refetchData }) {
+function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
    const { isLoading: closeDealIsLoading, mutate: closeDeal } = useCloseDeal();
@@ -80,31 +80,36 @@ function RobotsTableItem({ index, detail, refetchData }) {
                <p>{detail?.profit_percent}%</p>
             </td>
 
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               {detail?.manual_closed ? <DoneIcon color="success" /> : <CloseIcon color="error" />}
-            </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               {!detail?.is_closed && (
-                  <LoadingButton
-                     className="!normal-case"
-                     variant="outlined"
-                     color="primaryBlue"
-                     size="small"
-                     loading={closeDealIsLoading}
-                     onClick={() => setShowConfirmModal(true)}
-                  >
-                     Close manual
-                  </LoadingButton>
-               )}
-            </td>
+            {hasMoreDetail && (
+               <>
+                  <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+                     {detail?.manual_closed ? <DoneIcon color="success" /> : <CloseIcon color="error" />}
+                  </td>
+                  <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+                     {!detail?.is_closed && (
+                        <LoadingButton
+                           className="!normal-case"
+                           variant="outlined"
+                           color="primaryBlue"
+                           size="small"
+                           loading={closeDealIsLoading}
+                           onClick={() => setShowConfirmModal(true)}
+                        >
+                           Close manual
+                        </LoadingButton>
+                     )}
+                  </td>
+               </>
+            )}
          </tr>
-
-         <ConfirmModal
-            open={showConfirmModal}
-            closeModal={() => setShowConfirmModal(false)}
-            title={`آیا از بستن معامله ی ${detail?.symbol} مطمئن هستید ؟`}
-            confirmHandler={closeDealHandler}
-         />
+         {hasMoreDetail && (
+            <ConfirmModal
+               open={showConfirmModal}
+               closeModal={() => setShowConfirmModal(false)}
+               title={`آیا از بستن معامله ی ${detail?.symbol} مطمئن هستید ؟`}
+               confirmHandler={closeDealHandler}
+            />
+         )}
       </>
    );
 }

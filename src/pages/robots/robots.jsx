@@ -88,6 +88,7 @@ function Robots() {
                      <RobotsTable
                         detail={robotsTableData?.pages?.flatMap(page => page?.data?.map(item => item))}
                         refetchData={refetchData}
+                        hasMoreDetail
                      />
                      {robotsTableHasNextPage && (
                         <div className="mt-6 flex items-center justify-center">
