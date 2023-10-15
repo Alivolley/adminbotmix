@@ -42,7 +42,7 @@ function Robots() {
    return (
       <div>
          <Grid container spacing={2}>
-            <Grid item xs={12} lg={3}>
+            <Grid item xs={12} lg={8}>
                <CardWrapper>
                   {robotsListIsLoading ? (
                      <div className="flex items-center justify-center">
@@ -52,8 +52,8 @@ function Robots() {
                      <RobotsListTable detail={robotsListData} setRobotId={setRobotId} />
                   )}
                </CardWrapper>
-            </Grid>
-            <Grid item xs={12} lg={5.5}>
+               <br />
+
                <CardWrapper>
                   {robotsSpecificIsLoading ? (
                      <div className="flex items-center justify-center">
@@ -64,8 +64,8 @@ function Robots() {
                   )}
                </CardWrapper>
             </Grid>
-            <Grid item xs={12} lg={3.5}>
-               <CardWrapper>
+            <Grid item xs={12} lg={4}>
+               <CardWrapper heightFull>
                   {robotsSpecificIsLoading ? (
                      <div className="flex items-center justify-center">
                         <CircularProgress />

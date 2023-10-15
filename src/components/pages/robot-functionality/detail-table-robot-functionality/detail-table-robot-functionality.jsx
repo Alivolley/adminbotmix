@@ -1,23 +1,37 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 // Mui
 import { Switch } from '@mui/material';
 
+// Redux
+import { useSelector } from 'react-redux';
+
 // Components
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
 
-function DetailsTable({ detail }) {
-   const [isActive, setIsActive] = useState(detail?.is_active);
+function DetailTableRobotFunctionality({ detail }) {
+   const [isActive, setIsActive] = useState(false);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
+   const isLogin = useSelector(state => state.loginStatusReducer);
+
+   const activeRobotHandler = () => {
+      if (isLogin) {
+         setConfirmModalStatus(true);
+      } else {
+         toast.error('برای فعالسازی ربات ، ابتدا باید وارد حساب کاربری خود شوید .', {
+            style: {
+               direction: 'rtl',
+               fontFamily: 'vazir',
+            },
+            theme: 'colored',
+            autoClose: 6000,
+         });
+      }
+   };
 
    const confirmHandler = () => {
-      if (isActive) {
-         setIsActive(false);
-         setConfirmModalStatus(false);
-      } else {
-         setIsActive(true);
-         setConfirmModalStatus(false);
-      }
+      console.log('object');
    };
 
    return (
@@ -36,12 +50,6 @@ function DetailsTable({ detail }) {
                <p className="text-sm text-textGray">Total profit</p>
                <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
                <p className="text-sm">{detail?.total_profit}</p>
-            </div>
-
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Total profit percent</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.profit_percent}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
@@ -80,39 +88,10 @@ function DetailsTable({ detail }) {
                <p className="text-sm">{detail?.win_trade}</p>
             </div>
 
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Open positions</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.openPositions}</p>
-            </div>
-
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Fund percent</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.fund}</p>
-            </div>
-
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Exchange</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.exchange}</p>
-            </div>
-
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Api key</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.api_key}</p>
-            </div>
-            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Api secret</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
-               <p className="text-sm">{detail?.api_secret}</p>
-            </div>
-
             <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
+               <p className="text-sm">فعالسازی ربات</p>
                <div>
-                  <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} />
+                  <Switch checked={isActive} onClick={activeRobotHandler} />
                </div>
             </div>
          </div>
@@ -120,7 +99,7 @@ function DetailsTable({ detail }) {
          <ConfirmModal
             open={confirmModalStatus}
             closeModal={() => setConfirmModalStatus(false)}
-            title={`آیا از ${isActive ? 'غیر فعالسازی' : 'فعالسازی'} ربات مطمئن هستید ؟`}
+            title="آیا از فعالسازی ربات مطمئن هستید ؟"
             confirmHandler={confirmHandler}
             // confirmLoading={true}
          />
@@ -128,4 +107,4 @@ function DetailsTable({ detail }) {
    );
 }
 
-export default DetailsTable;
+export default DetailTableRobotFunctionality;

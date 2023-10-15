@@ -1,11 +1,12 @@
 // MUI
 import { Button, Dialog, DialogActions, DialogTitle, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import { LoadingButton } from '@mui/lab';
 
 // Redux
 import { useSelector } from 'react-redux';
 
-function ConfirmModal({ closeModal, title, confirmHandler, open }) {
+function ConfirmModal({ closeModal, title, confirmHandler, open, confirmLoading = false }) {
    const theme = useSelector(state => state.themeReducer);
    return (
       <div>
@@ -30,9 +31,15 @@ function ConfirmModal({ closeModal, title, confirmHandler, open }) {
             <DialogTitle className="!mb-5 !p-5 text-center !font-vazir customMd:text-start">{title}</DialogTitle>
             <DialogActions className="!p-5">
                <div className="flex items-center gap-5">
-                  <Button onClick={confirmHandler} className="!font-vazir" variant="contained" color="success">
+                  <LoadingButton
+                     onClick={confirmHandler}
+                     className="!font-vazir"
+                     variant="contained"
+                     color="success"
+                     loading={confirmLoading}
+                  >
                      تایید
-                  </Button>
+                  </LoadingButton>
                   <Button onClick={closeModal} className="!font-vazir" variant="contained" color="error">
                      انصراف
                   </Button>

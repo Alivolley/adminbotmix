@@ -1,7 +1,11 @@
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 // MUI
 import { Button } from '@mui/material';
+
+// Redux
+import { useSelector } from 'react-redux';
 
 // Assets
 import { RobotCartStyle } from './robot-cart.style';
@@ -19,6 +23,22 @@ function RobotCart({
    planeValue,
 }) {
    const [showBuyPlanModal, setShowBuyPlanModal] = useState(false);
+   const isLogin = useSelector(state => state.loginStatusReducer);
+
+   const showBuyPlanModalHandler = () => {
+      if (isLogin) {
+         setShowBuyPlanModal(true);
+      } else {
+         toast.error('برای خرید اشتراک ، ابتدا باید وارد حساب کاربری خود شوید .', {
+            style: {
+               direction: 'rtl',
+               fontFamily: 'vazir',
+            },
+            theme: 'colored',
+            autoClose: 6000,
+         });
+      }
+   };
 
    return (
       <>
@@ -59,7 +79,7 @@ function RobotCart({
                   variant="outlined"
                   color="primary"
                   size="large"
-                  onClick={() => setShowBuyPlanModal(true)}
+                  onClick={showBuyPlanModalHandler}
                >
                   خرید اشتراک
                </Button>

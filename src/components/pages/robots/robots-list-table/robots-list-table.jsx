@@ -6,7 +6,7 @@ function RobotsListTable({ detail, setRobotId }) {
 
    return (
       <div>
-         <p className="mb-8">لیست ربات ها</p>
+         <p className="mb-3">لیست ربات ها</p>
          <table className="w-full text-center">
             <thead>
                <tr>
