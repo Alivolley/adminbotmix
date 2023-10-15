@@ -43,7 +43,7 @@ function RobotsTable({ detail, refetchData }) {
             </thead>
             <tbody>
                {detail?.map((innerItem, index) => (
-                  <RobotsTableItem key={innerItem.id} index={index} detail={innerItem} refetchData={refetchData} />
+                  <RobotsTableItem key={innerItem?.id} index={index} detail={innerItem} refetchData={refetchData} />
                ))}
             </tbody>
          </table>

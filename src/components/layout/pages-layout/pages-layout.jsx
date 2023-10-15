@@ -13,8 +13,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import LoginIcon from '@mui/icons-material/Login';
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
-import { changeToLoginFalse } from '../../../store/reducers/loginStatusReducer';
+import { useSelector } from 'react-redux';
 
 // Assets
 import { PagesLayoutStyle } from './pages-layout.style';
@@ -35,7 +34,6 @@ function PagesLayout() {
 
    const { pathname } = useLocation();
    const { deleteCookie } = useCookie();
-   const dispatch = useDispatch();
 
    const theme = useSelector(state => state.themeReducer);
    const isLogin = useSelector(state => state.loginStatusReducer);
@@ -45,8 +43,7 @@ function PagesLayout() {
       deleteCookie('botmix_accessToken');
       deleteCookie('botmix_refreshToken');
       deleteCookie('isLogin');
-      dispatch(changeToLoginFalse());
-      setConfirmLogoutModal(false);
+      window.location.reload();
    };
 
    return (

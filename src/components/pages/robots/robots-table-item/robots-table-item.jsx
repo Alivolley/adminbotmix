@@ -32,7 +32,7 @@ function RobotsTableItem({ index, detail, refetchData }) {
    return (
       <>
          <tr
-            key={detail.id}
+            key={detail?.id}
             className={`transition-all duration-200 ${isEven(index) ? 'bg-bgPrimary dark:bg-bgPrimaryDark' : ''}`}
          >
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">

@@ -15,8 +15,7 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import LoginIcon from '@mui/icons-material/Login';
 
 // Redux
-import { useDispatch, useSelector } from 'react-redux';
-import { changeToLoginFalse } from '../../../store/reducers/loginStatusReducer';
+import { useSelector } from 'react-redux';
 
 // Hooks
 import useCookie from '../../../hooks/useCookie';
@@ -34,7 +33,6 @@ function MobileNavbar({ setMobileMenuOpen }) {
    const [confirmLogoutModal, setConfirmLogoutModal] = useState(false);
 
    const { deleteCookie } = useCookie();
-   const dispatch = useDispatch();
 
    const isLogin = useSelector(state => state.loginStatusReducer);
 
@@ -42,9 +40,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
       deleteCookie('botmix_accessToken');
       deleteCookie('botmix_refreshToken');
       deleteCookie('isLogin');
-      dispatch(changeToLoginFalse());
-      setConfirmLogoutModal(false);
-      setMobileMenuOpen(false);
+      window.location.reload();
    };
 
    return (

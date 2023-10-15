@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 // Icons
 import SmartToyIcon from '@mui/icons-material/SmartToy';
@@ -13,10 +13,6 @@ import LogoutIcon from '@mui/icons-material/Logout';
 // MUI
 import { Button } from '@mui/material';
 
-// Redux
-import { useDispatch } from 'react-redux';
-import { changeToLoginFalse } from '../../../store/reducers/loginStatusReducer';
-
 // assets
 import { SidebarStyle } from './sidebar.style';
 import RtlProvider from '../rtlProvider/rtlProvider';
@@ -29,17 +25,13 @@ import useCookie from '../../../hooks/useCookie';
 function Sidebar({ shouldHide, setMobileMenuOpen }) {
    const [confirmLogoutModal, setConfirmLogoutModal] = useState(false);
 
-   const dispatch = useDispatch();
-   const navigate = useNavigate();
    const { deleteCookie } = useCookie();
 
    const confirmHandler = () => {
       deleteCookie('botmix_accessToken');
       deleteCookie('botmix_refreshToken');
       deleteCookie('isLogin');
-      dispatch(changeToLoginFalse());
-      setConfirmLogoutModal(false);
-      navigate('/');
+      window.location.href = '/';
    };
 
    return (
