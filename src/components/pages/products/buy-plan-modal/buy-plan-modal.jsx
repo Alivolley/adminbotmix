@@ -4,13 +4,14 @@ import { useForm, Controller } from 'react-hook-form';
 import {
    Dialog,
    IconButton,
-   InputAdornment,
-   TextField,
    FormControlLabel,
    Radio,
    RadioGroup,
    Typography,
    FormControl,
+   InputLabel,
+   Select,
+   MenuItem,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { LoadingButton } from '@mui/lab';
@@ -19,38 +20,34 @@ import { LoadingButton } from '@mui/lab';
 import { useSelector } from 'react-redux';
 
 // Style
-import { IncreaseWalletModalStyle } from './increase-wallet-modal.style';
+import { BuyPlanModalStyle } from './buy-plan-modal.style';
 import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 
 // Apis
 import useNoPay from '../../../../apis/payment/useNoPay/useNoPay';
 import useZarinPay from '../../../../apis/payment/useZarinPay/useZarinPay';
 
-function IncreaseWalletModal({ closeModal, open }) {
+function BuyPlanModal({ closeModal, open, name, planeValue }) {
    const theme = useSelector(state => state.themeReducer);
 
    const { mutate: zarinMutate, isLoading: zarinIsLoading } = useZarinPay();
    const { mutate: noPayMutate, isLoading: noPayIsLoading } = useNoPay();
 
-   const {
-      handleSubmit,
-      register,
-      control,
-      reset,
-      formState: { errors },
-   } = useForm({
+   const { handleSubmit, control, reset } = useForm({
       defaultValues: {
          type: 'zarinpal',
-         amount: '',
+         plan_duration: 1,
       },
       mode: 'onSubmit',
    });
 
    const formSubmit = data => {
+      const newData = { plan: planeValue, plan_duration: data?.plan_duration };
+
       if (data?.type === 'zarinpal') {
-         zarinMutate({ amount: data?.amount });
+         zarinMutate(newData);
       } else if (data?.type === 'noPayment') {
-         noPayMutate({ amount: data?.amount });
+         noPayMutate(newData);
       }
    };
 
@@ -82,35 +79,35 @@ function IncreaseWalletModal({ closeModal, open }) {
                <CloseIcon />
             </IconButton>
          </div>
-         <IncreaseWalletModalStyle className="p-5 customSm:w-96">
-            <p className="mt-1 text-xl">افزایش موجودی کیف پول</p>
+         <BuyPlanModalStyle className="w-56 p-5 customSm:w-96">
+            <p className="mt-1 text-xl">خرید اشتراک {name}</p>
 
             <RtlProvider>
                <form className="mt-8 space-y-5" onSubmit={handleSubmit(formSubmit)}>
-                  <div id="inputNumber">
-                     <TextField
-                        type="number"
-                        label="مقدار افزایش"
-                        color="primaryBlue"
-                        className="w-full"
-                        InputProps={{
-                           endAdornment: (
-                              <InputAdornment position="end">
-                                 <p className="text-xs text-[#aaacb2]">USDT - تتر</p>
-                              </InputAdornment>
-                           ),
-                        }}
-                        {...register('amount', {
-                           required: {
-                              value: true,
-                              message: 'این فیلد اجباری است',
-                           },
-                        })}
-                        error={!!errors?.amount}
-                        helperText={errors?.amount?.message}
-                        disabled={zarinIsLoading || noPayIsLoading}
-                     />
-                  </div>
+                  <Controller
+                     control={control}
+                     name="plan_duration"
+                     rules={{ required: 'این فیلد اجباری است' }}
+                     render={({ field: { onChange, value } }) => (
+                        <FormControl fullWidth color="primaryBlue" disabled={zarinIsLoading || noPayIsLoading}>
+                           <InputLabel>مدت پلن</InputLabel>
+                           <Select value={value} label="مدت پلن" onChange={onChange}>
+                              <MenuItem value={1} className="!font-vazir">
+                                 ۱ ماهه
+                              </MenuItem>
+                              <MenuItem value={3} className="!font-vazir">
+                                 ۳ ماهه
+                              </MenuItem>
+                              <MenuItem value={6} className="!font-vazir">
+                                 ۶ ماهه
+                              </MenuItem>
+                              <MenuItem value={12} className="!font-vazir">
+                                 ۱۲ ماهه
+                              </MenuItem>
+                           </Select>
+                        </FormControl>
+                     )}
+                  />
 
                   <div>
                      <Controller
@@ -150,9 +147,9 @@ function IncreaseWalletModal({ closeModal, open }) {
                   </LoadingButton>
                </form>
             </RtlProvider>
-         </IncreaseWalletModalStyle>
+         </BuyPlanModalStyle>
       </Dialog>
    );
 }
 
-export default IncreaseWalletModal;
+export default BuyPlanModal;

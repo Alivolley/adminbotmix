@@ -53,13 +53,36 @@ function Products() {
             <div className="mt-9 customSm:mt-16">
                <Grid container spacing={5}>
                   <Grid item xs={12} sm={6} md={4}>
-                     <RobotCart />
+                     <RobotCart
+                        name="رایگان"
+                        exchangeCount={4}
+                        telegramCount={4}
+                        groupOrChannelAlertCount={1}
+                        usableExchanges={1}
+                        price={0}
+                     />
                   </Grid>
                   <Grid item xs={12} sm={6} md={4}>
-                     <RobotCart />
+                     <RobotCart
+                        name="پرو"
+                        planeValue="pro"
+                        exchangeCount={20}
+                        telegramCount={20}
+                        groupOrChannelAlertCount={5}
+                        usableExchanges={2}
+                        price={2.5}
+                     />
                   </Grid>
                   <Grid item xs={12} sm={6} md={4}>
-                     <RobotCart />
+                     <RobotCart
+                        name="پرمیوم"
+                        planeValue="premium"
+                        exchangeCount={400}
+                        telegramCount={400}
+                        groupOrChannelAlertCount={10}
+                        usableExchanges={5}
+                        price={4}
+                     />
                   </Grid>
                </Grid>
             </div>
