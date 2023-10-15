@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { CircularProgressbar } from 'react-circular-progressbar';
 
 // Redux
 import { useSelector } from 'react-redux';
 
 // MUI
-import { Grid, IconButton } from '@mui/material';
+import { Button, Grid, IconButton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -25,6 +26,7 @@ import PieChartComponent from '../../components/pages/dashboard/pie-chart-compon
 import LogsComponent from '../../components/pages/dashboard/logs-component/logs-component';
 import AreaChartComponentTransform from '../../components/pages/dashboard/area-chart-component-transforms/area-chart-component-transforms';
 import AreaChartComponentRobots from '../../components/pages/dashboard/area-chart-component-robots/area-chart-component-robots';
+import IncreaseWalletModal from '../../components/pages/dashboard/increase-wallet-modal/increase-wallet-modal';
 
 // Apis
 import useDashboard from '../../apis/dashboard/useDashboard/useDashboard';
@@ -32,6 +34,7 @@ import useLogs from '../../apis/dashboard/useLogs/useLogs';
 
 function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
+   const [increaseModalStatus, setIncreaseModalStatus] = useState(false);
    const userEmail = useSelector(state => state.emailReducer);
 
    const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
@@ -80,6 +83,28 @@ function Dashboard() {
                      </div>
                   </div>
                </CardWrapper>
+
+               <div className="flex items-center justify-center gap-3.5">
+                  <Button
+                     className="grow !font-vazir !text-white"
+                     variant="contained"
+                     color="primaryBlue"
+                     size="large"
+                     onClick={() => setIncreaseModalStatus(true)}
+                  >
+                     افزایش موجودی حساب
+                  </Button>
+                  <Link to="/products" state="robot_interface" className="grow">
+                     <Button
+                        className="w-full !font-vazir !text-white"
+                        variant="contained"
+                        color="primaryBlue"
+                        size="large"
+                     >
+                        خرید پلن
+                     </Button>
+                  </Link>
+               </div>
 
                <div>
                   <Grid container spacing={2}>
@@ -244,6 +269,8 @@ function Dashboard() {
                      )}
                   </CardWrapper>
                </div>
+
+               <IncreaseWalletModal open={increaseModalStatus} closeModal={() => setIncreaseModalStatus(false)} />
             </>
          )}
       </div>
