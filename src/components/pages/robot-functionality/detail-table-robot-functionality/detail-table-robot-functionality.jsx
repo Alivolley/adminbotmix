@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 // Mui
-import { Switch } from '@mui/material';
+import { LoadingButton } from '@mui/lab';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -89,10 +89,14 @@ function DetailTableRobotFunctionality({ detail }) {
             </div>
 
             <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm">فعالسازی ربات</p>
-               <div>
-                  <Switch checked={isActive} onClick={activeRobotHandler} />
-               </div>
+               <LoadingButton
+                  className="w-full !font-vazir"
+                  variant="contained"
+                  color="primaryBlue"
+                  onClick={activeRobotHandler}
+               >
+                  فعالسازی ربات
+               </LoadingButton>
             </div>
          </div>
 

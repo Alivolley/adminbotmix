@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
 // MUI
 import Accordion from '@mui/material/Accordion';
@@ -13,10 +13,8 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 function LinkAccordion({ detail }) {
    const [copyStatus, setCopyStatus] = useState(false);
 
-   const linkRef = useRef();
-
    const copyLink = () => {
-      navigator.clipboard.writeText(linkRef.current.innerHTML).then(() => {
+      navigator.clipboard.writeText(JSON.stringify(detail)).then(() => {
          setCopyStatus(true);
          setTimeout(() => {
             setCopyStatus(false);
@@ -48,7 +46,7 @@ function LinkAccordion({ detail }) {
                   ) : null}
                </div>
 
-               <div ref={linkRef} dir="ltr" className="my-2 max-h-[300px] overflow-auto py-3 text-sm">
+               <div dir="ltr" className="my-2 max-h-[300px] overflow-auto py-3 text-sm">
                   <div className="flex items-center">
                      <p>leverage : </p>
                      <p>{detail?.leverage}</p>

@@ -113,6 +113,7 @@ function IncreaseWalletModal({ closeModal, open }) {
                   </div>
 
                   <div>
+                     <p className="mb-5 mt-8">انتخاب درگاه پرداخت :</p>
                      <Controller
                         control={control}
                         name="type"
@@ -124,14 +125,14 @@ function IncreaseWalletModal({ closeModal, open }) {
                                     disabled={zarinIsLoading || noPayIsLoading}
                                     value="zarinpal"
                                     control={<Radio color="primaryBlue" />}
-                                    label={<Typography>زرین پال</Typography>}
+                                    label={<Typography fontSize={14}>زرین پال ( ریالی )</Typography>}
                                  />
 
                                  <FormControlLabel
                                     disabled={zarinIsLoading || noPayIsLoading}
                                     value="noPayment"
                                     control={<Radio color="primaryBlue" />}
-                                    label={<Typography>No payment</Typography>}
+                                    label={<Typography fontSize={14}>NowPayments ( کریپتو )</Typography>}
                                  />
                               </RadioGroup>
                            </FormControl>

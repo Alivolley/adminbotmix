@@ -100,8 +100,6 @@ function AccordionComponent({ detail }) {
                   className=" overflow-hidden border-r-[1px] border-solid border-textGray bg-bgPrimary px-2 py-[6px] dark:bg-bgPrimaryDark"
                   ref={linkRef}
                >
-                  {detail?.link}
-
                   {!apiKeysRefreshData ? detail?.link : apiKeysRefreshData?.link}
                </p>
                <div className="w-fit">

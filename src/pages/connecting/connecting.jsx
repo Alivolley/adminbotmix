@@ -164,8 +164,11 @@ function Connecting() {
                               <AlertTitle className="!font-vazir">هشدار</AlertTitle>
                               <div className="space-y-6 leading-[24px]">
                                  <p>
-                                    برای فرستادن پیام در تلگرام, باید ربات BotmixBot را به گروه یا گروه های مدنظر اضافه
-                                    کرده و دسترسی ارسال پیام به آن بدهید.
+                                    برای فرستادن پیام در تلگرام, باید ربات{' '}
+                                    <a href="https://t.me/botmixbot" target="_blank" rel="noreferrer">
+                                       BotmixBot
+                                    </a>{' '}
+                                    را به گروه یا گروه های مدنظر اضافه کرده و دسترسی ارسال پیام به آن بدهید.
                                  </p>
                                  <p>
                                     دقت کنید که هر کانال تلگرام فقط میتواند یک بات بعنوان ادمین و ارسال کننده داشته

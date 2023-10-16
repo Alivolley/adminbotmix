@@ -110,6 +110,8 @@ function BuyPlanModal({ closeModal, open, name, planeValue }) {
                   />
 
                   <div>
+                     <p className="mb-5 mt-8">انتخاب درگاه پرداخت :</p>
+
                      <Controller
                         control={control}
                         name="type"
@@ -121,14 +123,14 @@ function BuyPlanModal({ closeModal, open, name, planeValue }) {
                                     disabled={zarinIsLoading || noPayIsLoading}
                                     value="zarinpal"
                                     control={<Radio color="primaryBlue" />}
-                                    label={<Typography>زرین پال</Typography>}
+                                    label={<Typography fontSize={14}>زرین پال ( ریالی )</Typography>}
                                  />
 
                                  <FormControlLabel
                                     disabled={zarinIsLoading || noPayIsLoading}
                                     value="noPayment"
                                     control={<Radio color="primaryBlue" />}
-                                    label={<Typography>No payment</Typography>}
+                                    label={<Typography fontSize={14}>NowPayments ( کریپتو )</Typography>}
                                  />
                               </RadioGroup>
                            </FormControl>

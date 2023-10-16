@@ -43,26 +43,29 @@ function Robots() {
       <div>
          <Grid container spacing={2}>
             <Grid item xs={12} lg={8}>
-               <CardWrapper>
-                  {robotsListIsLoading ? (
-                     <div className="flex items-center justify-center">
-                        <CircularProgress />
-                     </div>
-                  ) : (
-                     <RobotsListTable detail={robotsListData} setRobotId={setRobotId} />
-                  )}
-               </CardWrapper>
-               <br />
+               <div className="flex h-full flex-col gap-4">
+                  <CardWrapper>
+                     {robotsListIsLoading ? (
+                        <div className="flex items-center justify-center">
+                           <CircularProgress />
+                        </div>
+                     ) : (
+                        <RobotsListTable detail={robotsListData} setRobotId={setRobotId} />
+                     )}
+                  </CardWrapper>
 
-               <CardWrapper>
-                  {robotsSpecificIsLoading ? (
-                     <div className="flex items-center justify-center">
-                        <CircularProgress />
-                     </div>
-                  ) : (
-                     <RobotsChart detail={robotsSpecificData?.chart} />
-                  )}
-               </CardWrapper>
+                  <CardWrapper className="flex h-full items-center justify-center">
+                     {robotsSpecificIsLoading ? (
+                        <div className="flex items-center justify-center">
+                           <CircularProgress />
+                        </div>
+                     ) : (
+                        <div className="w-full">
+                           <RobotsChart detail={robotsSpecificData?.chart} />
+                        </div>
+                     )}
+                  </CardWrapper>
+               </div>
             </Grid>
             <Grid item xs={12} lg={4}>
                <CardWrapper heightFull>

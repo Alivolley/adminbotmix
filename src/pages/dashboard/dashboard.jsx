@@ -67,13 +67,7 @@ function Dashboard() {
          ) : (
             <>
                <CardWrapper>
-                  <div className="flex flex-wrap items-start gap-4">
-                     <div className="flex items-center gap-3">
-                        <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
-                           <PersonIcon fontSize="large" />
-                        </div>
-                        <p>{userEmail?.value}</p>
-                     </div>
+                  <div className="flex flex-wrap-reverse items-start gap-4 customSm:flex-nowrap">
                      <div className="flex grow flex-col gap-2">
                         {dashboardData?.alerts?.map(item => (
                            <AlertComponent key={item?.id} type={item?.type} alertId={item?.id}>
@@ -81,26 +75,26 @@ function Dashboard() {
                            </AlertComponent>
                         ))}
                      </div>
+                     <div className="flex flex-wrap-reverse items-center gap-2 customSm:flex-nowrap">
+                        <p>{userEmail?.value}</p>
+                        <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
+                           <PersonIcon fontSize="large" />
+                        </div>
+                     </div>
                   </div>
                </CardWrapper>
 
-               <div className="flex items-center justify-center gap-3.5">
+               <div className="flex flex-wrap items-center justify-center gap-3.5">
                   <Button
-                     className="grow !font-vazir !text-white"
-                     variant="contained"
-                     color="primaryBlue"
+                     className="grow !font-vazir"
+                     variant="outlined"
                      size="large"
                      onClick={() => setIncreaseModalStatus(true)}
                   >
                      افزایش موجودی حساب
                   </Button>
                   <Link to="/products" state="robot_interface" className="grow">
-                     <Button
-                        className="w-full !font-vazir !text-white"
-                        variant="contained"
-                        color="primaryBlue"
-                        size="large"
-                     >
+                     <Button className="w-full !font-vazir" variant="outlined" size="large">
                         خرید پلن
                      </Button>
                   </Link>

@@ -5,12 +5,15 @@ function RobotsListTable({ detail, setRobotId }) {
    const isEven = num => num % 2 === 0;
 
    return (
-      <div>
+      <div className="overflow-auto">
          <p className="mb-3">لیست ربات ها</p>
          <table className="w-full text-center">
             <thead>
                <tr>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">نام</th>
+                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Name</th>
+                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Total profit</th>
+                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Total profit percent</th>
+                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Winrate</th>
                   <th className="whitespace-nowrap p-3 text-[13px] text-textGray">عملیات</th>
                </tr>
             </thead>
@@ -23,6 +26,9 @@ function RobotsListTable({ detail, setRobotId }) {
                      }`}
                   >
                      <td className="whitespace-nowrap p-3 text-sm">{item?.name}</td>
+                     <td className="whitespace-nowrap p-3 text-sm">{item?.total_profit}</td>
+                     <td className="whitespace-nowrap p-3 text-sm">{item?.profit_percent}</td>
+                     <td className="whitespace-nowrap p-3 text-sm">{item?.winRate}</td>
                      <td className="whitespace-nowrap p-3 text-sm">
                         <LoadingButton
                            variant="outlined"

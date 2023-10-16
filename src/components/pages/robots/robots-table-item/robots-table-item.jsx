@@ -68,9 +68,11 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
                   <p>{detail?.exitPrice}</p>
                </div>
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               {detail?.contract}
-            </td>
+            {hasMoreDetail && (
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+                  {detail?.contract}
+               </td>
+            )}
             <td
                className={`border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 ${
                   detail?.profit < 0 ? 'text-error' : 'text-success'

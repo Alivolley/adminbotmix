@@ -18,11 +18,11 @@ function ProfileSetting() {
    return (
       <div>
          <CardWrapper>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-end gap-2">
+               <p className="text-xs customSm:text-base">{userEmail?.value}</p>
                <div className="flex h-[55px] w-[55px] items-center justify-center rounded-full border-[2px] border-primaryBlue">
                   <PersonIcon fontSize="large" />
                </div>
-               <p className="text-xs customSm:text-base">{userEmail?.value}</p>
             </div>
          </CardWrapper>
 
