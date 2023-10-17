@@ -5,19 +5,47 @@ import { Button, Switch } from '@mui/material';
 
 // Components
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
+import EditRobotModal from '../edit-robot-modal/edit-robot-modal';
+
+// Apis
+import useActiveRobotStatus from '../../../../apis/robots/useActiveRobotStatus/useActiveRobotStatus';
 
 function DetailsTable({ detail }) {
    const [isActive, setIsActive] = useState(detail?.is_active);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
    const [showEditModal, setShowEditModal] = useState(false);
 
+   const { mutate: changeRobotActivityStatus, isLoading: robotActivityIsLoading } = useActiveRobotStatus(detail?.id);
+
    const confirmHandler = () => {
       if (isActive) {
-         setIsActive(false);
-         setConfirmModalStatus(false);
+         changeRobotActivityStatus(
+            {
+               action: 'active',
+               active: false,
+               botId: detail?.id,
+            },
+            {
+               onSuccess: () => {
+                  setIsActive(false);
+                  setConfirmModalStatus(false);
+               },
+            }
+         );
       } else {
-         setIsActive(true);
-         setConfirmModalStatus(false);
+         changeRobotActivityStatus(
+            {
+               action: 'active',
+               active: true,
+               botId: detail?.id,
+            },
+            {
+               onSuccess: () => {
+                  setIsActive(true);
+                  setConfirmModalStatus(false);
+               },
+            }
+         );
       }
    };
 
@@ -135,8 +163,10 @@ function DetailsTable({ detail }) {
             closeModal={() => setConfirmModalStatus(false)}
             title={`آیا از ${isActive ? 'غیر فعالسازی' : 'فعالسازی'} ربات مطمئن هستید ؟`}
             confirmHandler={confirmHandler}
-            // confirmLoading={true}
+            confirmLoading={robotActivityIsLoading}
          />
+
+         <EditRobotModal show={showEditModal} closeModal={() => setShowEditModal(false)} detail={detail} />
       </div>
    );
 }
