@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 // Mui
-import { Switch } from '@mui/material';
+import { Button, Switch } from '@mui/material';
 
 // Components
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
@@ -9,6 +9,7 @@ import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
 function DetailsTable({ detail }) {
    const [isActive, setIsActive] = useState(detail?.is_active);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
+   const [showEditModal, setShowEditModal] = useState(false);
 
    const confirmHandler = () => {
       if (isActive) {
@@ -114,6 +115,16 @@ function DetailsTable({ detail }) {
                <div>
                   <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} />
                </div>
+            </div>
+            <div className="flex items-center justify-between gap-1 p-3">
+               <Button
+                  className="w-full !font-vazir"
+                  variant="contained"
+                  color="primaryBlue"
+                  onClick={() => setShowEditModal(true)}
+               >
+                  ویرایش ربات
+               </Button>
             </div>
          </div>
 

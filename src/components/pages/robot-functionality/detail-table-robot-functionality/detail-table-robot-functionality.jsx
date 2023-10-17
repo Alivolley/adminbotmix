@@ -8,16 +8,15 @@ import { LoadingButton } from '@mui/lab';
 import { useSelector } from 'react-redux';
 
 // Components
-import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
+import ActiveRobotModal from '../../products/active-robot-modal/active-robot-modal';
 
 function DetailTableRobotFunctionality({ detail }) {
-   const [isActive, setIsActive] = useState(false);
-   const [confirmModalStatus, setConfirmModalStatus] = useState(false);
+   const [showActiveModal, setShowActiveModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
 
    const activeRobotHandler = () => {
       if (isLogin) {
-         setConfirmModalStatus(true);
+         setShowActiveModal(true);
       } else {
          toast.error('برای فعالسازی ربات ، ابتدا باید وارد حساب کاربری خود شوید .', {
             style: {
@@ -28,10 +27,6 @@ function DetailTableRobotFunctionality({ detail }) {
             autoClose: 6000,
          });
       }
-   };
-
-   const confirmHandler = () => {
-      console.log('object');
    };
 
    return (
@@ -94,19 +89,14 @@ function DetailTableRobotFunctionality({ detail }) {
                   variant="contained"
                   color="primaryBlue"
                   onClick={activeRobotHandler}
+                  disabled={detail?.is_active}
                >
-                  فعالسازی ربات
+                  {detail?.is_active ? 'ربات فعال است' : 'فعالسازی'}
                </LoadingButton>
             </div>
          </div>
 
-         <ConfirmModal
-            open={confirmModalStatus}
-            closeModal={() => setConfirmModalStatus(false)}
-            title="آیا از فعالسازی ربات مطمئن هستید ؟"
-            confirmHandler={confirmHandler}
-            // confirmLoading={true}
-         />
+         <ActiveRobotModal show={showActiveModal} closeModal={() => setShowActiveModal(false)} detail={detail} />
       </div>
    );
 }

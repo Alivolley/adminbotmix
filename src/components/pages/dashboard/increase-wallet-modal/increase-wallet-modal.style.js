@@ -5,8 +5,12 @@ export const IncreaseWalletModalStyle = styled.div(() => ({
       fontFamily: 'vazir !important',
    },
 
-   '& #inputNumber input[type="number"]::-webkit-inner-spin-button': {
-      WebkitAppearance: 'none',
+   '& #inputNumber input[type="number"]': {
       MozAppearance: 'textfield',
+      appearance: 'textfield',
+      '&::-webkit-inner-spin-button': {
+         WebkitAppearance: 'none',
+         appearance: 'none',
+      },
    },
 }));
