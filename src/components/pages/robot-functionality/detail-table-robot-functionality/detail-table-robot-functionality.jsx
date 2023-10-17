@@ -91,7 +91,7 @@ function DetailTableRobotFunctionality({ detail }) {
                   onClick={activeRobotHandler}
                   disabled={detail?.is_active}
                >
-                  {detail?.is_active ? 'ربات فعال است' : 'فعالسازی'}
+                  {detail?.is_active ? 'ربات غیر فعال است' : 'فعالسازی'}
                </LoadingButton>
             </div>
          </div>

@@ -16,7 +16,7 @@ import useCloseDeal from '../../../../apis/robots/useCloseDeal/useCloseDeal';
 function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
    const [showConfirmModal, setShowConfirmModal] = useState(false);
 
-   const { isLoading: closeDealIsLoading, mutate: closeDeal } = useCloseDeal();
+   const { isLoading: closeDealIsLoading, mutate: closeDeal } = useCloseDeal(detail?.id);
 
    const isEven = num => num % 2 === 0;
 

@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 // MUI
 import {
    Checkbox,
+   Collapse,
    Dialog,
    FormControl,
    FormControlLabel,
@@ -14,6 +15,7 @@ import {
    Radio,
    RadioGroup,
    Select,
+   Slider,
    TextField,
    Typography,
 } from '@mui/material';
@@ -44,7 +46,8 @@ function ActiveRobotModal({ show, closeModal, detail }) {
       defaultValues: {
          fund_type: 'percent',
          fund_value: '',
-         custom_leverage: '',
+         enterLeverage: false,
+         custom_leverage: 1,
          active: false,
          exchange: '',
          type: 'futures',
@@ -57,6 +60,7 @@ function ActiveRobotModal({ show, closeModal, detail }) {
 
    const chosenExchange = watch('exchange');
    const chosenFundType = watch('fund_type');
+   const isEnteredLeverage = watch('enterLeverage');
 
    useEffect(() => {
       reset(prev => ({
@@ -72,7 +76,11 @@ function ActiveRobotModal({ show, closeModal, detail }) {
    }, [chosenExchange]);
 
    const formSubmit = data => {
-      activateRobot({ ...data, productId: detail?.id });
+      activateRobot({
+         ...data,
+         productId: detail?.id,
+         custom_leverage: isEnteredLeverage ? data?.custom_leverage : null,
+      });
    };
 
    return (
@@ -84,7 +92,8 @@ function ActiveRobotModal({ show, closeModal, detail }) {
             reset({
                fund_type: 'percent',
                fund_value: '',
-               custom_leverage: '',
+               enterLeverage: false,
+               custom_leverage: 1,
                active: false,
                exchange: '',
                type: 'futures',
@@ -167,27 +176,48 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                      />
                   </div>
                   {!detail?.isSabad && (
-                     <div id="inputNumber">
-                        <TextField
-                           label="میزان اهرم"
-                           variant="outlined"
-                           color="primaryBlue"
-                           fullWidth
-                           type="number"
-                           {...register('custom_leverage', {
-                              max: {
-                                 value: Number(detail?.max_allowed_leverage),
-                                 message: `بیشترین اهرم مجاز برای شما ${Number(detail?.max_allowed_leverage)} است`,
-                              },
-                           })}
-                           error={!!errors?.custom_leverage}
-                           helperText={
-                              errors?.custom_leverage
-                                 ? errors?.custom_leverage?.message
-                                 : 'ربات باتمیکس با مدیریت سرمایه بصورت خودکار اهرم معاملات را ارسال میکند, اگر میخواهید رباتتان با اهرم شخصی شما کار کند, این مقدار را وارد کنید, درغیر این صورت رباتتان از مدیریت سرمایه پیشنهادی باتمیکس استفاده خواهد کرد.'
-                           }
-                        />
-                     </div>
+                     <>
+                        <div>
+                           <Controller
+                              control={control}
+                              name="enterLeverage"
+                              render={({ field: { onChange, value } }) => (
+                                 <FormControlLabel
+                                    control={<Checkbox checked={value} color="primaryBlue" />}
+                                    label="اهرم شخصی ( اختیاری )"
+                                    value={value}
+                                    onChange={onChange}
+                                 />
+                              )}
+                           />
+                           <p className="text-[13px] text-gray-400">
+                              ربات باتمیکس با مدیریت سرمایه بصورت خودکار اهرم معاملات را ارسال میکند, اگر میخواهید
+                              رباتتان با اهرم شخصی شما کار کند, این مقدار را وارد کنید, درغیر این صورت رباتتان از مدیریت
+                              سرمایه پیشنهادی باتمیکس استفاده خواهد کرد.
+                           </p>
+                        </div>
+                        <Collapse in={isEnteredLeverage}>
+                           <div className="p-6">
+                              <Controller
+                                 control={control}
+                                 name="custom_leverage"
+                                 render={({ field: { onChange, value } }) => (
+                                    <Slider
+                                       value={value}
+                                       onChange={onChange}
+                                       valueLabelDisplay="on"
+                                       color="primaryBlue"
+                                       min={1}
+                                       max={Number(detail?.max_allowed_leverage)}
+                                    />
+                                 )}
+                              />
+                              <p className="text-left text-xs">
+                                 بیشترین اهرم مجاز شما : {detail?.max_allowed_leverage}
+                              </p>
+                           </div>
+                        </Collapse>
+                     </>
                   )}
 
                   <Controller
@@ -195,7 +225,7 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                      name="active"
                      render={({ field: { onChange, value } }) => (
                         <FormControlLabel
-                           control={<Checkbox checked={value} />}
+                           control={<Checkbox checked={value} color="primaryBlue" />}
                            label="فعال شدن ربات پس از ساخت"
                            value={value}
                            onChange={onChange}
