@@ -133,7 +133,7 @@ function EditRobotModal({ show, closeModal, detail }) {
 
                   <div id="inputNumber">
                      <TextField
-                        label="مقدار سرمایه"
+                        label="حداکثر سرمایه درگیر"
                         variant="outlined"
                         color="primaryBlue"
                         fullWidth

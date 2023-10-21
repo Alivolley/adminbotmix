@@ -41,7 +41,10 @@ function RobotFunctionality() {
                   </Grid>
                   <Grid item xs={12} md={4} order={{ xs: 3, lg: 3 }}>
                      <CardWrapper heightFull>
-                        <DetailTableRobotFunctionality detail={robotData?.pages?.[0]?.data} />
+                        <DetailTableRobotFunctionality
+                           detail={robotData?.pages?.[0]?.data}
+                           accountBalance={robotData?.pages?.[0]?.account_balance}
+                        />
                      </CardWrapper>
                   </Grid>
                </Grid>

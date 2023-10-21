@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 // Mui
-import { LoadingButton } from '@mui/lab';
+import { Button } from '@mui/material';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -10,13 +10,29 @@ import { useSelector } from 'react-redux';
 // Components
 import ActiveRobotModal from '../../products/active-robot-modal/active-robot-modal';
 
-function DetailTableRobotFunctionality({ detail }) {
+function DetailTableRobotFunctionality({ detail, accountBalance }) {
    const [showActiveModal, setShowActiveModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
 
    const activeRobotHandler = () => {
       if (isLogin) {
-         setShowActiveModal(true);
+         if (isLogin) {
+            if (accountBalance > 0) {
+               setShowActiveModal(true);
+            } else {
+               toast.error(
+                  'برای فعال کردن ربات باید موجودی بیشتر از 0 داشته باشید, از بخش داشبورد میتوانید موجودی خود را افزایش دهید .',
+                  {
+                     style: {
+                        direction: 'rtl',
+                        fontFamily: 'vazir',
+                     },
+                     theme: 'colored',
+                     autoClose: 10000,
+                  }
+               );
+            }
+         }
       } else {
          toast.error('برای فعالسازی ربات ، ابتدا باید وارد حساب کاربری خود شوید .', {
             style: {
@@ -84,7 +100,7 @@ function DetailTableRobotFunctionality({ detail }) {
             </div>
 
             <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <LoadingButton
+               <Button
                   className="w-full !font-vazir"
                   variant="contained"
                   color="primaryBlue"
@@ -92,7 +108,7 @@ function DetailTableRobotFunctionality({ detail }) {
                   disabled={detail?.is_active}
                >
                   {detail?.is_active ? 'ربات غیر فعال است' : 'فعالسازی'}
-               </LoadingButton>
+               </Button>
             </div>
          </div>
 

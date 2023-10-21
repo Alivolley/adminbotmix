@@ -6,7 +6,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import { useSelector } from 'react-redux';
 
 // MUI
-import { Button, Grid, IconButton } from '@mui/material';
+import { Button, FormControl, Grid, IconButton, InputLabel, MenuItem, Select } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -27,6 +27,7 @@ import LogsComponent from '../../components/pages/dashboard/logs-component/logs-
 import AreaChartComponentTransform from '../../components/pages/dashboard/area-chart-component-transforms/area-chart-component-transforms';
 import AreaChartComponentRobots from '../../components/pages/dashboard/area-chart-component-robots/area-chart-component-robots';
 import IncreaseWalletModal from '../../components/pages/dashboard/increase-wallet-modal/increase-wallet-modal';
+import RtlProvider from '../../components/layout/rtlProvider/rtlProvider';
 
 // Apis
 import useDashboard from '../../apis/dashboard/useDashboard/useDashboard';
@@ -35,6 +36,7 @@ import useLogs from '../../apis/dashboard/useLogs/useLogs';
 function Dashboard() {
    const [chosenChart, setChosenChart] = useState('robotsHistory');
    const [increaseModalStatus, setIncreaseModalStatus] = useState(false);
+   const [filtersValue, setFiltersValue] = useState('all');
    const userEmail = useSelector(state => state.emailReducer);
 
    const { data: dashboardData, isLoading: dashboardIsLoading } = useDashboard();
@@ -83,22 +85,6 @@ function Dashboard() {
                      </div>
                   </div>
                </CardWrapper>
-
-               <div className="flex flex-wrap items-center justify-center gap-3.5">
-                  <Button
-                     className="grow !font-vazir"
-                     variant="outlined"
-                     size="large"
-                     onClick={() => setIncreaseModalStatus(true)}
-                  >
-                     افزایش موجودی حساب
-                  </Button>
-                  <Link to="/products" state="robot_interface" className="grow">
-                     <Button className="w-full !font-vazir" variant="outlined" size="large">
-                        خرید پلن
-                     </Button>
-                  </Link>
-               </div>
 
                <div>
                   <Grid container spacing={2}>
@@ -165,6 +151,22 @@ function Dashboard() {
                         </InfoCard>
                      </Grid>
                   </Grid>
+               </div>
+
+               <div className="flex flex-wrap items-center justify-center gap-3.5">
+                  <Button
+                     className="flex-1 !font-vazir"
+                     variant="outlined"
+                     size="large"
+                     onClick={() => setIncreaseModalStatus(true)}
+                  >
+                     افزایش موجودی حساب
+                  </Button>
+                  <Link to="/products" state="robot_interface" className="flex-1">
+                     <Button className="w-full !font-vazir" variant="outlined" size="large">
+                        خرید پلن
+                     </Button>
+                  </Link>
                </div>
 
                <div>
@@ -238,14 +240,42 @@ function Dashboard() {
 
                <div>
                   <CardWrapper>
-                     <p className="mb-[40px] text-sm font-bold">جدول لاگ ها</p>
+                     <div className="mb-[40px] flex flex-wrap items-center justify-between gap-4">
+                        <p className="whitespace-nowrap text-sm font-bold">جدول لاگ ها</p>
+                        <div className=" w-60">
+                           <RtlProvider>
+                              <FormControl fullWidth>
+                                 <InputLabel className="!font-vazir">فیلتر ها</InputLabel>
+                                 <Select
+                                    value={filtersValue}
+                                    className="!font-vazir"
+                                    label="فیلتر ها"
+                                    onChange={e => setFiltersValue(e.target.value)}
+                                 >
+                                    <MenuItem value="all" className="!font-vazir">
+                                       همه
+                                    </MenuItem>
+                                    <MenuItem value="Bot" className="!font-vazir">
+                                       Bot
+                                    </MenuItem>
+                                    <MenuItem value="Order" className="!font-vazir">
+                                       Order
+                                    </MenuItem>
+                                    <MenuItem value="Telegram" className="!font-vazir">
+                                       Telegram
+                                    </MenuItem>
+                                 </Select>
+                              </FormControl>
+                           </RtlProvider>
+                        </div>
+                     </div>
                      {logsIsLoading ? (
                         <div className="flex items-center justify-center">
                            <CircularProgress />
                         </div>
                      ) : (
                         <>
-                           <LogsComponent detail={logsData} />
+                           <LogsComponent detail={logsData} filtersValue={filtersValue} />
                            {logsHasNextPage && (
                               <div className="mt-10 flex items-center justify-center">
                                  <LoadingButton

@@ -96,9 +96,9 @@ function Products() {
                   </div>
                ) : (
                   <Grid container spacing={5}>
-                     {allProductsData?.map(product => (
+                     {allProductsData?.data?.map(product => (
                         <Grid item xs={12} sm={6} md={4} key={product?.id}>
-                           <ProductCard detail={product} />
+                           <ProductCard detail={product} accountBalance={allProductsData?.account_balance} />
                         </Grid>
                      ))}
                   </Grid>

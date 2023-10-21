@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 // MUI
 import {
@@ -9,6 +10,7 @@ import {
    FormControl,
    FormControlLabel,
    FormHelperText,
+   IconButton,
    InputAdornment,
    InputLabel,
    MenuItem,
@@ -21,6 +23,9 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
+// Icons
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+
 // Redux
 import { useSelector } from 'react-redux';
 
@@ -32,8 +37,10 @@ import { BuyModalWrapper } from '../product-card/product-card.style';
 import useActivateRobot from '../../../../apis/products/useActivateRobot/useActivateRobot';
 
 function ActiveRobotModal({ show, closeModal, detail }) {
+   const [copyStatus, setCopyStatus] = useState(false);
    const theme = useSelector(state => state.themeReducer);
    const { mutate: activateRobot, isLoading: activateRobotIsLoading } = useActivateRobot(detail?.id);
+   const navigate = useNavigate();
 
    const {
       handleSubmit,
@@ -76,10 +83,29 @@ function ActiveRobotModal({ show, closeModal, detail }) {
    }, [chosenExchange]);
 
    const formSubmit = data => {
-      activateRobot({
-         ...data,
-         productId: detail?.id,
-         custom_leverage: isEnteredLeverage ? data?.custom_leverage : null,
+      activateRobot(
+         {
+            ...data,
+            productId: detail?.id,
+            custom_leverage: isEnteredLeverage ? data?.custom_leverage : null,
+         },
+         {
+            onSuccess: () => {
+               navigate('/admin-panel/robots', {
+                  state: detail?.id,
+               });
+            },
+         }
+      );
+   };
+
+   const copyLink = () => {
+      navigator.clipboard.writeText('159.69.201.184').then(() => {
+         setCopyStatus(true);
+
+         setTimeout(() => {
+            setCopyStatus(false);
+         }, 1500);
       });
    };
 
@@ -153,7 +179,7 @@ function ActiveRobotModal({ show, closeModal, detail }) {
 
                   <div id="inputNumber">
                      <TextField
-                        label="مقدار سرمایه"
+                        label="حداکثر سرمایه درگیر"
                         variant="outlined"
                         color="primaryBlue"
                         fullWidth
@@ -232,6 +258,28 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                         />
                      )}
                   />
+
+                  <div>
+                     <div className="flex items-center gap-4">
+                        <p>Server IP : </p>
+                        <div dir="ltr" className="relative flex max-w-fit items-center text-sm">
+                           <div className="w-fit">
+                              <IconButton className="text-sm !text-inherit" onClick={copyLink}>
+                                 <ContentCopyIcon className="!text-sm" />
+                              </IconButton>
+                           </div>
+                           <p>159.69.201.184</p>
+                           {copyStatus ? (
+                              <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
+                                 کپی شد
+                              </div>
+                           ) : null}
+                        </div>
+                     </div>
+                     <p className="text-xs text-textGray">
+                        IP سرور جهت اضافه کردن به لیست IP های مجاز صرافی درصورت نیاز
+                     </p>
+                  </div>
 
                   <Controller
                      control={control}

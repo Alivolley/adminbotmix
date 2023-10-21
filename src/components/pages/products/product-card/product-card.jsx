@@ -19,13 +19,27 @@ import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 // Components
 import ActiveRobotModal from '../active-robot-modal/active-robot-modal';
 
-function ProductCard({ detail }) {
+function ProductCard({ detail, accountBalance }) {
    const [showActiveModal, setShowActiveModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
 
    const activeRobotHandler = () => {
       if (isLogin) {
-         setShowActiveModal(true);
+         if (accountBalance > 0) {
+            setShowActiveModal(true);
+         } else {
+            toast.error(
+               'برای فعال کردن ربات باید موجودی بیشتر از 0 داشته باشید, از بخش داشبورد میتوانید موجودی خود را افزایش دهید .',
+               {
+                  style: {
+                     direction: 'rtl',
+                     fontFamily: 'vazir',
+                  },
+                  theme: 'colored',
+                  autoClose: 10000,
+               }
+            );
+         }
       } else {
          toast.error('برای فعالسازی ربات ، ابتدا باید وارد حساب کاربری خود شوید .', {
             style: {

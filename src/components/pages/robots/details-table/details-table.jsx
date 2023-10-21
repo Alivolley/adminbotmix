@@ -49,8 +49,6 @@ function DetailsTable({ detail }) {
       }
    };
 
-   // console.log(detail);
-
    return (
       <div>
          <p dir="rtl" className="mb-8">

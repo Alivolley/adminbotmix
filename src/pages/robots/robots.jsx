@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 // MUI
@@ -17,7 +18,8 @@ import useSpecificRobot from '../../apis/robots/useSpecificRobot/useSpecificRobo
 import useRobotsTable from '../../apis/robots/useRobotsTable/useRobotsTable';
 
 function Robots() {
-   const [robotId, setRobotId] = useState('default');
+   const location = useLocation();
+   const [robotId, setRobotId] = useState(location.state || 'default');
 
    const { data: robotsListData, isLoading: robotsListIsLoading } = useRobotsList();
    const {

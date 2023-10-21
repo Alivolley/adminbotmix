@@ -15,9 +15,11 @@ function RobotsTable({ detail, refetchData, hasMoreDetail }) {
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
                      Side
                   </th>
-                  <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                     Order id
-                  </th>
+                  {hasMoreDetail && (
+                     <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
+                        Order id
+                     </th>
+                  )}
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
                      Quantity
                   </th>
@@ -36,14 +38,9 @@ function RobotsTable({ detail, refetchData, hasMoreDetail }) {
                      Profit
                   </th>
                   {hasMoreDetail && (
-                     <>
-                        <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                           is closed manual
-                        </th>
-                        <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                           actions
-                        </th>
-                     </>
+                     <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
+                        Manual Closing
+                     </th>
                   )}
                </tr>
             </thead>

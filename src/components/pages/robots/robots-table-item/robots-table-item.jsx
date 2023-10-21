@@ -1,11 +1,8 @@
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 
 // MUI
 import { LoadingButton } from '@mui/lab';
-
-// Icons
-import DoneIcon from '@mui/icons-material/Done';
-import CloseIcon from '@mui/icons-material/Close';
 
 // Components
 import ConfirmModal from '../../../templates/confirm-modal/confirm-modal';
@@ -44,28 +41,31 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                {detail?.side}
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               <div>
-                  <p>{detail?.open_order_id}</p>
-                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
-                  <p>{detail?.close_order_id}</p>
-               </div>
-            </td>
+
+            {hasMoreDetail && (
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+                  <div>
+                     <p>{detail?.close_order_id}</p>
+                     <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
+                     <p>{detail?.open_order_id}</p>
+                  </div>
+               </td>
+            )}
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                {detail?.quantity}%
             </td>
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                <div>
-                  <p>{detail?.entTime}</p>
-                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
                   <p>{detail?.exitTime}</p>
+                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
+                  <p>{detail?.entTime}</p>
                </div>
             </td>
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                <div>
-                  <p>{detail?.entPrice}</p>
-                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
                   <p>{detail?.exitPrice}</p>
+                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
+                  <p>{detail?.entPrice}</p>
                </div>
             </td>
             {hasMoreDetail && (
@@ -83,25 +83,24 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             </td>
 
             {hasMoreDetail && (
-               <>
-                  <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-                     {detail?.manual_closed ? <DoneIcon color="success" /> : <CloseIcon color="error" />}
-                  </td>
-                  <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-                     {!detail?.is_closed && (
-                        <LoadingButton
-                           className="!normal-case"
-                           variant="outlined"
-                           color="primaryBlue"
-                           size="small"
-                           loading={closeDealIsLoading}
-                           onClick={() => setShowConfirmModal(true)}
-                        >
-                           Close manual
-                        </LoadingButton>
-                     )}
-                  </td>
-               </>
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+                  {!detail?.is_closed ? (
+                     <LoadingButton
+                        className="!normal-case"
+                        variant="outlined"
+                        color="primaryBlue"
+                        size="small"
+                        loading={closeDealIsLoading}
+                        onClick={() => setShowConfirmModal(true)}
+                     >
+                        Close manual
+                     </LoadingButton>
+                  ) : detail?.manual_closed ? (
+                     'Closed Manually'
+                  ) : (
+                     ' '
+                  )}
+               </td>
             )}
          </tr>
          {hasMoreDetail && (
