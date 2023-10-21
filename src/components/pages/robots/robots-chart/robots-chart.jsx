@@ -1,70 +1,62 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import {
+   Chart as ChartJS,
+   CategoryScale,
+   LinearScale,
+   PointElement,
+   LineElement,
+   Title,
+   Tooltip,
+   Filler,
+   Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
-function RobotsChart() {
-   const data = [
-      {
-         name: 'Page A',
-         uv: 4000,
-      },
-      {
-         name: 'Page B',
-         uv: 3000,
-      },
-      {
-         name: 'Page C',
-         uv: -1000,
-      },
-      {
-         name: 'Page D',
-         uv: 500,
-      },
-      {
-         name: 'Page E',
-         uv: -2000,
-      },
-      {
-         name: 'Page F',
-         uv: -250,
-      },
-      {
-         name: 'Page G',
-         uv: 3490,
-      },
-   ];
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
-   const gradientOffset = () => {
-      const dataMax = Math.max(...data.map(i => i.uv));
-      const dataMin = Math.min(...data.map(i => i.uv));
+function RobotsChart({ detail }) {
+   const options = {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+         legend: {
+            display: false,
+         },
+      },
+      elements: {
+         point: {
+            radius: 0,
+         },
+      },
 
-      if (dataMax <= 0) {
-         return 0;
-      }
-      if (dataMin >= 0) {
-         return 1;
-      }
-
-      return dataMax / (dataMax - dataMin);
+      interaction: {
+         intersect: false,
+      },
+      scales: {
+         x: {
+            display: false,
+         },
+      },
    };
 
-   const off = gradientOffset();
+   const data = {
+      labels: detail?.map((item, index) => index),
+      datasets: [
+         {
+            fill: {
+               value: detail?.[0]?.profit,
+               below: '#F56565',
+               above: '#48BB78',
+            },
+            label: 'Profit',
+            data: detail?.map(item => item?.profit),
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+         },
+      ],
+   };
 
    return (
       <div className="h-[448px]">
-         <ResponsiveContainer width="100%" height="100%">
-            <AreaChart width="100%" height={448} data={data}>
-               <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} />
-               <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
-               <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
-               <Tooltip />
-               <defs>
-                  <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset={off} stopColor="#22c55e" stopOpacity={1} />
-                     <stop offset={off} stopColor="#ef4444" stopOpacity={1} />
-                  </linearGradient>
-               </defs>
-               <Area type="monotone" dataKey="uv" stroke="#000" fill="url(#splitColor)" />
-            </AreaChart>
-         </ResponsiveContainer>
+         <Line options={options} data={data} />
       </div>
    );
 }

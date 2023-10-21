@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import { Area, AreaChart, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, ResponsiveContainer, YAxis } from 'recharts';
 
 // MUI
 import { Button } from '@mui/material';
@@ -22,6 +22,8 @@ import ActiveRobotModal from '../active-robot-modal/active-robot-modal';
 function ProductCard({ detail, accountBalance }) {
    const [showActiveModal, setShowActiveModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
+
+   console.log(detail);
 
    const activeRobotHandler = () => {
       if (isLogin) {
@@ -63,7 +65,7 @@ function ProductCard({ detail, accountBalance }) {
                         <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
                      </linearGradient>
                   </defs>
-
+                  <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
                   <Area
                      type="monotone"
                      dataKey="profit"

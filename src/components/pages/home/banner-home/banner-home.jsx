@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Area, AreaChart, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, ResponsiveContainer, YAxis } from 'recharts';
 
 // MUi
 import { CircularProgress, Grid, Tooltip } from '@mui/material';
@@ -134,6 +134,7 @@ function BannerHome({ detail, loading }) {
                                                 <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
                                              </linearGradient>
                                           </defs>
+                                          <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
 
                                           <Area
                                              type="monotone"

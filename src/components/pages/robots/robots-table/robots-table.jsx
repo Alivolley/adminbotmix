@@ -21,7 +21,7 @@ function RobotsTable({ detail, refetchData, hasMoreDetail }) {
                      </th>
                   )}
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                     Quantity
+                     Quantity Percent
                   </th>
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
                      Time
@@ -31,7 +31,7 @@ function RobotsTable({ detail, refetchData, hasMoreDetail }) {
                   </th>
                   {hasMoreDetail && (
                      <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">
-                        Contract
+                        Quantity
                      </th>
                   )}
                   <th className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 p-3 text-[13px] text-textGray dark:border-gray-600">

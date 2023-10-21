@@ -25,6 +25,7 @@ function RobotFunctionality() {
       refetch,
    } = useRobotDetail(id);
 
+   console.log(robotData?.pages);
    return (
       <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
          {robotIsLoading ? (
@@ -36,7 +37,7 @@ function RobotFunctionality() {
                <Grid container spacing={2}>
                   <Grid item xs={12} md={8} order={{ xs: 1, lg: 2 }}>
                      <CardWrapper heightFull>
-                        <RobotsChart />
+                        <RobotsChart detail={robotData?.pages?.[0]?.data?.chart} />
                      </CardWrapper>
                   </Grid>
                   <Grid item xs={12} md={4} order={{ xs: 3, lg: 3 }}>

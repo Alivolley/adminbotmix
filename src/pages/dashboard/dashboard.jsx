@@ -46,7 +46,7 @@ function Dashboard() {
       hasNextPage: logsHasNextPage,
       fetchNextPage: logsFetchNextPage,
       isFetchingNextPage: logsIsFetchingNextPage,
-   } = useLogs();
+   } = useLogs(filtersValue === 'all' ? null : filtersValue);
 
    useEffect(() => {
       if (dashboardData?.has_history_chart) {
@@ -275,7 +275,7 @@ function Dashboard() {
                         </div>
                      ) : (
                         <>
-                           <LogsComponent detail={logsData} filtersValue={filtersValue} />
+                           <LogsComponent detail={logsData} />
                            {logsHasNextPage && (
                               <div className="mt-10 flex items-center justify-center">
                                  <LoadingButton
