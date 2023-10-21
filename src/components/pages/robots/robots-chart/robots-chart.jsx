@@ -17,6 +17,7 @@ function RobotsChart({ detail }) {
    const options = {
       maintainAspectRatio: false,
       responsive: true,
+      lineTension: 0.3,
       plugins: {
          legend: {
             display: false,
