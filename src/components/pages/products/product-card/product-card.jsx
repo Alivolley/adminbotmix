@@ -104,9 +104,9 @@ function ProductCard({ detail, accountBalance }) {
                variant="contained"
                color="primaryBlue"
                onClick={activeRobotHandler}
-               disabled={detail?.is_active}
+               disabled={!detail?.is_active}
             >
-               {detail?.is_active ? 'ربات غیر فعال است' : 'فعالسازی'}
+               {detail?.is_active ? 'فعالسازی' : 'ربات غیر فعال است'}
             </Button>
             <RtlProvider>
                <Link to={`/robotFunctionality/${detail?.id}`}>
