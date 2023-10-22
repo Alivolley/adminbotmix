@@ -20,7 +20,9 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                {detail?.map(item => (
                   <tr
                      key={item?.id}
-                     className={`transition-all duration-200 ${robotId === item?.id ? 'bg-[#373e4a]' : ''}`}
+                     className={`transition-all duration-200 ${
+                        robotId === item?.id ? 'bg-bgPrimary dark:bg-[#171c26]' : ''
+                     }`}
                   >
                      <td className="whitespace-nowrap p-3 text-sm">
                         <div className="flex items-center gap-2">
