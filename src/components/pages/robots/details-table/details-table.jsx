@@ -56,85 +56,76 @@ function DetailsTable({ detail }) {
          </p>
          <div dir="ltr" className="rounded-2xl">
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Name</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Name :</p>
                <p className="text-sm">{detail?.name}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Total profit</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Total profit :</p>
                <p className="text-sm">{detail?.total_profit}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Total profit percent</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Total profit percent :</p>
                <p className="text-sm">{detail?.profit_percent}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Win rate</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Win rate :</p>
                <p className="text-sm">{detail?.winRate}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Max drawdown</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Leverage :</p>
+               <p className="text-sm">{detail?.custom_leverage}</p>
+            </div>
+
+            <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
+               <p className="text-sm text-textGray">Max drawdown :</p>
                <p className="text-sm">{detail?.drawdown}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Max run up</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Max run up :</p>
                <p className="text-sm">{detail?.run_up}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">All trade</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">All trade :</p>
                <p className="text-sm">{detail?.all_trade}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Lose trades</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Lose trades :</p>
                <p className="text-sm">{detail?.lose_trade}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Win trades</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Win trades :</p>
                <p className="text-sm">{detail?.win_trade}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Open positions</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Open positions :</p>
                <p className="text-sm">{detail?.openPositions}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Fund percent</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Fund percent :</p>
                <p className="text-sm">{detail?.fund}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Exchange</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Exchange :</p>
                <p className="text-sm">{detail?.exchange}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Api key</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Api key :</p>
                <p className="text-sm">{detail?.api_key}</p>
             </div>
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Api secret</p>
-               <div className="h-5 w-[1px] bg-gray-200 dark:bg-gray-600" />
+               <p className="text-sm text-textGray">Api secret :</p>
                <p className="text-sm">{detail?.api_secret}</p>
             </div>
 

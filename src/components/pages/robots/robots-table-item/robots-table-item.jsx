@@ -39,7 +39,11 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
                {detail?.symbol}
             </td>
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               {detail?.side}
+               <div>
+                  <p>Exit {detail?.side}</p>
+                  <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
+                  <p>Entry {detail?.side}</p>
+               </div>
             </td>
 
             {hasMoreDetail && (
@@ -51,9 +55,6 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
                   </div>
                </td>
             )}
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
-               {detail?.quantity}%
-            </td>
             <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                <div>
                   <p>{detail?.exitTime}</p>
@@ -68,11 +69,17 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
                   <p>{detail?.entPrice}</p>
                </div>
             </td>
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               {detail?.quantity}%
+            </td>
             {hasMoreDetail && (
                <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                   {detail?.contract}
                </td>
             )}
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               {detail?.leverage}
+            </td>
             <td
                className={`border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 ${
                   detail?.profit < 0 ? 'text-error' : 'text-success'

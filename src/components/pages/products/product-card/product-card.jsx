@@ -23,8 +23,6 @@ function ProductCard({ detail, accountBalance }) {
    const [showActiveModal, setShowActiveModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
 
-   console.log(detail);
-
    const activeRobotHandler = () => {
       if (isLogin) {
          if (accountBalance > 0) {
@@ -38,7 +36,7 @@ function ProductCard({ detail, accountBalance }) {
                      fontFamily: 'vazir',
                   },
                   theme: 'colored',
-                  autoClose: 10000,
+                  autoClose: 5000,
                }
             );
          }
@@ -49,7 +47,7 @@ function ProductCard({ detail, accountBalance }) {
                fontFamily: 'vazir',
             },
             theme: 'colored',
-            autoClose: 6000,
+            autoClose: 5000,
          });
       }
    };

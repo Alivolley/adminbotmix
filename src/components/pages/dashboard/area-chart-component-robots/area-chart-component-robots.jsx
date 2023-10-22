@@ -1,44 +1,65 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { memo } from 'react';
+import { AreaChart, Area, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-function AreaChartComponentRobots({ detail }) {
+const AreaChartComponentRobots = memo(({ detail }) => {
+   const dataKeys = detail?.map(item => Object.keys(item).filter(key => key !== 'label'));
+   const uniqueArray = Array.from(new Set(dataKeys.flat()));
+   const colors = [
+      '#0E65F6',
+      '#03B2D9',
+      '#2674f7',
+      '#1cbadd',
+      '#3e84f8',
+      '#35c1e1',
+      '#5693f9',
+      '#4fc9e4',
+      '#0d5bdd',
+      '#03a0c3',
+      '#0b51c5',
+      '#028eae',
+      '#0a47ac',
+   ];
+
+   const gradientId = 'color-gradient';
+
+   console.log(detail);
+
    return (
       <div className="h-[220px] w-full font-vazir">
          <ResponsiveContainer>
             <AreaChart data={detail || []}>
                <defs>
-                  <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset="10%" stopColor="#0E65F6" stopOpacity={0.3} />
-                     <stop offset="90%" stopColor="#0E65F6" stopOpacity={0} />
-                  </linearGradient>
-                  <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset="10%" stopColor="#03B2D9" stopOpacity={0.5} />
-                     <stop offset="90%" stopColor="#03B2D9" stopOpacity={0} />
+                  <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
+                     {uniqueArray.map((key, index) => (
+                        <stop
+                           key={key}
+                           offset={`${(index * 100) / (uniqueArray.length - 1)}%`}
+                           stopColor={colors[index]}
+                           stopOpacity={0.1}
+                        />
+                     ))}
                   </linearGradient>
                </defs>
-               <XAxis dataKey="label" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
+
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <CartesianGrid strokeDasharray="5" vertical={false} strokeOpacity={0.2} />
                <Tooltip />
-               <Area
-                  type="monotone"
-                  dataKey="Lazy Binance"
-                  stroke="#0E65F6"
-                  strokeWidth="2px"
-                  fillOpacity={1}
-                  fill="url(#colorUv)"
-               />
-               <Area
-                  type="monotone"
-                  dataKey="QT Bingx"
-                  stroke="#03B2D9"
-                  strokeWidth="2px"
-                  fillOpacity={1}
-                  fill="url(#colorPv)"
-               />
+
+               {uniqueArray.map((key, index) => (
+                  <Area
+                     key={key}
+                     type="monotone"
+                     dataKey={key}
+                     stroke={colors[index]}
+                     strokeWidth="2px"
+                     fillOpacity={1}
+                     fill={`url(#${gradientId})`}
+                  />
+               ))}
             </AreaChart>
          </ResponsiveContainer>
       </div>
    );
-}
+});
 
 export default AreaChartComponentRobots;

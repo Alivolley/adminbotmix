@@ -35,7 +35,7 @@ function RobotCart({
                fontFamily: 'vazir',
             },
             theme: 'colored',
-            autoClose: 6000,
+            autoClose: 5000,
          });
       }
    };

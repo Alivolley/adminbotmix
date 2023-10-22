@@ -32,7 +32,7 @@ axiosInstance.interceptors.response.use(
                   fontFamily: 'vazir',
                },
                theme: 'colored',
-               autoClose: 6000,
+               autoClose: 5000,
             }
          );
       }
@@ -75,7 +75,7 @@ axiosInstance.interceptors.response.use(
                   fontFamily: 'vazir',
                },
                theme: 'colored',
-               autoClose: 6000,
+               autoClose: 5000,
             }
          );
       }

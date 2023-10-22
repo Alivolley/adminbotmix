@@ -19,8 +19,8 @@ function Footer() {
             <Grid container rowSpacing={5} columnSpacing={3}>
                <Grid item xs={12} md={5}>
                   <div>
-                     <Link to="/" className="mb-5 flex w-fit items-center text-xl font-bold">
-                        <div className="h-24 w-24">
+                     <Link to="/" className="float-right ml-3 mt-3 flex w-fit items-center">
+                        <div className="h-32 w-32">
                            <img src={logo} alt="botmix" className="h-full w-full" />
                         </div>
                      </Link>

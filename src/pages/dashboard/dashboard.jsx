@@ -189,10 +189,14 @@ function Dashboard() {
 
                               {dashboardData?.has_bot_chart && (
                                  <div
-                                    className={`absolute inset-0 transition-all duration-500 ${
+                                    className={`transition-all duration-500 ${
                                        chosenChart === 'robotsHistory'
                                           ? 'visible translate-x-0 opacity-100'
                                           : 'invisible translate-x-[-100%] opacity-0'
+                                    } ${
+                                       dashboardData?.has_bot_chart && dashboardData?.has_history_chart
+                                          ? 'absolute inset-0'
+                                          : ''
                                     }`}
                                  >
                                     <p className="mb-[60px] text-sm font-bold">سوابق ربات ها</p>
@@ -251,6 +255,7 @@ function Dashboard() {
                                     className="!font-vazir"
                                     label="فیلتر ها"
                                     onChange={e => setFiltersValue(e.target.value)}
+                                    size="small"
                                  >
                                     <MenuItem value="all" className="!font-vazir">
                                        همه

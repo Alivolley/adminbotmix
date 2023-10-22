@@ -7,15 +7,15 @@ function RobotsListTable({ detail, setRobotId }) {
    return (
       <div className="overflow-auto">
          <p className="mb-3">لیست ربات ها</p>
-         <table className="w-full text-center">
+         <table className="w-full" dir="ltr">
             <thead>
                <tr>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Name</th>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Total profit</th>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Total profit percent</th>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Winrate</th>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">Exchange</th>
-                  <th className="whitespace-nowrap p-3 text-[13px] text-textGray">عملیات</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Name</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Exchange</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Total profit</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Total profit percent</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Winrate</th>
+                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">عملیات</th>
                </tr>
             </thead>
             <tbody>
@@ -27,15 +27,15 @@ function RobotsListTable({ detail, setRobotId }) {
                      }`}
                   >
                      <td className="whitespace-nowrap p-3 text-sm">
-                        <div className="flex items-center justify-center gap-2">
-                           <p>{item?.name}</p>
+                        <div className="flex items-center gap-2">
                            <div className={`h-3 w-3 rounded-full ${item?.is_active ? 'bg-success' : 'bg-error'}`} />
+                           <p>{item?.name}</p>
                         </div>
                      </td>
+                     <td className="whitespace-nowrap p-3 text-sm">{item?.exchange}</td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.total_profit}</td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.profit_percent}</td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.winRate}</td>
-                     <td className="whitespace-nowrap p-3 text-sm">{item?.exchange}</td>
                      <td className="whitespace-nowrap p-3 text-sm">
                         <LoadingButton
                            variant="outlined"

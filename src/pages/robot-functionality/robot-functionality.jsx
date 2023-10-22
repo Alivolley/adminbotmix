@@ -25,7 +25,6 @@ function RobotFunctionality() {
       refetch,
    } = useRobotDetail(id);
 
-   console.log(robotData?.pages);
    return (
       <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
          {robotIsLoading ? (
