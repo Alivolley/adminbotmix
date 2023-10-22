@@ -121,6 +121,12 @@ function PagesLayout() {
                   </li>
 
                   <li>
+                     <NavLink to="/tutorials" className="transition-colors duration-200 hover:text-secondaryBlue">
+                        ارز های مستعد رشد
+                     </NavLink>
+                  </li>
+
+                  <li>
                      <div id="dropdownWrapper">
                         <NavLink
                            to="/products"
@@ -145,42 +151,6 @@ function PagesLayout() {
                               className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
                               اشتراک ربات واسط
-                           </NavLink>
-                        </div>
-                     </div>
-                  </li>
-
-                  <li>
-                     <div id="dropdownWrapper">
-                        <p
-                           id="dropdownBtn"
-                           className="flex items-center gap-2 py-3 transition-colors duration-200 hover:text-secondaryBlue"
-                        >
-                           بازار
-                           <KeyboardArrowDownIcon fontSize="small" />
-                        </p>
-
-                        <div id="dropdownBox" className="bg-bgPrimaryDark dark:bg-bgPrimary">
-                           <NavLink
-                              to="/some"
-                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-secondaryBlue dark:text-textMain"
-                           >
-                              نمودار
-                           </NavLink>
-                           <NavLink
-                              to="/some"
-                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-secondaryBlue dark:text-textMain"
-                           >
-                              داده های اقتصادی
-                           </NavLink>
-                           <NavLink
-                              to="/some"
-                              className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 
-                    hover:!text-secondaryBlue dark:text-textMain"
-                           >
-                              قیمت ارزهای دیجیتال
                            </NavLink>
                         </div>
                      </div>

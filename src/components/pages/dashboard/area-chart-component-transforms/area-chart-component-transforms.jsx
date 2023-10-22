@@ -1,5 +1,26 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
+function CustomTooltip({ active, payload }) {
+   if (active && payload && payload.length) {
+      const data = payload[0].payload;
+
+      return (
+         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
+            {Object.keys(data).map(
+               (key, index) =>
+                  key !== 'label' && (
+                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
+                        {`${key}: ${data[key]}`}
+                     </p>
+                  )
+            )}
+         </div>
+      );
+   }
+
+   return null;
+}
+
 function AreaChartComponentTransform({ detail }) {
    return (
       <div className="h-[220px] w-full font-vazir">
@@ -18,7 +39,7 @@ function AreaChartComponentTransform({ detail }) {
                <XAxis dataKey="label" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <CartesianGrid strokeDasharray="5" vertical={false} strokeOpacity={0.2} />
-               <Tooltip />
+               <Tooltip content={<CustomTooltip />} />
                <Area
                   type="monotone"
                   dataKey="alert"

@@ -1,13 +1,34 @@
 import { memo } from 'react';
 import { AreaChart, Area, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
+function CustomTooltip({ active, payload }) {
+   if (active && payload && payload.length) {
+      const data = payload[0].payload;
+
+      return (
+         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
+            {Object.keys(data).map(
+               (key, index) =>
+                  key !== 'label' && (
+                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
+                        {`${key}: ${data[key]}`}
+                     </p>
+                  )
+            )}
+         </div>
+      );
+   }
+
+   return null;
+}
+
 const AreaChartComponentRobots = memo(({ detail }) => {
    const dataKeys = detail?.map(item => Object.keys(item).filter(key => key !== 'label'));
    const uniqueArray = Array.from(new Set(dataKeys.flat()));
    const colors = [
       '#0E65F6',
       '#03B2D9',
-      '#2674f7',
+      '#8993a5',
       '#1cbadd',
       '#3e84f8',
       '#35c1e1',
@@ -21,8 +42,6 @@ const AreaChartComponentRobots = memo(({ detail }) => {
    ];
 
    const gradientId = 'color-gradient';
-
-   console.log(detail);
 
    return (
       <div className="h-[220px] w-full font-vazir">
@@ -43,7 +62,7 @@ const AreaChartComponentRobots = memo(({ detail }) => {
 
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <CartesianGrid strokeDasharray="5" vertical={false} strokeOpacity={0.2} />
-               <Tooltip />
+               <Tooltip content={<CustomTooltip />} />
 
                {uniqueArray.map((key, index) => (
                   <Area

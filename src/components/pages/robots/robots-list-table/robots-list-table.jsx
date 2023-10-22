@@ -1,9 +1,7 @@
 // MUI
 import { LoadingButton } from '@mui/lab';
 
-function RobotsListTable({ detail, setRobotId }) {
-   const isEven = num => num % 2 === 0;
-
+function RobotsListTable({ detail, setRobotId, robotId }) {
    return (
       <div className="overflow-auto">
          <p className="mb-3">لیست ربات ها</p>
@@ -19,12 +17,10 @@ function RobotsListTable({ detail, setRobotId }) {
                </tr>
             </thead>
             <tbody>
-               {detail?.map((item, index) => (
+               {detail?.map(item => (
                   <tr
-                     key={item.id}
-                     className={`transition-all duration-200 ${
-                        isEven(index) ? 'bg-bgPrimary dark:bg-bgPrimaryDark' : ''
-                     }`}
+                     key={item?.id}
+                     className={`transition-all duration-200 ${robotId === item?.id ? 'bg-[#373e4a]' : ''}`}
                   >
                      <td className="whitespace-nowrap p-3 text-sm">
                         <div className="flex items-center gap-2">
@@ -43,6 +39,7 @@ function RobotsListTable({ detail, setRobotId }) {
                            size="small"
                            color="primaryBlue"
                            onClick={() => setRobotId(item.id)}
+                           disabled={robotId === item?.id}
                         >
                            جزئیات
                         </LoadingButton>

@@ -13,6 +13,7 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import GavelOutlinedIcon from '@mui/icons-material/GavelOutlined';
 import GroupsIcon from '@mui/icons-material/Groups';
 import LoginIcon from '@mui/icons-material/Login';
+import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -28,7 +29,6 @@ import ChangeThemeComponent from '../../templates/changeThemeComponent/changeThe
 import ConfirmModal from '../../templates/confirm-modal/confirm-modal';
 
 function MobileNavbar({ setMobileMenuOpen }) {
-   const [marketCollapseOpen, setMarketCollapseOpen] = useState(false);
    const [productsCollapseOpen, setProductsCollapseOpen] = useState(false);
    const [confirmLogoutModal, setConfirmLogoutModal] = useState(false);
 
@@ -89,43 +89,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                <li dir="ltr" className="pr-1">
                   <Button
                      className="!font-vazir"
-                     endIcon={<ExpandMoreIcon {...(marketCollapseOpen && { className: 'rotate-180' })} />}
-                     color="inherit"
-                     onClick={() => setMarketCollapseOpen(prev => !prev)}
-                  >
-                     بازار
-                  </Button>
-                  <Collapse in={marketCollapseOpen} unmountOnExit>
-                     <div className="flex flex-col pr-4">
-                        <NavLink
-                           onClick={() => setMobileMenuOpen(false)}
-                           to="/some"
-                           className="px-3 py-4 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                        >
-                           نمودار
-                        </NavLink>
-                        <NavLink
-                           onClick={() => setMobileMenuOpen(false)}
-                           to="/some"
-                           className="p-3 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                        >
-                           داده های اقتصادی
-                        </NavLink>
-                        <NavLink
-                           onClick={() => setMobileMenuOpen(false)}
-                           to="/some"
-                           className="p-3 text-sm transition-colors duration-200 hover:text-secondaryBlue"
-                        >
-                           قیمت ارزهای دیجیتال
-                        </NavLink>
-                     </div>
-                  </Collapse>
-               </li>
-
-               <li dir="ltr" className="pr-1">
-                  <Button
-                     className="!font-vazir"
-                     endIcon={<ExpandMoreIcon {...(marketCollapseOpen && { className: 'rotate-180' })} />}
+                     endIcon={<ExpandMoreIcon {...(productsCollapseOpen && { className: 'rotate-180' })} />}
                      color="inherit"
                      onClick={() => setProductsCollapseOpen(prev => !prev)}
                   >
@@ -151,6 +115,17 @@ function MobileNavbar({ setMobileMenuOpen }) {
                         </NavLink>
                      </div>
                   </Collapse>
+               </li>
+
+               <li>
+                  <NavLink
+                     onClick={() => setMobileMenuOpen(false)}
+                     to="/"
+                     className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
+                  >
+                     <CurrencyBitcoinIcon fontSize="small" />
+                     <p>ارزهای مستعد رشد</p>
+                  </NavLink>
                </li>
 
                <li>

@@ -1,70 +1,25 @@
-// import {
-//    Chart as ChartJS,
-//    CategoryScale,
-//    LinearScale,
-//    PointElement,
-//    LineElement,
-//    Title,
-//    Tooltip,
-//    Filler,
-//    Legend,
-// } from 'chart.js';
-// import { Line } from 'react-chartjs-2';
-
-// ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
-
-// function RobotsChart({ detail }) {
-//    const options = {
-//       maintainAspectRatio: false,
-//       responsive: true,
-//       lineTension: 0.3,
-//       plugins: {
-//          legend: {
-//             display: false,
-//          },
-//       },
-//       elements: {
-//          point: {
-//             radius: 0,
-//          },
-//       },
-
-//       interaction: {
-//          intersect: false,
-//       },
-//       scales: {
-//          x: {
-//             display: false,
-//          },
-//       },
-//    };
-
-//    const data = {
-//       labels: detail?.map((item, index) => index),
-//       datasets: [
-//          {
-//             fill: {
-//                value: detail?.[0]?.profit,
-//                below: '#F56565',
-//                above: '#48BB78',
-//             },
-//             label: 'Profit',
-//             data: detail?.map(item => item?.profit),
-//             backgroundColor: 'rgba(53, 162, 235, 0.5)',
-//          },
-//       ],
-//    };
-
-//    return (
-//       <div className="h-[448px]">
-//          <Line options={options} data={data} />
-//       </div>
-//    );
-// }
-
-// export default RobotsChart;
-
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+
+function CustomTooltip({ active, payload }) {
+   if (active && payload && payload.length) {
+      const data = payload[0].payload;
+
+      return (
+         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
+            {Object.keys(data).map(
+               (key, index) =>
+                  key !== 'label' && (
+                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
+                        {`${key}: ${data[key]}`}
+                     </p>
+                  )
+            )}
+         </div>
+      );
+   }
+
+   return null;
+}
 
 function RobotsChart({ detail }) {
    const gradientOffset = () => {
@@ -90,7 +45,7 @@ function RobotsChart({ detail }) {
                <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} />
                <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
-               <Tooltip />
+               <Tooltip content={<CustomTooltip />} />
                <defs>
                   <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
                      <stop offset={off} stopColor="#22c55e" stopOpacity={0.9} />

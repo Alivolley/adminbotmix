@@ -52,7 +52,7 @@ function Robots() {
                            <CircularProgress />
                         </div>
                      ) : (
-                        <RobotsListTable detail={robotsListData} setRobotId={setRobotId} />
+                        <RobotsListTable detail={robotsListData} setRobotId={setRobotId} robotId={robotId} />
                      )}
                   </CardWrapper>
 
