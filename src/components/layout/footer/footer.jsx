@@ -56,20 +56,15 @@ function Footer() {
                            to="/products"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                         >
-                           ربات واسط
+                           ربات واسط api
                         </Link>
                         <Link
-                           to="/"
+                           to="/growableCurrencies"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
                         >
                            قیمت رمزارزها
                         </Link>
-                        <Link
-                           to="/"
-                           className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"
-                        >
-                           ربات واسط api
-                        </Link>
+
                         <Link
                            to="/tutorials"
                            className="font-bold text-primaryBlue transition-all duration-150 hover:text-secondaryBlue"

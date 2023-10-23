@@ -32,9 +32,9 @@ function HowWeWork() {
                         دیجیتال سود میگیره و بهتون سود منطقی و مداوم میده
                      </HowWeWorkCard>
 
-                     <HowWeWorkCard imageSrc={portfolioTestIcon} step="سبد گردانی">
-                        از خدمات سبد گردانی ما غافل نشوید ، چرا که متخصصین ما با تجربه ای که در بازار اسپات دارند
-                        میتوانند به صورت سالانه سرمایه شما را رشد دهند که سود چشمگیری خواهد بود
+                     <HowWeWorkCard imageSrc={portfolioTestIcon} step="کپی ترید">
+                        از خدمات کپی ترید ما غافل نشوید ، چرا که متخصصین ما با تجربه ای که در بازار اسپات دارند میتوانند
+                        به صورت سالانه سرمایه شما را رشد دهند که سود چشمگیری خواهد بود
                      </HowWeWorkCard>
 
                      <HowWeWorkCard imageSrc={telegramTest} step="ارسال سیگنال">

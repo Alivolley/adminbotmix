@@ -37,7 +37,7 @@ function BannerHome({ detail, loading }) {
                         <li>ربات تریدر اتوماتیک تکنیکال و آربیتراژ</li>
                         <li>رابط تریدینگ ویو به صرافی و تلگرام</li>
                         <li>خدمات برنامه نویسی بازار رمزارزها</li>
-                        <li>سبدگردانی و کپی ترید اسپات</li>
+                        <li>کپی ترید و کپی ترید اسپات</li>
                      </ul>
                      {!isLogin && (
                         <div className="mt-6 flex items-center justify-center gap-2 customSm:mt-12 customSm:justify-start customSm:gap-5">

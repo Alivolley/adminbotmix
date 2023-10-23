@@ -121,7 +121,10 @@ function PagesLayout() {
                   </li>
 
                   <li>
-                     <NavLink to="/tutorials" className="transition-colors duration-200 hover:text-secondaryBlue">
+                     <NavLink
+                        to="/growableCurrencies"
+                        className="transition-colors duration-200 hover:text-secondaryBlue"
+                     >
                         ارز های مستعد رشد
                      </NavLink>
                   </li>
@@ -143,7 +146,7 @@ function PagesLayout() {
                               state="portfolio_management"
                               className="border-b-[1px] border-solid border-stone-200 p-3 text-textMainDark transition-colors duration-200 hover:!text-secondaryBlue dark:text-textMain"
                            >
-                              ربات تریدر و سبدگردانی
+                              ربات تریدر و کپی ترید
                            </NavLink>
                            <NavLink
                               to="/products"

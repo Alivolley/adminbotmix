@@ -103,7 +103,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                            state="portfolio_management"
                            className="px-3 py-4 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                         >
-                           ربات تریدر و سبد گردانی
+                           ربات تریدر و کپی ترید
                         </NavLink>
                         <NavLink
                            onClick={() => setMobileMenuOpen(false)}
@@ -120,7 +120,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                <li>
                   <NavLink
                      onClick={() => setMobileMenuOpen(false)}
-                     to="/"
+                     to="/growableCurrencies"
                      className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                   >
                      <CurrencyBitcoinIcon fontSize="small" />

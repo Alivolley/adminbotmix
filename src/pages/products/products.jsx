@@ -45,7 +45,7 @@ function Products() {
            }`}
                onClick={() => setChosenCategory('portfolio_management')}
             >
-               ربات تریدر و سبدگردانی
+               ربات تریدر و کپی ترید
             </button>
          </div>
 
