@@ -17,7 +17,7 @@ function GrowableCurrencies() {
 
    const { data: growableData, isLoading: growableIsLoading } = useGrowableCurrencies();
 
-   // console.log(growableData);
+   console.log(growableData);
 
    useEffect(() => {
       const script = document.createElement('script');
@@ -59,14 +59,14 @@ function GrowableCurrencies() {
                      <CircularProgress />
                   </div>
                ) : (
-                  <div className="min-h-[300px]">
-                     <div className="flex items-center border border-stone-300 dark:border-gray-700">
+                  <div className="relative flex max-h-[400px] min-h-[400px] flex-col overflow-auto border border-stone-300 dark:border-gray-700">
+                     <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
                         <p className="flex-1 p-2 text-center">میان مدت</p>
                         <p className="flex-1 border-r border-stone-300 p-2 text-center dark:border-gray-700">
                            بلند مدت
                         </p>
                      </div>
-                     <div className="flex border border-stone-300 dark:border-gray-700">
+                     <div className="flex grow">
                         <div className="flex flex-1 flex-col text-center">
                            {growableData?.high_risk?.map(item => (
                               <button key={item?.rank} type="button" className="space-y-1.5 p-2 text-sm">
@@ -89,7 +89,8 @@ function GrowableCurrencies() {
                               </button>
                            ))}
                         </div>
-                        <div className="flex flex-1 flex-col border-r border-stone-300 text-center dark:border-gray-700">
+                        <div className="border-r border-stone-300 text-center dark:border-gray-700" />
+                        <div className="flex flex-1 flex-col text-center">
                            {growableData?.high_risk_d?.map(item => (
                               <button key={item?.rank} type="button" className="space-y-1.5 p-2 text-sm">
                                  <p className="text-[#ff0000]">{item?.name}</p>
