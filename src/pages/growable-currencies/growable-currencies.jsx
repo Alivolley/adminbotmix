@@ -63,7 +63,7 @@ function GrowableCurrencies() {
                      <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
                         <p className="flex-1 p-2 text-center">میان مدت</p>
                         <p className="flex-1 border-r border-stone-300 p-2 text-center dark:border-gray-700">
-                           بلند مدت
+                           کوتاه مدت
                         </p>
                      </div>
                      <div className="flex grow">
