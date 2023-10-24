@@ -143,7 +143,7 @@ function DetailsTable({ detail, setRobotId }) {
                <p className="text-sm">{detail?.api_secret}</p>
             </div>
 
-            {!detail?.name && (
+            {detail?.name && (
                <>
                   <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
                      <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
