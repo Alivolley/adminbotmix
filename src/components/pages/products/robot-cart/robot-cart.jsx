@@ -52,7 +52,7 @@ function RobotCart({
             <h3 className="mt-7 text-2xl font-bold">{name}</h3>
             <div className="mb-12 mt-3 flex items-start justify-end gap-2">
                {price ? (
-                  <p className="text-xs text-red-400">{planTime === 3 ? '۵٪' : planTime === 12 ? '۲۰٪' : null}</p>
+                  <p className="text-xs text-red-400">{planTime === 3 ? '5٪' : planTime === 12 ? '20٪' : null}</p>
                ) : null}
                <p className="text-2xl">{price} $</p>
             </div>
