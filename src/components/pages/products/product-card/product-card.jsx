@@ -54,8 +54,6 @@ function ProductCard({ detail, accountBalance }) {
 
    const totalProfit = detail?.chart?.reduce((acc, obj) => acc + obj.profit, 0);
 
-   console.log(totalProfit);
-
    return (
       <ProductCardStyle>
          <div className="my-8 h-[120px]">

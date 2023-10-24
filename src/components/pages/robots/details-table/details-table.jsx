@@ -9,13 +9,16 @@ import EditRobotModal from '../edit-robot-modal/edit-robot-modal';
 
 // Apis
 import useActiveRobotStatus from '../../../../apis/robots/useActiveRobotStatus/useActiveRobotStatus';
+import useDeleteRobot from '../../../../apis/robots/useDeleteRobot/useDeleteRobot';
 
-function DetailsTable({ detail }) {
+function DetailsTable({ detail, setRobotId }) {
    const [isActive, setIsActive] = useState(detail?.is_active || false);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
+   const [deleteModalStatus, setDeleteModalStatus] = useState(false);
    const [showEditModal, setShowEditModal] = useState(false);
 
    const { mutate: changeRobotActivityStatus, isLoading: robotActivityIsLoading } = useActiveRobotStatus(detail?.id);
+   const { mutate: deleteRobotActivityStatus, isLoading: deleteRobotIsLoading } = useDeleteRobot(setRobotId);
 
    const confirmHandler = () => {
       if (isActive) {
@@ -47,6 +50,17 @@ function DetailsTable({ detail }) {
             }
          );
       }
+   };
+
+   const deleteHandler = () => {
+      deleteRobotActivityStatus(
+         { botId: detail?.id },
+         {
+            onSuccess: () => {
+               setDeleteModalStatus(false);
+            },
+         }
+      );
    };
 
    return (
@@ -129,22 +143,34 @@ function DetailsTable({ detail }) {
                <p className="text-sm">{detail?.api_secret}</p>
             </div>
 
-            <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
-               <div>
-                  <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} value={isActive} />
-               </div>
-            </div>
-            <div className="flex items-center justify-between gap-1 p-3">
-               <Button
-                  className="w-full !font-vazir"
-                  variant="contained"
-                  color="primaryBlue"
-                  onClick={() => setShowEditModal(true)}
-               >
-                  ویرایش ربات
-               </Button>
-            </div>
+            {!detail?.name && (
+               <>
+                  <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
+                     <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
+                     <div>
+                        <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} value={isActive} />
+                     </div>
+                  </div>
+                  <div className="flex items-center justify-between gap-3 p-3">
+                     <Button
+                        className="w-full !font-vazir"
+                        variant="contained"
+                        color="error"
+                        onClick={() => setDeleteModalStatus(true)}
+                     >
+                        حذف ربات
+                     </Button>
+                     <Button
+                        className="w-full !font-vazir"
+                        variant="contained"
+                        color="primaryBlue"
+                        onClick={() => setShowEditModal(true)}
+                     >
+                        ویرایش ربات
+                     </Button>
+                  </div>
+               </>
+            )}
          </div>
 
          <ConfirmModal
@@ -153,6 +179,14 @@ function DetailsTable({ detail }) {
             title={`آیا از ${isActive ? 'غیر فعالسازی' : 'فعالسازی'} ربات مطمئن هستید ؟`}
             confirmHandler={confirmHandler}
             confirmLoading={robotActivityIsLoading}
+         />
+
+         <ConfirmModal
+            open={deleteModalStatus}
+            closeModal={() => setDeleteModalStatus(false)}
+            title="در صورت حذف ربات, تمام پوزیشن های باز شما درلحظه بسته میشوند ( اینکار ممکن است باعث ایجاد ضرر شود ), آیا اطمینان دارید؟"
+            confirmHandler={deleteHandler}
+            confirmLoading={deleteRobotIsLoading}
          />
 
          <EditRobotModal show={showEditModal} closeModal={() => setShowEditModal(false)} detail={detail} />

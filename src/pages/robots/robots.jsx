@@ -76,7 +76,7 @@ function Robots() {
                         <CircularProgress />
                      </div>
                   ) : (
-                     <DetailsTable detail={robotsSpecificData} />
+                     <DetailsTable detail={robotsSpecificData} setRobotId={setRobotId} />
                   )}
                </CardWrapper>
             </Grid>
