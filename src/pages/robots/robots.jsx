@@ -41,8 +41,6 @@ function Robots() {
       robotsTableRefetch();
    };
 
-   console.log(robotsSpecificData?.chart);
-
    return (
       <div>
          <Grid container spacing={2}>

@@ -52,28 +52,34 @@ function ProductCard({ detail, accountBalance }) {
       }
    };
 
+   const totalProfit = detail?.chart?.reduce((acc, obj) => acc + obj.profit, 0);
+
+   console.log(totalProfit);
+
    return (
       <ProductCardStyle>
-         <div className="my-8">
-            <ResponsiveContainer width="100%" height={100}>
-               <AreaChart data={detail?.chart || []}>
-                  <defs>
-                     <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
-                        <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
-                     </linearGradient>
-                  </defs>
-                  <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
-                  <Area
-                     type="monotone"
-                     dataKey="profit"
-                     stroke="#48BB78"
-                     strokeWidth="3px"
-                     fillOpacity={1}
-                     fill="url(#colorUv)"
-                  />
-               </AreaChart>
-            </ResponsiveContainer>
+         <div className="my-8 h-[120px]">
+            {totalProfit !== 0 ? (
+               <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={detail?.chart || []}>
+                     <defs>
+                        <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                           <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
+                           <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
+                        </linearGradient>
+                     </defs>
+                     <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
+                     <Area
+                        type="monotone"
+                        dataKey="profit"
+                        stroke="#48BB78"
+                        strokeWidth="3px"
+                        fillOpacity={1}
+                        fill="url(#colorUv)"
+                     />
+                  </AreaChart>
+               </ResponsiveContainer>
+            ) : null}
          </div>
          <h3 className="mt-7 text-xl font-bold">{detail?.name}</h3>
 

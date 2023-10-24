@@ -26,8 +26,6 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
       });
    };
 
-   console.log(detail?.profit_percent);
-
    return (
       <>
          <tr
