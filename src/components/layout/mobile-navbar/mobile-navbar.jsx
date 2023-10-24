@@ -124,7 +124,7 @@ function MobileNavbar({ setMobileMenuOpen }) {
                      className="flex items-center gap-2 rounded-md p-2 text-sm transition-colors duration-200 hover:text-secondaryBlue"
                   >
                      <CurrencyBitcoinIcon fontSize="small" />
-                     <p>ارزهای مستعد رشد</p>
+                     <p>بازار</p>
                   </NavLink>
                </li>
 

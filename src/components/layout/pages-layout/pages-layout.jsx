@@ -125,7 +125,7 @@ function PagesLayout() {
                         to="/growableCurrencies"
                         className="transition-colors duration-200 hover:text-secondaryBlue"
                      >
-                        ارز های مستعد رشد
+                        بازار
                      </NavLink>
                   </li>
 
