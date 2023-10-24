@@ -26,6 +26,8 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
       });
    };
 
+   console.log(detail?.profit_percent);
+
    return (
       <>
          <tr
@@ -82,7 +84,7 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             </td>
             <td
                className={`border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 ${
-                  detail?.profit < 0 ? 'text-error' : 'text-success'
+                  (detail?.profit || detail?.profit_percent) < 0 ? 'text-error' : 'text-success'
                }`}
             >
                <p>{detail?.profit} USDT</p>

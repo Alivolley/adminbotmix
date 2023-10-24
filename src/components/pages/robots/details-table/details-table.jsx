@@ -11,7 +11,7 @@ import EditRobotModal from '../edit-robot-modal/edit-robot-modal';
 import useActiveRobotStatus from '../../../../apis/robots/useActiveRobotStatus/useActiveRobotStatus';
 
 function DetailsTable({ detail }) {
-   const [isActive, setIsActive] = useState(detail?.is_active);
+   const [isActive, setIsActive] = useState(detail?.is_active || false);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
    const [showEditModal, setShowEditModal] = useState(false);
 
@@ -132,7 +132,7 @@ function DetailsTable({ detail }) {
             <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
                <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
                <div>
-                  <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} />
+                  <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} value={isActive} />
                </div>
             </div>
             <div className="flex items-center justify-between gap-1 p-3">
