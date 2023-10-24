@@ -63,7 +63,7 @@ function Robots() {
                         </div>
                      ) : (
                         <div className="w-full">
-                           {robotsSpecificData?.chart && <RobotsChart detail={robotsSpecificData?.chart} />}
+                           {robotsSpecificData?.chart?.length && <RobotsChart detail={robotsSpecificData?.chart} />}
                         </div>
                      )}
                   </CardWrapper>
