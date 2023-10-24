@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 import React, { useEffect, useRef } from 'react';
 
 function MarketData({ theme, chosenCurrency }) {
