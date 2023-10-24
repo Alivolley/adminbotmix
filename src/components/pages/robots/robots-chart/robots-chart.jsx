@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function CustomTooltip({ active, payload }) {
@@ -6,7 +7,7 @@ function CustomTooltip({ active, payload }) {
 
       return (
          <div className="rounded-2xl bg-[#000000be] px-5 py-3">
-            {Object.keys(data).map(
+            {Object.keys(data)?.map(
                (key, index) =>
                   key !== 'label' && (
                      <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
@@ -23,8 +24,8 @@ function CustomTooltip({ active, payload }) {
 
 function RobotsChart({ detail }) {
    const gradientOffset = () => {
-      const dataMax = Math.max(...detail.map(i => i.profit));
-      const dataMin = Math.min(...detail.map(i => i.profit));
+      const dataMax = Math.max(...detail?.map(i => i.profit));
+      const dataMin = Math.min(...detail?.map(i => i.profit));
 
       if (dataMax <= 0) {
          return 0;

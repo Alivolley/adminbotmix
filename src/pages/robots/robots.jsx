@@ -41,6 +41,8 @@ function Robots() {
       robotsTableRefetch();
    };
 
+   console.log(robotsSpecificData?.chart);
+
    return (
       <div>
          <Grid container spacing={2}>
@@ -63,7 +65,7 @@ function Robots() {
                         </div>
                      ) : (
                         <div className="w-full">
-                           <RobotsChart detail={robotsSpecificData?.chart} />
+                           {robotsSpecificData?.chart && <RobotsChart detail={robotsSpecificData?.chart} />}
                         </div>
                      )}
                   </CardWrapper>
