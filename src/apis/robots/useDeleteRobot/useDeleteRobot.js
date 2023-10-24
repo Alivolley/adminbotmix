@@ -7,6 +7,8 @@ const useDeleteRobot = setRobotId => {
    return useMutation(data => axiosInstance.post(`trade/delete/`, data).then(res => res), {
       onSuccess: res => {
          setRobotId('default');
+         queryClient.invalidateQueries(['robotsTable', 'default']);
+         queryClient.invalidateQueries(['apiKeys', 'default']);
          queryClient.invalidateQueries(['robotsList']);
       },
    });

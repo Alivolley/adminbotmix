@@ -12,7 +12,7 @@ import useActiveRobotStatus from '../../../../apis/robots/useActiveRobotStatus/u
 import useDeleteRobot from '../../../../apis/robots/useDeleteRobot/useDeleteRobot';
 
 function DetailsTable({ detail, setRobotId }) {
-   const [isActive, setIsActive] = useState(detail?.is_active || false);
+   // const [isActive, setIsActive] = useState(detail?.is_active || false);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
    const [deleteModalStatus, setDeleteModalStatus] = useState(false);
    const [showEditModal, setShowEditModal] = useState(false);
@@ -21,7 +21,7 @@ function DetailsTable({ detail, setRobotId }) {
    const { mutate: deleteRobotActivityStatus, isLoading: deleteRobotIsLoading } = useDeleteRobot(setRobotId);
 
    const confirmHandler = () => {
-      if (isActive) {
+      if (detail?.is_active) {
          changeRobotActivityStatus(
             {
                action: 'active',
@@ -30,7 +30,6 @@ function DetailsTable({ detail, setRobotId }) {
             },
             {
                onSuccess: () => {
-                  setIsActive(false);
                   setConfirmModalStatus(false);
                },
             }
@@ -44,7 +43,6 @@ function DetailsTable({ detail, setRobotId }) {
             },
             {
                onSuccess: () => {
-                  setIsActive(true);
                   setConfirmModalStatus(false);
                },
             }
@@ -146,9 +144,13 @@ function DetailsTable({ detail, setRobotId }) {
             {detail?.name && (
                <>
                   <div className="flex items-center justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-                     <p className="text-sm">{isActive ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
+                     <p className="text-sm">{detail?.is_active ? 'غیر فعالسازی ربات' : 'فعالسازی ربات'}</p>
                      <div>
-                        <Switch checked={isActive} onClick={() => setConfirmModalStatus(true)} value={isActive} />
+                        <Switch
+                           checked={detail?.is_active}
+                           onClick={() => setConfirmModalStatus(true)}
+                           value={detail?.is_active}
+                        />
                      </div>
                   </div>
                   <div className="flex items-center justify-between gap-3 p-3">
@@ -176,7 +178,7 @@ function DetailsTable({ detail, setRobotId }) {
          <ConfirmModal
             open={confirmModalStatus}
             closeModal={() => setConfirmModalStatus(false)}
-            title={`آیا از ${isActive ? 'غیر فعالسازی' : 'فعالسازی'} ربات مطمئن هستید ؟`}
+            title={`آیا از ${detail?.is_active ? 'غیر فعالسازی' : 'فعالسازی'} ربات مطمئن هستید ؟`}
             confirmHandler={confirmHandler}
             confirmLoading={robotActivityIsLoading}
          />

@@ -90,9 +90,9 @@ function ActiveRobotModal({ show, closeModal, detail }) {
             custom_leverage: isEnteredLeverage ? data?.custom_leverage : null,
          },
          {
-            onSuccess: () => {
+            onSuccess: res => {
                navigate('/admin-panel/robots', {
-                  state: detail?.id,
+                  state: res?.botId,
                });
             },
          }
