@@ -40,7 +40,7 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                            className="!font-vazir !text-sm"
                            size="small"
                            color="primaryBlue"
-                           onClick={() => setRobotId(item.id)}
+                           onClick={() => setRobotId(item?.id)}
                            disabled={robotId === item?.id}
                         >
                            جزئیات

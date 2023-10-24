@@ -1,18 +1,7 @@
 import { useForm, Controller } from 'react-hook-form';
 
 // MUI
-import {
-   Dialog,
-   IconButton,
-   FormControlLabel,
-   Radio,
-   RadioGroup,
-   Typography,
-   FormControl,
-   InputLabel,
-   Select,
-   MenuItem,
-} from '@mui/material';
+import { Dialog, IconButton, FormControlLabel, Radio, RadioGroup, Typography, FormControl } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { LoadingButton } from '@mui/lab';
 
@@ -27,7 +16,7 @@ import RtlProvider from '../../../layout/rtlProvider/rtlProvider';
 import useNoPay from '../../../../apis/payment/useNoPay/useNoPay';
 import useZarinPay from '../../../../apis/payment/useZarinPay/useZarinPay';
 
-function BuyPlanModal({ closeModal, open, name, planeValue }) {
+function BuyPlanModal({ closeModal, open, name, planeValue, planTime, price }) {
    const theme = useSelector(state => state.themeReducer);
 
    const { mutate: zarinMutate, isLoading: zarinIsLoading } = useZarinPay();
@@ -36,13 +25,12 @@ function BuyPlanModal({ closeModal, open, name, planeValue }) {
    const { handleSubmit, control, reset } = useForm({
       defaultValues: {
          type: 'zarinpal',
-         plan_duration: 1,
       },
       mode: 'onSubmit',
    });
 
    const formSubmit = data => {
-      const newData = { plan: planeValue, plan_duration: data?.plan_duration };
+      const newData = { plan: planeValue, plan_duration: planTime };
 
       if (data?.type === 'zarinpal') {
          zarinMutate(newData);
@@ -80,35 +68,15 @@ function BuyPlanModal({ closeModal, open, name, planeValue }) {
             </IconButton>
          </div>
          <BuyPlanModalStyle className="w-56 p-5 customSm:w-96">
-            <p className="mt-1 text-xl">خرید اشتراک {name}</p>
+            <div>
+               <p className="my-2 text-xl">خرید اشتراک {name}</p>
+               <p className="text-textGray">
+                  {planTime.toLocaleString('fa-IR')} ماهه {price} دلار
+               </p>
+            </div>
 
             <RtlProvider>
                <form className="mt-8 space-y-5" onSubmit={handleSubmit(formSubmit)}>
-                  <Controller
-                     control={control}
-                     name="plan_duration"
-                     rules={{ required: 'این فیلد اجباری است' }}
-                     render={({ field: { onChange, value } }) => (
-                        <FormControl fullWidth color="primaryBlue" disabled={zarinIsLoading || noPayIsLoading}>
-                           <InputLabel>مدت پلن</InputLabel>
-                           <Select value={value} label="مدت پلن" onChange={onChange}>
-                              <MenuItem value={1} className="!font-vazir">
-                                 ۱ ماهه
-                              </MenuItem>
-                              <MenuItem value={3} className="!font-vazir">
-                                 ۳ ماهه
-                              </MenuItem>
-                              <MenuItem value={6} className="!font-vazir">
-                                 ۶ ماهه
-                              </MenuItem>
-                              <MenuItem value={12} className="!font-vazir">
-                                 ۱۲ ماهه
-                              </MenuItem>
-                           </Select>
-                        </FormControl>
-                     )}
-                  />
-
                   <div>
                      <p className="mb-5 mt-8">انتخاب درگاه پرداخت :</p>
 
