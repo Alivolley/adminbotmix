@@ -31,6 +31,12 @@ function GrowableCurrencies() {
             </Grid>
             <Grid item xs={12} md={4}>
                <div className="flex h-[500px] flex-col gap-5 customMd:h-full">
+                  <div className="flex w-full flex-1 flex-col rounded-sm border border-stone-300 dark:border-gray-700">
+                     <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
+                        <p className="flex-1 p-2 text-center text-sm">داده های اقتصادی</p>
+                     </div>
+                     <EconomyData theme={theme} />
+                  </div>
                   {growableIsLoading ? (
                      <div className="flex items-center justify-center">
                         <CircularProgress />
@@ -40,9 +46,12 @@ function GrowableCurrencies() {
                         className="relative flex flex-1 flex-col overflow-auto rounded-sm border border-stone-300 dark:border-gray-700"
                         id="custom-scroll"
                      >
+                        <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
+                           <p className="flex-1 p-2 text-center text-sm">ارز های مستعد رشد</p>
+                        </div>
                         <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
-                           <p className="flex-1 p-2 text-center">میان مدت</p>
-                           <p className="flex-1 border-r border-stone-300 p-2 text-center dark:border-gray-700">
+                           <p className="flex-1 p-2 text-center text-sm">میان مدت</p>
+                           <p className="flex-1 border-r border-stone-300 p-2 text-center text-sm dark:border-gray-700">
                               کوتاه مدت
                            </p>
                         </div>
@@ -137,9 +146,6 @@ function GrowableCurrencies() {
                         </div>
                      </div>
                   )}
-                  <div className="w-full flex-1 rounded-sm border border-stone-300 dark:border-gray-700">
-                     <EconomyData theme={theme} />
-                  </div>
                </div>
             </Grid>
             <Grid item xs={12}>
