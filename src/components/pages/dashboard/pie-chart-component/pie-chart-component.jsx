@@ -1,6 +1,7 @@
 import CanvasJSReact from '@canvasjs/react-charts';
 import { PieChartComponentStyle } from './pie-chart-component.style';
 
+const { CanvasJS } = CanvasJSReact;
 const { CanvasJSChart } = CanvasJSReact;
 
 function PieChartComponent() {
