@@ -48,7 +48,7 @@ axiosInstance.interceptors.response.use(
             const res = await axiosInstance.post('account/token/refresh/', {
                refresh: refreshToken,
             });
-            Cookies.set('botmix_accessToken', res.data.access, { expires: 1 });
+            Cookies.set('botmix_accessToken', res.data.access, { expires: 7 });
             originalReq.headers.Authorization = `Bearer ${res.data.access}`;
             return axiosInstance(originalReq);
          }
