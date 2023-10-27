@@ -12,6 +12,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 function LinkAccordion({ detail }) {
    const [copyStatus, setCopyStatus] = useState(false);
+   const formattedJson = JSON.stringify(detail, null, 2);
 
    const copyLink = () => {
       navigator.clipboard.writeText(JSON.stringify(detail)).then(() => {
@@ -47,30 +48,7 @@ function LinkAccordion({ detail }) {
                </div>
 
                <div dir="ltr" className="my-2 max-h-[300px] overflow-auto py-3 text-sm">
-                  <div className="flex items-center">
-                     <p>leverage : </p>
-                     <p>{detail?.leverage}</p>
-                  </div>
-
-                  <div className="flex items-center">
-                     <p>side : </p>
-                     <p>{detail?.side}</p>
-                  </div>
-
-                  <div className="flex items-center">
-                     <p>size : </p>
-                     <p>{detail?.size}</p>
-                  </div>
-
-                  <div className="flex items-center">
-                     <p>symbol : </p>
-                     <p>{detail?.symbol}</p>
-                  </div>
-
-                  <div className="flex items-center">
-                     <p>type : </p>
-                     <p>{detail?.type}</p>
-                  </div>
+                  <pre className="whitespace-pre-wrap">{formattedJson}</pre>
                </div>
             </div>
          </AccordionDetails>

@@ -26,10 +26,10 @@ function GrowableCurrencies() {
    return (
       <GrowableCurrenciesStyle className="mb-20 mt-16 min-h-screen">
          <Grid container spacing={2}>
-            <Grid item xs={12} md={8}>
+            <Grid item xs={12} md={8} order={{ xs: 2, md: 1 }}>
                <MarketData theme={theme} chosenCurrency={chosenCurrency} />
             </Grid>
-            <Grid item xs={12} md={4}>
+            <Grid item xs={12} md={4} order={{ xs: 1, md: 2 }}>
                <div className="flex h-[500px] flex-col gap-5 customMd:h-full">
                   <div className="flex w-full flex-1 flex-col rounded-sm border border-stone-300 dark:border-gray-700">
                      <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
@@ -148,7 +148,7 @@ function GrowableCurrencies() {
                   )}
                </div>
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} order={3}>
                <CryptoTable theme={theme} />
             </Grid>
          </Grid>

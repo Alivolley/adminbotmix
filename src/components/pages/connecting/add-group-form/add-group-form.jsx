@@ -44,6 +44,7 @@ function AddGroupForm() {
                   variant="outlined"
                   color="primaryBlue"
                   type="text"
+                  dir="ltr"
                   {...register('name', {
                      required: {
                         value: true,
@@ -66,6 +67,7 @@ function AddGroupForm() {
                         message: 'این فیلد اجباری است',
                      },
                   })}
+                  dir="ltr"
                   error={!!errors?.groupId}
                   helperText={errors?.groupId?.message}
                   disabled={addGroupLoading}

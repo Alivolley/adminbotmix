@@ -2,7 +2,6 @@
 import { Grid } from '@mui/material';
 
 // Assets
-// import portfolioTest from '../../../../assets/images/portfolioTest.png';
 import howWeWorkPic from '../../../../assets/images/howWeWorkPic.png';
 import robotTest from '../../../../assets/icons/icon-robot.png';
 import telegramTest from '../../../../assets/icons/icon-telegram.png';

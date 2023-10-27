@@ -27,6 +27,8 @@ import useDeleteApiKey from '../../../../apis/api-keys/useDeleteApiKey/useDelete
 function AccordionComponent({ detail }) {
    const [copyStatus, setCopyStatus] = useState(false);
    const [confirmDeleteModal, setConfirmDeleteModal] = useState(false);
+   const [copyServerStatus, setCopyServerStatus] = useState(false);
+
    const linkRef = useRef();
 
    const { data: apiKeysRefreshData, isLoading: apiKeysRefreshIsLoading, mutate: refreshLink } = useApiKeysRefresh();
@@ -44,6 +46,16 @@ function AccordionComponent({ detail }) {
 
          setTimeout(() => {
             setCopyStatus(false);
+         }, 1500);
+      });
+   };
+
+   const copyServerLink = () => {
+      navigator.clipboard.writeText('159.69.201.184').then(() => {
+         setCopyServerStatus(true);
+
+         setTimeout(() => {
+            setCopyServerStatus(false);
          }, 1500);
       });
    };
@@ -87,11 +99,30 @@ function AccordionComponent({ detail }) {
                   <p>{detail?.api_secret}</p>
                </div>
                <div className="mt-1 flex items-center gap-2 text-[13px]">
-                  <p className="font-bold text-textGray">نوع :</p>
+                  <p className="font-bold text-textGray">type :</p>
                   <p>{detail?.type}</p>
+               </div>
+               <div className="flex items-center gap-2 text-[13px]">
+                  <p className="font-bold text-textGray">Server IP : </p>
+                  <div dir="ltr" className="relative flex max-w-fit items-center text-sm">
+                     <p>159.69.201.184</p>
+                     <div className="w-fit">
+                        <IconButton className="text-sm !text-inherit" onClick={copyServerLink}>
+                           <ContentCopyIcon className="!text-sm" />
+                        </IconButton>
+                     </div>
+                     {copyServerStatus ? (
+                        <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
+                           کپی شد
+                        </div>
+                     ) : null}
+                  </div>
                </div>
             </div>
 
+            <p className="mt-2 whitespace-nowrap text-[13px] font-bold text-textGray" dir="ltr">
+               webhook link :
+            </p>
             <div
                dir="ltr"
                className="relative mr-auto mt-2 flex max-w-fit items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"

@@ -1,26 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { useEffect } from 'react';
 import Highcharts from 'highcharts';
-
 import HCExporting from 'highcharts/modules/exporting';
 import HCExportData from 'highcharts/modules/export-data';
 
 HCExporting(Highcharts);
 HCExportData(Highcharts);
-
-// import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
-
-// const RADIAN = Math.PI / 180;
-// const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent }) => {
-//    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
-//    const x = cx + radius * Math.cos(-midAngle * RADIAN);
-//    const y = cy + radius * Math.sin(-midAngle * RADIAN);
-
-//    return (
-//       <text x={x} y={y} fill="white" textAnchor={x > cx ? 'end' : 'start'} dominantBaseline="central" fontSize={12}>
-//          {`${(percent * 100).toFixed(0)}%`}
-//       </text>
-//    );
-// };
 
 function PieChartComponent() {
    useEffect(() => {

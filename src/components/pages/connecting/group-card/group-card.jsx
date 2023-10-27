@@ -40,11 +40,11 @@ function GroupCard({ detail }) {
          <div className="mt-8 space-y-3 customSm:mt-3">
             <div className="mt-1 flex items-center gap-2 text-sm">
                <p className="font-bold text-textGray">نام گروه :</p>
-               <p>{detail?.name}</p>
+               <p dir="ltr">{detail?.name}</p>
             </div>
             <div className="mt-1 flex items-center gap-2 text-sm">
                <p className="font-bold text-textGray">آیدی گروه :</p>
-               <p>{detail?.group_id}</p>
+               <p dir="ltr">{detail?.group_id}</p>
             </div>
          </div>
 

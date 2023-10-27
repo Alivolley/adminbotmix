@@ -12,7 +12,6 @@ import useActiveRobotStatus from '../../../../apis/robots/useActiveRobotStatus/u
 import useDeleteRobot from '../../../../apis/robots/useDeleteRobot/useDeleteRobot';
 
 function DetailsTable({ detail, setRobotId }) {
-   // const [isActive, setIsActive] = useState(detail?.is_active || false);
    const [confirmModalStatus, setConfirmModalStatus] = useState(false);
    const [deleteModalStatus, setDeleteModalStatus] = useState(false);
    const [showEditModal, setShowEditModal] = useState(false);
