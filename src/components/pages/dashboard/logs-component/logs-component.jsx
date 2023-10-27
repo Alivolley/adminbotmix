@@ -1,12 +1,6 @@
 import { memo } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-// MUI
-import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material';
-
-// Icons
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 const LogsComponent = memo(({ detail }) => (
    <div className="overflow-auto" dir="ltr">
       {detail?.pages?.map(item =>

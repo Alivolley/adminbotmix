@@ -47,7 +47,7 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             </td>
 
             {hasMoreDetail && (
-               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               <td className="border-collapse border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
                   <div>
                      <p>{detail?.close_order_id}</p>
                      <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />

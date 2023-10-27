@@ -139,12 +139,13 @@ function ActiveRobotModal({ show, closeModal, detail }) {
             },
          }}
       >
-         <RtlProvider>
-            <BuyModalWrapper className="p-5">
-               <p className="mb-8 border-b border-gray-500 pb-5 text-xl">فعالسازی ربات {detail?.name}</p>
-               <form onSubmit={handleSubmit(formSubmit)} className="flex flex-col gap-6">
+         <BuyModalWrapper className="p-5">
+            <p className="mb-8 border-b border-gray-500 pb-5 text-xl">فعالسازی ربات {detail?.name}</p>
+            <form onSubmit={handleSubmit(formSubmit)} className="flex flex-col gap-6">
+               <RtlProvider>
                   <div className="flex flex-wrap items-center gap-2 customSm:gap-4">
                      <p>نوع سرمایه :</p>
+
                      <Controller
                         control={control}
                         name="fund_type"
@@ -176,7 +177,9 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                         )}
                      />
                   </div>
+               </RtlProvider>
 
+               <RtlProvider>
                   <div id="inputNumber">
                      <TextField
                         label="حداکثر سرمایه درگیر"
@@ -201,51 +204,52 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                         }}
                      />
                   </div>
-                  {!detail?.isSabad && (
-                     <>
-                        <div>
+               </RtlProvider>
+
+               {!detail?.isSabad && (
+                  <RtlProvider>
+                     <div>
+                        <Controller
+                           control={control}
+                           name="enterLeverage"
+                           render={({ field: { onChange, value } }) => (
+                              <FormControlLabel
+                                 control={<Checkbox checked={value} color="primaryBlue" />}
+                                 label="اهرم شخصی ( اختیاری )"
+                                 value={value}
+                                 onChange={onChange}
+                              />
+                           )}
+                        />
+                        <p className="text-[13px] text-gray-400">
+                           ربات باتمیکس با مدیریت سرمایه بصورت خودکار اهرم معاملات را ارسال میکند, اگر میخواهید رباتتان
+                           با اهرم شخصی شما کار کند, این مقدار را وارد کنید, درغیر این صورت رباتتان از مدیریت سرمایه
+                           پیشنهادی باتمیکس استفاده خواهد کرد.
+                        </p>
+                     </div>
+                     <Collapse in={isEnteredLeverage}>
+                        <div className="p-6">
                            <Controller
                               control={control}
-                              name="enterLeverage"
+                              name="custom_leverage"
                               render={({ field: { onChange, value } }) => (
-                                 <FormControlLabel
-                                    control={<Checkbox checked={value} color="primaryBlue" />}
-                                    label="اهرم شخصی ( اختیاری )"
+                                 <Slider
                                     value={value}
                                     onChange={onChange}
+                                    valueLabelDisplay="on"
+                                    color="primaryBlue"
+                                    min={1}
+                                    max={Number(detail?.max_allowed_leverage)}
                                  />
                               )}
                            />
-                           <p className="text-[13px] text-gray-400">
-                              ربات باتمیکس با مدیریت سرمایه بصورت خودکار اهرم معاملات را ارسال میکند, اگر میخواهید
-                              رباتتان با اهرم شخصی شما کار کند, این مقدار را وارد کنید, درغیر این صورت رباتتان از مدیریت
-                              سرمایه پیشنهادی باتمیکس استفاده خواهد کرد.
-                           </p>
+                           <p className="text-left text-xs">بیشترین اهرم مجاز شما : {detail?.max_allowed_leverage}</p>
                         </div>
-                        <Collapse in={isEnteredLeverage}>
-                           <div className="p-6">
-                              <Controller
-                                 control={control}
-                                 name="custom_leverage"
-                                 render={({ field: { onChange, value } }) => (
-                                    <Slider
-                                       value={value}
-                                       onChange={onChange}
-                                       valueLabelDisplay="on"
-                                       color="primaryBlue"
-                                       min={1}
-                                       max={Number(detail?.max_allowed_leverage)}
-                                    />
-                                 )}
-                              />
-                              <p className="text-left text-xs">
-                                 بیشترین اهرم مجاز شما : {detail?.max_allowed_leverage}
-                              </p>
-                           </div>
-                        </Collapse>
-                     </>
-                  )}
+                     </Collapse>
+                  </RtlProvider>
+               )}
 
+               <RtlProvider>
                   <Controller
                      control={control}
                      name="active"
@@ -258,29 +262,29 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                         />
                      )}
                   />
+               </RtlProvider>
 
-                  <div>
-                     <div className="flex items-center gap-4">
-                        <p>Server IP : </p>
-                        <div dir="ltr" className="relative flex max-w-fit items-center text-sm">
-                           <div className="w-fit">
-                              <IconButton className="text-sm !text-inherit" onClick={copyLink}>
-                                 <ContentCopyIcon className="!text-sm" />
-                              </IconButton>
-                           </div>
-                           <p>159.69.201.184</p>
-                           {copyStatus ? (
-                              <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
-                                 کپی شد
-                              </div>
-                           ) : null}
+               <div>
+                  <div className="flex items-center gap-4">
+                     <p>Server IP : </p>
+                     <div dir="ltr" className="relative flex max-w-fit items-center text-sm">
+                        <div className="w-fit">
+                           <IconButton className="text-sm !text-inherit" onClick={copyLink}>
+                              <ContentCopyIcon className="!text-sm" />
+                           </IconButton>
                         </div>
+                        <p>159.69.201.184</p>
+                        {copyStatus ? (
+                           <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
+                              کپی شد
+                           </div>
+                        ) : null}
                      </div>
-                     <p className="text-xs text-textGray">
-                        IP سرور جهت اضافه کردن به لیست IP های مجاز صرافی درصورت نیاز
-                     </p>
                   </div>
+                  <p className="text-xs text-textGray">IP سرور جهت اضافه کردن به لیست IP های مجاز صرافی درصورت نیاز</p>
+               </div>
 
+               <RtlProvider>
                   <Controller
                      control={control}
                      name="exchange"
@@ -299,134 +303,138 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                         </FormControl>
                      )}
                   />
-                  {chosenExchange && (
-                     <>
-                        <div dir="ltr">
-                           <Controller
-                              control={control}
-                              name="type"
-                              rules={{ required: 'این فیلد اجباری است' }}
-                              render={({ field: { onChange, value } }) => (
-                                 <FormControl>
-                                    <RadioGroup row value={value} onChange={onChange}>
-                                       {detail?.isSabad ? (
-                                          <>
-                                             <FormControlLabel
-                                                value="spot"
-                                                control={<Radio size="small" color="primaryBlue" />}
-                                                label={
-                                                   <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                                                      Spot
-                                                   </Typography>
-                                                }
-                                             />
+               </RtlProvider>
 
-                                             <FormControlLabel
-                                                value="spot-testnet"
-                                                control={<Radio size="small" color="primaryBlue" />}
-                                                label={
-                                                   <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                                                      Spot testnet
-                                                   </Typography>
-                                                }
-                                             />
-                                          </>
-                                       ) : (
-                                          <>
-                                             <FormControlLabel
-                                                value="futures"
-                                                control={<Radio size="small" color="primaryBlue" />}
-                                                label={
-                                                   <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                                                      Future
-                                                   </Typography>
-                                                }
-                                             />
+               {chosenExchange && (
+                  <>
+                     <div dir="ltr">
+                        <Controller
+                           control={control}
+                           name="type"
+                           rules={{ required: 'این فیلد اجباری است' }}
+                           render={({ field: { onChange, value } }) => (
+                              <FormControl>
+                                 <RadioGroup row value={value} onChange={onChange}>
+                                    {detail?.isSabad ? (
+                                       <>
+                                          <FormControlLabel
+                                             value="spot"
+                                             control={<Radio size="small" color="primaryBlue" />}
+                                             label={
+                                                <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                                                   Spot
+                                                </Typography>
+                                             }
+                                          />
 
-                                             <FormControlLabel
-                                                value="futures-testnet"
-                                                control={<Radio size="small" color="primaryBlue" />}
-                                                label={
-                                                   <Typography variant="body2" sx={{ fontSize: '12px' }}>
-                                                      Future testnet
-                                                   </Typography>
-                                                }
-                                             />
-                                          </>
-                                       )}
-                                    </RadioGroup>
-                                 </FormControl>
-                              )}
-                           />
-                        </div>
+                                          <FormControlLabel
+                                             value="spot-testnet"
+                                             control={<Radio size="small" color="primaryBlue" />}
+                                             label={
+                                                <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                                                   Spot testnet
+                                                </Typography>
+                                             }
+                                          />
+                                       </>
+                                    ) : (
+                                       <>
+                                          <FormControlLabel
+                                             value="futures"
+                                             control={<Radio size="small" color="primaryBlue" />}
+                                             label={
+                                                <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                                                   Future
+                                                </Typography>
+                                             }
+                                          />
 
+                                          <FormControlLabel
+                                             value="futures-testnet"
+                                             control={<Radio size="small" color="primaryBlue" />}
+                                             label={
+                                                <Typography variant="body2" sx={{ fontSize: '12px' }}>
+                                                   Future testnet
+                                                </Typography>
+                                             }
+                                          />
+                                       </>
+                                    )}
+                                 </RadioGroup>
+                              </FormControl>
+                           )}
+                        />
+                     </div>
+
+                     <TextField
+                        label="API Key"
+                        variant="outlined"
+                        color="primaryBlue"
+                        type="text"
+                        dir="ltr"
+                        {...register('api_key', {
+                           required: {
+                              value: true,
+                              message: 'این فیلد اجباری است',
+                           },
+                           minLength: {
+                              value: 6,
+                              message: 'کلید api باید بیش از ۶ حرف باشد',
+                           },
+                        })}
+                        error={!!errors?.api_key}
+                        helperText={errors?.api_key?.message}
+                     />
+
+                     <TextField
+                        label="API Secret"
+                        variant="outlined"
+                        color="primaryBlue"
+                        type="text"
+                        dir="ltr"
+                        {...register('api_secret', {
+                           required: {
+                              value: true,
+                              message: 'این فیلد اجباری است',
+                           },
+                           minLength: {
+                              value: 6,
+                              message: 'api secret باید بیش از ۶ حرف باشد',
+                           },
+                        })}
+                        error={!!errors?.api_secret}
+                        helperText={errors?.api_secret?.message}
+                     />
+
+                     {chosenExchange === 'kucoin' && (
                         <TextField
-                           label="API Key"
+                           label="Pass phrase"
                            variant="outlined"
                            color="primaryBlue"
                            type="text"
-                           {...register('api_key', {
+                           dir="ltr"
+                           {...register('passphrase', {
                               required: {
                                  value: true,
                                  message: 'این فیلد اجباری است',
                               },
                               minLength: {
                                  value: 6,
-                                 message: 'کلید api باید بیش از ۶ حرف باشد',
+                                 message: 'Pass phrase باید بیش از ۶ حرف باشد',
                               },
                            })}
-                           error={!!errors?.api_key}
-                           helperText={errors?.api_key?.message}
+                           error={!!errors?.passphrase}
+                           helperText={errors?.passphrase?.message}
                         />
+                     )}
+                  </>
+               )}
 
-                        <TextField
-                           label="API Secret"
-                           variant="outlined"
-                           color="primaryBlue"
-                           type="text"
-                           {...register('api_secret', {
-                              required: {
-                                 value: true,
-                                 message: 'این فیلد اجباری است',
-                              },
-                              minLength: {
-                                 value: 6,
-                                 message: 'api secret باید بیش از ۶ حرف باشد',
-                              },
-                           })}
-                           error={!!errors?.api_secret}
-                           helperText={errors?.api_secret?.message}
-                        />
-
-                        {chosenExchange === 'kucoin' && (
-                           <TextField
-                              label="Pass phrase"
-                              variant="outlined"
-                              color="primaryBlue"
-                              type="text"
-                              {...register('passphrase', {
-                                 required: {
-                                    value: true,
-                                    message: 'این فیلد اجباری است',
-                                 },
-                                 minLength: {
-                                    value: 6,
-                                    message: 'Pass phrase باید بیش از ۶ حرف باشد',
-                                 },
-                              })}
-                              error={!!errors?.passphrase}
-                              helperText={errors?.passphrase?.message}
-                           />
-                        )}
-                     </>
-                  )}
-
-                  <LoadingButton type="submit" variant="contained" color="primaryBlue" loading={activateRobotIsLoading}>
-                     فعالسازی
-                  </LoadingButton>
-               </form>
-            </BuyModalWrapper>
-         </RtlProvider>
+               <LoadingButton type="submit" variant="contained" color="primaryBlue" loading={activateRobotIsLoading}>
+                  فعالسازی
+               </LoadingButton>
+            </form>
+         </BuyModalWrapper>
       </Dialog>
    );
 }

@@ -109,7 +109,7 @@ function Sidebar({ shouldHide, setMobileMenuOpen }) {
                >
                   <KeyIcon color="inherit" fontSize="inherit" />
                </div>
-               <p className="text-[14px] font-[700] text-textGray">کلید های api</p>
+               <p className="text-[14px] font-[700] text-textGray">اتصال به صرافی</p>
             </NavLink>
 
             <NavLink

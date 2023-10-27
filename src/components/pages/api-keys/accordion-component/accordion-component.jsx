@@ -27,7 +27,6 @@ import useDeleteApiKey from '../../../../apis/api-keys/useDeleteApiKey/useDelete
 function AccordionComponent({ detail }) {
    const [copyStatus, setCopyStatus] = useState(false);
    const [confirmDeleteModal, setConfirmDeleteModal] = useState(false);
-   const [copyServerStatus, setCopyServerStatus] = useState(false);
 
    const linkRef = useRef();
 
@@ -46,16 +45,6 @@ function AccordionComponent({ detail }) {
 
          setTimeout(() => {
             setCopyStatus(false);
-         }, 1500);
-      });
-   };
-
-   const copyServerLink = () => {
-      navigator.clipboard.writeText('159.69.201.184').then(() => {
-         setCopyServerStatus(true);
-
-         setTimeout(() => {
-            setCopyServerStatus(false);
          }, 1500);
       });
    };
@@ -102,47 +91,31 @@ function AccordionComponent({ detail }) {
                   <p className="font-bold text-textGray">type :</p>
                   <p>{detail?.type}</p>
                </div>
-               <div className="flex items-center gap-2 text-[13px]">
-                  <p className="font-bold text-textGray">Server IP : </p>
-                  <div dir="ltr" className="relative flex max-w-fit items-center text-sm">
-                     <p>159.69.201.184</p>
-                     <div className="w-fit">
-                        <IconButton className="text-sm !text-inherit" onClick={copyServerLink}>
+               <div className="mt-3 flex flex-wrap items-center gap-2 text-[13px]">
+                  <p className="whitespace-nowrap font-bold text-textGray">webhook link :</p>
+                  <div
+                     dir="ltr"
+                     className="relative flex items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"
+                  >
+                     <p
+                        className="w-[100px] overflow-hidden border-r-[1px] border-solid
+                         border-textGray bg-bgPrimary px-2 py-[6px] dark:bg-bgPrimaryDark customXs:w-[180px] customSm:w-auto"
+                        ref={linkRef}
+                     >
+                        {!apiKeysRefreshData ? detail?.link : apiKeysRefreshData?.link}
+                     </p>
+                     <div>
+                        <IconButton className="text-sm !text-inherit" onClick={copyLink}>
                            <ContentCopyIcon className="!text-sm" />
                         </IconButton>
                      </div>
-                     {copyServerStatus ? (
+                     {copyStatus ? (
                         <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
                            کپی شد
                         </div>
                      ) : null}
                   </div>
                </div>
-            </div>
-
-            <p className="mt-2 whitespace-nowrap text-[13px] font-bold text-textGray" dir="ltr">
-               webhook link :
-            </p>
-            <div
-               dir="ltr"
-               className="relative mr-auto mt-2 flex max-w-fit items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"
-            >
-               <p
-                  className=" overflow-hidden border-r-[1px] border-solid border-textGray bg-bgPrimary px-2 py-[6px] dark:bg-bgPrimaryDark"
-                  ref={linkRef}
-               >
-                  {!apiKeysRefreshData ? detail?.link : apiKeysRefreshData?.link}
-               </p>
-               <div className="w-fit">
-                  <IconButton className="text-sm !text-inherit" onClick={copyLink}>
-                     <ContentCopyIcon className="!text-sm" />
-                  </IconButton>
-               </div>
-               {copyStatus ? (
-                  <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
-                     کپی شد
-                  </div>
-               ) : null}
             </div>
          </div>
          <Accordion
