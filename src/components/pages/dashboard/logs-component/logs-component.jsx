@@ -19,13 +19,16 @@ const LogsComponent = memo(({ detail }) => (
                   <p>{innerItem?.type}</p>
                   <p className="text-[10px]">( {innerItem?.created_at} )</p>
                </div>
-               <div className="flex flex-wrap items-start text-sm">
-                  {Object?.keys(innerItem?.data)?.map(key => (
+               <p className="text-sm leading-8">
+                  {JSON.stringify(innerItem?.data, null, 5)}
+                  {/* {Object?.keys(innerItem?.data)?.map(key => (
                      <div className="flex items-start gap-1 p-3" key={uuidv4()}>
                         {key !== 'Response' ? (
                            <>
                               <p className="whitespace-nowrap text-textGray">{key} :</p>
-                              <pre className="whitespace-pre-wrap">{JSON.stringify(innerItem?.data?.[key])}</pre>
+                              <pre className="whitespace-pre-wrap">
+                                 {JSON.stringify(innerItem?.data?.[key], null, 2)}
+                              </pre>
                            </>
                         ) : (
                            <div>
@@ -49,8 +52,8 @@ const LogsComponent = memo(({ detail }) => (
                            </div>
                         )}
                      </div>
-                  ))}
-               </div>
+                  ))} */}
+               </p>
             </div>
          ))
       )}
