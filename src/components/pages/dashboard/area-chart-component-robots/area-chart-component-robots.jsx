@@ -28,7 +28,6 @@ const AreaChartComponentRobots = memo(({ detail }) => {
    const colors = [
       '#0E65F6',
       '#03B2D9',
-      '#8993a5',
       '#1cbadd',
       '#3e84f8',
       '#35c1e1',
@@ -54,7 +53,7 @@ const AreaChartComponentRobots = memo(({ detail }) => {
                            key={key}
                            offset={`${(index * 100) / (uniqueArray.length - 1)}%`}
                            stopColor={colors[index]}
-                           stopOpacity={0.1}
+                           stopOpacity={0.06}
                         />
                      ))}
                   </linearGradient>

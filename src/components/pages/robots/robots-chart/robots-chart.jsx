@@ -10,7 +10,7 @@ function CustomTooltip({ active, payload }) {
             {Object.keys(data)?.map(
                (key, index) =>
                   key !== 'label' && (
-                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
+                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }}>
                         {`${key}: ${data[key]}`}
                      </p>
                   )
@@ -43,7 +43,7 @@ function RobotsChart({ detail }) {
       <div className="h-[448px]">
          <ResponsiveContainer width="100%" height="100%">
             <AreaChart width="100%" height={448} data={detail || []}>
-               <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} />
+               <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} vertical={false} />
                <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <Tooltip content={<CustomTooltip />} />
@@ -53,7 +53,7 @@ function RobotsChart({ detail }) {
                      <stop offset={off} stopColor="#dc2626" stopOpacity={0.6} />
                   </linearGradient>
                </defs>
-               <Area type="monotone" dataKey="profit" stroke="#000" fill="url(#splitColor)" />
+               <Area type="monotone" dataKey="profit" stroke="#89929e" fill="url(#splitColor)" />
             </AreaChart>
          </ResponsiveContainer>
       </div>

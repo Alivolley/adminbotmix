@@ -3,8 +3,6 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import AOS from 'aos';
 
-import { ReactQueryDevtools } from 'react-query/devtools';
-
 // MUI
 import { ThemeProvider, createTheme } from '@mui/material';
 // eslint-disable-next-line no-unused-vars
@@ -45,7 +43,6 @@ function AppLayout({ children }) {
 
    return (
       <ThemeProvider theme={themeConfig}>
-         <ReactQueryDevtools />
          <ToastContainer />
          <div className={`font-vazir ${themeMode === 'dark' ? 'dark' : ''}`}>{children}</div>
       </ThemeProvider>

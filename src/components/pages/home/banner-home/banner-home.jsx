@@ -152,7 +152,7 @@ function BannerHome({ detail, loading }) {
                         </div>
                         <div className="absolute inset-x-0 bottom-[-13%] flex justify-center">
                            <Link to={`/robotFunctionality/${detail?.id}`} state="register">
-                              <LinkComponent className="px-16">ایجاد سفارش</LinkComponent>
+                              <LinkComponent className="px-16">فعالسازی</LinkComponent>
                            </Link>
                         </div>
                      </div>

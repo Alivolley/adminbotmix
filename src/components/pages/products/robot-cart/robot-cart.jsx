@@ -30,6 +30,9 @@ function RobotCart({
 }) {
    const [showBuyPlanModal, setShowBuyPlanModal] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
+   const plan = useSelector(state => state.emailReducer.plan);
+
+   console.log(planeValue);
 
    const showBuyPlanModalHandler = () => {
       if (isLogin) {
@@ -98,12 +101,13 @@ function RobotCart({
                   color="primary"
                   size="large"
                   onClick={showBuyPlanModalHandler}
+                  disabled={plan === planeValue}
                >
-                  خرید اشتراک
+                  {plan === planeValue ? 'اشتراک فعلی' : 'خرید اشتراک'}
                </Button>
             ) : (
                <Button className="!mb-3 w-full !font-vazir" variant="outlined" color="primary" size="large" disabled>
-                  اشتراک فعلی
+                  اشتراک رایگان
                </Button>
             )}
          </RobotCartStyle>

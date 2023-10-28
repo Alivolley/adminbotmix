@@ -17,6 +17,7 @@ const emailReducer = createSlice({
          return {
             loading: false,
             value: action.payload.email,
+            plan: action.payload.currentPlan,
          };
       });
    },
