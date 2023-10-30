@@ -32,8 +32,6 @@ function RobotCart({
    const isLogin = useSelector(state => state.loginStatusReducer);
    const plan = useSelector(state => state.emailReducer.plan);
 
-   console.log(planeValue);
-
    const showBuyPlanModalHandler = () => {
       if (isLogin) {
          setShowBuyPlanModal(true);

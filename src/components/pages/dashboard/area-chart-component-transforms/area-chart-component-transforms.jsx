@@ -7,10 +7,11 @@ function CustomTooltip({ active, payload }) {
       return (
          <div className="rounded-2xl bg-[#000000be] px-5 py-3">
             {Object.keys(data).map(
-               (key, index) =>
-                  key !== 'label' && (
-                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }}>
-                        {`${key}: ${data[key]}`}
+               (key, idx) =>
+                  key !== 'label' &&
+                  key !== 'id' && (
+                     <p key={key} className="mt-2" style={{ color: payload?.[idx - 1]?.stroke }} dir="ltr">
+                        {`${data?.id} - ${key}: ${data[key]}`}
                      </p>
                   )
             )}
@@ -22,10 +23,12 @@ function CustomTooltip({ active, payload }) {
 }
 
 function AreaChartComponentTransform({ detail }) {
+   const newDetail = detail.map((item, index) => ({ ...item, id: index + 1 }));
+
    return (
       <div className="h-[220px] w-full font-vazir">
          <ResponsiveContainer>
-            <AreaChart data={detail || []}>
+            <AreaChart data={newDetail || []}>
                <defs>
                   <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
                      <stop offset="10%" stopColor="#0E65F6" stopOpacity={0.3} />

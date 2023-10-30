@@ -22,7 +22,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
 import AlertComponent from '../../components/templates/alert-component/alert-component';
 import InfoCard from '../../components/pages/dashboard/info-card/info-card';
-// import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
+import PieChartComponent from '../../components/pages/dashboard/pie-chart-component/pie-chart-component';
 import LogsComponent from '../../components/pages/dashboard/logs-component/logs-component';
 import AreaChartComponentTransform from '../../components/pages/dashboard/area-chart-component-transforms/area-chart-component-transforms';
 import AreaChartComponentRobots from '../../components/pages/dashboard/area-chart-component-robots/area-chart-component-robots';
@@ -236,7 +236,7 @@ function Dashboard() {
                               <div className="h-[9px] w-[9px] rounded-sm bg-[#7F9DC3]" />
                               <p>سهم باتمیکس</p>
                            </div>
-                           {/* <PieChartComponent /> */}
+                           <PieChartComponent />
                         </CardWrapper>
                      </Grid>
                   </Grid>

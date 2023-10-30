@@ -72,13 +72,13 @@ function DetailsTable({ detail, setRobotId }) {
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Total profit :</p>
-               <p className="text-sm">{detail?.total_profit}</p>
+               <p className="text-sm text-textGray">Active days :</p>
+               <p className="text-sm">{detail?.activate_days}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">
-               <p className="text-sm text-textGray">Total profit percent :</p>
-               <p className="text-sm">{detail?.profit_percent}</p>
+               <p className="text-sm text-textGray">Total profit :</p>
+               <p className="text-sm">{detail?.total_profit}</p>
             </div>
 
             <div className="flex justify-between gap-1 border-b-[1px] border-solid border-gray-200 p-3 dark:border-gray-600">

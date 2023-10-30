@@ -9,9 +9,10 @@ function CustomTooltip({ active, payload }) {
          <div className="rounded-2xl bg-[#000000be] px-5 py-3">
             {Object.keys(data)?.map(
                (key, index) =>
-                  key !== 'label' && (
-                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }}>
-                        {`${key}: ${data[key]}`}
+                  key !== 'label' &&
+                  key !== 'id' && (
+                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
+                        {`${data?.id} - ${key}: ${data[key]}%`}
                      </p>
                   )
             )}
@@ -23,6 +24,8 @@ function CustomTooltip({ active, payload }) {
 }
 
 function RobotsChart({ detail }) {
+   const newDetail = detail.map((item, index) => ({ ...item, id: index + 1 }));
+
    const gradientOffset = () => {
       const dataMax = Math.max(...detail?.map(i => i.profit));
       const dataMin = Math.min(...detail?.map(i => i.profit));
@@ -42,7 +45,7 @@ function RobotsChart({ detail }) {
    return (
       <div className="h-[448px]">
          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart width="100%" height={448} data={detail || []}>
+            <AreaChart width="100%" height={448} data={newDetail || []}>
                <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} vertical={false} />
                <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />

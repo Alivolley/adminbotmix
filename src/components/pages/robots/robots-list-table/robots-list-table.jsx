@@ -11,7 +11,6 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                   <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Name</th>
                   <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Exchange</th>
                   <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Total profit</th>
-                  <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Total profit percent</th>
                   <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">Winrate</th>
                   <th className="whitespace-nowrap p-3 text-left text-[13px] text-textGray">عملیات</th>
                </tr>
@@ -32,7 +31,6 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                      </td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.exchange}</td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.total_profit}</td>
-                     <td className="whitespace-nowrap p-3 text-sm">{item?.profit_percent}</td>
                      <td className="whitespace-nowrap p-3 text-sm">{item?.winRate}</td>
                      <td className="whitespace-nowrap p-3 text-sm">
                         <LoadingButton

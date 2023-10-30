@@ -3,18 +3,18 @@
 @tailwind utilities;
 
 @layer {
-  @font-face {
-    font-family: 'vazir';
-    src: url('./assets/fonts/Vazir.ttf') format('truetype');
-  }
+   @font-face {
+      font-family: 'vazir';
+      src: url('./assets/fonts/Vazir.ttf') format('truetype');
+   }
 
-  @font-face {
-    font-family: 'vazirBold';
-    src: url('./assets/fonts/Vazir-Bold.ttf') format('truetype');
-  }
+   @font-face {
+      font-family: 'vazirBold';
+      src: url('./assets/fonts/Vazir-Bold.ttf') format('truetype');
+   }
 
-  @font-face {
-    font-family: 'lalezar';
-    src: url('./assets/fonts/Lalezar-Regular.ttf') format('truetype');
-  }
+   @font-face {
+      font-family: 'lalezar';
+      src: url('./assets/fonts/Lalezar-Regular.ttf') format('truetype');
+   }
 }

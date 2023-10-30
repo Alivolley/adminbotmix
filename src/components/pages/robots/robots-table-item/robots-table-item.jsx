@@ -32,13 +32,13 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             key={detail?.id}
             className={`transition-all duration-200 ${isEven(index) ? 'bg-bgPrimary dark:bg-bgPrimaryDark' : ''}`}
          >
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                {detail?.index}
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                {detail?.symbol}
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                <div>
                   <p>Exit {detail?.side}</p>
                   <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
@@ -47,7 +47,7 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             </td>
 
             {hasMoreDetail && (
-               <td className="border-collapse border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                   <div>
                      <p>{detail?.close_order_id}</p>
                      <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
@@ -55,33 +55,33 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
                   </div>
                </td>
             )}
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                <div>
                   <p>{detail?.exitTime}</p>
                   <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
                   <p>{detail?.entTime}</p>
                </div>
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                <div>
                   <p>{detail?.exitPrice}</p>
                   <div className="my-2 h-[1px] w-full bg-gray-200 dark:bg-gray-600" />
                   <p>{detail?.entPrice}</p>
                </div>
             </td>
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                {detail?.quantity}%
             </td>
             {hasMoreDetail && (
-               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                   {detail?.contract}
                </td>
             )}
-            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+            <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                {detail?.leverage}
             </td>
             <td
-               className={`border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 ${
+               className={`border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal ${
                   (detail?.profit || detail?.profit_percent) < 0 ? 'text-error' : 'text-success'
                }`}
             >
@@ -90,7 +90,7 @@ function RobotsTableItem({ index, detail, refetchData, hasMoreDetail }) {
             </td>
 
             {hasMoreDetail && (
-               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600">
+               <td className="border-collapse whitespace-nowrap border-[1px] border-solid border-gray-200 px-3 py-5 text-xs dark:border-gray-600 xl:whitespace-normal">
                   {!detail?.is_closed ? (
                      <LoadingButton
                         className="!normal-case"

@@ -9,6 +9,7 @@ export default {
             customSm: '600px',
             customMd: '900px',
             customLg: '1200px',
+            custom1300: '1300px',
             customXl: '1400px',
          },
 
