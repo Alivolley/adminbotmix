@@ -47,6 +47,7 @@ function PieChartComponent() {
                   labelLine={false}
                   label={renderCustomizedLabel}
                   style={{ outline: 'none' }}
+                  startAngle={-180}
                >
                   {data.map((entry, index) => (
                      <Cell

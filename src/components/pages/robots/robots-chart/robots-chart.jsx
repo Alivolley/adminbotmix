@@ -1,7 +1,7 @@
 /* eslint-disable no-unsafe-optional-chaining */
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-function CustomTooltip({ active, payload }) {
+function CustomTooltip({ active, payload, percent }) {
    if (active && payload && payload.length) {
       const data = payload[0].payload;
 
@@ -10,11 +10,15 @@ function CustomTooltip({ active, payload }) {
             {Object.keys(data)?.map(
                (key, index) =>
                   key !== 'label' &&
-                  key !== 'id' && (
+                  (key === 'number' ? (
                      <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
-                        {`${data?.id} - ${key}: ${data[key]}%`}
+                        {`${key}: ${data[key]}`}
                      </p>
-                  )
+                  ) : (
+                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
+                        {`${key}: ${data[key]}${percent ? '%' : '$'}`}
+                     </p>
+                  ))
             )}
          </div>
       );
@@ -23,8 +27,8 @@ function CustomTooltip({ active, payload }) {
    return null;
 }
 
-function RobotsChart({ detail }) {
-   const newDetail = detail.map((item, index) => ({ ...item, id: index + 1 }));
+function RobotsChart({ detail, percent }) {
+   const newDetail = detail.map((item, index) => ({ ...item, number: index + 1 }));
 
    const gradientOffset = () => {
       const dataMax = Math.max(...detail?.map(i => i.profit));
@@ -49,7 +53,7 @@ function RobotsChart({ detail }) {
                <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} vertical={false} />
                <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
-               <Tooltip content={<CustomTooltip />} />
+               <Tooltip content={<CustomTooltip percent={percent} />} />
                <defs>
                   <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
                      <stop offset={off} stopColor="#22c55e" stopOpacity={0.9} />

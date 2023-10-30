@@ -10,11 +10,15 @@ function CustomTooltip({ active, payload }) {
             {Object.keys(data).map(
                (key, index) =>
                   key !== 'label' &&
-                  key !== 'id' && (
-                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
-                        {`${data?.id} - ${key}: ${data[key]} $`}
+                  (key === 'number' ? (
+                     <p key={key} className="mt-2 text-white" dir="ltr">
+                        {`${key}: ${data[key]}`}
                      </p>
-                  )
+                  ) : (
+                     <p key={key} className="mt-2" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
+                        {`${key}: ${data[key]} $`}
+                     </p>
+                  ))
             )}
          </div>
       );
@@ -24,7 +28,7 @@ function CustomTooltip({ active, payload }) {
 }
 
 const AreaChartComponentRobots = memo(({ detail }) => {
-   const newDetail = detail.map((item, index) => ({ ...item, id: index + 1 }));
+   const newDetail = detail.map((item, index) => ({ ...item, number: index + 1 }));
 
    const dataKeys = detail?.map(item => Object.keys(item).filter(key => key !== 'label'));
    const uniqueArray = Array.from(new Set(dataKeys.flat()));
