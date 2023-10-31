@@ -53,7 +53,6 @@ function GrowableCurrencies() {
                         >
                            <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
                               <p className="flex-1 p-2 text-center text-sm">
-                                 ارز های مستعد رشد به تشخیص باتمیکس
                                  <Tooltip
                                     title={
                                        <ul className="flex flex-col gap-3 p-2 pr-4">
@@ -78,8 +77,9 @@ function GrowableCurrencies() {
                                        arrow: '!text-[#000000]',
                                     }}
                                  >
-                                    <InfoIcon fontSize="small" className="mr-1" color="info" />
+                                    <InfoIcon fontSize="small" className="ml-1.5" color="info" />
                                  </Tooltip>
+                                 ارز های مستعد رشد به تشخیص باتمیکس
                               </p>
                            </div>
                            <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
