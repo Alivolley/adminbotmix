@@ -6,16 +6,16 @@ function CustomTooltip({ active, payload, percent }) {
       const data = payload[0].payload;
 
       return (
-         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
+         <div className="flex flex-col gap-0.5 rounded-lg bg-[#000000be] p-2 text-sm">
             {Object.keys(data)?.map(
-               (key, index) =>
+               key =>
                   key !== 'label' &&
                   (key === 'number' ? (
-                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
-                        {`${key}: ${data[key]}`}
+                     <p key={key} className="order-1 text-xs text-white" dir="ltr">
+                        {data[key]}
                      </p>
                   ) : (
-                     <p key={key} className="mt-2 text-white" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
+                     <p key={key} className="order-2 text-white" dir="ltr">
                         {`${key}: ${data[key]}${percent ? '%' : '$'}`}
                      </p>
                   ))
@@ -51,16 +51,16 @@ function RobotsChart({ detail, percent }) {
          <ResponsiveContainer width="100%" height="100%">
             <AreaChart width="100%" height={448} data={newDetail || []}>
                <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} vertical={false} />
-               <XAxis dataKey="name" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
+               <XAxis dataKey="number" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />
                <Tooltip content={<CustomTooltip percent={percent} />} />
                <defs>
                   <linearGradient id="splitColor" x1="0" y1="0" x2="0" y2="1">
-                     <stop offset={off} stopColor="#22c55e" stopOpacity={0.9} />
-                     <stop offset={off} stopColor="#dc2626" stopOpacity={0.6} />
+                     <stop offset={off} stopColor="#137A6C" stopOpacity={1} />
+                     <stop offset={off} stopColor="#B73541" stopOpacity={1} />
                   </linearGradient>
                </defs>
-               <Area type="monotone" dataKey="profit" stroke="#89929e" fill="url(#splitColor)" />
+               <Area type="monotone" dataKey="profit" stroke="#00000044" fill="url(#splitColor)" />
             </AreaChart>
          </ResponsiveContainer>
       </div>

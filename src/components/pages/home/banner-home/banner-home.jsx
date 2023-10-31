@@ -95,67 +95,72 @@ function BannerHome({ detail, loading }) {
                         <img className="mx-auto w-full rounded-[60px]" src={homeBannerBg} alt="first pic" />
                      </div>
 
-                     <div className="mt-24 px-4 py-2" id="home_card" data-aos="fade-up" data-aos-duration="1500">
-                        <p className="border-b-[1px] border-solid border-stone-600 pb-3 text-lg font-bold">
-                           محصول پیشنهادی باتمیکس
-                        </p>
-                        <div className="mt-4 flex items-center justify-between gap-6 pb-12 customMd:gap-16" dir="ltr">
-                           {loading ? (
-                              <div className="flex items-center justify-center">
-                                 <CircularProgress />
-                              </div>
-                           ) : (
-                              <>
-                                 <div className="space-y-2">
-                                    <div className="flex flex-wrap gap-2">
-                                       <p className="whitespace-nowrap text-textGray">Name :</p>
-                                       <p>{detail?.name}</p>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                       <p className="whitespace-nowrap text-textGray">Total profit :</p>
-                                       <p>{detail?.total_profit}%</p>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                       <p className="whitespace-nowrap text-textGray">WinRate :</p>
-                                       <p>{detail?.winRate}%</p>
-                                    </div>
-                                    <div className="flex flex-wrap gap-2">
-                                       <p className="whitespace-nowrap text-textGray">DrawDown :</p>
-                                       <p>{detail?.drawdown}%</p>
-                                    </div>
+                     {detail?.name && (
+                        <div className="mt-24 px-4 py-2" id="home_card" data-aos="fade-up" data-aos-duration="1500">
+                           <p className="border-b-[1px] border-solid border-stone-600 pb-3 text-lg font-bold">
+                              محصول پیشنهادی باتمیکس
+                           </p>
+                           <div
+                              className="mt-4 flex items-center justify-between gap-6 pb-12 customMd:gap-16"
+                              dir="ltr"
+                           >
+                              {loading ? (
+                                 <div className="flex items-center justify-center">
+                                    <CircularProgress />
                                  </div>
+                              ) : (
+                                 <>
+                                    <div className="space-y-2">
+                                       <div className="flex flex-wrap gap-2">
+                                          <p className="whitespace-nowrap text-textGray">Name :</p>
+                                          <p>{detail?.name}</p>
+                                       </div>
+                                       <div className="flex flex-wrap gap-2">
+                                          <p className="whitespace-nowrap text-textGray">Total profit :</p>
+                                          <p>{detail?.total_profit}%</p>
+                                       </div>
+                                       <div className="flex flex-wrap gap-2">
+                                          <p className="whitespace-nowrap text-textGray">WinRate :</p>
+                                          <p>{detail?.winRate}%</p>
+                                       </div>
+                                       <div className="flex flex-wrap gap-2">
+                                          <p className="whitespace-nowrap text-textGray">DrawDown :</p>
+                                          <p>{detail?.drawdown}%</p>
+                                       </div>
+                                    </div>
 
-                                 <div className="w-[70px] customSm:max-w-[250px] customSm:grow">
-                                    <ResponsiveContainer width="100%" height={100}>
-                                       <AreaChart data={detail?.chart || []}>
-                                          <defs>
-                                             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-                                                <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
-                                                <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
-                                             </linearGradient>
-                                          </defs>
-                                          <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
+                                    <div className="w-[70px] customSm:max-w-[250px] customSm:grow">
+                                       <ResponsiveContainer width="100%" height={100}>
+                                          <AreaChart data={detail?.chart || []}>
+                                             <defs>
+                                                <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+                                                   <stop offset="5%" stopColor="#48BB78" stopOpacity={0.3} />
+                                                   <stop offset="95%" stopColor="#48BB78" stopOpacity={0} />
+                                                </linearGradient>
+                                             </defs>
+                                             <YAxis domain={detail?.chart?.[0]?.profit || 0} hide />
 
-                                          <Area
-                                             type="monotone"
-                                             dataKey="profit"
-                                             stroke="#48BB78"
-                                             strokeWidth="3px"
-                                             fillOpacity={1}
-                                             fill="url(#colorUv)"
-                                          />
-                                       </AreaChart>
-                                    </ResponsiveContainer>
-                                 </div>
-                              </>
-                           )}
+                                             <Area
+                                                type="monotone"
+                                                dataKey="profit"
+                                                stroke="#48BB78"
+                                                strokeWidth="3px"
+                                                fillOpacity={1}
+                                                fill="url(#colorUv)"
+                                             />
+                                          </AreaChart>
+                                       </ResponsiveContainer>
+                                    </div>
+                                 </>
+                              )}
+                           </div>
+                           <div className="absolute inset-x-0 bottom-[-13%] flex justify-center">
+                              <Link to={`/robotFunctionality/${detail?.id}`} state="register">
+                                 <LinkComponent className="px-16">فعالسازی</LinkComponent>
+                              </Link>
+                           </div>
                         </div>
-                        <div className="absolute inset-x-0 bottom-[-13%] flex justify-center">
-                           <Link to={`/robotFunctionality/${detail?.id}`} state="register">
-                              <LinkComponent className="px-16">فعالسازی</LinkComponent>
-                           </Link>
-                        </div>
-                     </div>
+                     )}
                   </div>
                </Grid>
             </Grid>

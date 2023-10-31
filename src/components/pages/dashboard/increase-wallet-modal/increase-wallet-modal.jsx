@@ -43,7 +43,7 @@ function IncreaseWalletModal({ closeModal, open }) {
          type: 'zarinpal',
          amount: '',
       },
-      mode: 'onSubmit',
+      mode: 'onTouched',
    });
 
    const formSubmit = data => {
@@ -103,11 +103,13 @@ function IncreaseWalletModal({ closeModal, open }) {
                         {...register('amount', {
                            required: {
                               value: true,
-                              message: 'این فیلد اجباری است',
+                           },
+                           min: {
+                              value: 2,
                            },
                         })}
                         error={!!errors?.amount}
-                        helperText={errors?.amount?.message}
+                        helperText="حداقل میزان شارژ کیف پول ۲ تتر میباشد"
                         disabled={zarinIsLoading || noPayIsLoading}
                      />
                   </div>

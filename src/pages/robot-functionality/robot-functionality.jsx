@@ -25,6 +25,8 @@ function RobotFunctionality() {
       refetch,
    } = useRobotDetail(id);
 
+   console.log(robotData);
+
    return (
       <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
          {robotIsLoading ? (
@@ -49,6 +51,11 @@ function RobotFunctionality() {
                   </Grid>
                </Grid>
                <div className="mt-10">
+                  <CardWrapper>
+                     <p className="font-bold">{robotData?.pages?.[0]?.data?.description}</p>
+                  </CardWrapper>
+               </div>
+               <div className="mt-5">
                   <CardWrapper>
                      <p className="mb-[40px] text-sm font-bold">جدول آمارها</p>
                      <RobotsTable

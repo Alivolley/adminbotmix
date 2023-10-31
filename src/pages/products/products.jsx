@@ -13,7 +13,7 @@ import RtlProvider from '../../components/layout/rtlProvider/rtlProvider';
 import useAllProducts from '../../apis/products/useAllProducts/useAllProducts';
 
 function Products() {
-   const [chosenCategory, setChosenCategory] = useState('robot_interface');
+   const [chosenCategory, setChosenCategory] = useState('portfolio_management');
    const [planTime, setPlanTime] = useState(1);
 
    const location = useLocation();

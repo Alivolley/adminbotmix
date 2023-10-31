@@ -73,7 +73,7 @@ function RobotCart({
             </div>
 
             <div className="mb-5 flex items-center justify-between border-b border-gray-200 px-2 pb-5 dark:border-gray-600">
-               <p className="text-sm">تعداد گروه یا کانال دریافت کننده ی آلرت ها</p>
+               <p className="text-sm">تعداد گروه یا کانال دریافت کننده ی الرت ها</p>
                <p className="flex h-10 w-10 items-center justify-center rounded-full border-[3px] border-secondaryBlue">
                   {groupOrChannelAlertCount}
                </p>

@@ -1,7 +1,7 @@
 // MUI
 import { LoadingButton } from '@mui/lab';
 
-function RobotsListTable({ detail, setRobotId, robotId }) {
+function RobotsListTable({ detail, setRobotId, robotId, defaultId }) {
    return (
       <div className="overflow-auto">
          <p className="mb-3">لیست ربات ها</p>
@@ -20,7 +20,7 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                   <tr
                      key={item?.id}
                      className={`transition-all duration-200 ${
-                        robotId === item?.id ? 'bg-bgPrimary dark:bg-[#171c26]' : ''
+                        robotId === item?.id || defaultId === item?.id ? 'bg-bgPrimary dark:bg-[#171c26]' : ''
                      }`}
                   >
                      <td className="whitespace-nowrap p-3 text-sm">
@@ -39,7 +39,7 @@ function RobotsListTable({ detail, setRobotId, robotId }) {
                            size="small"
                            color="primaryBlue"
                            onClick={() => setRobotId(item?.id)}
-                           disabled={robotId === item?.id}
+                           disabled={robotId === item?.id || defaultId === item?.id}
                         >
                            جزئیات
                         </LoadingButton>

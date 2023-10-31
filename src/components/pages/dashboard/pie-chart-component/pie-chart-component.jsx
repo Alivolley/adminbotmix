@@ -6,8 +6,8 @@ function CustomTooltip({ active, payload }) {
       const data = payload[0].payload;
 
       return (
-         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
-            <p className="mt-2 text-sm text-white">{`${data?.name} : %${data?.value}`}</p>
+         <div className="rounded-lg bg-[#000000be] p-3">
+            <p className="text-sm text-white">{`${data?.name} : %${data?.value}`}</p>
          </div>
       );
    }

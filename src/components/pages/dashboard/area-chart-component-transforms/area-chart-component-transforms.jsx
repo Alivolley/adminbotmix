@@ -5,19 +5,19 @@ function CustomTooltip({ active, payload }) {
       const data = payload[0].payload;
 
       return (
-         <div className="rounded-2xl bg-[#000000be] px-5 py-3">
+         <div className="flex flex-col gap-0.5 rounded-lg bg-[#000000be] p-2 text-sm">
             {Object.keys(data).map(
-               (key, idx) =>
-                  key !== 'label' && (
-                     <p
-                        key={key}
-                        className={`mt-2 ${key === 'number' ? 'text-white' : ''}`}
-                        style={{ color: payload?.[idx - 1]?.stroke }}
-                        dir="ltr"
-                     >
+               (key, index) =>
+                  key !== 'label' &&
+                  (key === 'number' ? (
+                     <p key={key} className="order-1 text-xs text-white" dir="ltr">
+                        {data[key]}
+                     </p>
+                  ) : (
+                     <p key={key} className="order-2" style={{ color: payload?.[index - 1]?.stroke }} dir="ltr">
                         {`${key}: ${data[key]}`}
                      </p>
-                  )
+                  ))
             )}
          </div>
       );

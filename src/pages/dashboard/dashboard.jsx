@@ -49,10 +49,10 @@ function Dashboard() {
    } = useLogs(filtersValue === 'all' ? null : filtersValue);
 
    useEffect(() => {
-      if (dashboardData?.has_history_chart) {
-         setChosenChart('transformHistory');
-      } else if (dashboardData?.has_bot_chart) {
+      if (dashboardData?.has_bot_chart) {
          setChosenChart('robotsHistory');
+      } else if (dashboardData?.has_history_chart) {
+         setChosenChart('transformHistory');
       }
    }, [dashboardData]);
 
