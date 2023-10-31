@@ -69,21 +69,6 @@ function Sidebar({ shouldHide, setMobileMenuOpen }) {
 
             <NavLink
                onClick={() => setMobileMenuOpen && setMobileMenuOpen(false)}
-               to="profile-setting"
-               className="flex items-center gap-3 rounded-[11px] p-4"
-               id="navLink"
-            >
-               <div
-                  className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
-                  id="iconWrapper"
-               >
-                  <ManageAccountsIcon color="inherit" fontSize="inherit" />
-               </div>
-               <p className="text-[14px] font-[700] text-textGray">پروفایل</p>
-            </NavLink>
-
-            <NavLink
-               onClick={() => setMobileMenuOpen && setMobileMenuOpen(false)}
                to="robots"
                className="flex items-center gap-3 rounded-[11px] p-4"
                id="navLink"
@@ -125,6 +110,21 @@ function Sidebar({ shouldHide, setMobileMenuOpen }) {
                   <OfflineShareIcon color="inherit" fontSize="inherit" />
                </div>
                <p className="text-[14px] font-[700] text-textGray">اتصال به تلگرام</p>
+            </NavLink>
+
+            <NavLink
+               onClick={() => setMobileMenuOpen && setMobileMenuOpen(false)}
+               to="profile-setting"
+               className="flex items-center gap-3 rounded-[11px] p-4"
+               id="navLink"
+            >
+               <div
+                  className="flex h-8 w-8 items-center justify-center rounded-[10px] text-[18px] text-primaryBlue"
+                  id="iconWrapper"
+               >
+                  <ManageAccountsIcon color="inherit" fontSize="inherit" />
+               </div>
+               <p className="text-[14px] font-[700] text-textGray">پروفایل</p>
             </NavLink>
 
             <div className="flex rounded-[11px] px-4">

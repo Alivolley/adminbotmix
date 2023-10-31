@@ -109,7 +109,7 @@ function IncreaseWalletModal({ closeModal, open }) {
                            },
                         })}
                         error={!!errors?.amount}
-                        helperText="حداقل میزان شارژ کیف پول ۲ تتر میباشد"
+                        helperText="حداقل میزان شارژ کیف پول 2 USDT میباشد"
                         disabled={zarinIsLoading || noPayIsLoading}
                      />
                   </div>

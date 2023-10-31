@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 
 // MUI
-import { CircularProgress, Grid } from '@mui/material';
+import { CircularProgress, Grid, Tooltip } from '@mui/material';
+
+// Icons
+import InfoIcon from '@mui/icons-material/Info';
 
 // Redux
 import { useSelector } from 'react-redux';
@@ -22,6 +25,7 @@ function GrowableCurrencies() {
    const [chosenCurrency, setChosenCurrency] = useState('BINANCE:BTCUSDT');
 
    const { data: growableData, isLoading: growableIsLoading } = useGrowableCurrencies();
+   console.log(growableData);
 
    return (
       <GrowableCurrenciesStyle className="mb-20 mt-16 min-h-screen">
@@ -42,109 +46,142 @@ function GrowableCurrencies() {
                         <CircularProgress />
                      </div>
                   ) : (
-                     <div
-                        className="relative flex flex-1 flex-col overflow-auto rounded-sm border border-stone-300 dark:border-gray-700"
-                        id="custom-scroll"
-                     >
-                        <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
-                           <p className="flex-1 p-2 text-center text-sm">ارز های مستعد رشد</p>
-                        </div>
-                        <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
-                           <p className="flex-1 p-2 text-center text-sm">میان مدت</p>
-                           <p className="flex-1 border-r border-stone-300 p-2 text-center text-sm dark:border-gray-700">
-                              کوتاه مدت
-                           </p>
-                        </div>
-                        <div className="flex grow">
-                           <div className="flex flex-1 flex-col text-center">
-                              {growableData?.high_risk?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
+                     <>
+                        <div
+                           className="relative flex flex-1 flex-col overflow-auto rounded-sm border border-stone-300 dark:border-gray-700"
+                           id="custom-scroll"
+                        >
+                           <div className="flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
+                              <p className="flex-1 p-2 text-center text-sm">
+                                 ارز های مستعد رشد به تشخیص باتمیکس
+                                 <Tooltip
+                                    title={
+                                       <ul className="flex flex-col gap-3 p-2 pr-4">
+                                          <li className="list-disc text-textGray">
+                                             ارز های مستعد رشد ارزهای پیشنهادی باتمیکس هستند که احتمال پامپ شدن بالایی
+                                             دارند.
+                                          </li>
+                                          <li className="list-disc text-textGray">
+                                             شما عزیزان با بررسی وضعیت تکنیکالی این ارزها متونید با مدیریت سرمایهبه سه
+                                             یا چهار تا از این ارزها برای معاملات هفتگیتون فکر کنید.
+                                          </li>
+                                          <li className="list-disc text-textGray">
+                                             بهتره دارایی هاتون رو بین ریسک های متفاوت تقسیم کنید و درصد بیشتر مبلغ
+                                             سرمایه گذاری رو ، روی ارز های کم ریسک بزارید.
+                                          </li>
+                                       </ul>
+                                    }
+                                    arrow
+                                    placement="top"
+                                    classes={{
+                                       tooltip: '!text-[13px] !bg-[#000000]',
+                                       arrow: '!text-[#000000]',
+                                    }}
                                  >
-                                    <p className="text-[#ff0000]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
-
-                              {growableData?.med_risk?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
-                                 >
-                                    <p className="text-[#ff6400]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
-
-                              {growableData?.low_risk?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
-                                 >
-                                    <p className="text-[#ffc800]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
+                                    <InfoIcon fontSize="small" className="mr-1" color="info" />
+                                 </Tooltip>
+                              </p>
                            </div>
-                           <div className="border-r border-stone-300 text-center dark:border-gray-700" />
-                           <div className="flex flex-1 flex-col text-center">
-                              {growableData?.high_risk_d?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
-                                 >
-                                    <p className="text-[#ff0000]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
+                           <div className="sticky top-0 flex items-center border-b border-stone-300 bg-bgPrimary dark:border-gray-700 dark:bg-bgPrimaryDark">
+                              <p className="flex-1 p-2 text-center text-sm">میان مدت</p>
+                              <p className="flex-1 border-r border-stone-300 p-2 text-center text-sm dark:border-gray-700">
+                                 کوتاه مدت
+                              </p>
+                           </div>
+                           <div className="flex grow">
+                              <div className="flex flex-1 flex-col text-center">
+                                 {growableData?.high_risk?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ff0000]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
 
-                              {growableData?.med_risk_d?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
-                                 >
-                                    <p className="text-[#ff6400]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
+                                 {growableData?.med_risk?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ff6400]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
 
-                              {growableData?.low_risk_d?.map(item => (
-                                 <button
-                                    onClick={() => setChosenCurrency(item?.symbol)}
-                                    key={item?.rank}
-                                    type="button"
-                                    className={`space-y-1.5 p-2 text-sm ${
-                                       chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
-                                    }`}
-                                 >
-                                    <p className="text-[#ffc800]">{item?.name}</p>
-                                    <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
-                                 </button>
-                              ))}
+                                 {growableData?.low_risk?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ffc800]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
+                              </div>
+                              <div className="border-r border-stone-300 text-center dark:border-gray-700" />
+                              <div className="flex flex-1 flex-col text-center">
+                                 {growableData?.high_risk_d?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ff0000]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
+
+                                 {growableData?.med_risk_d?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ff6400]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
+
+                                 {growableData?.low_risk_d?.map(item => (
+                                    <button
+                                       onClick={() => setChosenCurrency(item?.symbol)}
+                                       key={item?.rank}
+                                       type="button"
+                                       className={`space-y-1.5 p-2 text-sm ${
+                                          chosenCurrency === item?.symbol ? 'bg-[#8886865b] dark:bg-[#171c26]' : ''
+                                       }`}
+                                    >
+                                       <p className="text-[#ffc800]">{item?.name}</p>
+                                       <p className="text-xs text-textGray">( Rank : {item?.rank} )</p>
+                                    </button>
+                                 ))}
+                              </div>
                            </div>
                         </div>
-                     </div>
+                        <p className="-mt-2 text-center text-xs text-textGray">
+                           تاریخ آخرین آپدیت : {growableData?.last_update}
+                        </p>
+                     </>
                   )}
                </div>
             </Grid>
