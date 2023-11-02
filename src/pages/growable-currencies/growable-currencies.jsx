@@ -25,7 +25,6 @@ function GrowableCurrencies() {
    const [chosenCurrency, setChosenCurrency] = useState('BINANCE:BTCUSDT');
 
    const { data: growableData, isLoading: growableIsLoading } = useGrowableCurrencies();
-   console.log(growableData);
 
    return (
       <GrowableCurrenciesStyle className="mb-20 mt-16 min-h-screen">

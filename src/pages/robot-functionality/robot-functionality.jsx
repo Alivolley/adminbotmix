@@ -25,10 +25,8 @@ function RobotFunctionality() {
       refetch,
    } = useRobotDetail(id);
 
-   console.log(robotData);
-
    return (
-      <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1150px] customMd:mt-[80px]">
+      <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1600px] customMd:mt-[80px]">
          {robotIsLoading ? (
             <div className="flex items-center justify-center">
                <CircularProgress />
@@ -36,12 +34,12 @@ function RobotFunctionality() {
          ) : (
             <>
                <Grid container spacing={2}>
-                  <Grid item xs={12} md={8} order={{ xs: 1, lg: 2 }}>
+                  <Grid item xs={12} md={8} xl={9} order={{ xs: 1, lg: 2 }}>
                      <CardWrapper heightFull>
                         <RobotsChart detail={robotData?.pages?.[0]?.data?.chart} percent />
                      </CardWrapper>
                   </Grid>
-                  <Grid item xs={12} md={4} order={{ xs: 3, lg: 3 }}>
+                  <Grid item xs={12} md={4} xl={3} order={{ xs: 3, lg: 3 }}>
                      <CardWrapper heightFull>
                         <DetailTableRobotFunctionality
                            detail={robotData?.pages?.[0]?.data}
