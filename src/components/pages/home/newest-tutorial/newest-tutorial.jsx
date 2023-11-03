@@ -1,10 +1,12 @@
+import { useRef, useEffect, useState } from 'react';
+
 // Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
-import { Pagination, FreeMode, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 
 // MUI
 import { CircularProgress } from '@mui/material';
@@ -20,6 +22,23 @@ import { NewestTutorialStyle } from './newest-tutorial.style';
 import TutorialCard from '../../../templates/tutorial-card/tutorial-card';
 
 function NewestTutorial({ detail, loading }) {
+   const swiperRef = useRef(null);
+   const [reload, setReload] = useState(false);
+
+   useEffect(() => {
+      if (swiperRef.current) {
+         const swiperInstance = swiperRef.current.swiper;
+         const slide = detail.length / 2;
+
+         swiperInstance.slideTo(slide);
+      }
+   }, [swiperRef, reload]);
+
+   useEffect(() => {
+      setReload(prev => !prev);
+   }, [swiperRef, loading, detail]);
+
+   console.log(reload);
    return (
       <NewestTutorialStyle>
          {detail?.length ? (
@@ -34,8 +53,7 @@ function NewestTutorial({ detail, loading }) {
                   ) : (
                      <Swiper
                         spaceBetween={30}
-                        // loop
-                        freeMode
+                        ref={swiperRef}
                         navigation={{
                            nextEl: '.swiper-button-next-custom',
                            prevEl: '.swiper-button-prev-custom',
@@ -46,11 +64,11 @@ function NewestTutorial({ detail, loading }) {
                               return `<span class="w-2 h-2 rounded-full dark:bg-stone-300 ${className}"></span>`;
                            },
                         }}
-                        modules={[FreeMode, Pagination, Navigation]}
+                        modules={[Pagination, Navigation]}
                         // eslint-disable-next-line tailwindcss/no-custom-classname
                         className="mySwiper"
-                        style={{ paddingBottom: '90px' }}
                         centeredSlides
+                        style={{ paddingBottom: '90px' }}
                         breakpoints={{
                            280: {
                               slidesPerView: 1,
@@ -76,14 +94,14 @@ function NewestTutorial({ detail, loading }) {
                            <div
                               // eslint-disable-next-line tailwindcss/no-custom-classname
                               className="swiper-button-prev-custom z-10 flex cursor-pointer items-center justify-center rounded-full
-              bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
+                              bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
                            >
                               <KeyboardArrowRightIcon fontSize="inherit" />
                            </div>
                            <div
                               // eslint-disable-next-line tailwindcss/no-custom-classname
                               className="swiper-button-next-custom z-10 flex cursor-pointer items-center justify-center rounded-full
-             bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
+                              bg-primaryBlue text-[28px] text-white customSm:h-14 customSm:w-14 customSm:text-[35px]"
                            >
                               <KeyboardArrowLeftIcon fontSize="inherit" />
                            </div>

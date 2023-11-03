@@ -2,7 +2,10 @@ import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 // MUI
-import { CircularProgress, Grid, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { CircularProgress, Grid, FormControl, InputLabel, Select, MenuItem, Button, Alert } from '@mui/material';
+
+// Redux
+import { useSelector } from 'react-redux';
 
 // Components
 import ProductCard from '../../components/pages/products/product-card/product-card';
@@ -11,10 +14,13 @@ import RtlProvider from '../../components/layout/rtlProvider/rtlProvider';
 
 // Api
 import useAllProducts from '../../apis/products/useAllProducts/useAllProducts';
+import BuyReservePlanModal from '../../components/pages/products/buy-reserve-plan-modal/buy-reserve-plan-modal';
 
 function Products() {
    const [chosenCategory, setChosenCategory] = useState('portfolio_management');
+   const [showBuyReserveModal, setShowBuyReserveModal] = useState(false);
    const [planTime, setPlanTime] = useState(1);
+   const reservedPlan = useSelector(state => state.emailReducer.reservedPlan);
 
    const location = useLocation();
    const { data: allProductsData, isLoading: allProductsIsLoading } = useAllProducts();
@@ -146,7 +152,29 @@ function Products() {
                         />
                      </Grid>
                   </Grid>
+
+                  {!reservedPlan ? (
+                     <div className="mt-10 flex justify-center border-t border-gray-200 pt-5 dark:border-gray-600">
+                        <Button
+                           className="!px-16 !font-vazir !text-white"
+                           variant="contained"
+                           color="primaryBlue"
+                           onClick={() => setShowBuyReserveModal(true)}
+                        >
+                           خرید پلن رزرو
+                        </Button>
+                     </div>
+                  ) : (
+                     <Alert
+                        className="mt-10 !rounded-xl border-t border-gray-200 !py-1 !font-vazir !text-base dark:border-gray-600"
+                        severity="info"
+                        icon={false}
+                     >
+                        شما یک پلن رزرو {reservedPlan} دارید.
+                     </Alert>
+                  )}
                </div>
+               <BuyReservePlanModal open={showBuyReserveModal} closeModal={() => setShowBuyReserveModal(false)} />
             </>
          )}
 

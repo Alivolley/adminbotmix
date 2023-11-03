@@ -18,6 +18,7 @@ const emailReducer = createSlice({
             loading: false,
             value: action.payload.email,
             plan: action.payload.currentPlan,
+            reservedPlan: action.payload.reservedPlan,
          };
       });
    },

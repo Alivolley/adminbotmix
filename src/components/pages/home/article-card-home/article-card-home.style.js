@@ -43,7 +43,7 @@ export const ArticleCardHomeStyle = styled(Link)(({ theme }) => ({
       img: {
          borderRadius: '20px',
          aspectRatio: '1/1',
-         objectFit: 'fill',
+         objectFit: 'cover',
       },
    },
 }));
