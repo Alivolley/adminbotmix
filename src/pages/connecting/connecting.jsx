@@ -102,7 +102,7 @@ function Connecting() {
                <Grid item xs={12} md={4.5} order={{ xs: 1, md: 2 }}>
                   <CardWrapper>
                      <div>
-                        <p className="mb-4 text-sm">لینک دسترسی</p>
+                        <p className="mb-4 text-sm">لینک وبهوک</p>
                         <div
                            dir="ltr"
                            className="relative mr-auto mt-2 flex items-center rounded-md border-[1px] border-solid border-textGray text-[10px] customSm:text-xs"

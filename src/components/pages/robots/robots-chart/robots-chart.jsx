@@ -1,4 +1,5 @@
 /* eslint-disable no-unsafe-optional-chaining */
+import { useMediaQuery, useTheme } from '@mui/material';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function CustomTooltip({ active, payload, percent }) {
@@ -28,6 +29,9 @@ function CustomTooltip({ active, payload, percent }) {
 }
 
 function RobotsChart({ detail, percent }) {
+   const theme = useTheme();
+   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
    const newDetail = detail.map((item, index) => ({ ...item, number: index + 1 }));
 
    const gradientOffset = () => {
@@ -47,9 +51,9 @@ function RobotsChart({ detail, percent }) {
    const off = gradientOffset();
 
    return (
-      <div className="h-[448px]">
+      <div className="h-[250px] customMd:h-[448px]">
          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart width="100%" height={448} data={newDetail || []}>
+            <AreaChart width="100%" height={isMobile ? 250 : 448} data={newDetail || []}>
                <CartesianGrid strokeDasharray="0" stroke="#000" strokeOpacity={0.2} vertical={false} />
                <XAxis dataKey="number" tick={{ fontSize: '9px', fill: '#A0AEC0' }} axisLine={false} />
                <YAxis axisLine={false} tick={{ fontSize: '9px', fill: '#A0AEC0', dx: -20 }} tickLine={false} />

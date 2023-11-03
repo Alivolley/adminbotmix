@@ -50,9 +50,7 @@ function NewestTutorial({ detail, loading }) {
                         // eslint-disable-next-line tailwindcss/no-custom-classname
                         className="mySwiper"
                         style={{ paddingBottom: '90px' }}
-                        {...(detail?.length < 4 && {
-                           centeredSlides: true,
-                        })}
+                        centeredSlides
                         breakpoints={{
                            280: {
                               slidesPerView: 1,

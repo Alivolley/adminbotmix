@@ -9,9 +9,11 @@ import { useSelector } from 'react-redux';
 
 // Components
 import ActiveRobotModal from '../../products/active-robot-modal/active-robot-modal';
+import IncreaseWalletModal from '../../dashboard/increase-wallet-modal/increase-wallet-modal';
 
 function DetailTableRobotFunctionality({ detail, accountBalance }) {
    const [showActiveModal, setShowActiveModal] = useState(false);
+   const [increaseModalStatus, setIncreaseModalStatus] = useState(false);
    const isLogin = useSelector(state => state.loginStatusReducer);
 
    const activeRobotHandler = () => {
@@ -20,17 +22,15 @@ function DetailTableRobotFunctionality({ detail, accountBalance }) {
             if (accountBalance > 0) {
                setShowActiveModal(true);
             } else {
-               toast.error(
-                  'برای فعال کردن ربات باید موجودی بیشتر از 0 داشته باشید, از بخش داشبورد میتوانید موجودی خود را افزایش دهید .',
-                  {
-                     style: {
-                        direction: 'rtl',
-                        fontFamily: 'vazir',
-                     },
-                     theme: 'colored',
-                     autoClose: 5000,
-                  }
-               );
+               toast.error('برای فعال کردن ربات باید موجودی بیشتر از 0 داشته باشید.', {
+                  style: {
+                     direction: 'rtl',
+                     fontFamily: 'vazir',
+                  },
+                  theme: 'colored',
+                  autoClose: 5000,
+               });
+               setIncreaseModalStatus(true);
             }
          }
       } else {
@@ -110,6 +110,8 @@ function DetailTableRobotFunctionality({ detail, accountBalance }) {
          </div>
 
          <ActiveRobotModal show={showActiveModal} closeModal={() => setShowActiveModal(false)} detail={detail} />
+
+         <IncreaseWalletModal open={increaseModalStatus} closeModal={() => setIncreaseModalStatus(false)} />
       </div>
    );
 }

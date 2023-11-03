@@ -1,8 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // MUI
-import { CircularProgress, Grid } from '@mui/material';
+import { CircularProgress, Grid, IconButton } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
+
+// Icons
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 // Components
 import CardWrapper from '../../components/templates/card-wrapper/card-wrapper';
@@ -15,6 +18,7 @@ import useRobotDetail from '../../apis/robot-functionallity/useRobotDetail/useRo
 
 function RobotFunctionality() {
    const { id } = useParams();
+   const navigate = useNavigate();
 
    const {
       data: robotData,
@@ -25,8 +29,17 @@ function RobotFunctionality() {
       refetch,
    } = useRobotDetail(id);
 
+   const goBackPage = () => {
+      navigate(-1);
+   };
+
    return (
       <div className="mx-auto mb-32 mt-14 min-h-screen max-w-[1600px] customMd:mt-[80px]">
+         <div className="flex justify-end">
+            <IconButton onClick={goBackPage}>
+               <KeyboardBackspaceIcon />
+            </IconButton>
+         </div>
          {robotIsLoading ? (
             <div className="flex items-center justify-center">
                <CircularProgress />

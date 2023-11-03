@@ -99,7 +99,7 @@ function RobotCart({
                   color="primary"
                   size="large"
                   onClick={showBuyPlanModalHandler}
-                  disabled={plan === planeValue}
+                  disabled={plan === planeValue ? true : plan === 'premium'}
                >
                   {plan === planeValue ? 'اشتراک فعلی' : 'خرید اشتراک'}
                </Button>
