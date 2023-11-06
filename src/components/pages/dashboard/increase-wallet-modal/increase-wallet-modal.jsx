@@ -140,6 +140,9 @@ function IncreaseWalletModal({ closeModal, open }) {
                            </FormControl>
                         )}
                      />
+                     <p className="text-xs text-textGray">
+                        دقت کنید که برای اتصال به درگاه NowPayments از داخل ایران نیاز به استفاده از VPN دارید.
+                     </p>
                   </div>
 
                   <LoadingButton

@@ -100,7 +100,7 @@ function ActiveRobotModal({ show, closeModal, detail }) {
    };
 
    const copyLink = () => {
-      navigator.clipboard.writeText('159.69.201.184').then(() => {
+      navigator.clipboard.writeText('95.216.197.180').then(() => {
          setCopyStatus(true);
 
          setTimeout(() => {
@@ -273,7 +273,7 @@ function ActiveRobotModal({ show, closeModal, detail }) {
                               <ContentCopyIcon className="!text-sm" />
                            </IconButton>
                         </div>
-                        <p>159.69.201.184</p>
+                        <p>95.216.197.180</p>
                         {copyStatus ? (
                            <div className="absolute inset-x-0 bottom-[-30px] z-[1] mx-auto w-fit whitespace-nowrap rounded-md bg-black p-[6px] text-[10px] text-textMainDark">
                               کپی شد

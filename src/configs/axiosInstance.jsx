@@ -7,7 +7,7 @@ const accessToken = Cookies.get('botmix_accessToken');
 const refreshToken = Cookies.get('botmix_refreshToken');
 
 const axiosInstance = axios.create({
-   baseURL: 'https://api.trademix.ir/',
+   baseURL: 'https://api.botmix.ir',
 
    ...(accessToken && {
       headers: {
