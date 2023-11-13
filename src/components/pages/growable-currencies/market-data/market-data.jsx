@@ -33,7 +33,7 @@ function MarketData({ theme, chosenCurrency }) {
    }, [theme, chosenCurrency]);
 
    return (
-      <div className="tradingview-widget-container h-[300px] w-full customMd:aspect-[16/10] customMd:h-auto">
+      <div className="tradingview-widget-container h-[300px] w-full customMd:aspect-[16/10] customMd:h-full">
          <div id="tradingview_6cf3a" ref={containerRef} className="h-full w-full" />
       </div>
    );
